@@ -1,0 +1,7 @@
+{
+  "parent": "examplemod:block/overlay/tinted/front_2",
+  "textures": {
+    "overlay": "examplemod:block/overlay/machine/overlay_energy_high_in",
+    "overlay_tinted": "examplemod:block/overlay/machine/overlay_energy_high_tinted"
+  }
+}

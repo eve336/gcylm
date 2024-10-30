@@ -1,0 +1,4 @@
+// 1.20.1	2024-10-11T16:03:42.6944431	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+7df6192f89fd98bce1ff7641396828bdaded33da assets/examplemod/lang/en_ud.json
+0720a743fda34fca306a2110a7a0804917566b12 assets/examplemod/lang/en_us.json
+2007f10e2c59cf1e675d07f57252101d830160d9 assets/examplemod/models/item/robot_arm_max.json

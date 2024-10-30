@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "examplemod:item/periodically_poled_lithium_niobate_boule"
+  }
+}
