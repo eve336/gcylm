@@ -3,6 +3,7 @@ package com.eve.examplemod.common.data;
 import com.eve.examplemod.EVMain;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
+import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -654,16 +655,6 @@ public class EVMaterials {
             .buildAndRegister();
 
 
-    public static final Material FermionicUUMatter = new Material.Builder(EVMain.id("fermionic_uu_matter"))
-            .color(UUMatter.getMaterialRGB() / 3)
-            .liquid()
-            .buildAndRegister();
-
-
-    public static final Material BosonicUUMatter = new Material.Builder(EVMain.id("bosonic_uu_matter"))
-            .color(UUMatter.getMaterialRGB() - FermionicUUMatter.getMaterialRGB())
-            .liquid()
-            .buildAndRegister();
 
     public static final Material LithiumNiobate = new Material.Builder(EVMain.id("lithium_niobate"))
             .color(0xcfcf3a)
@@ -2783,4 +2774,3528 @@ public class EVMaterials {
             .fluid()
             .buildAndRegister()
             .setFormula("C80H21O2", true);
+
+    public static final Material Ferrocene = new Material.Builder(EVMain.id("ferrocene"))
+            .color((Water.getMaterialRGB() + Chlorine.getMaterialRGB() + Iron.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H10Fe", true);
+
+    public static final Material Ferrocenylfulleropyrrolidine = new Material.Builder(EVMain.id("ferrocenylfulleropyrrolidine"))
+            .color((Ferrocene.getMaterialRGB() + Ethylene.getMaterialRGB() + CarbonMonoxide.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C74H19FeN", true);
+
+    public static final Material Hydroquinone = new Material.Builder(EVMain.id("hydroquinone"))
+            .color((Oxygen.getMaterialRGB() + Propene.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H4(OH)2", true);
+
+    public static final Material SodiumAcetate = new Material.Builder(EVMain.id("sodium_acetate"))
+            .color((Sodium.getMaterialRGB() + AceticAnhydride.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H3NaO2", true);
+
+    public static final Material PotassiumHydroxide = new Material.Builder(EVMain.id("potassium_hydroxide"))
+            .color((Potassium.getMaterialRGB() + Hydrogen.getMaterialRGB() + Oxygen.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("KOH", true);
+
+    public static final Material Methylamine = new Material.Builder(EVMain.id("methylamine"))
+            .color((Methanol.getMaterialRGB() + Ammonia.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CH3NH2", true);
+
+    public static final Material Phosgene = new Material.Builder(EVMain.id("phosgene"))
+            .color((Chlorine.getMaterialRGB() + CarbonMonoxide.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("COCl2", true);
+
+    public static final Material IsopropylAlcohol = new Material.Builder(EVMain.id("isopropyl_alcohol"))
+            .color((Water.getMaterialRGB() + Propene.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C3H8O", true);
+
+    public static final Material VanadiumWasteSolution = new Material.Builder(EVMain.id("vanadium_waste_solution"))
+            .color(0xbf95f5)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaCl(Na2SO4)(SiO2)(Al(OH)3)", true);
+
+    public static final Material UranylChlorideSolution = new Material.Builder(EVMain.id("uranyl_chloride_solution"))
+            .color(0xdfe018)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("UO2Cl2(H2O)?", true);
+
+    public static final Material UranylNitrateSolution = new Material.Builder(EVMain.id("uranyl_nitrate_solution"))
+            .color(0xdfe018)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("UO2(NO3)2(H2O)?", true);
+
+    public static final Material UraniumSulfateWasteSolution = new Material.Builder(EVMain.id("uranium_sulfate_waste_solution"))
+            .color(0xdfe018)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("PbRaSr(H2SO4)", true);
+
+    public static final Material PurifiedUranylNitrate = new Material.Builder(EVMain.id("purified_uranyl_nitrate_solution"))
+            .color(0xeff028)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("UO2(NO3)2(H2O)", true);
+
+    public static final Material UraniumDiuranate = new Material.Builder(EVMain.id("uranium_diuranate"))
+            .color(0xeff028)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(NH4)2U2O7", true);
+
+    public static final Material UraniumRefinementWasteSolution = new Material.Builder(EVMain.id("uranium_refinement_waste_solution"))
+            .color(0xeff028)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2SO4C?", true);
+
+    public static final Material ThoriumNitrateSolution = new Material.Builder(EVMain.id("thorium_nitrate_solution"))
+            .color(0x33bd45)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Th(NO3)4(H2O)", true);
+
+    public static final Material SodiumHexafluoroaluminate = new Material.Builder(EVMain.id("sodium_hexafluoroaluminate"))
+            .color((Sodium.getMaterialRGB() + Aluminium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na3AlF6", true);
+
+    public static final Material SodiumCarbonateSolution = new Material.Builder(EVMain.id("sodium_carbonate_solution"))
+            .color(SodaAsh.getMaterialRGB() + 30)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na2CO3(H2O)", true);
+
+    public static final Material SodiumSulfateSolution = new Material.Builder(EVMain.id("sodium_sulfate_solution"))
+            .color(SodiumSulfate.getMaterialRGB() + 30)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na2SO4(H2O)", true);
+
+    public static final Material SodiumChromateSolution = new Material.Builder(EVMain.id("sodium_chromate_solution"))
+            .color(0xf2e70f)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na2CrO4(H2O)", true);
+
+    public static final Material SodiumDichromateSolution = new Material.Builder(EVMain.id("sodium_dichromate_solution"))
+            .color(0xf2750f)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na2Cr2O7", true);
+
+    public static final Material RichNitrogenMix = new Material.Builder(EVMain.id("rich_nitrogen_mix"))
+            .color(0x6891d8)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O(CH4)?", true);
+
+    public static final Material OxidisedNitrogenMix = new Material.Builder(EVMain.id("oxidised_nitrogen_mix"))
+            .color(0x708ACD)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)2(CH4)??", true);
+
+    public static final Material PurifiedNitrogenMix = new Material.Builder(EVMain.id("purified_nitrogen_mix"))
+            .color(0x6891d8)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)2(CH4)?", true);
+
+    public static final Material CarbonatedEthanolamine = new Material.Builder(EVMain.id("carbonated_ethanolamine"))
+            .color(0x6f7d87)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2NCH2CH2OHC", true);
+
+    public static final Material AmmoniaRichMix = new Material.Builder(EVMain.id("ammonia_rich_mix"))
+            .color(0x2f5d99)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NH3((H2O)2(CH4)?)", true);
+
+    public static final Material DissolvedLithiumOre = new Material.Builder(EVMain.id("dissolved_lithium_ores"))
+            .color(0x664850)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("LiAlO2(H2SO4)", true);
+
+    public static final Material LithiumCarbonateSolution = new Material.Builder(EVMain.id("lithium_carbonate_solution"))
+            .color((Lithium.getMaterialRGB() + Carbon.getMaterialRGB() + Oxygen.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Li2CO3(H2O)", true);
+
+    public static final Material LithiumChlorideSolution = new Material.Builder(EVMain.id("lithium_chloride_solution"))
+            .color(Lithium.getMaterialRGB() + Chlorine.getMaterialRGB())
+            .fluid()
+            .buildAndRegister()
+            .setFormula("LiCl(H2O)", true);
+
+    public static final Material CalicheIodateBrine = new Material.Builder(EVMain.id("caliche_iodate_brine"))
+            .color(0xffe6660)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)NaNO3KNO3KClNaIO3", true);
+
+    public static final Material IodideSolution = new Material.Builder(EVMain.id("iodide_solution"))
+            .color(0x08081c)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)NaNO3KNO3KClNaI", true);
+
+    public static final Material CalicheNitrateSolution = new Material.Builder(EVMain.id("caliche_nitrate_solution"))
+            .color(0xffe6660)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)NaNO3KNO3KClNaOH", true);
+
+    public static final Material CalicheIodineBrine = new Material.Builder(EVMain.id("caliche_iodine_brine"))
+            .color(0xffe6660)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)NaNO3KNO3KClNaOHI", true);
+
+    public static final Material KeroseneIodineSolution = new Material.Builder(EVMain.id("kerosene_iodine_solution"))
+            .color(0x08081c)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C12H26I", true);
+
+    public static final Material IodizedBrine = new Material.Builder(EVMain.id("iodized_brine"))
+            .color(0x525242)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("I?", true);
+
+    public static final Material IodineBrineMix = new Material.Builder(EVMain.id("iodine_brine_mix"))
+            .color(0x525242)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("I??", true);
+
+    public static final Material IodineSlurry = new Material.Builder(EVMain.id("iodine_slurry"))
+            .color(0x08081c)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("I?", true);
+
+    public static final Material Brine = new Material.Builder(EVMain.id("brine"))
+            .color(0xfcfc8a)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material MesitylOxide = new Material.Builder(EVMain.id("mesityl_oxide"))
+            .color(Acetone.getMaterialRGB() - 10)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H10O", true);
+
+    public static final Material MethylIsobutylKetone = new Material.Builder(EVMain.id("methyl_isobutyl_ketone"))
+            .color((MesitylOxide.getMaterialRGB() + WaterAgarMix.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H12O", true);
+
+    public static final Material ThiocyanicAcid = new Material.Builder(EVMain.id("thiocyanic_acid"))
+            .color(0xfcfc30)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("HSCN", true);
+
+    public static final Material ZrHfSeparationMix = new Material.Builder(EVMain.id("zrhf_separation_mix"))
+            .color(0xfcfc95)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material ZrHfChloride = new Material.Builder(EVMain.id("zrhf_chloride"))
+            .color(0x51d351)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("ZrHfCl4", true);
+
+    public static final Material ZrHfOxyChloride = new Material.Builder(EVMain.id("zrhf_oxychloride"))
+            .color(0x51d351)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Cl2HfOZr", true);
+
+    public static final Material ZirconChlorinatingResidue = new Material.Builder(EVMain.id("zircon_chlorinating_residue"))
+            .color(0x51d351)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(SiCl4)Co?", true);
+
+    public static final Material ZincExhaustMixture = new Material.Builder(EVMain.id("zinc_exhaust_mixture"))
+            .color((CarbonDioxide.getMaterialRGB() + SulfurDioxide.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(SO2)(CO2)?", true);
+
+    public static final Material ZincSlagSlurry = new Material.Builder(EVMain.id("zinc_slag_slurry"))
+            .color(Zinc.getMaterialRGB() - 20)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O?", true);
+
+    public static final Material MetalRichSlagSlurry = new Material.Builder(EVMain.id("metal_slag_slurry"))
+            .color(Zinc.getMaterialRGB() - 10)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material AcidicMetalSlurry = new Material.Builder(EVMain.id("acidic_metal_slurry"))
+            .color((Zinc.getMaterialRGB() - 10 + PhosphoricAcid.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H3PO4?", true);
+
+    public static final Material SeparatedMetalSlurry = new Material.Builder(EVMain.id("separated_metal_slurry"))
+            .color(Zinc.getMaterialRGB() - 20)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H3PO4?", true);
+
+    public static final Material MetalHydroxideMix = new Material.Builder(EVMain.id("metal_hydroxide_mix"))
+            .color(Zinc.getMaterialRGB() - 30)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?ZnOH", true);
+
+    public static final Material ZincPoorMix = new Material.Builder(EVMain.id("zinc_poor_mix"))
+            .color(Iron.getMaterialRGB() - 10)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?Fe", true);
+
+    public static final Material IronPoorMix = new Material.Builder(EVMain.id("iron_poor_mix"))
+            .color(Copper.getMaterialRGB() + 10)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?In", true);
+
+    public static final Material IndiumHydroxideConcentrate = new Material.Builder(EVMain.id("indium_hydroxide_concentrate"))
+            .color((Indium.getMaterialRGB() + Hydrogen.getMaterialRGB() + 10) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("In(OH)3", true);
+
+    public static final Material CadmiumThalliumLiquor = new Material.Builder(EVMain.id("cdtl_liquor"))
+            .color((Cadmium.getMaterialRGB() + Thallium.getMaterialRGB() + RareEarth.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2SO4)CdTl", true);
+
+    public static final Material ZincAmalgam = new Material.Builder(EVMain.id("zinc_amalgam"))
+            .color(Zinc.getMaterialRGB() - 20)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("ZnHg", true);
+
+    public static final Material CadmiumSulfateSolution = new Material.Builder(EVMain.id("cadmium_sulfate"))
+            .color((Cadmium.getMaterialRGB() + SulfuricAcid.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CdSO4?", true);
+
+    public static final Material ThalliumSulfateSolution = new Material.Builder(EVMain.id("thallium_sulfate"))
+            .color((Thallium.getMaterialRGB() + SulfuricAcid.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Tl2SO4?", true);
+
+    public static final Material PolyphenolMix = new Material.Builder(EVMain.id("polyphenol_mix"))
+            .color(Phenol.getMaterialRGB() + 10)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material AcidifiedPolyphenolMix = new Material.Builder(EVMain.id("acidified_polyphenol_mix"))
+            .color((PolyphenolMix.getMaterialRGB() + SulfuricAcid.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material Diethylether = new Material.Builder(EVMain.id("diethylether"))
+            .color(AcidifiedPolyphenolMix.getMaterialRGB() - 20)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C2H5)2O", true);
+
+    public static final Material TannicAcid = new Material.Builder(EVMain.id("tannic_acid"))
+            .color((Diethylether.getMaterialRGB() + AcidifiedPolyphenolMix.getMaterialRGB()) / 4)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C76H52O46", true);
+
+    public static final Material GermanicAcidSolution = new Material.Builder(EVMain.id("germanic_acid_solution"))
+            .color(Germanium.getMaterialRGB() - 10)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H4GeO4", true);
+
+    public static final Material GermaniumChloride = new Material.Builder(EVMain.id("germanium_chloride"))
+            .color((Germanium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("GeCl4", true);
+
+    public static final Material SodiumHydroxideSolution = new Material.Builder(EVMain.id("sodium_hydroxide_solution"))
+            .color(SodiumHydroxide.getMaterialRGB() + 50)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)NaOH", true);
+
+    public static final Material LithiumHydroxideSolution = new Material.Builder(EVMain.id("lithium_hydroxide_solution"))
+            .color((Lithium.getMaterialRGB() + Oxygen.getMaterialRGB() + Hydrogen.getMaterialRGB()) / 3)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)LiOH", true);
+
+    public static final Material LithiumPeroxideSolution = new Material.Builder(EVMain.id("lithium_peroxide"))
+            .color((Lithium.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)Li2O2", true);
+
+    public static final Material Ozone = new Material.Builder(EVMain.id("ozone"))
+            .color(0x0099FF)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("O3", true);
+
+    public static final Material NitrogenPentoxide = new Material.Builder(EVMain.id("nitrogen_pentoxide"))
+            .color(0x0033C0)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("N2O5", true);
+
+    public static final Material NitrousOxide = new Material.Builder(EVMain.id("nitrous_oxide"))
+            .color(0x2e628b)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("N2O", true);
+
+    public static final Material AcryloNitrile = new Material.Builder(EVMain.id("acrylonitrile"))
+            .color(0x9999ff)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CH2CHCN", true);
+
+    public static final Material SodiumThiocyanate = new Material.Builder(EVMain.id("sodium_thiocyanate"))
+            .color((Sodium.getMaterialRGB() + Sulfur.getMaterialRGB()) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaSCN", true);
+
+    public static final Material PolyacrylonitrileSolution = new Material.Builder(EVMain.id("polyacrylonitrile_solution"))
+            .color(0x9999ff)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C3H3N)n(NaSCN)", true);
+
+    public static final Material MethylFormate = new Material.Builder(EVMain.id("methyl_formate"))
+            .color(0Xff9999)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("HCOOCH3", true);
+
+    public static final Material WetFormamide = new Material.Builder(EVMain.id("wet_formamide"))
+            .color(0x33CCFF)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)CH3NO", true);
+
+    public static final Material Formamide = new Material.Builder(EVMain.id("formamide"))
+            .color(0x33CCFF)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CH3NO", true);
+
+    public static final Material HydroxylamineDisulfate = new Material.Builder(EVMain.id("hydroxylamine_disulfate"))
+            .color(0x99add6)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(NH3OH)2(NH4)2(SO4)2", true);
+
+    public static final Material Hydroxylamine = new Material.Builder(EVMain.id("hydroxylamine"))
+            .color(0x99cc99)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H3NO", true);
+
+    public static final Material Amidoxime = new Material.Builder(EVMain.id("amidoxime"))
+            .color(0x66ff33)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H3N2O(CH)", true);
+
+    public static final Material PureUranylNitrateSolution = new Material.Builder(EVMain.id("pure_uranyl_nitrate"))
+            .color(0x33bd45)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)UO2(NO3)2", true);
+
+    public static final Material CarbonSulfide = new Material.Builder(EVMain.id("carbon_sulfide"))
+            .color(0x40ffbf)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CS2", true);
+
+    public static final Material AmineMixture = new Material.Builder(EVMain.id("amine_mixture"))
+            .color((Methanol.getMaterialRGB() - 20 + Ammonia.getMaterialRGB() - 10) / 2)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(NH3)CH4", true);
+
+    public static final Material DimethylthiocarbamoilChloride = new Material.Builder(EVMain.id("dimethylthiocarbamoil_chloride"))
+            .color(0xd9ff26)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH3)2NC(S)Cl", true);
+
+    public static final Material Trimethylamine = new Material.Builder(EVMain.id("trimetylamine"))
+            .color(Dimethylamine.getMaterialRGB() + 20)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH3)3N", true);
+
+    public static final Material Mercaptophenol = new Material.Builder(EVMain.id("mercaptophenol"))
+            .color(0xbaaf18)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H6OS", true);
+
+    public static final Material Dimethylformamide = new Material.Builder(EVMain.id("dimethylformamide"))
+            .color(0x42bdff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH3)2NCH", true);
+
+    public static final Material Oct1ene = new Material.Builder(EVMain.id("1_octene"))
+            .color(0x7e8778)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8H16", true);
+
+    public static final Material CetaneTrimethylAmmoniumBromide = new Material.Builder(EVMain.id("cetane_trimethyl_ammonium_bromide"))
+            .color(0xb9c1c9)
+            .iconSet(SHINY)
+            .dust()
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C19H42BrN", true);
+
+    public static final Material AmmoniumPersulfate = new Material.Builder(EVMain.id("ammonium_persulfate"))
+            .color(0x6464f5)
+            .iconSet(DULL)
+            .dust()
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("(NH4)2S2O8", true);
+
+    public static final Material DebrominatedWater = new Material.Builder(EVMain.id("debrominated_brine"))
+            .color(0x0000ff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O", true);
+
+    public static final Material SeaWater = new Material.Builder(EVMain.id("sea_water"))
+            .color(0x0000FF)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O + salts", true);
+
+    public static final Material ConcentratedBrine = new Material.Builder(EVMain.id("concentrated_brine"))
+            .color(0xfcfc95)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaCl", true);
+
+    public static final Material CalciumFreeBrine = new Material.Builder(EVMain.id("calcium_free_brine"))
+            .color(0xfcfca6)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaCl - Ca", true);
+
+    public static final Material SodiumFreeBrine = new Material.Builder(EVMain.id("sodium_free_brine"))
+            .color(0xfcfcb1)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("KCl", true);
+
+    public static final Material PotassiumFreeBrine = new Material.Builder(EVMain.id("potassium_free_brine"))
+            .color(0xfcfcbc)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaCl", true);
+
+    public static final Material BoronFreeSolution = new Material.Builder(EVMain.id("boron_free_solution"))
+            .color(0xfcfccd)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O - B", true);
+
+    public static final Material SodiumLithiumSolution = new Material.Builder(EVMain.id("sodium_lithium_solution"))
+            .color(0xfcfccd)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaLi?", true);
+
+    public static final Material ChilledBrine = new Material.Builder(EVMain.id("chilled_brine"))
+            .color(0xfcfc95)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NaCl (chilled)", true);
+
+    public static final Material MagnesiumContainingBrine = new Material.Builder(EVMain.id("magnesium_containing_brine"))
+            .color(0xfcfcbc)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("MgCl2", true);
+
+    public static final Material BrominatedBrine = new Material.Builder(EVMain.id("brominated_brine"))
+            .color(0xfdd48d)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Br?", true);
+
+    public static final Material AcidicBrominatedBrine = new Material.Builder(EVMain.id("acidic_brominated_brine"))
+            .color(0xfdd48d)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2SO4)Cl?", true);
+
+    public static final Material ButylLithium = new Material.Builder(EVMain.id("butyl_lithium"))
+            .color((Butane.getMaterialRGB() + Lithium.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H9Li", true);
+
+    public static final Material Acetaldehyde = new Material.Builder(EVMain.id("acetaldehyde"))
+            .color(0xFF9933)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H4O", true);
+
+    public static final Material Benzaldehyde = new Material.Builder(EVMain.id("benzaldehyde"))
+            .color(0xb26f22)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H6O", true);
+
+    public static final Material Dibenzylideneacetone = new Material.Builder(EVMain.id("dibenzylideneacetone"))
+            .color(0xcc6699)
+            .iconSet(SHINY)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C17H14O", true);
+
+    public static final Material TrimethyltinChloride = new Material.Builder(EVMain.id("trimethyltin_chloride"))
+            .color(0x8c8075)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH3)3SnCl", true);
+
+    public static final Material ChloroPlatinicAcid = new Material.Builder(EVMain.id("chloroplatinic_acid"))
+            .color(0xffba54)
+            .iconSet(SHINY)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2PtCl6", true);
+
+    public static final Material Cyclooctadiene = new Material.Builder(EVMain.id("cyclooctadiene"))
+            .color(0x33CC33)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8H12", true);
+
+    public static final Material Cycloparaphenylene = new Material.Builder(EVMain.id("cycloparaphenylene"))
+            .color(0x333333)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CPP", true);
+
+    public static final Material SuperheavyMix = new Material.Builder(EVMain.id("superheavy_mix"))
+            .color(0x403737)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("SgBhRfDb", true);
+
+    public static final Material NeutronPlasma = new Material.Builder(EVMain.id("neutron_plasma"))
+            .color(0xf0e9e9)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("n", true);
+
+    public static final Material HotMetastableOganesson = new Material.Builder(EVMain.id("hot_oganesson"))
+            .color(0x521973)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Og", true);
+
+    public static final Material TitaniumTetrafluoride = new Material.Builder(EVMain.id("titanium_tetrafluoride"))
+            .color(Titanium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("TiF4", true);
+
+    public static final Material Titanium50Tetrafluoride = new Material.Builder(EVMain.id("titanium50_tetrafluoride"))
+            .color(Titanium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("TiF4", true);
+
+    public static final Material Carbon12 = new Material.Builder(EVMain.id("carbon_12"))
+            .color(Carbon.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C_12", true);
+
+    public static final Material Carbon13 = new Material.Builder(EVMain.id("carbon_13"))
+            .color(Carbon.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C_13", true);
+
+    public static final Material Nitrogen14 = new Material.Builder(EVMain.id("nitrogen_14"))
+            .color(Nitrogen.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("N_14", true);
+
+    public static final Material Nitrogen15 = new Material.Builder(EVMain.id("nitrogen_15"))
+            .color(Nitrogen.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("N_15", true);
+
+    public static final Material CNOcatalyst = new Material.Builder(EVMain.id("cno_catalyst"))
+            .color((Nitrogen.getMaterialRGB() + Carbon.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C_12)(C_13)(N_14)(N_15)", true);
+
+    public static final Material Calcium44 = new Material.Builder(EVMain.id("calcium_44"))
+            .color(Calcium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Ca_44", true);
+
+    public static final Material OgannesonBreedingBase = new Material.Builder(EVMain.id("og_breeding_base"))
+            .color((Titanium.getMaterialRGB() + 0xA85A12) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(Ti_50)Cf_252", true);
+
+    public static final Material QuassifissioningPlasma = new Material.Builder(EVMain.id("quasifissioning_plasma"))
+            .color(0xD5CB54)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("???", true);
+
+    public static final Material Ytterbium178 = new Material.Builder(EVMain.id("ytterbium_178"))
+            .color(Ytterbium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Yb_178", true);
+
+    public static final Material FlYbPlasma = new Material.Builder(EVMain.id("flyb_plasma"))
+            .color((Ytterbium.getMaterialRGB() + 0x521973) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("FlYb", true);
+
+    public static final Material Chromium48 = new Material.Builder(EVMain.id("chromium48"))
+            .color(Chromium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Cr_48", true);
+
+    public static final Material Iron52 = new Material.Builder(EVMain.id("iron52"))
+            .color(Iron.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Fe_52", true);
+
+    public static final Material Nickel56 = new Material.Builder(EVMain.id("nickel56"))
+            .color(Nickel.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Ni_56", true);
+
+    public static final Material Titanium44 = new Material.Builder(EVMain.id("titanium44"))
+            .color(Titanium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Ti_44", true);
+
+    public static final Material HeliumCNO = new Material.Builder(EVMain.id("helium_rich_cno"))
+            .color(0x59ffa6)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("He?", true);
+
+    public static final Material SeleniteTelluriteMix = new Material.Builder(EVMain.id("selenite_tellurite_mixture"))
+            .color(0x765A30)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("TeO2SeO2(Na2CO3)2", true);
+
+    public static final Material SeleniteSolution = new Material.Builder(EVMain.id("selenite_solution"))
+            .color(0xc1c46a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na2SeO3", true);
+
+    public static final Material CopperRefiningSolution = new Material.Builder(EVMain.id("copper_refining_solution"))
+            .color(0x765A30)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CuH2SO4", true);
+
+    public static final Material SodiumHydroxideBauxite = new Material.Builder(EVMain.id("sodium_hydroxide_bauxite"))
+            .color(0xbf731a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Al2H2O4", true);
+
+    public static final Material ImpureAluminiumHydroxideSolution = new Material.Builder(EVMain.id("impure_aloh3_solution"))
+            .color(0xd8653e)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)Al(OH)3?", true);
+
+    public static final Material PureAluminiumHydroxideSolution = new Material.Builder(EVMain.id("pure_aloh3_solution"))
+            .color((Aluminium.getMaterialRGB() + Oxygen.getMaterialRGB() + Hydrogen.getMaterialRGB() + 40) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)Al2(OH)6", true);
+
+    public static final Material RedMud = new Material.Builder(EVMain.id("red_mud"))
+            .color(0xcc3300)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("HCl?", true);
+
+    public static final Material NeutralisedRedMud = new Material.Builder(EVMain.id("neutralised_red_mud"))
+            .color(0xcc3300)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Fe??", true);
+
+    public static final Material FerricREEChloride = new Material.Builder(EVMain.id("ferric_ree_chloride"))
+            .color(0x30301a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Fe?", true);
+
+    public static final Material RedSlurry = new Material.Builder(EVMain.id("red_slurry"))
+            .color(0xcc3300)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("TiO2?", true);
+
+    public static final Material TitanylSulfate = new Material.Builder(EVMain.id("titanyl_sulfate"))
+            .color(0xdc3d7c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("TiO(SO4)", true);
+
+    public static final Material RubySlurry = new Material.Builder(EVMain.id("ruby_slurry"))
+            .color(Ruby.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material SapphireSlurry = new Material.Builder(EVMain.id("sapphire_slurry"))
+            .color(Sapphire.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material GreenSapphireSlurry = new Material.Builder(EVMain.id("green_sapphire_slurry"))
+            .color(GreenSapphire.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material DiluteNitricAcid = new Material.Builder(EVMain.id("dilute_nitric_acid"))
+            .color((NitricAcid.getMaterialRGB() + Water.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)HNO3", true);
+
+    public static final Material NbTaSeparationMixture = new Material.Builder(EVMain.id("nbta_separation_mixture"))
+            .color(0xbcac93)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C18H39O5P", true);
+
+    public static final Material FluoroniobicAcid = new Material.Builder(EVMain.id("fluroniobic_acid"))
+            .color(0x73ff00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NbHF7", true);
+
+    public static final Material FluorotantalicAcid = new Material.Builder(EVMain.id("flurotantalic_acid"))
+            .color(0x73ff00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("TaHF7", true);
+
+    public static final Material NbTaFluorideMix = new Material.Builder(EVMain.id("nbta_fluoride_mix"))
+            .color(0xbcac93)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2NbOF5)(H2TaF7)", true);
+
+    public static final Material OxypentafluoroNiobate = new Material.Builder(EVMain.id("oxypentafluoroniobate"))
+            .color(0x73ff00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2NbOF5", true);
+
+    public static final Material HeptafluoroTantalate = new Material.Builder(EVMain.id("heptafluorotantalate"))
+            .color(0x73ff00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2TaF7", true);
+
+    public static final Material REEThUSulfateSolution = new Material.Builder(EVMain.id("reethu_sulfate_solution"))
+            .color(0x89be5c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?SO4", true);
+
+    public static final Material RareEarthNitrateSolution = new Material.Builder(EVMain.id("rare_earth_nitrate_solution"))
+            .color(0xcfb37d)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?NO3", true);
+
+    public static final Material AlkalineEarthSulfateSolution = new Material.Builder(EVMain.id("alkalineearth_sulfate"))
+            .color(0xe6ebff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("?SO4", true);
+
+    public static final Material WetEthyleneOxide = new Material.Builder(EVMain.id("wet_etylene_oxide"))
+            .color(0x90b3ff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)C2H4O", true);
+
+    public static final Material EthyleneGlycol = new Material.Builder(EVMain.id("ethylene_glycol"))
+            .color(0x8080fa)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H6O2", true);
+
+    public static final Material Chloroethanol = new Material.Builder(EVMain.id("chloroethanol"))
+            .color(0xcfb050)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H5ClO", true);
+
+    public static final Material Choline = new Material.Builder(EVMain.id("choline"))
+            .color(0x63e45f)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C5H14NO", true);
+
+    public static final Material ATL = new Material.Builder(EVMain.id("atl"))
+            .color(0x709c4a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("ATL", true);
+
+    public static final Material HotNitrogen = new Material.Builder(EVMain.id("hot_nitrogen"))
+            .color(Nitrogen.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("N", true);
+
+    public static final Material ViscoelasticPolyurethane = new Material.Builder(EVMain.id("viscoelastic_polyurethane"))
+            .color(0xeffcef)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C17H16N2O4?", true);
+
+    public static final Material ViscoelasticPolyurethaneFoam = new Material.Builder(EVMain.id("viscoelastic_polyurethane_foam"))
+            .color(0xeffcef)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C17H16N2O4?", true);
+
+    public static final Material CalciumCarbonateSolution = new Material.Builder(EVMain.id("calcium_carbonate_solution"))
+            .color(Calcite.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)CaCO3", true);
+
+    public static final Material BariumSulfateSolution = new Material.Builder(EVMain.id("barium_sulfate_solution"))
+            .color(Barite.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)BaSO4", true);
+
+    public static final Material BentoniteClaySlurry = new Material.Builder(EVMain.id("bentonite_clay_solution"))
+            .color(0xdbc9c5)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O?", true);
+
+    public static final Material DrillingMud = new Material.Builder(EVMain.id("drilling_mud"))
+            .color(0x996600)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("For the Void Miner", true);
+
+    public static final Material UsedDrillingMud = new Material.Builder(EVMain.id("used_drilling_mud"))
+            .color(0x998833)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Used Mud", true);
+
+    public static final Material TolueneDiisocyanate = new Material.Builder(EVMain.id("toluene_diisocyanate"))
+            .color(0xbaf6ca)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C9H6N2O2", true);
+
+    public static final Material HydroselenicAcid = new Material.Builder(EVMain.id("hydroselenic_acid"))
+            .color(Selenium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2Se", true);
+
+    public static final Material Aminophenol = new Material.Builder(EVMain.id("aminophenol"))
+            .color(0xafca3a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H4(OH)(NH2)", true);
+
+    public static final Material Hydroxyquinoline = new Material.Builder(EVMain.id("hydroxyquinoline"))
+            .color(0x3a9a71)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C9H7NO", true);
+
+    public static final Material Perbromothiophene = new Material.Builder(EVMain.id("perbromothiophene"))
+            .color(0x87cc17)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4Br4S", true);
+
+    public static final Material Diethoxythiophene = new Material.Builder(EVMain.id("dietoxythiophene"))
+            .color(0x90ff43)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H2(OC2H5)2S", true);
+
+    public static final Material EDOT = new Material.Builder(EVMain.id("ethylenedioxythiophene"))
+            .color(0x7a9996)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H4O2C4H2S", true);
+
+    public static final Material CitricAcid = new Material.Builder(EVMain.id("citric_acid"))
+            .color(0xffcc00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H8O7", true);
+
+    public static final Material OxalicAcid = new Material.Builder(EVMain.id("oxalic_acid"))
+            .color(0x4aaae2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("HOOCCOOH", true);
+
+    public static final Material Trimethylchlorosilane = new Material.Builder(EVMain.id("trimethylchlorosilane"))
+            .color(Dimethyldichlorosilane.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH3)3SiCl", true);
+
+    public static final Material Dibromoacrolein = new Material.Builder(EVMain.id("dibromoacrolein"))
+            .color(0x4a4a4a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H2Br2O2", true);
+
+    public static final Material Bromohydrothiine = new Material.Builder(EVMain.id("bromodihydrothiine"))
+            .color(0x40ff3a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H4S2Br2", true);
+
+    public static final Material Bromobutane = new Material.Builder(EVMain.id("bromobutane"))
+            .color(0xff3333)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CH3(CH2)3Br", true);
+
+    public static final Material AstatideSolution = new Material.Builder(EVMain.id("astatide_solution"))
+            .color(0x6df63f)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("At(H2O)(SO3)", true);
+
+    public static final Material Biperfluoromethanedisulfide = new Material.Builder(EVMain.id("biperfluoromethanedisulfide"))
+            .color(0x3ada40)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2F6S2", true);
+
+    public static final Material BariumTriflateSolution = new Material.Builder(EVMain.id("barium_triflate_solution"))
+            .color((Barium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)3(Hg)C2BaF6O6S2", true);
+
+    public static final Material BariumStrontiumAcetateSolution = new Material.Builder(EVMain.id("basr_acetate_solution"))
+            .color(0x9a9b98)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H3BaO2Sr", true);
+
+    public static final Material TitaniumIsopropoxide = new Material.Builder(EVMain.id("titanium_isopropoxide"))
+            .color(0xFF0066)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Ti(OCH(CH3)2)4", true);
+
+    public static final Material BariumChlorideSolution = new Material.Builder(EVMain.id("barium_chloride_solution"))
+            .color((Barium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)BaCl3", true);
+
+    public static final Material IronCarbonyl = new Material.Builder(EVMain.id("iron_carbonyl"))
+            .color(0xff8000)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Fe?", true);
+
+    public static final Material PurifiedIronCarbonyl = new Material.Builder(EVMain.id("purified_iron_carbonyl"))
+            .color(0xff8000)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Fe", true);
+
+    public static final Material BismuthNitrateSolution = new Material.Builder(EVMain.id("bismuth_nitrate_solution"))
+            .color((Bismuth.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)Bi(NO3)3", true);
+
+    public static final Material BariumTitanatePreparation = new Material.Builder(EVMain.id("barium_titanate_preparation"))
+            .color(0x99FF99)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("BaTiO3", true);
+
+    public static final Material BariumStrontiumTitanatePreparation = new Material.Builder(EVMain.id("basr_titanate_preparation"))
+            .color(0xFF0066)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(BaTiO3)C2H3BaO2Sr", true);
+
+    public static final Material CarbonTetrachloride = new Material.Builder(EVMain.id("carbon_tetrachloride"))
+            .color(0x2d8020)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CCl4", true);
+
+    public static final Material Chloroethane = new Material.Builder(EVMain.id("chloroethane"))
+            .color(0x33aa33)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CH3CH2Cl", true);
+
+    public static final Material ActiniumSuperhydridePlasma = new Material.Builder(EVMain.id("actinium_superhydride_plasma"))
+            .color(Actinium.getMaterialRGB() * 9 / 8)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("AcH12", true);
+
+    public static final Material Diborane = new Material.Builder(EVMain.id("diborane"))
+            .color(Boron.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(BH3)2", true);
+
+    public static final Material IsopropylAcetate = new Material.Builder(EVMain.id("isopropyl_acetate"))
+            .color((Strontium.getMaterialRGB() + IsopropylAlcohol.getMaterialRGB() + Water.getMaterialRGB()) / 3)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH3)2CHCOOCH3", true);
+
+    public static final Material ChlorinatedSolvents = new Material.Builder(EVMain.id("chlorinated_solvents"))
+            .color(0x40804c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(CH4)2Cl5", true);
+
+    public static final Material Dichloromethane = new Material.Builder(EVMain.id("dichloromethane"))
+            .color(Chloromethane.getMaterialRGB() - 10)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CH2Cl2", true);
+
+    public static final Material ButanolGas = new Material.Builder(EVMain.id("butanol_gas"))
+            .color(Butanol.getMaterialRGB() + 20)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H9OH", true);
+
+    public static final Material Tributylamine = new Material.Builder(EVMain.id("tributylamine"))
+            .color(0x801a80)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C4H9)3N", true);
+
+    public static final Material CrudeAluminaSolution = new Material.Builder(EVMain.id("crude_alumina_solution"))
+            .color(Aluminium.getMaterialRGB() - 30)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(Al(NO3)3)2(CH2Cl2)(C12H27N)", true);
+
+    public static final Material AluminaSolution = new Material.Builder(EVMain.id("alumina_solution"))
+            .color(Aluminium.getMaterialRGB() - 15)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(Al2O3)(CH2Cl2)(C12H27N)2", true);
+
+    public static final Material UnprocessedNdYAGSolution = new Material.Builder(EVMain.id("unprocessed_ndyag_solution"))
+            .color(0x6f20af)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Nd:YAG", true);
+
+    public static final Material AmmoniumCyanate = new Material.Builder(EVMain.id("ammonium_cyanate"))
+            .color(0x3a5dcf)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NH4CNO", true);
+
+    public static final Material Ethylenediamine = new Material.Builder(EVMain.id("ethylenediamine"))
+            .color(Ethanolamine.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H4(NH2)2", true);
+
+    public static final Material EDTASolution = new Material.Builder(EVMain.id("edta_solution"))
+            .color(0x0026d9)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C10H16N2O8)3(C2H8N2)O2", true);
+
+    public static final Material EDTA = new Material.Builder(EVMain.id("edta"))
+            .color(0x0026d9)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H16N2O8", true);
+
+    public static final Material Glycine = new Material.Builder(EVMain.id("glycine"))
+            .color((Ethylenediamine.getMaterialRGB() + Formaldehyde.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NH2CH2COOH", true);
+
+    public static final Material PrYHoNitrateSolution = new Material.Builder(EVMain.id("pryho_nitrate_solution"))
+            .color(0x00f2b2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(Y(NO3)3)6(Pr(NO3)3)2(Nd(NO3)3)2(H2O)15", true);
+
+    public static final Material PhosphorousArsenicSolution = new Material.Builder(EVMain.id("phosphorous_arsenic_solution"))
+            .color(PhosphoricAcid.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("AsCd(HPO4)10", true);
+
+    public static final Material FluorosilicicAcid = new Material.Builder(EVMain.id("fluorosilicic_acid"))
+            .color(0x2ccf2a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2SiF6", true);
+
+    public static final Material AmmoniumFluoride = new Material.Builder(EVMain.id("ammonium_fluoride"))
+            .color(AmmoniumChloride.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("NH4F", true);
+
+    public static final Material AmmoniumBifluorideSolution = new Material.Builder(EVMain.id("ammonium_bifluoride_solution"))
+            .color((Ammonia.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)NH4FHF", true);
+
+    public static final Material LuTmYChlorideSolution = new Material.Builder(EVMain.id("lutmy_chloride_solution"))
+            .color(0x00f2b2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(YCl3)6(LuCl3)2(TmCl3)2(H2O)15", true);
+
+    public static final Material MercuryNitrate = new Material.Builder(EVMain.id("mercury_nitrate"))
+            .color(0xd6b8ad)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Hg(NO3)2", true);
+
+    public static final Material BismuthVanadateSolution = new Material.Builder(EVMain.id("bismuth_vanadate_solution"))
+            .color(0xffff00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)BiVO4", true);
+
+    public static final Material Nitrotoluene = new Material.Builder(EVMain.id("nitrotoluene"))
+            .color(0xfcca00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H7NO2", true);
+
+    public static final Material Naphthylamine = new Material.Builder(EVMain.id("naphthylamine"))
+            .color(0xe3e81c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H9N", true);
+
+    public static final Material Acetoacetanilide = new Material.Builder(EVMain.id("acetoacetanilide"))
+            .color(0xffffc2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H11NO2", true);
+
+    public static final Material Quinizarin = new Material.Builder(EVMain.id("quinizarin"))
+            .color(0x3c5a2c0)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C14H8O4", true);
+
+    public static final Material Toluenesulfonate = new Material.Builder(EVMain.id("toluenesulfonate"))
+            .color(0x8f8f00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H7SO3Na", true);
+
+    public static final Material Isopropylsuccinate = new Material.Builder(EVMain.id("isopropylsuccinate"))
+            .color(0xb26680)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H12O4", true);
+
+    public static final Material MaleicAnhydride = new Material.Builder(EVMain.id("maleic_anhydride"))
+            .color(0x3c20ad)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H2O3", true);
+
+    public static final Material Benzonitrile = new Material.Builder(EVMain.id("benzonitrile"))
+            .color(0x2c2c9c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H5N", true);
+
+    public static final Material SeaborgiumDopedNanotubes = new Material.Builder(EVMain.id("seaborgium_doped_nanotubes"))
+            .color(0x2c2c8c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("SgCNT", true);
+
+    public static final Material FullereneDopedNanotubes = new Material.Builder(EVMain.id("fullerene_doped_nanotubes"))
+            .color(0x6c2c6c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C60CNT", true);
+
+    public static final Material AmmoniumNiobiumOxalateSolution = new Material.Builder(EVMain.id("ammonium_niobium_oxalate_solution"))
+            .color(0x6c6cac)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(NH4)C10Nb2O20", true);
+
+    public static final Material DielectricMirrorFormationMix = new Material.Builder(EVMain.id("dielectric_mirror_formation_mix"))
+            .color(0xff992c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("MgF2ZnSTa2Ti(C2H6O8)", true);
+
+    public static final Material LiquidZBLAN = new Material.Builder(EVMain.id("molten_zblan"))
+            .color((Zirconium.getMaterialRGB() + Barium.getMaterialRGB() + Lanthanum.getMaterialRGB() + Aluminium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 5)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(ZrF4)18(BaF2)7(LaF3)2(AlF3)(NaF)7", true);
+
+    public static final Material Iodobenzene = new Material.Builder(EVMain.id("iodobenzene"))
+            .color(0x2c2c6c0)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H5I", true);
+
+    public static final Material Amino3phenol = new Material.Builder(EVMain.id("3_aminophenol"))
+            .color(Aminophenol.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H7NO", true);
+
+    public static final Material Dimethylnaphthalene = new Material.Builder(EVMain.id("dimethylnaphthalene"))
+            .color(0xe34fb0)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C12H12", true);
+
+    public static final Material IodineMonochloride = new Material.Builder(EVMain.id("iodine_monochloride"))
+            .color(0x004c4c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("ICl", true);
+
+    public static final Material AcetylatingReagent = new Material.Builder(EVMain.id("acetylating_reagent"))
+            .color(0x8d5e63)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C9H12Si(MgBr)2", true);
+
+    public static final Material Dihydroiodotetracene = new Material.Builder(EVMain.id("dihydroiodotetracene"))
+            .color(0x5c4d38)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2C18H11I", true);
+
+    public static final Material Dichlorodicyanobenzoquinone = new Material.Builder(EVMain.id("dichlorodicyanobenzoquinone"))
+            .color(0x3a2aba)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8Cl2N2O2", true);
+
+    public static final Material Dichlorodicyanohydroquinone = new Material.Builder(EVMain.id("dichlorodicyanohidroquinone"))
+            .color(0x3a2aba)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8Cl2N2(OH)2", true);
+
+    public static final Material IodobenzoicAcid = new Material.Builder(EVMain.id("iodobenzoic_acid"))
+            .color(0x2cac6c0)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H5IO2", true);
+
+    public static final Material Methoxybenzaldehyde = new Material.Builder(EVMain.id("methoxybenzaldehyde"))
+            .color(0x3c3a7a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8H8O2", true);
+
+    public static final Material Butylaniline = new Material.Builder(EVMain.id("butylaniline"))
+            .color(Aniline.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H15N", true);
+
+    public static final Material MBBA = new Material.Builder(EVMain.id("mbba"))
+            .color(0xfa30fa)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C18H21NO", true);
+
+    public static final Material LiquidCrystalDetector = new Material.Builder(EVMain.id("liquid_crystal_detector"))
+            .color(0xda20da)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material PotassiumEthoxide = new Material.Builder(EVMain.id("potassium_ethoxide"))
+            .color(Ethanol.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H5KO", true);
+
+    public static final Material TetraethylammoniumBromide = new Material.Builder(EVMain.id("tetraethylammonium_bromide"))
+            .color(0xcc33ff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8H20NBr", true);
+
+    public static final Material Hexanediol = new Material.Builder(EVMain.id("hexanediol"))
+            .color(EthyleneGlycol.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H14O2", true);
+
+    public static final Material Hexamethylenediamine = new Material.Builder(EVMain.id("hexamethylenediamine"))
+            .color(Ethylenediamine.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H16N2", true);
+
+    public static final Material Tertbutanol = new Material.Builder(EVMain.id("tertbutanol"))
+            .color(0xcccc2c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H10O", true);
+
+    public static final Material Triaminoethaneamine = new Material.Builder(EVMain.id("triaminoethaneamine"))
+            .color(0x6f7d87)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(NH2CH2CH2)3N", true);
+
+    public static final Material TertButylAzidoformate = new Material.Builder(EVMain.id("tertbuthylcarbonylazide"))
+            .color(0x888818)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C5H9N3O2", true);
+
+    public static final Material AminatedFullerene = new Material.Builder(EVMain.id("aminated_fullerene"))
+            .color(0x2c2caa)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C60N12H12", true);
+
+    public static final Material Azafullerene = new Material.Builder(EVMain.id("azafullerene"))
+            .color(0x8a7a1a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C60N12H12", true);
+
+    public static final Material Ethylamine = new Material.Builder(EVMain.id("ethylamine"))
+            .color(Ethylenediamine.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H5NH2", true);
+
+    public static final Material Trimethylsilane = new Material.Builder(EVMain.id("trimethylsilane"))
+            .color(Trimethylchlorosilane.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C3H10Si", true);
+
+    public static final Material KryptonDifluoride = new Material.Builder(EVMain.id("krypton_difluoride"))
+            .color(Krypton.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("KrF2", true);
+
+    // TODO Quark Gluon plasma and Heavy quarks formula
+    public static final Material QuarkGluonPlasma = new Material.Builder(EVMain.id("quark_gluon_plasma"))
+            .color(0x8f00ff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material HeavyQuarks = new Material.Builder(EVMain.id("heavy_quarks"))
+            .color(0x008800)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+
+    //TODO formula all of these
+    public static final Material LightQuarks = new Material.Builder(EVMain.id("light_quarks"))
+            .color(0x0000ff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material Gluons = new Material.Builder(EVMain.id("gluons"))
+            .color(0xfcfcfa)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material HeavyLeptonMix = new Material.Builder(EVMain.id("heavy_lepton_mix"))
+            .color(0x5adf52)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material CosmicComputingMix = new Material.Builder(EVMain.id("cosmic_computing_mix"))
+            .color(0xafad2f)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+
+    // TODO formula
+    public static final Material HeavyQuarkEnrichedMix = new Material.Builder(EVMain.id("heavy_quark_enriched_mix"))
+            .color(0xefefef)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material DeuteriumSuperheavyMix = new Material.Builder(EVMain.id("deuterium_superheavy_mix"))
+            .color(0xa2d2a4)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H_2)FlHsOg");
+
+    public static final Material ScandiumTitanium50Mix = new Material.Builder(EVMain.id("scandium_titanium50_mix"))
+            .color((Scandium.getMaterialRGB() + Titanium.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("ScTi_50");
+
+    public static final Material RadonRadiumMix = new Material.Builder(EVMain.id("radon_radium_mix"))
+            .color((Radium.getMaterialRGB() + Radon.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("RnRa");
+
+    public static final Material Phenylsodium = new Material.Builder(EVMain.id("phenylsodium"))
+            .color(0x2c2cc8)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H5Na");
+
+    public static final Material Difluoroaniline = new Material.Builder(EVMain.id("difluoroaniline"))
+            .color(0x3fac4a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C6H5F2N");
+
+    public static final Material Succinaldehyde = new Material.Builder(EVMain.id("succinaldehyde"))
+            .color(0x7c6d9a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C4H6O2");
+
+    public static final Material NDifluorophenylpyrrole = new Material.Builder(EVMain.id("n_difluorophenylpyrrole"))
+            .color(0x3a9aa9)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H7F2N");
+
+    public static final Material PhotopolymerSolution = new Material.Builder(EVMain.id("photopolymer_solution"))
+            .color(0x8a526d)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C149H97N10O2(TiBF20)");
+
+    public static final Material Trichloroferane = new Material.Builder(EVMain.id("trichloroferane"))
+            .color(0x521973)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("FlCl3");
+
+    public static final Material GlucoseIronSolution = new Material.Builder(EVMain.id("glucose_iron_solution"))
+            .color((Sugar.getMaterialRGB() + Iron.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C6H12O6)FeCl3");
+
+    public static final Material GrapheneOxidationSolution = new Material.Builder(EVMain.id("graphene_oxidation_solution"))
+            .color(0x96821a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(KMnO4)(NaNO3)(H2SO4)");
+
+    public static final Material SupercriticalCO2 = new Material.Builder(EVMain.id("supercritcal_co2"))
+            .color(CarbonDioxide.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CO2");
+
+    public static final Material NobleGases = new Material.Builder(EVMain.id("noble_gases_mixture"))
+            .color((Helium.getMaterialRGB() + Neon.getMaterialRGB() + Argon.getMaterialRGB() + Krypton.getMaterialRGB() + Xenon.getMaterialRGB() + Radon.getMaterialRGB()))
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("HeNeArKrXeRn");
+
+    public static final Material NonMetals = new Material.Builder(EVMain.id("non_metals"))
+            .color((Hydrogen.getMaterialRGB() + Boron.getMaterialRGB() + Carbon.getMaterialRGB() + Nitrogen.getMaterialRGB() + Oxygen.getMaterialRGB() + Fluorine.getMaterialRGB() + Phosphorus.getMaterialRGB() + Sulfur.getMaterialRGB() + Chlorine.getMaterialRGB() + Arsenic.getMaterialRGB() + Selenium.getMaterialRGB() + Bromine.getMaterialRGB() + Tellurium.getMaterialRGB() + Iodine.getMaterialRGB() + Astatine.getMaterialRGB()))
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("BCPSAsSeTeIAtONHFClBr");
+
+    // TODO formula
+    public static final Material DenseNeutronPlasma = new Material.Builder(EVMain.id("dense_neutron_plasma"))
+            .color(0xacecac)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material CosmicMeshPlasma = new Material.Builder(EVMain.id("cosmic_mesh_plasma"))
+            .color(0x1c1c8c)
+            .iconSet(DULL)
+            .dust()
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("NN", true);
+
+    public static final Material SuperfluidHelium = new Material.Builder(EVMain.id("superfluid_helium"))
+            .color(Helium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("He", true);
+
+    public static final Material LiquidHelium3 = new Material.Builder(EVMain.id("liquid_helium_3"))
+            .color(Helium3.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("He_3", true);
+
+    public static final Material LiquidEnrichedHelium = new Material.Builder(EVMain.id("liquid_enriched_helium"))
+            .color(Helium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("HeHe_3", true);
+
+    public static final Material LiquidNitrogen = new Material.Builder(EVMain.id("liquid_nitrogen"))
+            .color(Nitrogen.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("N", true);
+
+    public static final Material Methylethanolamine = new Material.Builder(EVMain.id("methylethanolamine"))
+            .color(0x6a3baa)
+            .iconSet(DULL)
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("C3H9NO", true);
+
+    public static final Material Methylguanidine = new Material.Builder(EVMain.id("methylguanidine"))
+            .color(0x5a9a3c)
+            .iconSet(DULL)
+            .fluid()
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister()
+            .setFormula("C2H7N3", true);
+
+    public static final Material Methylnitronitrosoguanidine = new Material.Builder(EVMain.id("methylnitronitrosoguanidine"))
+            .color(0x68b15d)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C2H5N5O3", true);
+
+    public static final Material IsoamylAlcohol = new Material.Builder(EVMain.id("isoamyl_alcohol"))
+            .color(0xcaba77)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C5H12O", true);
+
+    public static final Material Octanol = new Material.Builder(EVMain.id("octanol"))
+            .color(0xa2b8c2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8H18O", true);
+
+    public static final Material Trioctylamine = new Material.Builder(EVMain.id("trioctylamine"))
+            .color(0x87a2bc)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C24H51N", true);
+
+    public static final Material RheniumSeparationMixture = new Material.Builder(EVMain.id("rhenium_separation_mixture"))
+            .color(0xed2c3a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C11H24", true);
+
+    public static final Material RheniumScrubbedSolution = new Material.Builder(EVMain.id("rhenium_scrubbed_solution"))
+            .color(0xedccca)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Re?", true);
+
+    public static final Material NeutroniumDopedNanotubes = new Material.Builder(EVMain.id("neutronium_doped_nanotubes"))
+            .color((Neutronium.getMaterialRGB() + CarbonNanotubes.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Nt?", true);
+
+    public static final Material SupercriticalSteam = new Material.Builder(EVMain.id("supercritical_steam"))
+            .color(Steam.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H2O", true);
+
+    public static final Material SupercriticalDeuterium = new Material.Builder(EVMain.id("supercritical_deuterium"))
+            .color(Deuterium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("H_2", true);
+
+    public static final Material SupercriticalSodiumPotassiumAlloy = new Material.Builder(EVMain.id("supercritical_sodium_potassium_alloy"))
+            .color(SodiumPotassiumAlloy.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na7K3", true);
+
+    public static final Material SupercriticalSodium = new Material.Builder(EVMain.id("supercritical_sodium"))
+            .color(Sodium.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Na", true);
+
+    public static final Material SupercriticalFLiNaK = new Material.Builder(EVMain.id("supercritical_flinak"))
+            .color(FLiNaK.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("FLiNaK", true);
+
+    public static final Material SupercriticalFLiBe = new Material.Builder(EVMain.id("supercritical_flibe"))
+            .color(FLiBe.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("FLiBe", true);
+
+    public static final Material SupercriticalLeadBismuthEutectic = new Material.Builder(EVMain.id("supercritical_lead_bismuth_eutectic"))
+            .color(LeadBismuthEutectic.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Pb3Bi7", true);
+
+    public static final Material FreeAlphaGas = new Material.Builder(EVMain.id("free_alpha_gas"))
+            .color(0xe0d407)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("a", true);
+
+    public static final Material FreeElectronGas = new Material.Builder(EVMain.id("free_electron_gas"))
+            .color(0x044c4c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("e-", true);
+
+
+    //TODO formula
+    public static final Material HighEnergyQGP = new Material.Builder(EVMain.id("high_energy_qgp"))
+            .color(0x8f00ff)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister();
+
+    public static final Material AcetylsulfanilylChloride = new Material.Builder(EVMain.id("acetylsulfanilyl_chloride"))
+            .color((Aniline.getMaterialRGB() + AceticAnhydride.getMaterialRGB() + ChlorosulfonicAcid.getMaterialRGB()) / 3)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C8H8ClNO3S", true);
+
+    public static final Material BenzoylPeroxide = new Material.Builder(EVMain.id("benzoyl_peroxide"))
+            .color((Barium.getMaterialRGB() + BenzoylChloride.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C14H10O4", true);
+
+    public static final Material Iron2Chloride = new Material.Builder(EVMain.id("iron_ii_chloride"))
+            .color((IronChloride.getMaterialRGB() - 10))
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("FeCl2", true);
+
+    public static final Material Propadiene = new Material.Builder(EVMain.id("propadiene"))
+            .color((Butanol.getMaterialRGB() - 20))
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C3H4", true);
+
+    public static final Material FluorophosphoricAcid = new Material.Builder(EVMain.id("fluorophosphoric_acid"))
+            .color(PhosphorusTrichloride.getMaterialRGB())
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("HPF6", true);
+
+    public static final Material PhenylenedioxydiaceticAcid = new Material.Builder(EVMain.id("phenylenedioxydiacetic_acid"))
+            .color(0x99546a)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H10O6", true);
+
+    public static final Material Diethylthiourea = new Material.Builder(EVMain.id("diethylthiourea"))
+            .color(0x2acaa4)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(C2H5NH)2CS", true);
+
+    public static final Material Isophthaloylbisdiethylthiourea = new Material.Builder(EVMain.id("isophthaloylbisdiethylthiourea"))
+            .color(0x8a7b9c)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("C18H26N4O2S2", true);
+
+    public static final Material SodiumAlginateSolution = new Material.Builder(EVMain.id("sodium_alginate_solution"))
+            .color(0xca8642)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("NaC6H7O6", true);
+
+    public static final Material AscorbicAcid = new Material.Builder(EVMain.id("ascorbic_acid"))
+            .color(0xe6cd00)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("C6H8O6", true);
+
+    public static final Material DehydroascorbicAcid = new Material.Builder(EVMain.id("dehydroascorbic_acid"))
+            .color(0xe6cd00)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("C6H6O6", true);
+
+    public static final Material CaCBaSMixture = new Material.Builder(EVMain.id("cacbas_mixture"))
+            .color((CalciumCarbonateSolution.getMaterialRGB() + BariumSulfateSolution.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material LubricantClaySlurry = new Material.Builder(EVMain.id("lubricant_clay_slurry"))
+            .color((Lubricant.getMaterialRGB() + BentoniteClaySlurry.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material ATLEthylene = new Material.Builder(EVMain.id("atl_ethylene_mixture"))
+            .color((ATL.getMaterialRGB() + EthyleneGlycol.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material DrillingMudMixture = new Material.Builder(EVMain.id("drilling_mud_mixture"))
+            .color((CaCBaSMixture.getMaterialRGB() + LubricantClaySlurry.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material Cyclopentadiene = new Material.Builder(EVMain.id("cyclopentadiene"))
+            .color(Cyclooctadiene.getMaterialRGB())
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("C5H6", true);
+
+    public static final Material ChloroauricAcid = new Material.Builder(EVMain.id("chloroauric_acid"))
+            .color(0xDFD11F)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("HAuCl?", true);
+
+    public static final Material Helium4 = new Material.Builder(EVMain.id("helium4"))
+            .color(Helium.getMaterialRGB() - 10)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("He_4", true);
+
+
+    // TODO formula
+    public static final Material FermionicUUMatter = new Material.Builder(EVMain.id("fermionic_uu_matter"))
+            .color(UUMatter.getMaterialRGB() / 3)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+
+    //TODO formula
+    public static final Material BosonicUUMatter = new Material.Builder(EVMain.id("bosonic_uu_matter"))
+            .color(UUMatter.getMaterialRGB() - FermionicUUMatter.getMaterialRGB())
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material Oxydianiline = new Material.Builder(EVMain.id("oxydianiline"))
+            .color(0xF0E130)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material PolyamicAcid = new Material.Builder(EVMain.id("polyamic_acid"))
+            .color(0xFFAE42)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material Hexafluoropropylene = new Material.Builder(EVMain.id("hexafluoropropylene"))
+            .color(0x111111)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material Dimethylether = new Material.Builder(EVMain.id("dimethylether"))
+            .color(0xe6cd11)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material Dimethoxyethane = new Material.Builder(EVMain.id("dimethoxyethane"))
+            .color(0x2acbb4)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material LithiumCyclopentadienide = new Material.Builder(EVMain.id("lithiumcyclopentadienide"))
+            .color(0x95556a)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material CaliforniumCyclopentadienide = new Material.Builder(EVMain.id("californiumcyclopentadienide"))
+            .color(0x94445b)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material Soap = new Material.Builder(EVMain.id("soap"))
+            .color(0xFFAE42)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material DeglyceratedSoap = new Material.Builder(EVMain.id("deglyceratedsoap"))
+            .color(0xFFAE41)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister();
+
+    public static final Material StearicAcid = new Material.Builder(EVMain.id("stearicacid"))
+            .color(0x2bbbb4)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("C18H36O2", true);
+
+    public static final Material Trioctylphosphine = new Material.Builder(EVMain.id("trioctylphosphine"))
+            .color(0xF1E130)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("C24H51P", true);
+
+    public static final Material QuantumDots = new Material.Builder(EVMain.id("quantumdots"))
+            .color(0xff0000)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("CdSe", true);
+
+    public static final Material IridiumTrichlorideSolution = new Material.Builder(EVMain.id("iridiumtrichloridesolution"))
+            .color(0x96821a)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("IrCl3", true);
+
+    public static final Material SemisolidHydrogen = new Material.Builder(EVMain.id("semisolidhydrogen"))
+            .color(0x044c4b)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("H", true);
+
+    public static final Material MicrocrystallizingHydrogen = new Material.Builder(EVMain.id("microcrystallizinghydrogen"))
+            .color(0x155d5c)
+            .iconSet(DULL)
+            .dust()
+            .components()
+            .buildAndRegister()
+            .setFormula("H", true);
+
+    public static final Material Toluidine = new Material.Builder(EVMain.id("toluidine"))
+            .color((Toluene.getMaterialRGB() + Aniline.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C7H9N", true);
+
+    public static final Material ApatiteAcidicLeach = new Material.Builder(EVMain.id("apatite_acidic_leach"))
+            .color(PhosphoricAcid.getMaterialRGB())
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("H10P3O12Cl??", true);
+
+    public static final Material FluoroapatiteAcidicLeach = new Material.Builder(EVMain.id("fluoroapatite_acidic_leach"))
+            .color(PhosphoricAcid.getMaterialRGB())
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("H10P3O12F??", true);
+
+    public static final Material NitrousAcid = new Material.Builder(EVMain.id("nitrous_acid"))
+            .color(0x1e73b0)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("HNO2", true);
+
+    public static final Material HydroxylamineHydrochloride = new Material.Builder(EVMain.id("hydroxylamine_hydrochloride"))
+            .color(((Barium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2 + 0xF0EAD6) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("HONH2HCl", true);
+
+    public static final Material SelenousAcid = new Material.Builder(EVMain.id("selenous_acid"))
+            .color((0xFFFF66 + Water.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("H2SeO3", true);
+
+    public static final Material Glyoxal = new Material.Builder(EVMain.id("glyoxal"))
+            .color(0xf2f068)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C2H2O2", true);
+
+    public static final Material BenzylChloride = new Material.Builder(EVMain.id("benzyl_chloride"))
+            .color(0xaef7fc)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C7H7Cl", true);
+
+    public static final Material Benzylamine = new Material.Builder(EVMain.id("benzylamine"))
+            .color(0x5c8082)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C7H9N", true);
+
+    public static final Material Tetrahydrofuran = new Material.Builder(EVMain.id("tetrahydrofuran"))
+            .color(0xb7ebcd)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(CH2)4O", true);
+
+    public static final Material Triethylamine = new Material.Builder(EVMain.id("triethylamine"))
+            .color(Ethylenediamine.getMaterialRGB())
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("N(CH2CH3)3", true);
+
+    public static final Material TetrafluoroboricAcid = new Material.Builder(EVMain.id("tetrafluoroboric_acid"))
+            .color(Silvertetrafluoroborate.getMaterialRGB())
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("HBF4", true);
+
+    public static final Material BoronTrifluorideEtherate = new Material.Builder(EVMain.id("boron_trifluoride_etherate"))
+            .color((BoronFluoride.getMaterialRGB() + Diethylether.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(BF3)(C2H5)2O", true);
+
+    public static final Material BoraneDimethylsulfide = new Material.Builder(EVMain.id("borane_dimethylsulfide"))
+            .color((Diborane.getMaterialRGB() + Dimethylsulfide.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(BH3)(CH3)2S", true);
+
+    public static final Material Perfluorobenzene = new Material.Builder(EVMain.id("perfluorobenzene"))
+            .color(0x226E22)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C6F6", true);
+
+    public static final Material NitratedTriniiteSolution = new Material.Builder(EVMain.id("nitrated_triniite_solution"))
+            .color(0x428c9f)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material ResidualTriniiteSolution = new Material.Builder(EVMain.id("residual_triniite_solution"))
+            .color(0x219daf)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material HeavilyFluorinatedTriniumSolution = new Material.Builder(EVMain.id("heavily_fluorinated_trinium_solution"))
+            .color(0x348d41)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material MoltenCalciumSalts = new Material.Builder(EVMain.id("molten_calcium_salts"))
+            .color((Fluorite.getMaterialRGB() + Calcium.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material EthylTrifluoroacetate = new Material.Builder(EVMain.id("ethyl_trifluoroacetate"))
+            .color(0x88a12d)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C4H5F3O2", true);
+
+    public static final Material Acetothienone = new Material.Builder(EVMain.id("acetothieone"))
+            .color(0x79882a)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C6H6SO", true);
+
+    public static final Material TheonylTrifluoroacetate = new Material.Builder(EVMain.id("theonyl_trifluoroacetate"))
+            .color(0x88882b)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C8H5F3O2S", true);
+
+    public static final Material ActiniumRadiumNitrateSolution = new Material.Builder(EVMain.id("actinium_radium_nitrate_solution"))
+            .color(0xd2f0df)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material ActiniumRadiumHydroxideSolution = new Material.Builder(EVMain.id("actinium_radium_hydroxide_solution"))
+            .color(0xe2f5ef)
+            .buildAndRegister()
+            .setFormula("H3AcRa(OH)6", true);
+
+    public static final Material FumingNitricAcid = new Material.Builder(EVMain.id("fuming_nitric_acid"))
+            .color(NitricAcid.getMaterialRGB())
+            .buildAndRegister()
+            .setFormula("HNO3", true);
+
+    public static final Material AcetylChloride = new Material.Builder(EVMain.id("acetyl_chloride"))
+            .color(AceticAcid.getMaterialRGB())
+            .buildAndRegister()
+            .setFormula("C2H3OCl", true);
+
+    public static final Material DirtyHexafluorosilicicAcid = new Material.Builder(EVMain.id("dirty_hexafluorosilicic_acid"))
+            .color((Stone.getMaterialRGB() + FluorosilicicAcid.getMaterialRGB()) / 2)
+            .buildAndRegister()
+            .setFormula("H2SiF6?", true);
+
+    public static final Material DiluteHexafluorosilicicAcid = new Material.Builder(EVMain.id("dilute_hexafluorosilicic_acid"))
+            .color((Water.getMaterialRGB() * 2 + FluorosilicicAcid.getMaterialRGB()) / 3)
+            .buildAndRegister()
+            .setFormula("(H2O)2(H2SiF6)", true);
+
+    public static final Material Dioxygendifluoride = new Material.Builder(EVMain.id("dioxygen_difluoride"))
+            .color(0x32bdaf)
+            .buildAndRegister()
+            .setFormula("FOOF", true);
+
+    public static final Material DiluteHydrofluoricAcid = new Material.Builder(EVMain.id("dilute_hydrofluoric_acid"))
+            .color((Water.getMaterialRGB() + HydrofluoricAcid.getMaterialRGB()) / 3)
+            .buildAndRegister()
+            .setFormula("(H2O)(HF)", true);
+
+    public static final Material OxidizedResidualSolution = new Material.Builder(EVMain.id("oxidized_residual_solution"))
+            .color(0x23ad7f)
+            .buildAndRegister();
+
+    public static final Material TritiumHydride = new Material.Builder(EVMain.id("tritium_hydride"))
+            .color(Tritium.getMaterialRGB())
+            .buildAndRegister()
+            .setFormula("TH", true);
+
+    public static final Material Helium3Hydride = new Material.Builder(EVMain.id("helium_iii_hydride"))
+            .color(Helium3.getMaterialRGB())
+            .buildAndRegister()
+            .setFormula("He_3H", true);
+
+    public static final Material UltraacidicResidueSolution = new Material.Builder(EVMain.id("ultraacidic_residue_solution"))
+            .color((FluoroantimonicAcid.getMaterialRGB() + Helium3Hydride.getMaterialRGB()) / 2)
+            .buildAndRegister();
+
+    public static final Material XenicAcid = new Material.Builder(EVMain.id("xenic_acid"))
+            .color(0x5a4c9c)
+            .buildAndRegister()
+            .setFormula("H2XeO4", true);
+
+    public static final Material DustyLiquidHelium3 = new Material.Builder(EVMain.id("dusty_liquid_helium3"))
+            .color(2 * Helium3.getMaterialRGB() / 3 + Taranium.getMaterialRGB() / 5)
+            .buildAndRegister();
+
+    public static final Material TaraniumEnrichedLHelium3 = new Material.Builder(EVMain.id("taranium_enriched_liquid_helium3"))
+            .color(Helium3.getMaterialRGB() / 2 + Taranium.getMaterialRGB() / 2)
+            .buildAndRegister();
+
+    public static final Material TaraniumSemidepletedLHelium3 = new Material.Builder(EVMain.id("taranium_semidepleted_liquid_helium3"))
+            .color(2 * Helium3.getMaterialRGB() / 3 + Taranium.getMaterialRGB() / 5)
+            .buildAndRegister();
+
+    public static final Material TaraniumDepletedLHelium3 = new Material.Builder(EVMain.id("taranium_depleted_liquid_helium3"))
+            .color(Helium3.getMaterialRGB() * 5 / 6 + Taranium.getMaterialRGB() / 8)
+            .buildAndRegister();
+
+    public static final Material TaraniumRichDustyHeliumPlasma = new Material.Builder(EVMain.id("taranium_rich_dusty_helium_plasma"))
+            .color(Helium.getMaterialRGB() / 2 + Taranium.getMaterialRGB() / 2)
+            .buildAndRegister()
+            .setFormula("HeliumPlasma", true);
+
+    public static final Material TaraniumDepletedHeliumPlasma = new Material.Builder(EVMain.id("taranium_depleted_helium_plasma"))
+            .color(Helium.getMaterialRGB() / 2 + Taranium.getMaterialRGB() / 2)
+            .buildAndRegister()
+            .setFormula("HeliumPlasma", true);
+
+    public static final Material TaraniumRichHelium4 = new Material.Builder(EVMain.id("taranium_rich_helium_4"))
+            .color(Helium.getMaterialRGB() / 2 + Taranium.getMaterialRGB())
+            .buildAndRegister()
+            .setFormula("He_4", true);
+
+    public static final Material TaraniumPoorLiquidHelium = new Material.Builder(EVMain.id("taranium_poor_liquid_helium"))
+            .color(Helium3.getMaterialRGB() * 6 / 7 + Taranium.getMaterialRGB() / 14)
+            .buildAndRegister();
+
+    public static final Material LiquidFluorine = new Material.Builder(EVMain.id("liquid_fluorine"))
+            .color(Fluorine.getMaterialRGB() - 0x303030)
+            .buildAndRegister();
+
+    public static final Material LiquidXenon = new Material.Builder(EVMain.id("liquid_xenon"))
+            .color(Xenon.getMaterialRGB())
+            .buildAndRegister()
+            .setFormula("Xe", true);
+
+    public static final Material TaraniumPoorLiquidHeliumMix = new Material.Builder(EVMain.id("taranium_poor_liquid_helium_mix"))
+            .color(TaraniumPoorLiquidHelium.getMaterialRGB() * 10 / 11 + LiquidHelium.getMaterialRGB() / 11)
+            .buildAndRegister();
+
+    public static final Material HydroiodicAcid = new Material.Builder(EVMain.id("hydroiodic_acid"))
+            .color(Hydrogen.getMaterialRGB() / 2 + Iodine.getMaterialRGB() / 2)
+            .buildAndRegister()
+            .setFormula("HI", true);
+
+    public static final Material ChlorodiisopropylPhosphine = new Material.Builder(EVMain.id("chlorodiisopropyl_phosphine"))
+            .color(0xa2c122)
+            .buildAndRegister();
+
+    public static final Material CesiumBromideSolution = new Material.Builder(EVMain.id("cesium_bromide_solution"))
+            .color((Caesium.getMaterialRGB() - 10 + SaltWater.getMaterialRGB()) / 2)
+            .buildAndRegister()
+            .setFormula("CsBr(H2O)", true);
+
+    public static final Material AntimonyTrifluoride = new Material.Builder(EVMain.id("antimony_trifluoride"))
+            .color(0xc7c7c7)
+            .dust()
+            .buildAndRegister()
+            .setFormula("SbF3", true);
+
+    public static final Material IndiumTrifluoride = new Material.Builder(EVMain.id("indium_trifluoride"))
+            .color(0x2b0f48)
+            .dust()
+            .buildAndRegister()
+            .setFormula("InF3", true);
+
+    public static final Material IndiumTrioxide = new Material.Builder(EVMain.id("indium_trioxide"))
+            .color(0x2b0f48)
+            .dust()
+            .buildAndRegister()
+            .setFormula("In2O3", true);
+
+    public static final Material NaquadahConcentrate = new Material.Builder(EVMain.id("naquadah_concentrate"))
+            .color(Naquadah.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Nq?", true);
+
+    public static final Material EnrichedNaquadahConcentrate = new Material.Builder(EVMain.id("enriched_naquadah_concentrate"))
+            .color(NaquadahEnriched.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Nq+?", true);
+
+    public static final Material NaquadriaConcentrate = new Material.Builder(EVMain.id("naquadria_concentrate"))
+            .color(Naquadria.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("*Nq*?", true);
+
+    public static final Material AuricFluoride = new Material.Builder(EVMain.id("auric_fluoride"))
+            .color(0xdffb50)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("AuF3", true);
+
+    public static final Material ThUSludge = new Material.Builder(EVMain.id("thorium_uranium_sludge"))
+            .color(0x002908)
+            .dust()
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("ThU", true);
+
+    public static final Material LanthanumOxide = new Material.Builder(EVMain.id("lanthanum_oxide"))
+            .color(Lanthanum.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("La2O3", true);
+
+    public static final Material PraseodymiumOxide = new Material.Builder(EVMain.id("praseodymium_oxide"))
+            .color(Praseodymium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Pr2O3", true);
+
+    public static final Material NeodymiumOxide = new Material.Builder(EVMain.id("neodymium_oxide"))
+            .color(Neodymium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Nd2O3", true);
+
+    public static final Material CeriumOxide = new Material.Builder(EVMain.id("cerium_oxide"))
+            .color(Cerium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Ce2O3", true);
+
+    public static final Material EuropiumOxide = new Material.Builder(EVMain.id("europium_oxide"))
+            .color(Europium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Eu2O3", true);
+
+    public static final Material GadoliniumOxide = new Material.Builder(EVMain.id("gadolinium_oxide"))
+            .color(Gadolinium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Gd2O3", true);
+
+    public static final Material SamariumOxide = new Material.Builder(EVMain.id("samarium_oxide"))
+            .color(Samarium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Sm2O3", true);
+
+    public static final Material TerbiumOxide = new Material.Builder(EVMain.id("terbium_oxide"))
+            .color(Terbium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Tb2O3", true);
+
+    public static final Material DysprosiumOxide = new Material.Builder(EVMain.id("dysprosium_oxide"))
+            .color(Dysprosium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Dy2O3", true);
+
+    public static final Material HolmiumOxide = new Material.Builder(EVMain.id("holmium_oxide"))
+            .color(Holmium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Ho2O3", true);
+
+    public static final Material ErbiumOxide = new Material.Builder(EVMain.id("erbium_oxide"))
+            .color(Erbium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Er2O3", true);
+
+    public static final Material ThuliumOxide = new Material.Builder(EVMain.id("thulium_oxide"))
+            .color(Thulium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Tm2O3", true);
+
+    public static final Material YtterbiumOxide = new Material.Builder(EVMain.id("ytterbium_oxide"))
+            .color(Ytterbium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Yb2O3", true);
+
+    public static final Material LutetiumOxide = new Material.Builder(EVMain.id("lutetium_oxide"))
+            .color(Lutetium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Lu2O3", true);
+
+    public static final Material ScandiumOxide = new Material.Builder(EVMain.id("scandium_oxide"))
+            .color(Scandium.getMaterialRGB())
+            .dust()
+            .buildAndRegister()
+            .setFormula("Sc2O3", true);
+
+    public static final Material CalciumCarbide = new Material.Builder(EVMain.id("calcium_carbide"))
+            .color(0x807b70)
+            .dust()
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("CaC2", true);
+
+    public static final Material CalciumHydroxide = new Material.Builder(EVMain.id("calcium_hydroxide"))
+            .color(0x5f8764)
+            .dust()
+            .iconSet(DULL)
+            .buildAndRegister()
+            .setFormula("Ca(OH)2", true);
+
+    public static final Material BetaPinene = new Material.Builder(EVMain.id("beta_pinene"))
+            .color(0x61ad6b)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C10H16", true);
+
+    public static final Material Yeast = new Material.Builder(EVMain.id("yeast"))
+            .color(0xf0e660)
+            .dust()
+            .buildAndRegister()
+            .setFormula("???", true);
+
+    public static final Material Glutamine = new Material.Builder(EVMain.id("glutamine"))
+            .color(0xede9b4)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C5H10N2O3", true);
+
+    public static final Material SilicaGel = new Material.Builder(EVMain.id("silica_gel"))
+            .color(0x61daff)
+            .dust()
+            .buildAndRegister()
+            .setFormula("SiO2", true);
+
+    public static final Material SilicaAluminaGel = new Material.Builder(EVMain.id("silica_alumina_gel"))
+            .color(0x558d9e)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Al2O3SiO2", true);
+
+    public static final Material ZeoliteSievingPellets = new Material.Builder(EVMain.id("zeolite_sieving_pellets"))
+            .color(0xa17bd1)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Al2O3SiO2", true);
+
+    public static final Material WetZeoliteSievingPellets = new Material.Builder(EVMain.id("wet_zeolite_sieving_pellets"))
+            .color(0x392f45)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Al2O3SiO2?", true);
+
+    public static final Material GreenAlgae = new Material.Builder(EVMain.id("green_algae"))
+            .color(0x228b22)
+            .dust()
+            .buildAndRegister()
+            .setFormula("An Algae", true);
+
+    public static final Material BrownAlgae = new Material.Builder(EVMain.id("brown_algae"))
+            .color(0xa52a2a)
+            .dust()
+            .buildAndRegister()
+            .setFormula("An Algae", true);
+
+    public static final Material RedAlgae = new Material.Builder(EVMain.id("red_algae"))
+            .color(0xf08080)
+            .dust()
+            .buildAndRegister()
+            .setFormula("An Algae", true);
+
+    public static final Material DryRedAlgae = new Material.Builder(EVMain.id("dry_red_algae"))
+            .color(0xff7f50)
+            .dust()
+            .buildAndRegister()
+            .setFormula("A Dry Algae", true);
+
+    public static final Material RedAlgaePowder = new Material.Builder(EVMain.id("red_algae_powder"))
+            .color(0xcc2f2f)
+            .dust()
+            .buildAndRegister()
+            .setFormula("A Powdered Algae", true);
+
+    public static final Material PreFreezeAgar = new Material.Builder(EVMain.id("pre_freeze_agar"))
+            .color(0x132b0d)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Warm Agar", true);
+
+    public static final Material FrozenAgarCrystals = new Material.Builder(EVMain.id("frozen_agar_crystals"))
+            .color(0x68db4b)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Cold Agar", true);
+
+    public static final Material Agar = new Material.Builder(EVMain.id("agar"))
+            .color(0x38a31d)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Agar", true);
+
+    public static final Material BrevibacteriumFlavium = new Material.Builder(EVMain.id("brevibacterium_flavium"))
+            .color(0x2c4d24)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Bacteria", true);
+
+    public static final Material StreptococcusPyogenes = new Material.Builder(EVMain.id("streptococcus_pyogenes"))
+            .color(0x1c3b15)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Bacteria", true);
+
+    public static final Material EschericiaColi = new Material.Builder(EVMain.id("eschericia_coli"))
+            .color(0x2d4228)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Bacteria", true);
+
+    public static final Material BifidobacteriumBreve = new Material.Builder(EVMain.id("bifidobacterium_breve"))
+            .color(0x377528)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Bacteria", true);
+
+    public static final Material Alumina = new Material.Builder(EVMain.id("alumina"))
+            .color(0x0b585c)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Al2O3", true);
+
+    public static final Material CupriavidusNecator = new Material.Builder(EVMain.id("cupriavidus_necator"))
+            .color(0x22704f)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Bacteria", true);
+
+    public static final Material Shewanella = new Material.Builder(EVMain.id("shewanella"))
+            .color(0x8752ab)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Bacteria", true);
+
+    public static final Material ZirconiumTetrachloride = new Material.Builder(EVMain.id("zirconium_tetrachloride"))
+            .color(0xF0F0F0)
+            .dust()
+            .buildAndRegister()
+            .setFormula("ZrCl4", true);
+
+    public static final Material SiliconCarbide = new Material.Builder(EVMain.id("silicon_carbide"))
+            .color((Silicon.getMaterialRGB() + Carbon.getMaterialRGB()) / 2)
+            .dust()
+            .buildAndRegister()
+            .setFormula("SiC", true);
+
+    public static final Material GoldDepleteMolybdenite = new Material.Builder(EVMain.id("gold_deplete_molybdenite"))
+            .color(0x7c7c8f)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("MoS2?", true);
+
+    public static final Material MolybdenumConcentrate = new Material.Builder(EVMain.id("molybdenum_concentrate"))
+            .color(0x565666)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("MoS2Re", true);
+
+    public static final Material MolybdenumTrioxide = new Material.Builder(EVMain.id("molybdenum_trioxide"))
+            .color(0x666685)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("MoO3", true);
+
+    public static final Material CopperChloride = new Material.Builder(EVMain.id("copper_chloride"))
+            .color(0xf5b35d)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("CuCl2", true);
+
+    public static final Material BismuthChloride = new Material.Builder(EVMain.id("bismuth_chloride"))
+            .color(0x95f5d7)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("BiCl3", true);
+
+    public static final Material LeadChloride = new Material.Builder(EVMain.id("lead_chloride"))
+            .color((Lead.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("PbCl2", true);
+
+    public static final Material ZirconiumTetrafluoride = new Material.Builder(EVMain.id("zirconium_tetrafluoride"))
+            .color((Zirconium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("ZrF4", true);
+
+    public static final Material BariumDifluoride = new Material.Builder(EVMain.id("barium_difluoride"))
+            .color((Barium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("BaF2", true);
+
+    public static final Material LanthanumTrifluoride = new Material.Builder(EVMain.id("lanthanum_trifluoride"))
+            .color((Lanthanum.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("LaF3", true);
+
+    public static final Material AluminiumTrifluoride = new Material.Builder(EVMain.id("aluminium_trifluoride"))
+            .color((Aluminium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("AlF3", true);
+
+    public static final Material ErbiumTrifluoride = new Material.Builder(EVMain.id("erbium_trifluoride"))
+            .color((Erbium.getMaterialRGB() + Fluorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("ErF3", true);
+
+    public static final Material ZBLANDust = new Material.Builder(EVMain.id("zblan_dust"))
+            .color((ZirconiumTetrafluoride.getMaterialRGB() + BariumDifluoride.getMaterialRGB() + LanthanumTrifluoride.getMaterialRGB() + AluminiumTrifluoride.getMaterialRGB()) / 4)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("(ZrF4)18(BaF2)7(LaF3)2(AlF3)(NaF)7", true);
+
+    public static final Material ErbiumDopedZBLANDust = new Material.Builder(EVMain.id("erbium_doped_zblan_dust"))
+            .color((ZBLANDust.getMaterialRGB() + ErbiumTrifluoride.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("(ErF3)(ZrF4)18(BaF2)7(LaF3)2(AlF3)(NaF)7", true);
+
+    public static final Material PotassiumCyanide = new Material.Builder(EVMain.id("potassium_cyanide"))
+            .color((Potassium.getMaterialRGB() + Nitrogen.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("KCN", true);
+
+    public static final Material SuccinicAcid = new Material.Builder(EVMain.id("succinic_acid"))
+            .color((MaleicAnhydride.getMaterialRGB() + Water.getMaterialRGB() + Hydrogen.getMaterialRGB()) / 3)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("C4H6O4", true);
+
+    public static final Material Succinimide = new Material.Builder(EVMain.id("succinimide"))
+            .color((SuccinicAcid.getMaterialRGB() + Ammonia.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("C4H5NO2", true);
+
+    public static final Material Bromosuccinimide = new Material.Builder(EVMain.id("bromo_succinimide"))
+            .color((Succinimide.getMaterialRGB() + Bromine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("C4H4BrNO2", true);
+
+    public static final Material Benzophenanthrenylacetonitrile = new Material.Builder(EVMain.id("benzophenanthrenylacetonitrile"))
+            .color((Naphthaldehyde.getMaterialRGB() + Ethylene.getMaterialRGB() - 20) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("C20H13N", true);
+
+    public static final Material UnfoldedFullerene = new Material.Builder(EVMain.id("unfolded_fullerene"))
+            .color((Benzophenanthrenylacetonitrile.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C60H30", true);
+
+    public static final Material Fullerene = new Material.Builder(EVMain.id("fullerene"))
+            .color((UnfoldedFullerene.getMaterialRGB() - 20))
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("C60", true);
+
+    public static final Material TiAlChloride = new Material.Builder(EVMain.id("tial_chloride"))
+            .color((Titanium.getMaterialRGB() + Aluminium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 3)
+            .dust()
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("TiAlCl7", true);
+
+    public static final Material Dimethylaminopyridine = new Material.Builder(EVMain.id("dimethylaminopyridine"))
+            .color((Dimethylamine.getMaterialRGB() + Pyridine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("(CH3)2NC5H4N", true);
+
+    public static final Material PdIrReOCeOS = new Material.Builder(EVMain.id("pdirreoceos"))
+            .color((Palladium.getMaterialRGB() + Iridium.getMaterialRGB() + Rhenium.getMaterialRGB() + Cerium.getMaterialRGB() + Osmium.getMaterialRGB() + Silicon.getMaterialRGB() + Oxygen.getMaterialRGB()) / 7)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("PdIrReCeOsSiO4", true);
+
+    public static final Material SodiumEthoxide = new Material.Builder(EVMain.id("sodium_ethoxide"))
+            .color((Ethanol.getMaterialRGB() + SodiumHydroxide.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("C2H5ONa", true);
+
+    public static final Material MgClBromide = new Material.Builder(EVMain.id("mgcl_bromide"))
+            .color((MagnesiumChloride.getMaterialRGB() + Bromine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("MgClBr", true);
+
+    public static final Material Sarcosine = new Material.Builder(EVMain.id("sarcosine"))
+            .color((Glycine.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("C3H7NO2", true);
+
+    public static final Material SodiumNitrite = new Material.Builder(EVMain.id("sodium_nitrite"))
+            .color((Sodium.getMaterialRGB() + Nitrogen.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("NaNO2", true);
+
+    public static final Material ZnFeAlClCatalyst = new Material.Builder(EVMain.id("znfealcl_catalyst"))
+            .color((Zinc.getMaterialRGB() + Iron.getMaterialRGB() + Aluminium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 4)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("ZnFeAlCl", true);
+
+    public static final Material Difluorobenzophenone = new Material.Builder(EVMain.id("difluorobenzophenone"))
+            .color((FluoroBenzene.getMaterialRGB() + Fluorotoluene.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("(FC6H4)2CO", true);
+
+    public static final Material AluminiumChloride = new Material.Builder(EVMain.id("aluminium_chloride"))
+            .color((Aluminium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("AlCl3", true);
+
+    public static final Material PdFullereneMatrix = new Material.Builder(EVMain.id("pd_fullerene_matrix"))
+            .color((Palladium.getMaterialRGB() + Fullerene.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("PdC73H15NFe", true);
+
+    public static final Material Terephthalaldehyde = new Material.Builder(EVMain.id("terephthalaldehyde"))
+            .color((Dibromomethylbenzene.getMaterialRGB() + SulfuricAcid.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("C8H6O2", true);
+
+    public static final Material PreZylon = new Material.Builder(EVMain.id("pre_zylon"))
+            .color((Terephthalaldehyde.getMaterialRGB() + Dinitrodipropanyloxybenzene.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("C20H22N2O2", true);
+
+    public static final Material AuPdCCatalyst = new Material.Builder(EVMain.id("aupdc_catalyst"))
+            .color((Gold.getMaterialRGB() + Palladium.getMaterialRGB() + Carbon.getMaterialRGB()) / 3)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("AuPdC", true);
+
+    public static final Material Cyanonaphthalene = new Material.Builder(EVMain.id("cyanonaphthalene"))
+            .color((SodiumCyanide.getMaterialRGB() + Naphthalene.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("C11H7N", true);
+
+    public static final Material TinChloride = new Material.Builder(EVMain.id("tin_chloride"))
+            .color((Tin.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("SnCl2", true);
+
+    public static final Material Triphenylphosphine = new Material.Builder(EVMain.id("triphenylphosphine"))
+            .color((Chlorobenzene.getMaterialRGB() + PhosphorusTrichloride.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("(C6H5)3P", true);
+
+    public static final Material Methylbenzophenanthrene = new Material.Builder(EVMain.id("methylbenzophenanthrene"))
+            .color((Naphthaldehyde.getMaterialRGB() + EthylBenzene.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("C19H14", true);
+
+    public static final Material VanadiumSlag = new Material.Builder(EVMain.id("vanadium_slag"))
+            .color((Vanadium.getMaterialRGB() + Titanium.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("(VO)C(TiO2)", true);
+
+    public static final Material VanadiumSlagDust = new Material.Builder(EVMain.id("vanadium_slag_dust"))
+            .color(0xf2ef1b)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("VO", true);
+
+    public static final Material SodiumVanadate = new Material.Builder(EVMain.id("sodium_vanadate"))
+            .color(0xf2df1d)
+            .dust()
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("Na3VO4", true);
+
+    public static final Material AmmoniumVanadate = new Material.Builder(EVMain.id("ammonium_vanadate"))
+            .color(0xf2ff1c)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("NH4VO3", true);
+
+    public static final Material VanadiumOxide = new Material.Builder(EVMain.id("vanadium_oxide"))
+            .color(0xf2ef1b)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("V2O5", true);
+
+    public static final Material BariumSulfide = new Material.Builder(EVMain.id("barium_sulfide"))
+            .color(0xc2c2be)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("BaS", true);
+
+    public static final Material BariumCarbonate = new Material.Builder(EVMain.id("barium_carbonate"))
+            .color(Salt.getMaterialRGB() + 10)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("BaCO3", true);
+
+    public static final Material BariumOxide = new Material.Builder(EVMain.id("barium_oxide"))
+            .color((Barium.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("BaO", true);
+
+    public static final Material BariumAluminate = new Material.Builder(EVMain.id("barium_aluminate"))
+            .color(Saltpeter.getMaterialRGB() + 10)
+            .dust()
+            .iconSet(MaterialIconSet.FINE)
+            .buildAndRegister()
+            .setFormula("BaAl2O4", true);
+
+    public static final Material PotassiumUranylTricarbonate = new Material.Builder(EVMain.id("potassium_uranyl_carbonate"))
+            .color(0xeff028)
+            .dust()
+            .iconSet(MaterialIconSet.METALLIC)
+            .buildAndRegister()
+            .setFormula("(UO2)CO3", true);
+
+    public static final Material UraniumPeroxideThoriumOxide = new Material.Builder(EVMain.id("uranium_peroxide_thorium_oxide"))
+            .color(0x202020)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("(UO3)(H2O2)ThO2", true);
+
+    public static final Material UraniumThoriumOxide = new Material.Builder(EVMain.id("uranium_thorium_oxide"))
+            .color(0x202020)
+            .dust()
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("UO2ThO2", true);
+
+
+    public static final Material UranylThoriumSulfate = new Material.Builder(EVMain.id("uranium_thorium_sulfate"))
+            .color(0xe7e848)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(UO2)SO4ThO2", true);
+
+    public static final Material UranylThoriumNitrate = new Material.Builder(EVMain.id("uranium_thorium_nitrate"))
+            .color(0xe7e848)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("UO2(NO3)2Th(NO3)4", true);
+
+    public static final Material UraniumOxideThoriumNitrate = new Material.Builder(EVMain.id("uranium_oxide_thorium_nitrate"))
+            .color(0x33bd45)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("UO2Th(NO3)4", true);
+
+    public static final Material CaesiumHydroxide = new Material.Builder(EVMain.id("caesium_hydroxide"))
+            .color(Caesium.getMaterialRGB() - 10)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("CsOH", true);
+
+    public static final Material AluminiumHydroxide = new Material.Builder(EVMain.id("aluminium_hydroxide"))
+            .color(Aluminium.getMaterialRGB() - 25)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Al(OH)3", true);
+
+    public static final Material PotassiumCarbonate = new Material.Builder(EVMain.id("potassium_carbonate"))
+            .color((Potassium.getMaterialRGB() + Carbon.getMaterialRGB() + Oxygen.getMaterialRGB()) / 3)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("K2CO3", true);
+
+    public static final Material GrapheneOxidationResidue = new Material.Builder(EVMain.id("graphene_oxidation_residue"))
+            .color(0x96821a)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(KMnO4)(NaNO3)(H2SO4)", true);
+
+    public static final Material NiAlOCatalyst = new Material.Builder(EVMain.id("nialo_catalyst"))
+            .color(0x0af0af)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("NiAl2O4", true);
+
+    public static final Material FeCrOCatalyst = new Material.Builder(EVMain.id("fecro_catalyst"))
+            .color(0x8C4517)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("FeCrO3", true);
+
+    public static final Material RoastedSpodumene = new Material.Builder(EVMain.id("roasted_spodumene"))
+            .color(0x3d3d29)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("LiAlSi2O6", true);
+
+    public static final Material RoastedLepidolite = new Material.Builder(EVMain.id("roasted_lepidolite"))
+            .color(0x470024)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("KLi3Al4O11", true);
+
+    public static final Material LithiumChloride = new Material.Builder(EVMain.id("lithium_chloride"))
+            .color((Lithium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .iconSet(METALLIC)
+            .dust()
+            .buildAndRegister()
+            .setFormula("LiCl", true);
+
+    public static final Material Lithiumthiinediselenide = new Material.Builder(EVMain.id("lithiumthiinediselenide"))
+            .color(0x7ada00)
+            .iconSet(METALLIC)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C4H4S2Li2Se2", true);
+
+    public static final Material NickelChloride = new Material.Builder(EVMain.id("nickel_chloride"))
+            .color(Nickel.getMaterialRGB() + 10)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("NiCl2", true);
+
+    public static final Material PotassiumSulfate = new Material.Builder(EVMain.id("potassium_sulfate"))
+            .color((Potassium.getMaterialRGB() + Sulfur.getMaterialRGB()) / 2)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("K2SO4", true);
+
+    public static final Material AluminiumSulfate = new Material.Builder(EVMain.id("aluminium_sulfate"))
+            .color((Aluminium.getMaterialRGB() + Sulfur.getMaterialRGB()) / 2)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Al2(SO4)3", true);
+
+    public static final Material BariumHydroxide = new Material.Builder(EVMain.id("barium_hydroxide"))
+            .color((Barium.getMaterialRGB() + Hydrogen.getMaterialRGB() + Oxygen.getMaterialRGB()) / 3)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Ba(OH)2", true);
+
+    public static final Material HafniumOxide = new Material.Builder(EVMain.id("hafnium_oxide"))
+            .color(0x404040)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("HfO2", true);
+
+    public static final Material SiliconChloride = new Material.Builder(EVMain.id("silicon_chloride"))
+            .color(Silicon.getMaterialRGB() - 15)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("SiCl4", true);
+
+    public static final Material HafniumChloride = new Material.Builder(EVMain.id("hafnium_chloride"))
+            .color(Hafnium.getMaterialRGB() + 20)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("HfCl4", true);
+
+    public static final Material ZincCokePellets = new Material.Builder(EVMain.id("zinc_coke_pellets"))
+            .color((Zinc.getMaterialRGB() + Coke.getMaterialRGB()) / 2)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(H2O)(ZnS)C", true);
+
+    public static final Material ZincResidualSlag = new Material.Builder(EVMain.id("zinc_residual_slag"))
+            .color(Zinc.getMaterialRGB() - 20)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material ZincFlueDust = new Material.Builder(EVMain.id("zinc_flue_dust"))
+            .color(0xfcfca)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material ZincLeachingResidue = new Material.Builder(EVMain.id("zinc_leaching_residue"))
+            .color((Germanium.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Ge?", true);
+
+    public static final Material FineZincSlagDust = new Material.Builder(EVMain.id("fine_zinc_slag_dust"))
+            .color(Zinc.getMaterialRGB() - 10)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("?", true);
+
+    public static final Material IndiumHydroxide = new Material.Builder(EVMain.id("indium_hydroxide"))
+            .color((Indium.getMaterialRGB() + SodiumHydroxide.getMaterialRGB()) / 2)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("In(OH)3", true);
+
+    public static final Material CadmiumZincDust = new Material.Builder(EVMain.id("cadmium_zinc_dust"))
+            .color((Cadmium.getMaterialRGB() + Zinc.getMaterialRGB()) / 2)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(H2SO4)CdZn?", true);
+
+    public static final Material ThalliumResidue = new Material.Builder(EVMain.id("thallium_residue"))
+            .color(Thallium.getMaterialRGB() - 10)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Tl?", true);
+
+    public static final Material ThalliumChloride = new Material.Builder(EVMain.id("thallium_chloride"))
+            .color((Thallium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("TlCl", true);
+
+    public static final Material ZincChloride = new Material.Builder(EVMain.id("zinc_chloride"))
+            .color((Zinc.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("ZnCl2", true);
+
+    public static final Material SodiumSulfite = new Material.Builder(EVMain.id("sodium_sulfite"))
+            .color((SodiumHydroxide.getMaterialRGB() + Sulfur.getMaterialRGB()) / 2)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Na2SO3", true);
+
+    public static final Material Cellulose = new Material.Builder(EVMain.id("cellulose"))
+            .color(0xfefefc)
+            .iconSet(DULL)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C6H10O5", true);
+
+    public static final Material GermaniumOxide = new Material.Builder(EVMain.id("germanium_oxide"))
+            .color(Germanium.getMaterialRGB() + 10)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister()
+            .setFormula("GeO2", true);
+
+    public static final Material DisodiumPhosphate = new Material.Builder(EVMain.id("sodium_diphosphate"))
+            .color((Sodium.getMaterialRGB() + Phosphorus.getMaterialRGB()) / 2)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("Na2HPO4", true);
+
+    public static final Material AcrylicFibers = new Material.Builder(EVMain.id("acrylic_fibers"))
+            .color(0xfdfdfb)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("(C5O2H8)n", true);
+
+
+    // TODO formula
+    public static final Material UranylNitrate = new Material.Builder(EVMain.id("uranyl_nitrate"))
+            .color(0x33bd45)
+            .iconSet(SHINY)
+            .dust()
+            .buildAndRegister();
+
+    // TODO formula
+    public static final Material CalciumSalts = new Material.Builder(EVMain.id("calcium_salts"))
+            .color(Calcium.getMaterialRGB() - 10)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material SodiumSalts = new Material.Builder(EVMain.id("sodium_salts"))
+            .color(Sodium.getMaterialRGB() - 5)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("NaCl?", true);
+
+
+    //TODO formula
+    public static final Material PotassiumMagnesiumSalts = new Material.Builder(EVMain.id("kmg_salts"))
+            .color(0xcacac8)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+;
+
+
+    // TODO formula
+    public static final Material CalciumMagnesiumSalts = new Material.Builder(EVMain.id("camg_salts"))
+            .color(0xcacac8)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister();
+
+    public static final Material SodiumAluminiumHydride = new Material.Builder(EVMain.id("sodium_aluminium_hydride"))
+            .color(0x98cafc)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("NaAlH4", true);
+
+    public static final Material LithiumAluminiumHydride = new Material.Builder(EVMain.id("lithium_aluminium_hydride"))
+            .color(0xc0defc)
+            .iconSet(ROUGH)
+            .dust()
+            .buildAndRegister()
+            .setFormula("LiAlH4", true);
+
+    public static final Material SodiumAzanide = new Material.Builder(EVMain.id("sodium_azanide"))
+            .color((Sodium.getMaterialRGB() + Hydrogen.getMaterialRGB() + Nitrogen.getMaterialRGB()) / 3)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("NaNH2", true);
+
+    public static final Material SodiumAzide = new Material.Builder(EVMain.id("sodium_azide"))
+            .color((Sodium.getMaterialRGB() + Nitrogen.getMaterialRGB()) / 2)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("NaN3", true);
+
+    public static final Material Glucosamine = new Material.Builder(EVMain.id("glucosamine"))
+            .color((Cellulose.getMaterialRGB() + Water.getMaterialRGB()) / 2)
+            .iconSet(FINE)
+            .dust()
+            .buildAndRegister()
+            .setFormula("C6H13NO5", true);
 }
