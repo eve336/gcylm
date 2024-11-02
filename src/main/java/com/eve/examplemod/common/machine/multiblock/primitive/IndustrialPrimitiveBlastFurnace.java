@@ -103,6 +103,9 @@ public class IndustrialPrimitiveBlastFurnace extends WorkableElectricMultiblockM
         }
     }
 
+
+    //THIS IS THE MOST JANK SHIT IVE EVER CODED IN MY LIFE BUT IT TECHNICALLY WORKS FOR NOW
+    //TO DO CHANGE THIS LATER
     @NotNull
     @Override
     public IndustrialPrimitiveBlastFurnaceLogic getRecipeLogic() {
@@ -181,26 +184,6 @@ public class IndustrialPrimitiveBlastFurnace extends WorkableElectricMultiblockM
         return false;
     }
 
-    public boolean inputsize() {
-        var itemInputInventory = Objects
-                .requireNonNullElseGet(getCapabilitiesProxy().get(IO.IN, ItemRecipeCapability.CAP),
-                        Collections::<IRecipeHandler<?>>emptyList)
-                .stream()
-                .filter(handler -> !handler.isProxy())
-                .map(container -> container.getContents().stream().filter(ItemStack.class::isInstance)
-                        .map(ItemStack.class::cast).toList())
-                .toList();
-
-        for (int i = 0; i < itemInputInventory.size(); i++) {
-            Ingredient recipeStack = ItemRecipeCapability.CAP.of(itemInputInventory.get(i));
-            recipeStack.kjs$subtract(recipeStack);
-
-            if (recipeStack.test(ChemicalHelper.get(TagPrefix.gem, GTMaterials.Coal))) {
-            }
-        }
-
-        return true;
-    }
 
     public int getEfficiency(){
         this.efficiency = (int) ((((-Math.atan(size / 4.0 / PI - 64 / 4.0 / PI / 2) + (PI / 2)) / PI + ((-Math.atan(64 / 4.0 / PI / 2) + PI / 2) / PI)/2)) * 100.0);
