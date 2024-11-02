@@ -1,6 +1,7 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.data.recipe.generated.Replication;
+import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
 import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
@@ -17,5 +18,6 @@ public class EVRecipes {
         };
         Replication.init(consumer);
         GoldChain.init(consumer);
+        AluminiumChain.init(consumer);
     }
 }

@@ -79,7 +79,7 @@ public class GoldChain {
                 .outputItems(dust, PotassiumMetabisulfite, 9)
                 .save(provider);
 
-        CHEMICAL_RECIPES.recipeBuilder("goldline").duration(100)
+        CHEMICAL_RECIPES.recipeBuilder("goldline4").duration(100).EUt(30)
                 .inputFluids(ChloroauricAcid.getFluid(1000))
                 .notConsumable(dust, PotassiumMetabisulfite)
                 .outputItems(dust, Gold, 2)
@@ -94,7 +94,7 @@ public class GoldChain {
                 .outputFluids(ChloroauricAcid.getFluid(1000))
                 .save(provider);
 
-        CHEMICAL_RECIPES.recipeBuilder("goldline").duration(80)
+        CHEMICAL_RECIPES.recipeBuilder("goldline8").duration(80)
                 .inputItems(ingot, GoldAlloy, 4)
                 .inputFluids(NitricAcid.getFluid(1000))
                 .outputItems(dust, GoldLeach, 4)
