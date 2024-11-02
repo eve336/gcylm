@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
@@ -33,6 +34,15 @@ public class GoldChain {
                 .outputItems(dustTiny, Gold, 8)
                 .duration(300)
                 .EUt(30)
+                .save(provider);
+
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("goldline").EUt(30).duration(80)
+                .inputItems(dust, CopperLeach, 4)
+                .outputItems(dust, Copper, 3)
+                .chancedOutput(dust, Lead, 1500, 500)
+                .chancedOutput(dust, Iron, 1200, 400)
+                .chancedOutput(dust, Nickel, 1000, 300)
+                .chancedOutput(dust, Silver, 800, 200)
                 .save(provider);
 
 
@@ -61,7 +71,34 @@ public class GoldChain {
                 .outputItems(ingot, GoldAlloy, 4)
                 .save(provider);
 
-        // STEP 2
-        // Cu3Au? + HNO3 -> Cu3Au?(OH) + NO2
+        MIXER_RECIPES.recipeBuilder("goldline").duration(100).EUt(30)
+                .circuitMeta(1)
+                .inputItems(dust, Potassium, 2)
+                .inputItems(dust, Sulfur, 2)
+                .inputFluids(Oxygen.getFluid(5000))
+                .outputItems(dust, PotassiumMetabisulfite, 9)
+                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("goldline").duration(100)
+                .inputFluids(ChloroauricAcid.getFluid(1000))
+                .notConsumable(dust, PotassiumMetabisulfite)
+                .outputItems(dust, Gold, 2)
+                .outputFluids(Water.getFluid(1000))
+                .outputFluids(Chlorine.getFluid(1000))
+                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("goldline2").duration(80).EUt(30)
+                .inputItems(dust, GoldLeach, 4)
+                .inputFluids(HydrochloricAcid.getFluid(1000))
+                .outputItems(dust, CopperLeach, 4)
+                .outputFluids(ChloroauricAcid.getFluid(1000))
+                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("goldline").duration(80)
+                .inputItems(ingot, GoldAlloy, 4)
+                .inputFluids(NitricAcid.getFluid(1000))
+                .outputItems(dust, GoldLeach, 4)
+                .outputFluids(NitrogenDioxide.getFluid(1000))
+                .save(provider);
     }
 }

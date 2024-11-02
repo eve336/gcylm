@@ -4918,7 +4918,7 @@ public class EVMaterials {
     public static final Material ChloroauricAcid = new Material.Builder(EVMain.id("chloroauric_acid"))
             .color(0xDFD11F)
             .iconSet(DULL)
-            .dust()
+            .fluid()
             .components()
             .buildAndRegister()
             .setFormula("HAuCl?", true);

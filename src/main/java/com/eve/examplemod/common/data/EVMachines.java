@@ -10,44 +10,39 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.data.RotationState;
-import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
-import com.gregtechceu.gtceu.api.machine.MachineDefinition;
-import com.gregtechceu.gtceu.api.machine.MetaMachine;
-import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
-import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
-import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
+import com.gregtechceu.gtceu.api.machine.*;
+import com.gregtechceu.gtceu.api.machine.multiblock.*;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
-import com.gregtechceu.gtceu.common.data.GTCompassSections;
-import com.gregtechceu.gtceu.common.data.GTMachines;
-import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
-import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.common.machine.multiblock.part.EnergyHatchPartMachine;
-import com.gregtechceu.gtceu.config.ConfigHolder;
-import net.minecraft.network.chat.Component;
+import com.gregtechceu.gtceu.common.data.*;
+import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
+
 import net.minecraft.core.Direction;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraft.network.chat.Component;
+
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
+import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
+import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
+
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 
 
-import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
-import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
-import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.ALL_TIERS;
 
 
-public class EVMachines{
+
+public class EVMachines {
     public static final MachineDefinition[] ENERGY_INPUT_HATCH_64A = registerTieredMachines("energy_input_hatch_64a",
             (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 64),
             (tier, builder) -> builder
@@ -59,6 +54,8 @@ public class EVMachines{
                     .compassNode("energy_hatch")
                     .register(),
             ALL_TIERS);
+
+    public static final MachineDefinition[] CHEMICAL_DEHYDRATOR = registerSimpleMachines("chemical_dehydrator", EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES);
 
     public static final MachineDefinition[] ROBOT_ARM_COMPONENT = registerTieredMachines("robot_arm_component",
             ComponentPartBlock::new,
