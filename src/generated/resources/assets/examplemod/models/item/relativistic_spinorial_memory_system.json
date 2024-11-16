@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "examplemod:item/relativistic_spinorial_memory_system"
+  }
+}

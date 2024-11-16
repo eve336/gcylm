@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "examplemod:item/hot_annealed_zblan_ingot"
+  }
+}

@@ -1,6 +1,7 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
+import com.eve.examplemod.api.registries.EVRegistries;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
@@ -30,6 +31,7 @@ public class EVMaterials {
         CORE_METAL.addAll(EXT2_METAL);
         CORE_METAL.addAll(Arrays.asList(GENERATE_RING, GENERATE_FRAME, GENERATE_ROTOR, GENERATE_SMALL_GEAR, GENERATE_DENSE));
     }
+
     public static final Material Copernicium = new Material.Builder(EVMain.id("copernicium"))
             .ingot(4).liquid()
             .color(0xFFFEFF).iconSet(DULL)
@@ -1431,7 +1433,7 @@ public class EVMaterials {
             .components(Sodium, 2, Oxygen, 4, Ruthenium, 1)
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
-    
+
 
     public static final Material RutheniumDioxide = new Material.Builder(EVMain.id("ruthenium_dioxide"))
             .color(RutheniumTetroxide.getMaterialRGB())
@@ -1550,7 +1552,7 @@ public class EVMaterials {
             .iconSet(DULL)
             .dust()
             .components(Silver, 2, Oxygen, 1)
- 
+
             .buildAndRegister();
 
     public static final Material SilverChloride = new Material.Builder(EVMain.id("silver_chloride"))
@@ -1566,7 +1568,7 @@ public class EVMaterials {
             .iconSet(DULL)
             .dust()
             .components(Potassium, 2, Sulfur, 2, Oxygen, 5)
- 
+
             .buildAndRegister();
 
     public static final Material LeadNitrate = new Material.Builder(EVMain.id("lead_nitrate"))
@@ -1574,7 +1576,7 @@ public class EVMaterials {
             .iconSet(DULL)
             .dust()
             .components(Lead, 1, Nitrogen, 2, Oxygen, 6)
- 
+
             .buildAndRegister();
 
     public static final Material SodiumPotassiumAlloy = new Material.Builder(EVMain.id("sodium_potassium_alloy"))
@@ -8156,7 +8158,6 @@ public class EVMaterials {
             .color(0x61587a).dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister();
-
 
 
 

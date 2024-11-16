@@ -49,6 +49,7 @@ public class EVMain {
     private static void init() {
         EVItems.init();
         EVRegistries.REGISTRATE.registerRegistrate();
+        EVDatagen.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

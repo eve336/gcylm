@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "examplemod:item/alumino_silicate_glass_tube"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "examplemod:item/cladded_optical_fiber_core"
-  }
-}
