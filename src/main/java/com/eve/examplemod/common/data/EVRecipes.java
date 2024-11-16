@@ -1,5 +1,7 @@
 package com.eve.examplemod.common.data;
 
+import com.eve.examplemod.data.recipe.MiscRecipes;
+import com.eve.examplemod.data.recipe.generated.Machines;
 import com.eve.examplemod.data.recipe.generated.Replication;
 import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
@@ -19,5 +21,7 @@ public class EVRecipes {
         Replication.init(consumer);
         GoldChain.init(consumer);
         AluminiumChain.init(consumer);
+        MiscRecipes.init(consumer);
+        Machines.init(consumer);
     }
 }

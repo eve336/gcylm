@@ -16,8 +16,22 @@ import com.tterrag.registrate.util.nullness.NonNullConsumer;
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class EVItems {
 
+
+    // TODO Hot wrought iron ingot that hurts you
+
     public static ItemEntry<Item> smd_capacitor_refined = EVMain.EV_REGISTRATE.item("smd_capacitor_refined", Item::new)
             .register();
+
+
+    public static ItemEntry<Item> mica_sheet = EVMain.EV_REGISTRATE.item("mica_sheet", Item::new)
+            .register();
+
+    public static ItemEntry<Item> mica_insulator_sheet = EVMain.EV_REGISTRATE.item("mica_insulator_sheet", Item::new)
+            .register();
+
+    public static ItemEntry<Item> mica_insulator_foil = EVMain.EV_REGISTRATE.item("mica_insulator_foil", Item::new)
+            .register();
+
     public static ItemEntry<Item> fullerene_polymer_matrix_soft_tubing = EVMain.EV_REGISTRATE.item("fullerene_polymer_matrix_soft_tubing", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> fullerene_polymer_matrix_fine_tubing = EVMain.EV_REGISTRATE.item("fullerene_polymer_matrix_fine_tubing", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> x_ray_waveguide = EVMain.EV_REGISTRATE.item("x_ray_waveguide", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -107,6 +121,7 @@ public class EVItems {
                 lines.add(Component.translatable("item.gtceu.conveyor.module.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", 16));
             })))
+            .lang("Max Conveyor Module")
             .register();
 
     public static ItemEntry<ComponentItem> robot_arm_max = EVRegistries.REGISTRATE.item("robot_arm_max", ComponentItem::create)
@@ -115,6 +130,7 @@ public class EVItems {
                 lines.add(Component.translatable("item.gtceu.robot.arm.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", 16));
             })))
+            .lang("Max Robot Arm")
             .register();
 
 
@@ -125,6 +141,7 @@ public class EVItems {
                 lines.add(Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
                         1280 * 64 * 64 * 4 / 20));
             })))
+            .lang("Max Electric Pump")
             .register();
 
 

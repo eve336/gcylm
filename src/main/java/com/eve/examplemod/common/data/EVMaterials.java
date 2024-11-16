@@ -334,6 +334,8 @@ public class EVMaterials {
             .appendFlags(EXT2_METAL)
             .buildAndRegister();
 
+
+
     public static final Material ZirconiumCarbide = new Material.Builder(EVMain.id("zirconium_carbide"))
             .color(0xFFDACD)
             .iconSet(SHINY)
@@ -748,13 +750,7 @@ public class EVMaterials {
             .buildAndRegister();
 
 
-    public static final Material FishOil = new Material.Builder(EVMain.id("fish_oil"))
-            .color(14467421)
-            .iconSet(FLUID)
-            .fluid()
-            .components(RareEarth, 1)
-            .flags( DISABLE_DECOMPOSITION)
-            .buildAndRegister();
+
 
     public static final Material RawGrowthMedium = new Material.Builder(EVMain.id("raw_growth_medium"))
             .color(10777425)

@@ -73,9 +73,6 @@ public class VOMLogic extends RecipeLogic{
                     }
                 }
             }
-
-
-
         }
     }
 
