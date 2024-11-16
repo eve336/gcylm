@@ -59,5 +59,8 @@
   "block.examplemod.zpm_tri_input_hatch": "ɥɔʇɐH ʇnduI ןɐnᗡ WԀZɔ§",
   "item.examplemod.conveyor_module_max": "ǝןnpoW ɹoʎǝʌuoƆ xɐW",
   "item.examplemod.electric_pump_max": "dɯnԀ ɔıɹʇɔǝןƎ xɐW",
+  "item.examplemod.mica_insulator_foil": "ןıoℲ ɹoʇɐןnsuI ɐɔıW",
+  "item.examplemod.mica_insulator_sheet": "ʇǝǝɥS ɹoʇɐןnsuI ɐɔıW",
+  "item.examplemod.mica_sheet": "ʇǝǝɥS ɐɔıW",
   "item.examplemod.robot_arm_max": "ɯɹⱯ ʇoqoᴚ xɐW"
 }

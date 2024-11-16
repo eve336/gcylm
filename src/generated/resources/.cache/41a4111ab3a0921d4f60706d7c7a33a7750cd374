@@ -1,6 +1,9 @@
-// 1.20.1	2024-11-16T14:31:36.0181065	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
-b7375efbed71942556a5fd7fbd01b839aebe7176 assets/examplemod/lang/en_ud.json
-271923ec56aa8147dda6ed9f4a4aec5ea347935e assets/examplemod/lang/en_us.json
+// 1.20.1	2024-11-16T18:10:05.4298663	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+89dac70e4b5210e8a2a79221a35e4668bfd6c581 assets/examplemod/lang/en_ud.json
+418dc738e92c1c190fd2b26ee0084e9663e5a0e4 assets/examplemod/lang/en_us.json
 1a3dd8ec95fbad4a9d9121ea866d379d17ec62af assets/examplemod/models/item/conveyor_module_max.json
 7d5e9393e6eb1acc11275a3b29b61eca821e858c assets/examplemod/models/item/electric_pump_max.json
+dd832608bfbe420dffb43893e9b79da3d0931c78 assets/examplemod/models/item/mica_insulator_foil.json
+9c86f45303f9627c5047498fca92ddd6cd71f196 assets/examplemod/models/item/mica_insulator_sheet.json
+750fd2bea69ae392f7d9da9dd6b1932687318bc6 assets/examplemod/models/item/mica_sheet.json
 2007f10e2c59cf1e675d07f57252101d830160d9 assets/examplemod/models/item/robot_arm_max.json

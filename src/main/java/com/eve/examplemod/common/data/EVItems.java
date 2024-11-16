@@ -23,13 +23,13 @@ public class EVItems {
             .register();
 
 
-    public static ItemEntry<Item> mica_sheet = EVMain.EV_REGISTRATE.item("mica_sheet", Item::new)
+    public static ItemEntry<Item> mica_sheet = EVRegistries.REGISTRATE.item("mica_sheet", Item::new)
             .register();
 
-    public static ItemEntry<Item> mica_insulator_sheet = EVMain.EV_REGISTRATE.item("mica_insulator_sheet", Item::new)
+    public static ItemEntry<Item> mica_insulator_sheet = EVRegistries.REGISTRATE.item("mica_insulator_sheet", Item::new)
             .register();
 
-    public static ItemEntry<Item> mica_insulator_foil = EVMain.EV_REGISTRATE.item("mica_insulator_foil", Item::new)
+    public static ItemEntry<Item> mica_insulator_foil = EVRegistries.REGISTRATE.item("mica_insulator_foil", Item::new)
             .register();
 
     public static ItemEntry<Item> fullerene_polymer_matrix_soft_tubing = EVMain.EV_REGISTRATE.item("fullerene_polymer_matrix_soft_tubing", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

@@ -59,5 +59,8 @@
   "block.examplemod.zpm_tri_input_hatch": "§cZPM Dual Input Hatch",
   "item.examplemod.conveyor_module_max": "Max Conveyor Module",
   "item.examplemod.electric_pump_max": "Max Electric Pump",
+  "item.examplemod.mica_insulator_foil": "Mica Insulator Foil",
+  "item.examplemod.mica_insulator_sheet": "Mica Insulator Sheet",
+  "item.examplemod.mica_sheet": "Mica Sheet",
   "item.examplemod.robot_arm_max": "Max Robot Arm"
 }
