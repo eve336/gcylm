@@ -10,13 +10,12 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.EVMain.id;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dustTiny;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.ingot;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_PRIMITIVE_BRICKS;
 import static com.gregtechceu.gtceu.common.data.GTMachines.PRIMITIVE_BLAST_FURNACE;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CHEMICAL_RECIPES;
-import static net.minecraft.world.item.Items.FURNACE;
+import static net.minecraft.world.item.Items.*;
 
 public class MiscRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
@@ -34,6 +33,8 @@ public class MiscRecipes {
                     'F', FURNACE.asItem(),
                     'T', PRIMITIVE_BLAST_FURNACE.asStack());
 
+
+
         CHEMICAL_RECIPES.recipeBuilder("biodiesel_creosote_oil_methanol")
                 .inputItems(dustTiny, SodiumHydroxide)
                 .outputFluids(BioDiesel.getFluid(6000))
@@ -42,6 +43,12 @@ public class MiscRecipes {
                 .inputFluids(Methanol.getFluid(1000))
                 .save(provider);
 
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("quartz_block_2x2"),
+                QUARTZ_BLOCK.getDefaultInstance(),
+                "QQ",
+                "QQ",
+                'Q', QUARTZ);
+
         CHEMICAL_RECIPES.recipeBuilder("biodiesel_creosote_oil_ethanol")
                 .inputItems(dustTiny, SodiumHydroxide)
                 .outputFluids(BioDiesel.getFluid(6000))
@@ -49,6 +56,8 @@ public class MiscRecipes {
                 .inputFluids(Creosote.getFluid(6000))
                 .inputFluids(Ethanol.getFluid(1000))
                 .save(provider);
+
+
 
     }
 }

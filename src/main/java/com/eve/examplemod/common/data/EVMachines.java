@@ -87,7 +87,7 @@ public class EVMachines {
     public static final MachineDefinition[] ROBOT_ARM_COMPONENT = registerTieredMachines("robot_arm_component",
             ComponentPartBlock::new,
             (tier, builder) -> builder
-                    .langValue(VNF[tier] + " ROBOT ARM BLOCK")
+                    .langValue(VNF[tier] + " Robot Arm Block")
                     .rotationState(RotationState.ALL)
                     .abilities(EVPartAbility.ROBOT_ARM)
                     .register(),
@@ -96,7 +96,7 @@ public class EVMachines {
     public static final MachineDefinition[] CONVEYOR_COMPONENT = registerTieredMachines("conveyor_component",
             ComponentPartBlock::new,
             (tier, builder) -> builder
-                    .langValue(VNF[tier] + " CONVEYOR BLOCK")
+                    .langValue(VNF[tier] + " Conveyor Block")
                     .rotationState(RotationState.ALL)
                     .abilities(EVPartAbility.CONVEYOR)
                     .register(),

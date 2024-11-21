@@ -3,11 +3,13 @@ package com.eve.examplemod;
 import com.eve.examplemod.common.data.EVCovers;
 import com.eve.examplemod.common.data.EVElements;
 import com.eve.examplemod.common.data.EVRecipes;
+import com.eve.examplemod.data.recipe.Removal;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Consumer;
 
@@ -38,6 +40,10 @@ public class EVAddon implements IGTAddon {
     public void addRecipes(Consumer<FinishedRecipe> provider) {
         //CustomRecipes.init(provider);
         EVRecipes.init(provider);
+    }
+
+    public void removeRecipes(Consumer<ResourceLocation> consumer) {
+
     }
 
     @Override

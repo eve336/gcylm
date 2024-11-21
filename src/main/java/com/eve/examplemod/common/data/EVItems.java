@@ -1,6 +1,7 @@
 package com.eve.examplemod.common.data;
-import com.eve.examplemod.EVMain;
+
 import com.eve.examplemod.api.registries.EVRegistries;
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.IComponentItem;
 import com.gregtechceu.gtceu.common.item.CoverPlaceBehavior;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.Item;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 
+import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
 
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
@@ -31,6 +33,68 @@ public class EVItems {
 
     public static ItemEntry<Item> mica_insulator_foil = EVRegistries.REGISTRATE.item("mica_insulator_foil", Item::new)
             .register();
+
+    public static ItemEntry<Item> refined_processor = EVRegistries.REGISTRATE.item("refined_processor", Item::new)
+            .register();
+
+    public static ItemEntry<Item> refined_assembly = EVRegistries.REGISTRATE.item("refined_assembly", Item::new)
+            .register();
+
+    public static ItemEntry<Item> refined_computer = EVRegistries.REGISTRATE.item("refined_computer", Item::new)
+            .register();
+
+    public static ItemEntry<Item> refined_mainframe = EVRegistries.REGISTRATE.item("refined_mainframe", Item::new)
+            .register();
+
+
+    public static ItemEntry<Item> NANOSILICON_CATHODE = EVRegistries.REGISTRATE.item("NANOSILICON_CATHODE".toLowerCase(), Item::new).register();
+
+
+    public static ItemEntry<Item> BATTERY_NIMH_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_NIMH_EMPTY".toLowerCase(), Item::new).register();
+
+
+    public static ItemEntry<ComponentItem> BATTERY_NIMH = EVRegistries.REGISTRATE
+            .item("BATTERY_NIMH".toLowerCase(), ComponentItem::create)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+
+    public static ItemEntry<Item> BATTERY_SMALL_LITHIUM_ION_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_SMALL_LITHIUM_ION_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_SMALL_LITHIUM_ION = EVRegistries.REGISTRATE.item("BATTERY_SMALL_LITHIUM_ION".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_MEDIUM_LITHIUM_ION_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_MEDIUM_LITHIUM_ION_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_MEDIUM_LITHIUM_ION = EVRegistries.REGISTRATE.item("BATTERY_MEDIUM_LITHIUM_ION".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_LARGE_LITHIUM_ION_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_LARGE_LITHIUM_ION_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_LARGE_LITHIUM_ION = EVRegistries.REGISTRATE.item("BATTERY_LARGE_LITHIUM_ION".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_SMALL_LIS_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_SMALL_LIS_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_SMALL_LIS = EVRegistries.REGISTRATE.item("BATTERY_SMALL_LIS".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_MEDIUM_LIS_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_MEDIUM_LIS_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_MEDIUM_LIS = EVRegistries.REGISTRATE.item("BATTERY_MEDIUM_LIS".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_LARGE_LIS_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_LARGE_LIS_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_LARGE_LIS = EVRegistries.REGISTRATE.item("BATTERY_LARGE_LIS".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_SMALL_FLUORIDE_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_SMALL_FLUORIDE_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_SMALL_FLUORIDE = EVRegistries.REGISTRATE.item("BATTERY_SMALL_FLUORIDE".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_MEDIUM_FLUORIDE_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_MEDIUM_FLUORIDE_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_MEDIUM_FLUORIDE = EVRegistries.REGISTRATE.item("BATTERY_MEDIUM_FLUORIDE".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+    public static ItemEntry<Item> BATTERY_LARGE_FLUORIDE_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_LARGE_FLUORIDE_EMPTY".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> BATTERY_LARGE_FLUORIDE = EVRegistries.REGISTRATE.item("BATTERY_LARGE_FLUORIDE".toLowerCase(), Item::new)
+            .model(overrideModel(GTCEu.id("battery"), 8))
+            .register();
+
 
     public static ItemEntry<Item> fullerene_polymer_matrix_soft_tubing = EVRegistries.REGISTRATE.item("fullerene_polymer_matrix_soft_tubing", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> fullerene_polymer_matrix_fine_tubing = EVRegistries.REGISTRATE.item("fullerene_polymer_matrix_fine_tubing", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -178,14 +242,14 @@ public class EVItems {
     public static ItemEntry<Item> zblan_fiber = EVRegistries.REGISTRATE.item("zblan_fiber", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> erbium_doped_zblan = EVRegistries.REGISTRATE.item("erbium_doped_zblan", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> cladded_optical_fiber_core = EVRegistries.REGISTRATE.item("cladded_optical_fiber_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> acrylic_yarn = EVRegistries.REGISTRATE.item("acrylic_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> rapidly_rotating_crucible = EVRegistries.REGISTRATE.item("rapidly_rotating_crucible", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> heavy_metal_absorbing_yarn = EVRegistries.REGISTRATE.item("heavy_metal_absorbing_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> uranium_saturated_yarn = EVRegistries.REGISTRATE.item("uranium_saturated_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> boron_retaining_yarn = EVRegistries.REGISTRATE.item("boron_retaining_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> boron_saturated_yarn = EVRegistries.REGISTRATE.item("boron_saturated_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> lithium_sieve = EVRegistries.REGISTRATE.item("lithium_sieve", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> lithium_saturated_lithium_sieve = EVRegistries.REGISTRATE.item("lithium_saturated_lithium_sieve", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> ACRYLIC_YARN = EVRegistries.REGISTRATE.item("acrylic_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> RAPIDLY_ROTATING_CRUCIBLE = EVRegistries.REGISTRATE.item("rapidly_rotating_crucible", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> HEAVY_METAL_ABSORBING_YARN = EVRegistries.REGISTRATE.item("heavy_metal_absorbing_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> URANIUM_SATURATED_YARN = EVRegistries.REGISTRATE.item("uranium_saturated_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BORON_RETAINING_YARN = EVRegistries.REGISTRATE.item("boron_retaining_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BORON_SATURATED_YARN = EVRegistries.REGISTRATE.item("boron_saturated_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> LITHIUM_SIEVE = EVRegistries.REGISTRATE.item("lithium_sieve", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> LITHIUM_SATURATED_LITHIUM_SIEVE = EVRegistries.REGISTRATE.item("lithium_saturated_lithium_sieve", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> nanotome = EVRegistries.REGISTRATE.item("nanotome", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> memory_foam_block = EVRegistries.REGISTRATE.item("memory_foam_block", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> laser_diode = EVRegistries.REGISTRATE.item("laser_diode", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

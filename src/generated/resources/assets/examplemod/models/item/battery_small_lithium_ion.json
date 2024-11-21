@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/0",
+      "predicate": {
+        "gtceu:battery": 0.0
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/1",
+      "predicate": {
+        "gtceu:battery": 0.01
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/2",
+      "predicate": {
+        "gtceu:battery": 0.02
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/3",
+      "predicate": {
+        "gtceu:battery": 0.03
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/4",
+      "predicate": {
+        "gtceu:battery": 0.04
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/5",
+      "predicate": {
+        "gtceu:battery": 0.05
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/6",
+      "predicate": {
+        "gtceu:battery": 0.06
+      }
+    },
+    {
+      "model": "examplemod:item/battery_small_lithium_ion/7",
+      "predicate": {
+        "gtceu:battery": 0.07
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "examplemod:item/battery_small_lithium_ion/1"
+  }
+}
