@@ -158,7 +158,7 @@ public class BrineChain {
                 .save(provider);
 
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("brine_chain_19").duration(200).EUt(480)
-                .inputFluids(DebrominatedWater.getFluid(1000))
+                .inputFluids(DebrominatedBrine.getFluid(1000))
                 .outputFluids(Brine.getFluid(100))
                 .save(provider);
 

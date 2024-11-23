@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import static com.eve.examplemod.EVMain.LOGGER;
 import static com.gregtechceu.gtceu.utils.FormattingUtil.toEnglishName;
 
 import static com.gregtechceu.gtceu.common.data.GTCompassSections.MATERIALS;
@@ -33,10 +34,13 @@ public class ItemLang {
     }
     private static void initGeneratedNames(RegistrateLangProvider provider) {
 
+        LOGGER.info("initgeneratedrecipes");
+
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (Objects.equals(material.getModid(), EVMain.MOD_ID)) {
                     provider.add(material.getUnlocalizedName(), toEnglishName(material.getName()));
+                    LOGGER.info(material.getName());
                 }
             }
         }

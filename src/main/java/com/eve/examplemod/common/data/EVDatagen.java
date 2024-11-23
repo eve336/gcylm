@@ -13,8 +13,6 @@ public class EVDatagen {
     public static void init(){
         EV_REGISTRATE.addDataGenerator(ProviderType.LANG, LangHandler::init);
         EV_REGISTRATE.addDataGenerator(ProviderType.LANG, EVLangHandler::init);
-        GTRegistration.REGISTRATE.addDataGenerator(ProviderType.LANG, LangHandler::init);
-        GTRegistration.REGISTRATE.addDataGenerator(ProviderType.LANG, EVLangHandler::init);
     }
 
 }
