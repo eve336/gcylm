@@ -4,14 +4,17 @@ import com.eve.examplemod.api.registries.EVRegistries;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.IComponentItem;
+import com.gregtechceu.gtceu.common.data.GTCompassSections;
 import com.gregtechceu.gtceu.common.item.CoverPlaceBehavior;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 
+import static com.gregtechceu.gtceu.common.data.GTItems.compassNode;
 import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
 
 
@@ -35,15 +38,19 @@ public class EVItems {
             .register();
 
     public static ItemEntry<Item> refined_processor = EVRegistries.REGISTRATE.item("refined_processor", Item::new)
+            .tag(CustomTags.LV_CIRCUITS)
             .register();
 
     public static ItemEntry<Item> refined_assembly = EVRegistries.REGISTRATE.item("refined_assembly", Item::new)
+            .tag(CustomTags.MV_CIRCUITS)
             .register();
 
     public static ItemEntry<Item> refined_computer = EVRegistries.REGISTRATE.item("refined_computer", Item::new)
+            .tag(CustomTags.HV_CIRCUITS)
             .register();
 
     public static ItemEntry<Item> refined_mainframe = EVRegistries.REGISTRATE.item("refined_mainframe", Item::new)
+            .tag(CustomTags.EV_CIRCUITS)
             .register();
 
 

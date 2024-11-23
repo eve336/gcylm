@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-21T13:27:18.51229	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2024-11-23T16:50:57.248337	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 f3edf73a91f35674d312d6f12fab8d48a5a77c43 assets/examplemod/lang/en_ud.json
 12a194ced42ddf68098aff033e1a1f736bd062b9 assets/examplemod/lang/en_us.json
 2b33051d77fa96e1858c3db10a12f522cc9da700 assets/examplemod/models/item/acrylic_yarn.json
@@ -308,3 +308,7 @@ e76f4935935125ddeaa1cb9648208a2be9bb0fbe assets/examplemod/models/item/x_ray_mir
 6f31595b75ef67dd024ec63841243a2edeb7bc9e assets/examplemod/models/item/zblan.json
 d072a4fbdc5953a3599106c23d053d559673b17b assets/examplemod/models/item/zblan_fiber.json
 dda2343de71b17e465a5080744abf7c5c4bc9b2c assets/examplemod/models/item/zblan_ingot.json
+31f52b70b2865b969a5367bd1615932064d7afb5 data/gtceu/tags/items/circuits/ev.json
+6d693b3125c1d85176280e194c5e8c3914fa1056 data/gtceu/tags/items/circuits/hv.json
+90062a0b6aaafa289fdf7171e222a5383843052f data/gtceu/tags/items/circuits/lv.json
+6b858032bbe21f76bad238870d68404eff0b43df data/gtceu/tags/items/circuits/mv.json

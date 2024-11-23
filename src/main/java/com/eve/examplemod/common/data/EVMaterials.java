@@ -815,14 +815,6 @@ public class EVMaterials {
             .flags( DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material HighOctaneGasoline = new Material.Builder(EVMain.id("high_octane"))
-            .color(0xC7860B)
-            .iconSet(FLUID)
-            .fluid()
-            .components(RareEarth, 1, Carbon, 8, Hydrogen, 18)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
-
 
 
     public static final Material EthylTertButylEther = new Material.Builder(EVMain.id("ethyl_tert_butyl_ether"))
@@ -833,13 +825,7 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material Gasoline = new Material.Builder(EVMain.id("gasoline"))
-            .color(0xC7860B)
-            .iconSet(FLUID)
-            .fluid()
-            .components(RareEarth, 1)
-            .flags( DISABLE_DECOMPOSITION)
-            .buildAndRegister();
+
 
     public static final Material RawGasoline = new Material.Builder(EVMain.id("raw_gasoline"))
             .color(0xC5560C)
@@ -993,13 +979,6 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material LiquidOxygen = new Material.Builder(EVMain.id("liquid_oxygen"))
-            .color(0x81FFFD)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Oxygen, 1)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
 
     public static final Material FermentationBase = new Material.Builder(EVMain.id("fermentation_base"))
             .color(0x3D5917)

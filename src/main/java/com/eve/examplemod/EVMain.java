@@ -30,7 +30,7 @@ public class EVMain {
     public EVMain() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        EVDatagen.init();
+
         EVMain.init();
 
         modEventBus.addListener(this::commonSetup);
@@ -50,7 +50,7 @@ public class EVMain {
     private static void init() {
         EVItems.init();
         EVRegistries.REGISTRATE.registerRegistrate();
-
+        EVDatagen.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

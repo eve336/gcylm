@@ -15,6 +15,7 @@ import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_PRIMITIVE_BRICKS
 import static com.gregtechceu.gtceu.common.data.GTMachines.PRIMITIVE_BLAST_FURNACE;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CHEMICAL_RECIPES;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.COKE_OVEN_RECIPES;
 import static net.minecraft.world.item.Items.*;
 
 public class MiscRecipes {
@@ -56,6 +57,13 @@ public class MiscRecipes {
                 .inputFluids(Creosote.getFluid(6000))
                 .inputFluids(Ethanol.getFluid(1000))
                 .save(provider);
+
+        COKE_OVEN_RECIPES.recipeBuilder("charcoal_coke_oven")
+                .inputItems(gem, Charcoal)
+                .outputItems(gem, Coke)
+                .outputFluids(Creosote.getFluid(1750))
+                .save(provider);
+
 
 
 
