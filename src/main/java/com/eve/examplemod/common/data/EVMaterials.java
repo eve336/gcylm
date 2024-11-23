@@ -71,6 +71,7 @@ public class EVMaterials {
             .buildAndRegister();
 
     public static final Material Cryotheum = new Material.Builder(EVMain.id("cryotheum"))
+
             .color(0x01F3F6)
             .iconSet(SAND)
             .dust(1)

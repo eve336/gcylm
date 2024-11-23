@@ -1,6 +1,7 @@
 package com.eve.examplemod.common.data.lang;
 
 
+import com.eve.examplemod.EVMain;
 import com.eve.examplemod.common.data.EVMaterials;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -16,7 +17,10 @@ import com.gregtechceu.gtceu.utils.FormattingUtil;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
+import static com.gregtechceu.gtceu.utils.FormattingUtil.toEnglishName;
 
 import static com.gregtechceu.gtceu.common.data.GTCompassSections.MATERIALS;
 
@@ -29,15 +33,19 @@ public class ItemLang {
     }
     private static void initGeneratedNames(RegistrateLangProvider provider) {
 
-
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
-                provider.add(material.getUnlocalizedName(), FormattingUtil.toEnglishName(material.getName()));
+                if (Objects.equals(material.getModid(), EVMain.MOD_ID)) {
+                    provider.add(material.getUnlocalizedName(), toEnglishName(material.getName()));
+                }
             }
         }
 
 
+        provider.add("material.examplemod.cryotheum","rizzler");
+
     }
+
     private static void initItemTooltips(RegistrateLangProvider provider) {
         provider.add("item.examplemod.refined_processor.tooltip","§7LV-Tier Circuit");
 
