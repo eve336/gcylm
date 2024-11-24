@@ -1,7 +1,6 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
-import com.eve.examplemod.api.data.material.properties.EVFluidPipeProperties;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;

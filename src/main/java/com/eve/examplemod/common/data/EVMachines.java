@@ -21,6 +21,7 @@ import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
+import com.gregtechceu.gtceu.client.renderer.machine.TieredHullMachineRenderer;
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
 
@@ -110,10 +111,11 @@ public class EVMachines {
                     .langValue(CLR[tier] + "Integral Framework " + ROMAN[tier])
                     .tooltips(Component.translatable("Max Voltage " + VN[tier]))
                     .rotationState(RotationState.ALL)
+                    // TODO find anything but this shitty workaround
+                    .overlayTieredHullRenderer(VN[tier].toLowerCase() + "_integral_framework")
                     .abilities(EVPartAbility.INTEGRAL_FRAMEWORK)
                     .register(),
             ALL_TIERS);
-
 
     public static final MultiblockMachineDefinition VOM1 = REGISTRATE
             .multiblock("vom", holder -> new miner(holder, UHV, 9000))
