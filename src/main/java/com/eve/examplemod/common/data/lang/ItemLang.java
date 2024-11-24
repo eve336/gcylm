@@ -38,9 +38,6 @@ public class ItemLang {
     }
 
     private static void initItemTooltips(RegistrateLangProvider provider) {
-        provider.add("item.examplemod.refined_processor.tooltip","§7LV-Tier Circuit");
-
-
-
+        provider.add("item.examplemod.refined_processor.tooltip","LV-Tier Circuit");
     }
 }

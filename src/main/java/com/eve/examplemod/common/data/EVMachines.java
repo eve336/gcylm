@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
+import static com.eve.examplemod.api.EVValues.CLR;
+import static com.eve.examplemod.api.EVValues.ROMAN;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.abilities;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
@@ -102,6 +104,17 @@ public class EVMachines {
                     .register(),
             ALL_TIERS);
 
+    public static final MachineDefinition[] INTEGRAL_FRAMEWORK = registerTieredMachines("integral_framework",
+            ComponentPartBlock::new,
+            (tier, builder) -> builder
+                    .langValue(CLR[tier] + "Integral Framework " + ROMAN[tier])
+                    .tooltips(Component.translatable("Max Voltage " + VN[tier]))
+                    .rotationState(RotationState.ALL)
+                    .abilities(EVPartAbility.INTEGRAL_FRAMEWORK)
+                    .register(),
+            ALL_TIERS);
+
+
     public static final MultiblockMachineDefinition VOM1 = REGISTRATE
             .multiblock("vom", holder -> new miner(holder, UHV, 9000))
             .tooltips(GTMachines.defaultEnvironmentRequirement())
@@ -121,6 +134,7 @@ public class EVMachines {
                         .where('S', Predicates.controller(blocks(definition.getBlock())))
                         .where('X', casing.or(abilities).or(abilities(PartAbility.EXPORT_FLUIDS))
                                 .or(abilities(PartAbility.IMPORT_FLUIDS))
+                                .or(abilities(PartAbility.EXPORT_FLUIDS))
                                 .or(abilities(PartAbility.INPUT_ENERGY))
                                 .or(abilities(PartAbility.IMPORT_ITEMS))
                                 .or(abilities(PartAbility.EXPORT_ITEMS))

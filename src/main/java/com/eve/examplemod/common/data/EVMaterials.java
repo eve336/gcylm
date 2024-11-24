@@ -1,16 +1,23 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
+import com.eve.examplemod.api.data.material.properties.EVFluidPipeProperties;
+import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
+import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
+import com.gregtechceu.gtceu.api.fluids.attribute.FluidAttribute;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static com.eve.examplemod.common.data.EVElements.*;
 import static com.gregtechceu.gtceu.api.GTValues.*;

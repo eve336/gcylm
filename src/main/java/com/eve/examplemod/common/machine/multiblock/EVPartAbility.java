@@ -11,6 +11,8 @@ public class EVPartAbility extends PartAbility {
     public static final PartAbility EMITTER = new PartAbility("emitter");
     public static final PartAbility SENSOR = new PartAbility("sensor");
     public static final PartAbility CONVEYOR = new PartAbility("conveyor");
+    public static final PartAbility INTEGRAL_FRAMEWORK = new PartAbility("integral_framework");
+
 
 
     public EVPartAbility(String name) {
