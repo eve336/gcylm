@@ -4,12 +4,10 @@ import com.eve.examplemod.EVMain;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.FluidProperty;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.WireProperties;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +34,14 @@ public class EVMaterials {
         PotassiumHydroxide.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
         AmmoniumChloride.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+
+
+
+        Bohrium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        Bohrium.addFlags(GENERATE_PLATE);
+
+        Seaborgium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        Seaborgium.addFlags(GENERATE_PLATE);
     }
 
 

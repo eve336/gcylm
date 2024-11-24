@@ -8,6 +8,5 @@ import static com.gregtechceu.gtceu.utils.FormattingUtil.toEnglishName;
 
 public class MaterialLangGenerator {
     public static void generate(RegistrateLangProvider provider) {
-        provider.add(EVMaterials.Cryotheum.getUnlocalizedName(), toEnglishName(EVMaterials.Cryotheum.getName()));
     }
 }

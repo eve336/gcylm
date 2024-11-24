@@ -1,5 +1,6 @@
 package com.eve.examplemod;
 
+import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.EVCovers;
 import com.eve.examplemod.common.data.EVElements;
 import com.eve.examplemod.common.data.EVRecipes;
@@ -18,7 +19,7 @@ import java.util.function.Consumer;
 public class EVAddon implements IGTAddon {
     @Override
     public GTRegistrate getRegistrate() {
-        return EVMain.EV_REGISTRATE;
+        return EVRegistries.REGISTRATE;
     }
 
     @Override
@@ -42,8 +43,8 @@ public class EVAddon implements IGTAddon {
         EVRecipes.init(provider);
     }
 
-    public void removeRecipes(Consumer<ResourceLocation> consumer) {
-
+    public void removeRecipes(Consumer<ResourceLocation> registry) {
+        Removal.init(registry);
     }
 
     @Override

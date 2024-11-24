@@ -34,19 +34,6 @@ public class ItemLang {
     }
     private static void initGeneratedNames(RegistrateLangProvider provider) {
 
-        LOGGER.info("initgeneratedrecipes");
-
-        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
-            for (Material material : registry.getAllMaterials()) {
-                if (Objects.equals(material.getModid(), EVMain.MOD_ID)) {
-                    provider.add(material.getUnlocalizedName(), toEnglishName(material.getName()));
-                    LOGGER.info(material.getName());
-                }
-            }
-        }
-
-
-        provider.add("material.examplemod.cryotheum","rizzler");
 
     }
 

@@ -12,10 +12,10 @@ import java.util.function.Consumer;
 import static com.eve.examplemod.EVMain.id;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_PRIMITIVE_BRICKS;
+import static com.gregtechceu.gtceu.common.data.GTMachines.ELECTRIC_BLAST_FURNACE;
 import static com.gregtechceu.gtceu.common.data.GTMachines.PRIMITIVE_BLAST_FURNACE;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CHEMICAL_RECIPES;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.COKE_OVEN_RECIPES;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static net.minecraft.world.item.Items.*;
 
 public class MiscRecipes {
@@ -64,8 +64,13 @@ public class MiscRecipes {
                 .outputFluids(Creosote.getFluid(1750))
                 .save(provider);
 
-
-
+        BLAST_RECIPES.recipeBuilder("blast_silicon_1")
+                .blastFurnaceTemp(1700)
+                .inputItems(dust, Silicon)
+                .outputItems(ingot, Silicon)
+                .EUt(128)
+                .duration(50*20)
+                .save(provider);
 
     }
 }

@@ -596,7 +596,7 @@ public class BrineChain {
         CENTRIFUGE_RECIPES.recipeBuilder("brine_chain_74").duration(200).EUt(120)
                 .inputItems(dust,PotassiumMagnesiumSalts, 15)
                 .outputItems(dust, RockSalt, 2)
-                .outputItems(MagnesiumSulfate, 6)
+                .outputItems(dust, MagnesiumSulfate, 6)
                 .outputItems(PotassiumSulfate, 7)
                 .chancedOutput(ChemicalHelper.get(dustTiny, PotassiumFluoride, 2), 400, 0)
                 .save(provider);
@@ -669,7 +669,7 @@ public class BrineChain {
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("brine_chain_83").duration(270).EUt(480)
                 .inputFluids(MagnesiumContainingBrine.getFluid(1000))
                 .outputItems(dust, MagnesiumChloride, 3)
-                .outputItems(MagnesiumSulfate, 6)
+                .outputItems(dust, MagnesiumSulfate, 6)
                 .outputFluids(LithiumChlorideSolution.getFluid(200))
                 .save(provider);
     }
