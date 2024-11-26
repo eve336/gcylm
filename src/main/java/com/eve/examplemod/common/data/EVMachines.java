@@ -113,8 +113,8 @@ public class EVMachines {
                     .langValue(CLR[tier] + "Integral Framework " + ROMAN[tier])
                     .tooltips(Component.translatable("Max Voltage " + VN[tier]))
                     .rotationState(RotationState.ALL)
+                    .modelRenderer(() -> EVMain.id("block/machine/part/"+VN[tier].toLowerCase() + "_integral_framework"))
                     // TODO find anything but this shitty workaround
-                    .overlayTieredHullRenderer(VN[tier].toLowerCase() + "_integral_framework")
                     .abilities(EVPartAbility.INTEGRAL_FRAMEWORK)
                     .register(),
             ALL_TIERS);
