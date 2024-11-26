@@ -141,16 +141,6 @@ public class CircuitRecipes {
                 .outputItems(PROCESSOR_ASSEMBLY_HV, 1)
                 .save(provider);
 
-// Micro Computer
-        CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("micro_computer_refined").duration(200).EUt(425)
-                .inputItems(PROCESSOR_ASSEMBLY_HV, 4)
-                .inputItems(smd_resistor_refined, 8)
-                .inputItems(smd_transistor_refined, 8)
-                .inputItems(RANDOM_ACCESS_MEMORY, 8)
-                .inputItems(ADVANCED_CIRCUIT_BOARD, 1)
-                .inputItems(wireGtSingle, HVSuperconductor, 1)
-                .outputItems(WORKSTATION_EV, 1)
-                .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("micro_computer_standard").duration(200).EUt(425)
                 .inputItems(PROCESSOR_ASSEMBLY_HV, 4)
