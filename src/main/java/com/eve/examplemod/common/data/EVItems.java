@@ -119,6 +119,10 @@ public class EVItems {
     public static ItemEntry<Item> protonated_fullerene_sieving_matrix = EVRegistries.REGISTRATE.item("protonated_fullerene_sieving_matrix", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> saturated_fullerene_sieving_matrix = EVRegistries.REGISTRATE.item("saturated_fullerene_sieving_matrix", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> petri_dish = EVRegistries.REGISTRATE.item("petri_dish", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_capacitor_micro  = EVRegistries.REGISTRATE.item("smd_capacitor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_resistor_micro  = EVRegistries.REGISTRATE.item("smd_resistor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_diode_micro  = EVRegistries.REGISTRATE.item("smd_diode_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_transistor_micro  = EVRegistries.REGISTRATE.item("smd_transistor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_capacitor_nano = EVRegistries.REGISTRATE.item("smd_capacitor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_capacitor_quantum = EVRegistries.REGISTRATE.item("smd_capacitor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_capacitor_crystal = EVRegistries.REGISTRATE.item("smd_capacitor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -127,7 +131,7 @@ public class EVItems {
     public static ItemEntry<Item> smd_capacitor_optical = EVRegistries.REGISTRATE.item("smd_capacitor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_capacitor_exotic = EVRegistries.REGISTRATE.item("smd_capacitor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_capacitor_cosmic = EVRegistries.REGISTRATE.item("smd_capacitor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_supracausal = EVRegistries.REGISTRATE.item("smd_capacitor_supracausal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_capacitor_supracausal = EVRegistries.REGISTRATE.item("smd_capacitor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_resistor_refined = EVRegistries.REGISTRATE.item("smd_resistor_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_resistor_nano = EVRegistries.REGISTRATE.item("smd_resistor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_resistor_quantum = EVRegistries.REGISTRATE.item("smd_resistor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -137,7 +141,7 @@ public class EVItems {
     public static ItemEntry<Item> smd_resistor_optical = EVRegistries.REGISTRATE.item("smd_resistor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_resistor_exotic = EVRegistries.REGISTRATE.item("smd_resistor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_resistor_cosmic = EVRegistries.REGISTRATE.item("smd_resistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_supracausal = EVRegistries.REGISTRATE.item("smd_resistor_supracausal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_resistor_supracausal = EVRegistries.REGISTRATE.item("smd_resistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_diode_refined = EVRegistries.REGISTRATE.item("smd_diode_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_diode_nano = EVRegistries.REGISTRATE.item("smd_diode_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_diode_quantum = EVRegistries.REGISTRATE.item("smd_diode_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -147,7 +151,7 @@ public class EVItems {
     public static ItemEntry<Item> smd_diode_optical = EVRegistries.REGISTRATE.item("smd_diode_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_diode_exotic = EVRegistries.REGISTRATE.item("smd_diode_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_diode_cosmic = EVRegistries.REGISTRATE.item("smd_diode_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_supracausal = EVRegistries.REGISTRATE.item("smd_diode_supracausal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_diode_supracausal = EVRegistries.REGISTRATE.item("smd_diode_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_transistor_refined = EVRegistries.REGISTRATE.item("smd_transistor_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_transistor_nano = EVRegistries.REGISTRATE.item("smd_transistor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_transistor_quantum = EVRegistries.REGISTRATE.item("smd_transistor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -157,7 +161,7 @@ public class EVItems {
     public static ItemEntry<Item> smd_transistor_optical = EVRegistries.REGISTRATE.item("smd_transistor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_transistor_exotic = EVRegistries.REGISTRATE.item("smd_transistor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> smd_transistor_cosmic = EVRegistries.REGISTRATE.item("smd_transistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_supracausal = EVRegistries.REGISTRATE.item("smd_transistor_supracausal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> smd_transistor_supracausal = EVRegistries.REGISTRATE.item("smd_transistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> cosmic_processor = EVRegistries.REGISTRATE.item("cosmic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> cosmic_assembly = EVRegistries.REGISTRATE.item("cosmic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> cosmic_computer = EVRegistries.REGISTRATE.item("cosmic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -174,10 +178,10 @@ public class EVItems {
     public static ItemEntry<Item> exotic_assembly = EVRegistries.REGISTRATE.item("exotic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> exotic_computer = EVRegistries.REGISTRATE.item("exotic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> exotic_mainframe = EVRegistries.REGISTRATE.item("exotic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_processor = EVRegistries.REGISTRATE.item("supracausal_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_assembly = EVRegistries.REGISTRATE.item("supracausal_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_computer = EVRegistries.REGISTRATE.item("supracausal_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_mainframe = EVRegistries.REGISTRATE.item("supracausal_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> supracausal_processor = EVRegistries.REGISTRATE.item("supracasual_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> supracausal_assembly = EVRegistries.REGISTRATE.item("supracasual_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> supracausal_computer = EVRegistries.REGISTRATE.item("supracasual_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> supracausal_mainframe = EVRegistries.REGISTRATE.item("supracasual_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> unstable_star = EVRegistries.REGISTRATE.item("unstable_star", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
     public static ItemEntry<Item> electric_piston_max = EVRegistries.REGISTRATE.item("electric_piston_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -329,7 +333,7 @@ public class EVItems {
     public static ItemEntry<Item> relativistic_spinorial_memory_system = EVRegistries.REGISTRATE.item("relativistic_spinorial_memory_system", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> graviton_transducer = EVRegistries.REGISTRATE.item("graviton_transducer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> nuclear_clock = EVRegistries.REGISTRATE.item("nuclear_clock", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_processing_core = EVRegistries.REGISTRATE.item("supracausal_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> supracausal_processing_core = EVRegistries.REGISTRATE.item("supracasual_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> manifold_oscillatory_power_cell = EVRegistries.REGISTRATE.item("manifold_oscillatory_power_cell", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> qcd_protective_plating = EVRegistries.REGISTRATE.item("qcd_protective_plating", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ctc_guidance_unit = EVRegistries.REGISTRATE.item("ctc_guidance_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

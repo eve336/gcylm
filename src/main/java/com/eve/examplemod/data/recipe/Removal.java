@@ -60,5 +60,24 @@ public class Removal {
         // [sic]
         registry.accept(new ResourceLocation("gtceu:chemical_bath/silion_cool_down"));
         registry.accept(new ResourceLocation("gtceu:chemical_bath/silicon_cool_down_distilled_water"));
+        registry.accept(new ResourceLocation("gtceu:circuit_assembler/wetware_board"));
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/wetware_circuit_board_iron3"));
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/wetware_circuit_board_persulfate"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/wetware_circuit_board_iron3"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/wetware_circuit_board_persulfate"));
+        registry.accept(new ResourceLocation("gtceu:assembler/mds_coil_block"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_cupronickel"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_kanthal"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_nichrome"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_rtm_alloy"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_hssg"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_naquadah"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_trinium"));
+        registry.accept(new ResourceLocation("gtceu:assembler/coil_tritanium"));
+        registry.accept(new ResourceLocation("gtceu:assembler/inductor"));
+        registry.accept(new ResourceLocation("gtceu:assembler/inductor_annealed"));
+        registry.accept(new ResourceLocation("gtceu:assembler/inductor_nzf"));
+        registry.accept(new ResourceLocation("gtceu:assembler/inductor_nzf_annealed"));
+
     }
 }

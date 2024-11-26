@@ -48,6 +48,8 @@ public class EVMaterials {
 
         Seaborgium.setProperty(PropertyKey.INGOT, new IngotProperty());
         Seaborgium.addFlags(GENERATE_PLATE);
+
+        TinAlloy.addFlags(GENERATE_FINE_WIRE);
     }
 
 

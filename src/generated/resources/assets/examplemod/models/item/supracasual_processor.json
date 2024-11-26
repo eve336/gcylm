@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "examplemod:item/supracausal_computer"
+    "layer0": "examplemod:item/supracasual_processor"
   }
 }

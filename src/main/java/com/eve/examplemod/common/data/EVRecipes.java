@@ -2,6 +2,7 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.data.recipe.MiscRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
+import com.eve.examplemod.data.recipe.circuit.CircuitRecipes;
 import com.eve.examplemod.data.recipe.generated.Machines;
 import com.eve.examplemod.data.recipe.generated.Replication;
 import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
@@ -30,5 +31,6 @@ public class EVRecipes {
         Batteries.init(consumer);
         BrineChain.init(consumer);
         BariumChain.init(consumer);
+        CircuitRecipes.init(consumer);
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "examplemod:item/smd_resistor_supracausal"
+    "layer0": "examplemod:item/smd_resistor_micro"
   }
 }

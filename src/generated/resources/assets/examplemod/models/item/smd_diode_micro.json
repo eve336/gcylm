@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "examplemod:item/smd_transistor_supracausal"
+    "layer0": "examplemod:item/smd_diode_micro"
   }
 }
