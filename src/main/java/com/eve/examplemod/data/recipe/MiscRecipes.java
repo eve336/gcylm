@@ -16,6 +16,7 @@ import java.util.function.Consumer;
 import static com.eve.examplemod.EVMain.id;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.ACTIVE_COOLER_RECIPES;
 import static com.gregtechceu.gtceu.api.GTValues.V;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
@@ -140,6 +141,11 @@ public class MiscRecipes {
                 .outputItems(COIL_NAQUADAH.asItem())
                 .EUt(V[GTValues.LuV])
                 .duration(5*20)
+                .save(provider);
+
+        ACTIVE_COOLER_RECIPES.recipeBuilder("cryotheum")
+                .inputFluids(Cryotheum.getFluid(1))
+                .duration(20)
                 .save(provider);
     }
 }

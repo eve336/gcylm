@@ -13,6 +13,12 @@ public class EVPartAbility extends PartAbility {
     public static final PartAbility CONVEYOR = new PartAbility("conveyor");
     public static final PartAbility INTEGRAL_FRAMEWORK = new PartAbility("integral_framework");
 
+    public static final PartAbility FUEL_CELL = new PartAbility("fuel_cell");
+    public static final PartAbility COOLER = new PartAbility("cooler");
+
+
+
+
 
 
     public EVPartAbility(String name) {
