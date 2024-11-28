@@ -31,6 +31,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     private int fuelCells;
     private int totalHeat;
     private TickableSubscription serverTickEvent;
+    int temp = 0;
 
 
 
@@ -74,7 +75,6 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         if(!isRemote() && isFormed()) {
             updateServerTickSubscription();
         }
-
     }
 
     @Override
@@ -91,7 +91,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     public void addDisplayText(List<Component> textList) {
         super.addDisplayText(textList);
         textList.add(Component.translatable(String.valueOf(fuelCells)));
-        textList.add(Component.translatable("Total Heat: " + String.valueOf(totalHeat)));
+        textList.add(Component.translatable("Total Heat: " + totalHeat));
     }
 
     private void updateServerTickSubscription() {
@@ -99,13 +99,23 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     }
 
     private void serverTickEvent() {
-        totalHeat = 0;
-        for (IFuelCell cell : iFuelCells){
-            totalHeat = totalHeat + cell.getHeat();
-        }
     }
 
+    @Override
+    public boolean onWorking() {
+        if (recipeLogic.getLastRecipe() != null) {
+            temp = recipeLogic.getLastRecipe().data.getInt("temp");
+        }
+        totalHeat = 0;
+        if (isFormed && iFuelCells != null) {
+            for (IFuelCell cell : iFuelCells) {
+                cell.changeHeat(temp);
+                totalHeat = totalHeat + cell.getHeat();
+            }
+        }
+        return super.onWorking();
 
+    }
 
     public boolean isBlockEdge(@NotNull Level world, @NotNull BlockPos.MutableBlockPos pos, @NotNull Direction direction) {
         return world.getBlockState(pos.move(direction)) == GTBlocks.PLASTCRETE.getDefaultState();
@@ -253,12 +263,12 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
             center[center.length - 1] = controllerBuilder.toString();
         }
         TraceabilityPredicate wallPredicate = states(getCasingState(), getGlassState());
-        TraceabilityPredicate basePredicate = Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2)
+        TraceabilityPredicate basePredicate = abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2)
                 .or(autoAbilities(getRecipeType()));
         // layer the slices one behind the next
         return  // the block beneath the controller must only be a casing for structure
                 // dimension checks
-                FactoryBlockPattern.start().aisle(wall).aisle(slice).setRepeatable(bDist - 1).aisle(center).aisle(slice).setRepeatable(fDist - 1).aisle(wall).where('S', Predicates.controller(Predicates.blocks(this.getDefinition().get()))).where('B', states(getCasingState()).or(basePredicate)).where('X', wallPredicate.or(basePredicate).or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30))).where('K', wallPredicate).where('F', Predicates.cleanroomFilters()).where(' ', any().or(abilities(EVPartAbility.FUEL_CELL))).build();
+                FactoryBlockPattern.start().aisle(wall).aisle(slice).setRepeatable(bDist - 1).aisle(center).aisle(slice).setRepeatable(fDist - 1).aisle(wall).where('S', controller(blocks(this.getDefinition().get()))).where('B', states(getCasingState()).or(basePredicate)).where('X', wallPredicate.or(basePredicate).or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30))).where('K', wallPredicate).where('F', cleanroomFilters()).where(' ', any().or(abilities(EVPartAbility.FUEL_CELL))).build();
 
 
     }

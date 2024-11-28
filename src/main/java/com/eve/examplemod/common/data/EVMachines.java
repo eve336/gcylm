@@ -262,7 +262,7 @@ public class EVMachines{
     public static final MultiblockMachineDefinition NUCLEAR_REACTOR = REGISTRATE
             .multiblock("nuclear_reactor", NuclearReactor::new)
             .rotationState(RotationState.ALL)
-            .recipeType(GTRecipeTypes.DUMMY_RECIPES)
+            .recipeType(EVRecipeTypes.NUCLEAR_REACTOR_RECIPES)
             .alwaysTryModifyRecipe(true)
             .appearanceBlock(CASING_STEEL_SOLID)
             .pattern(definition -> FactoryBlockPattern.start()
