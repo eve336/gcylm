@@ -24,6 +24,10 @@ public class ActiveCooler extends WorkableTieredMachine {
         if(!isRemote()) {
             updateServerTickSubscription();
         }
+
+
+
+
     }
 
     private void updateServerTickSubscription() {

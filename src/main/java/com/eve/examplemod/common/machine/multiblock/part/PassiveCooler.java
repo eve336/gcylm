@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class PassiveCooler extends MultiblockPartMachine {
@@ -42,37 +43,13 @@ public class PassiveCooler extends MultiblockPartMachine {
         if(!isRemote()) {
             updateServerTickSubscription();
         }
+
     }
 
     private void serverTickEvent() {
-        if (getLevel().getBlockEntity(getPos().relative(Direction.DOWN, 1)) instanceof MetaMachineBlockEntity blockentity){
-            if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                fuel.subtractHeat(200);
-            }
-        }
-        if (getLevel().getBlockEntity(getPos().relative(Direction.NORTH, 1)) instanceof MetaMachineBlockEntity blockentity){
-            if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                fuel.subtractHeat(200);
-            }
-        }
-        if (getLevel().getBlockEntity(getPos().relative(Direction.SOUTH, 1)) instanceof MetaMachineBlockEntity blockentity){
-            if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                fuel.subtractHeat(200);
-            }
-        }
-        if (getLevel().getBlockEntity(getPos().relative(Direction.EAST, 1)) instanceof MetaMachineBlockEntity blockentity){
-            if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                fuel.subtractHeat(200);
-            }
-        }
-        if (getLevel().getBlockEntity(getPos().relative(Direction.WEST, 1)) instanceof MetaMachineBlockEntity blockentity){
-            if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                fuel.subtractHeat(200);
-            }
-        }
-        if (getLevel().getBlockEntity(getPos().relative(Direction.UP, 1)) instanceof MetaMachineBlockEntity blockentity){
-            if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                fuel.subtractHeat(200);
+        for (var direction : Direction.values()) {
+            if (MetaMachine.getMachine(getLevel(), getPos().relative(direction)) instanceof IFuelCell rizz) {
+                rizz.subtractHeat(200);
             }
         }
     }

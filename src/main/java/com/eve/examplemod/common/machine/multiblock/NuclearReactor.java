@@ -1,8 +1,6 @@
 package com.eve.examplemod.common.machine.multiblock;
 
-import com.eve.examplemod.api.capability.IComponentPart;
 import com.eve.examplemod.api.capability.IFuelCell;
-import com.eve.examplemod.common.machine.multiblock.part.FuelCell;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
@@ -13,8 +11,6 @@ import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
-import com.gregtechceu.gtceu.common.data.GTMachines;
-import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,6 +45,8 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     @Persisted
     private int hDist = 0;
 
+    public List<IFuelCell> iFuelCells;
+
 
     public NuclearReactor(IMachineBlockEntity holder) {
         super(holder);
@@ -65,6 +63,9 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
                 fuelCells++;
             }
         }
+        iFuelCells = getParts().stream()
+                .filter(p -> p instanceof IFuelCell).map(IFuelCell.class::cast)
+                .toList();
     }
 
     @Override
@@ -73,6 +74,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         if(!isRemote() && isFormed()) {
             updateServerTickSubscription();
         }
+
     }
 
     @Override
@@ -80,6 +82,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         super.onStructureInvalid();
         fuelCells = 0;
         totalHeat = 0;
+        iFuelCells = null;
     }
 
 
@@ -97,11 +100,8 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
 
     private void serverTickEvent() {
         totalHeat = 0;
-        for (IMultiPart part : getParts()) {
-            if (part instanceof IFuelCell){
-                totalHeat = totalHeat + ((IFuelCell) part).getHeat();
-                ((IFuelCell) part).changeHeat(100);
-            }
+        for (IFuelCell cell : iFuelCells){
+            totalHeat = totalHeat + cell.getHeat();
         }
     }
 
