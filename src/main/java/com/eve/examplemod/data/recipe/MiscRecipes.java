@@ -152,5 +152,23 @@ public class MiscRecipes {
                 .inputItems(ingot, Uranium235)
                 .addData("temp", 100)
                 .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("sodium_hydroxide")
+                .EUt(32)
+                .inputItems(dust, Sodium, 2)
+                .inputFluids(Water.getFluid(2000))
+                .outputItems(dust, SodiumHydroxide, 2)
+                .outputFluids(Hydrogen.getFluid(1000))
+                .duration(20*70)
+                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("epoxy_petrochem")
+                .inputFluids(NitrogenDioxide.getFluid(1000))
+                .inputFluids(Naphtha.getFluid(30000))
+                .inputFluids(Epichlorohydrin.getFluid(144))
+                .outputFluids(Epoxy.getFluid(288))
+                .EUt(120)
+                .duration(20*20)
+                .save(provider);
     }
 }

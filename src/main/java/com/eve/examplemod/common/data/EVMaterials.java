@@ -1,6 +1,8 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
+import com.eve.examplemod.common.EVCoilBlock;
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
@@ -12,6 +14,8 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.attribute.FluidAttribute;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
+import com.gregtechceu.gtceu.common.block.CoilBlock;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +39,8 @@ public class EVMaterials {
 
     public static void modifyMaterials(){
 
+
+
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
 
         PotassiumHydroxide.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
@@ -50,6 +56,8 @@ public class EVMaterials {
         Seaborgium.addFlags(GENERATE_PLATE);
 
         TinAlloy.addFlags(GENERATE_FINE_WIRE);
+
+        Barium.setProperty(PropertyKey.INGOT, new IngotProperty());
     }
 
 
@@ -6665,6 +6673,7 @@ public class EVMaterials {
             .setFormula("K2MnO4", true);
 
     public static final Material BariumChloride = new Material.Builder(EVMain.id("barium_chloride"))
+            .dust()
             .color((Barium.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()

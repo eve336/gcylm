@@ -18,7 +18,7 @@ public class BariumChain {
         CHEMICAL_RECIPES.recipeBuilder("barium_chain_0").duration(100).EUt(120)
                 .inputItems(dust, Barium)
                 .inputFluids(HydrochloricAcid.getFluid(2000))
-                .outputItems(BariumChloride, 3)
+                .outputItems(dust, BariumChloride, 3)
                 .outputFluids(Hydrogen.getFluid(2000))
                 .save(provider);
 
@@ -34,7 +34,7 @@ public class BariumChain {
         BLAST_RECIPES.recipeBuilder("barium_chain_2").duration(220).EUt(120).blastFurnaceTemp(1200)
                 .inputItems(dust, Barite, 6)
                 .inputItems(dust, Carbon, 2)
-                .outputItems(BariumSulfide, 2)
+                .outputItems(dust, BariumSulfide, 2)
                 .outputFluids(CarbonDioxide.getFluid(2000))
                 .save(provider);
 
@@ -43,7 +43,7 @@ public class BariumChain {
                 .inputItems(dust,BariumSulfide, 2)
                 .inputFluids(Water.getFluid(1000))
                 .inputFluids(CarbonDioxide.getFluid(1000))
-                .outputItems(BariumCarbonate, 5)
+                .outputItems(dust, BariumCarbonate, 5)
                 .outputFluids(HydrogenSulfide.getFluid(1000))
                 .save(provider);
 
@@ -51,7 +51,7 @@ public class BariumChain {
         CHEMICAL_RECIPES.recipeBuilder("barium_chain_4").duration(100).EUt(30)
                 .inputItems(dust,BariumCarbonate, 5)
                 .circuitMeta(0)
-                .outputItems(BariumOxide, 2)
+                .outputItems(dust, BariumOxide, 2)
                 .outputFluids(CarbonDioxide.getFluid(1000))
                 .save(provider);
 
@@ -67,14 +67,14 @@ public class BariumChain {
                 .inputItems(dust,BariumOxide, 8)
                 .inputItems(dust, Aluminium, 2)
                 .outputItems(ingot, Barium, 3)
-                .outputItems(BariumAluminate, 7)
+                .outputItems(dust, BariumAluminate, 7)
                 .save(provider);
 
         // 2Al2BaO4 -> BaO + Al2O3
         CENTRIFUGE_RECIPES.recipeBuilder("barium_chain_6").duration(300).EUt(30)
-                .inputItems(dust,BariumAluminate, 14)
-                .outputItems(BariumOxide, 2)
-                .outputItems(Alumina, 5)
+                .inputItems(dust, BariumAluminate, 14)
+                .outputItems(dust, BariumOxide, 2)
+                .outputItems(dust, Alumina, 5)
                 .save(provider);
 
         // NEW BARIUM-HOLDING ORES
@@ -98,13 +98,13 @@ public class BariumChain {
         // BaCa(CO3)2 -> BaCO3 + CaCO3
         ELECTROLYZER_RECIPES.recipeBuilder("barium_chain_9").duration(1040).EUt(60)
                 .inputItems(dust, Barytocalcite, 10)
-                .outputItems(BariumCarbonate, 5)
+                .outputItems(dust, BariumCarbonate, 5)
                 .outputItems(dust, Calcite, 5)
                 .save(provider);
 
         CENTRIFUGE_RECIPES.recipeBuilder("barium_chain_10").duration(50).EUt(80)
                 .inputItems(dust, Witherite, 5)
-                .outputItems(BariumCarbonate, 5)
+                .outputItems(dust, BariumCarbonate, 5)
                 .chancedOutput(ChemicalHelper.get(dustTiny, Calcite), 9000, 150)
                 .chancedOutput(ChemicalHelper.get(dustTiny, Galena), 7000, 120)
                 .chancedOutput(ChemicalHelper.get(dustTiny, Barite), 4000, 90)

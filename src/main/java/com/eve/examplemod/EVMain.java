@@ -1,6 +1,7 @@
 package com.eve.examplemod;
 
 import com.eve.examplemod.api.registries.EVRegistries;
+import com.eve.examplemod.common.EVCoilBlock;
 import com.eve.examplemod.common.data.*;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
@@ -10,6 +11,8 @@ import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistr
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
+import com.gregtechceu.gtceu.common.block.CoilBlock;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -19,6 +22,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,30 +35,24 @@ public class EVMain {
     public static MaterialRegistry MATERIAL_REGISTRY;
 
     public EVMain() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        var bus = FMLJavaModLoadingContext.get().getModEventBus();
         EVMain.init();
 
 
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::clientSetup);
-        modEventBus.addListener(this::registerMaterialRegistry);
-        modEventBus.addListener(this::registerMaterials);
-        modEventBus.addListener(this::modifyMaterials);
-        modEventBus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
-        modEventBus.addGenericListener(MachineDefinition.class, this::registerMachines);
+        bus.register(this);
+        bus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
+        bus.addGenericListener(MachineDefinition.class, this::registerMachines);
 
         // Most other events are fired on Forge's bus.
         // If we want to use annotations to register event listeners,
         // we need to register our object like this!
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private static void init() {
         EVItems.init();
         EVRegistries.REGISTRATE.registerRegistrate();
         EVDatagen.init();
-
+        EVBlocks.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -94,6 +92,14 @@ public class EVMain {
         //CustomMaterials.modify();
         EVMaterials.modifyMaterials();
     }
+
+    @SubscribeEvent
+    public void onLoadComplete(FMLLoadCompleteEvent event) {
+        GTCEuAPI.HEATING_COILS.remove(CoilBlock.CoilType.TRITANIUM);
+//        GCyMMachines.PARALLEL_HATCH = (MachineDefinition[]) Arrays.stream(GCyMMachines.PARALLEL_HATCH).filter(p -> p.getTier() < GTValues.ZPM).toArray();
+    }
+
+
 
 
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {

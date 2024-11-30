@@ -53,7 +53,6 @@ public class CircuitRecipes {
                 .inputItems(TRANSISTOR, 8)
                 .inputItems(CAPACITOR, 8)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .inputItems(plate, StainlessSteel, 1)
                 .outputItems(refined_assembly, 1)
                 .save(provider);
 
@@ -63,7 +62,6 @@ public class CircuitRecipes {
                 .inputItems(smd_transistor_refined, 2)
                 .inputItems(smd_capacitor_refined, 2)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .inputItems(plate, StainlessSteel, 1)
                 .outputItems(refined_assembly, 1)
                 .save(provider);
 
@@ -74,7 +72,6 @@ public class CircuitRecipes {
                 .inputItems(TRANSISTOR, 8)
                 .inputItems(RANDOM_ACCESS_MEMORY, 2)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .inputItems(wireGtSingle, MVSuperconductor, 1)
                 .outputItems(refined_computer, 1)
                 .save(provider);
 
@@ -84,7 +81,6 @@ public class CircuitRecipes {
                 .inputItems(smd_transistor_refined, 2)
                 .inputItems(RANDOM_ACCESS_MEMORY, 2)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .inputItems(wireGtSingle, MVSuperconductor, 1)
                 .outputItems(refined_computer, 1)
                 .save(provider);
 
