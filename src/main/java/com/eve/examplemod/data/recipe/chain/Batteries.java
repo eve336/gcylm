@@ -260,7 +260,7 @@ public class Batteries {
 
         ASSEMBLER_RECIPES.recipeBuilder("batteries_25")
                 .inputItems(plate, CosmicNeutronium, 4)
-                .inputItems(wireGtSingle, OpVSuperconductor, 8)
+                .inputItems(wireGtSingle, UXVSuperconductor, 8)
                 .inputItems(plate, Neutronium, 6)
                 .inputItems(plate, Neutronium, 4)
                 .inputItems(dust, LanthanumNickelOxide, 28)

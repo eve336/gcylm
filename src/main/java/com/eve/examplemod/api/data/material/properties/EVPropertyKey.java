@@ -1,0 +1,11 @@
+package com.eve.examplemod.api.data.material.properties;
+
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
+
+public class EVPropertyKey extends PropertyKey {
+    public EVPropertyKey(String key, Class type) {
+        super(key, type);
+    }
+    public static final PropertyKey<EVMixerProperty> MIXER = new PropertyKey<>("mixer", EVMixerProperty.class);
+}

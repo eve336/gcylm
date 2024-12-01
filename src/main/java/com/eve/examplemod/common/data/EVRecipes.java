@@ -1,9 +1,11 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.data.recipe.MiscRecipes;
+import com.eve.examplemod.data.recipe.SuperconductorRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
 import com.eve.examplemod.data.recipe.circuit.CircuitRecipes;
 import com.eve.examplemod.data.recipe.generated.Machines;
+import com.eve.examplemod.data.recipe.generated.Mixer;
 import com.eve.examplemod.data.recipe.generated.Replication;
 import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
@@ -32,5 +34,7 @@ public class EVRecipes {
         BrineChain.init(consumer);
         BariumChain.init(consumer);
         CircuitRecipes.init(consumer);
+        SuperconductorRecipes.init(consumer);
+        Mixer.init(consumer);
     }
 }

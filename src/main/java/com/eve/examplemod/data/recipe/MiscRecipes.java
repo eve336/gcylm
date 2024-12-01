@@ -159,7 +159,7 @@ public class MiscRecipes {
                 .inputFluids(Water.getFluid(2000))
                 .outputItems(dust, SodiumHydroxide, 2)
                 .outputFluids(Hydrogen.getFluid(1000))
-                .duration(20*70)
+                .duration(20*42)
                 .save(provider);
 
         CHEMICAL_RECIPES.recipeBuilder("epoxy_petrochem")

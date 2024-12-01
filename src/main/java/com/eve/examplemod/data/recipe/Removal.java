@@ -79,5 +79,8 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:assembler/inductor_nzf"));
         registry.accept(new ResourceLocation("gtceu:assembler/inductor_nzf_annealed"));
 
+        registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barium_sulfide"));
+        registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barite"));
+
     }
 }

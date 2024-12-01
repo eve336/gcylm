@@ -4,8 +4,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ELECTRIC;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MULTIBLOCK;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
 
 public class EVRecipeTypes {
@@ -24,6 +23,11 @@ public class EVRecipeTypes {
                     int temp = data.getInt("temp");
                     return LocalizationUtils.format("gtceu.recipe.temperature", temp);
             });
+
+    public static final GTRecipeType LARGE_MIXER_RECIPES = GTRecipeTypes.register("large_mixer", MULTIBLOCK)
+            .setMaxIOSize(9,1,6,1)
+            .setSmallRecipeMap(MIXER_RECIPES);
+
 
     public static void init(){
 
