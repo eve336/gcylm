@@ -1,6 +1,6 @@
-// 1.20.1	2024-12-01T15:35:43.9519696	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
-a7c9a2aae891121bbe0cc33e43d617f33cf7b2d3 assets/examplemod/lang/en_ud.json
-3ee40dbb1fb3b3f16ca4640be2d736b6644a3f8b assets/examplemod/lang/en_us.json
+// 1.20.1	2024-12-01T22:30:53.2585341	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+a490afbc6d596219c0f967b07ab591b97e379155 assets/examplemod/lang/en_ud.json
+d648fcac1c4a84e24ac9e2a309346ae6512d4c96 assets/examplemod/lang/en_us.json
 2b33051d77fa96e1858c3db10a12f522cc9da700 assets/examplemod/models/item/acrylic_yarn.json
 3598d4bcd27199d5d68c0953a4177277a71f0abe assets/examplemod/models/item/actinium_plasma_containment_cell.json
 9e556946ac05f808e0da2133b5fd880d0a15651e assets/examplemod/models/item/aerographene.json

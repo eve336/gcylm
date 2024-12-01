@@ -19,7 +19,6 @@ import static com.gregtechceu.gtceu.common.data.GTBlocks.compassNodeExist;
 
 public class EVBlocks {
 
-    public static final BlockEntry<CoilBlock> COIL_CUPRONICKEL = createCoilBlock(EVCoilBlock.CoilType.CUPRONICKEL);
 
     private static BlockEntry<CoilBlock> createCoilBlock(ICoilType coilType) {
         BlockEntry<CoilBlock> coilBlock = EVRegistries.REGISTRATE

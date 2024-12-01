@@ -246,7 +246,7 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(1)
             .components(Tin, 9, Antimony, 1, Gallium, 2)
-            .appendFlags(STD_METAL)
+            .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(1000)
             .buildAndRegister();
 
@@ -255,7 +255,7 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(1)
             .components(Cadmium, 5, Magnesium, 1, Oxygen, 6)
-            .appendFlags(STD_METAL)
+            .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(1200)
             .buildAndRegister();
 
@@ -264,7 +264,7 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(1)
             .components(Titanium, 1, Barium, 9, Copper, 10, Oxygen, 20)
-            .appendFlags(STD_METAL)
+            .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(3300)
             .buildAndRegister();
 
@@ -274,7 +274,7 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(1)
             .components(Vanadium, 1, Indium, 3)
-            .appendFlags(STD_METAL)
+            .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(5200)
             .buildAndRegister();
 
@@ -284,8 +284,7 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(1)
             .components(Naquadah, 4, Indium, 2, Palladium, 6, Osmium, 1)
-            .appendFlags(STD_METAL)
-            .flags(DISABLE_DECOMPOSITION)
+            .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(8100)
             .buildAndRegister();
 
@@ -7935,29 +7934,14 @@ public class EVMaterials {
             .blastTemp(9200)
             .buildAndRegister();
 
-    public static final Material UXVSuperconductorBase = new Material.Builder(EVMain.id("uxv_superconductor_base"))
-            .color(0xe34b5a)
-            .iconSet(SHINY)
-            .ingot()
-            .components(Neutronium, 4, Legendarium, 5, ActiniumSuperhydride, 5, LanthanumFullereneNanotubes, 4, RheniumHassiumThalliumIsophtaloylbisdiethylthioureaHexafluorophosphate, 12)
-            .appendFlags(STD_METAL)
-            .blastTemp(14000)
-            .buildAndRegister();
 
-    public static final Material UXVSuperconductor = new Material.Builder(EVMain.id("opv_superconductor"))
-            .color(0xe34b5a)
-            .iconSet(SHINY)
-            .ingot()
-            .components(UXVSuperconductorBase, 1, Nitrogen, 1)
-            .cableProperties(VA[OpV], 4, 0, true)
-            .buildAndRegister();
 
     public static final Material UVSuperconductorBase = new Material.Builder(EVMain.id("uv_superconductor_base"))
             .ingot()
             .color(0xe0d207)
             .iconSet(MaterialIconSet.SHINY)
             .components(Naquadria, 4, Osmiridium, 3, Rutherfordium, 1, Samarium, 1)
-            .flags( DISABLE_DECOMPOSITION)
+            .flags( DISABLE_DECOMPOSITION, AUTOGEN_MIXER_RECIPE)
             .appendFlags(STD_METAL)
             .blastTemp(8900)
             .buildAndRegister();
@@ -7994,7 +7978,6 @@ public class EVMaterials {
             .iconSet(MaterialIconSet.SHINY)
             .components(ActiniumSuperhydride, 1, BETSPerrhenate, 1, TriniumTitanium, 2, Quantum, 1, Adamantium, 1)
             .flags(DISABLE_DECOMPOSITION, AUTOGEN_MIXER_RECIPE)
-            .appendFlags(STD_METAL)
             .blastTemp(11150)
             .buildAndRegister();
 
@@ -8011,7 +7994,7 @@ public class EVMaterials {
             .color(0x8bf743)
             .iconSet(MaterialIconSet.SHINY)
             .components(BorocarbideDust, 2, FullereneSuperconductiveDust, 1, MetastableOganesson, 2, ProtoAdamantium, 2)
-            .flags( DISABLE_DECOMPOSITION, AUTOGEN_MIXER_RECIPE)
+            .flags(DISABLE_DECOMPOSITION, AUTOGEN_MIXER_RECIPE)
             .appendFlags(STD_METAL)
             .blastTemp(11600)
             .buildAndRegister();
@@ -8024,7 +8007,7 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material UMVSuperconductorBase = new Material.Builder(EVMain.id("umv_superconductor_base"))
+    public static final Material UMVSuperconductorBase = new Material.Builder(EVMain.id("uxv_superconductor_base"))
             .ingot()
             .color(0x883afc)
             .iconSet(MaterialIconSet.SHINY)
@@ -8034,7 +8017,7 @@ public class EVMaterials {
             .blastTemp(12000)
             .buildAndRegister();
 
-    public static final Material UMVSuperconductor = new Material.Builder(EVMain.id("umv_superconductor"))
+    public static final Material UMVSuperconductor = new Material.Builder(EVMain.id("uxv_superconductor"))
             .ingot()
             .color(0x883afc)
             .iconSet(MaterialIconSet.SHINY)
@@ -8042,4 +8025,20 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
+    public static final Material UXVSuperconductorBase = new Material.Builder(EVMain.id("opv_superconductor_base"))
+            .color(0xe34b5a)
+            .iconSet(SHINY)
+            .ingot()
+            .components(Neutronium, 4, Legendarium, 5, ActiniumSuperhydride, 5, LanthanumFullereneNanotubes, 4, RheniumHassiumThalliumIsophtaloylbisdiethylthioureaHexafluorophosphate, 12)
+            .flags(AUTOGEN_MIXER_RECIPE)
+            .blastTemp(14000)
+            .buildAndRegister();
+
+    public static final Material UXVSuperconductor = new Material.Builder(EVMain.id("opv_superconductor"))
+            .color(0xe34b5a)
+            .iconSet(SHINY)
+            .ingot()
+            .components(UXVSuperconductorBase, 1, Nitrogen, 1)
+            .cableProperties(VA[OpV], 4, 0, true)
+            .buildAndRegister();
 }
