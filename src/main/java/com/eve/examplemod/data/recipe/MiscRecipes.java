@@ -6,6 +6,7 @@ import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiv
 import com.eve.examplemod.data.recipe.serialized.chemistry.MicaInsulator;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
@@ -43,6 +44,15 @@ public class MiscRecipes {
                     'T', PRIMITIVE_BLAST_FURNACE.asStack());
 
 
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("emitter_ev"),
+                GTItems.EMITTER_EV.asStack(),
+                "WRC",
+                "RER",
+                "CRW",
+                'E', ChemicalHelper.get(gem, EnderPearl),
+                'R', ChemicalHelper.get(rod, Platinum),
+                'W', ChemicalHelper.get(cableGtSingle, Aluminium),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.EV));
 
         CHEMICAL_RECIPES.recipeBuilder("biodiesel_creosote_oil_methanol")
                 .inputItems(dustTiny, SodiumHydroxide)
@@ -159,7 +169,7 @@ public class MiscRecipes {
                 .inputFluids(Water.getFluid(2000))
                 .outputItems(dust, SodiumHydroxide, 2)
                 .outputFluids(Hydrogen.getFluid(1000))
-                .duration(20*42)
+                .duration(20*50)
                 .save(provider);
 
         CHEMICAL_RECIPES.recipeBuilder("epoxy_petrochem")

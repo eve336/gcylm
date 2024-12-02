@@ -72,6 +72,10 @@ public class EVMaterials {
         Strontium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Polonium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        Polonium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+
+        Copernicium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        Copernicium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
         HastelloyX78.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, -1));
 
@@ -928,22 +932,6 @@ public class EVMaterials {
             .iconSet(FLUID)
             .fluid()
             .components(EthylAnthraQuinone, 1, Hydrogen, 2)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
-
-    public static final Material PhthalicAcid = new Material.Builder(EVMain.id("phthalicacid"))
-            .color(0xD1D1D1)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Carbon, 8, Hydrogen, 6, Oxygen, 4)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
-
-    public static final Material Naphthalene = new Material.Builder(EVMain.id("naphtalene"))
-            .color(0xFFFFFF)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Carbon, 10, Hydrogen, 8)
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 

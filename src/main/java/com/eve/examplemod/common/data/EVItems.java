@@ -275,11 +275,11 @@ public class EVItems {
     public static ItemEntry<Item> green_lamp_core = EVRegistries.REGISTRATE.item("green_lamp_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> red_lamp_core = EVRegistries.REGISTRATE.item("red_lamp_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> white_lamp_core = EVRegistries.REGISTRATE.item("white_lamp_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> uva_halide_lamp = EVRegistries.REGISTRATE.item("uva_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> blue_halide_lamp = EVRegistries.REGISTRATE.item("blue_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> green_halide_lamp = EVRegistries.REGISTRATE.item("green_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> red_halide_lamp = EVRegistries.REGISTRATE.item("red_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> white_halide_lamp = EVRegistries.REGISTRATE.item("white_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> UVA_HALIDE_LAMP = EVRegistries.REGISTRATE.item("uva_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BLUE_HALIDE_LAMP = EVRegistries.REGISTRATE.item("blue_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> GREEN_HALIDE_LAMP = EVRegistries.REGISTRATE.item("green_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> RED_HALIDE_LAMP = EVRegistries.REGISTRATE.item("red_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> WHITE_HALIDE_LAMP = EVRegistries.REGISTRATE.item("white_halide_lamp", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> actinium_plasma_containment_cell = EVRegistries.REGISTRATE.item("actinium_plasma_containment_cell", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ndyag_boule = EVRegistries.REGISTRATE.item("ndyag_boule", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> prhoylf_boule = EVRegistries.REGISTRATE.item("prhoylf_boule", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

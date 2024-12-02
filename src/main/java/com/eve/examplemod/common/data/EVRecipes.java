@@ -36,5 +36,10 @@ public class EVRecipes {
         CircuitRecipes.init(consumer);
         SuperconductorRecipes.init(consumer);
         Mixer.init(consumer);
+        FusionRecipes.init(consumer);
+        FullereneChain.init(consumer);
+        Platline.init(consumer);
+        TungstenChain.init(consumer);
+        HydrogenPeroxide.init(consumer);
     }
 }

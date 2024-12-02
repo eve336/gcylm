@@ -7,7 +7,8 @@ import java.util.function.Consumer;
 
 public class Removal {
     public static void init(Consumer<ResourceLocation> registry) {
-
+        platline(registry);
+        tungsten(registry);
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -81,6 +82,17 @@ public class Removal {
 
         registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barium_sulfide"));
         registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barite"));
+        registry.accept(new ResourceLocation("gtceu:shaped/emitter_ev"));
 
     }
+    public static void platline(Consumer<ResourceLocation> registry) {
+        registry.accept(new ResourceLocation("gtceu:electrolyzer/raw_platinum_separation"));
+    }
+    public static void tungsten(Consumer<ResourceLocation> registry) {
+        registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_scheelite"));
+        registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_tungstate"));
+        registry.accept(new ResourceLocation("gtceu:electrolyzer/tungstic_acid_electrolysis"));
+        registry.accept(new ResourceLocation("gtceu:mixer/tungstencarbide"));
+    }
+
 }
