@@ -3,6 +3,7 @@ package com.eve.examplemod;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.EVCoilBlock;
 import com.eve.examplemod.common.data.*;
+import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
@@ -53,6 +54,7 @@ public class EVMain {
         EVRegistries.REGISTRATE.registerRegistrate();
         EVDatagen.init();
         EVBlocks.init();
+        EVConfig.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

@@ -3,6 +3,7 @@ package com.eve.examplemod.common.data;
 import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.data.material.properties.EVMixerProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
+import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
@@ -79,6 +80,12 @@ public class EVMaterials {
 
         HastelloyX78.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, -1));
 
+        if (EVConfig.INSTANCE != null && EVConfig.INSTANCE.programmerArt) {
+            ReinforcedEpoxyResin.setMaterialARGB(7491595);
+            ReinforcedEpoxyResin.setMaterialIconSet(DULL);
+            Epoxy.setMaterialARGB(0xC88C14);
+            Epoxy.setMaterialIconSet(DULL);
+        }
     }
 
 
