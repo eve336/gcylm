@@ -32,7 +32,6 @@ public class EVCraftingComponent extends CraftingComponent {
                 {11, GTItems.ELECTRIC_PUMP_UIV.asStack()},
                 {12, GTItems.ELECTRIC_PUMP_UXV.asStack()},
                 {13, GTItems.ELECTRIC_PUMP_OpV.asStack()},
-                {14, EVItems.electric_pump_max.asStack()},
                 {FALLBACK, GTItems.ELECTRIC_PUMP_UV.asStack()},
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
@@ -52,7 +51,6 @@ public class EVCraftingComponent extends CraftingComponent {
                 { 11, GTItems.CONVEYOR_MODULE_UIV.asStack() },
                 { 12, GTItems.CONVEYOR_MODULE_UXV.asStack() },
                 { 13, GTItems.CONVEYOR_MODULE_OpV.asStack() },
-                { 14, EVItems.conveyor_module_max.asStack() },
                 {FALLBACK, GTItems.CONVEYOR_MODULE_UV.asStack()},
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
@@ -72,7 +70,6 @@ public class EVCraftingComponent extends CraftingComponent {
                 { 11, GTItems.ROBOT_ARM_UIV.asStack() },
                 { 12, GTItems.ROBOT_ARM_UXV.asStack() },
                 { 13, GTItems.ROBOT_ARM_OpV.asStack() },
-                { 14, EVItems.robot_arm_max.asStack() },
                 { FALLBACK, GTItems.ROBOT_ARM_UV.asStack() },
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 

@@ -1,10 +1,10 @@
 package com.eve.examplemod;
 
 import com.eve.examplemod.api.registries.EVRegistries;
-import com.eve.examplemod.common.EVCoilBlock;
 import com.eve.examplemod.common.data.*;
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.cover.CoverDefinition;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
@@ -13,12 +13,10 @@ import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.common.block.CoilBlock;
-import com.gregtechceu.gtceu.common.data.GTBlocks;
+import com.lowdragmc.lowdraglib.LDLib;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -35,6 +33,9 @@ public class EVMain {
     public static GTRegistrate EV_REGISTRATE = GTRegistrate.create(EVMain.MOD_ID);
     public static MaterialRegistry MATERIAL_REGISTRY;
 
+
+
+
     public EVMain() {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         EVMain.init();
@@ -43,19 +44,21 @@ public class EVMain {
         bus.register(this);
         bus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
         bus.addGenericListener(MachineDefinition.class, this::registerMachines);
-
         // Most other events are fired on Forge's bus.
         // If we want to use annotations to register event listeners,
         // we need to register our object like this!
     }
 
+
+
     private static void init() {
-        EVItems.init();
         EVRegistries.REGISTRATE.registerRegistrate();
         EVDatagen.init();
         EVBlocks.init();
         EVConfig.init();
     }
+
+
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
@@ -81,6 +84,7 @@ public class EVMain {
     }
 
 
+
     // As well as this.
     @SubscribeEvent
     public void registerMaterials(MaterialEvent event) {
@@ -101,6 +105,9 @@ public class EVMain {
 //        GCyMMachines.PARALLEL_HATCH = (MachineDefinition[]) Arrays.stream(GCyMMachines.PARALLEL_HATCH).filter(p -> p.getTier() < GTValues.ZPM).toArray();
     }
 
+    public static boolean isTiabLoaded(){
+        return LDLib.isModLoaded("tiab");
+    }
 
 
 

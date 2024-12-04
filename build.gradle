@@ -130,8 +130,10 @@ dependencies {
     modCompileOnly("mezz.jei:jei-$project.minecraft_version-forge-api:$project.jei_version") { transitive = false }
     modCompileOnly("mezz.jei:jei-$project.minecraft_version-common-api:$project.jei_version") { transitive = false }
 
-    modApi("curse.maven:configuration-444699:${project.configuration_version}")
-    include "curse.maven:configuration-444699:${project.configuration_version}"
+
+    modImplementation ("curse.maven:time-in-a-bottle-universal-895919:4744787")
+
+    modImplementation ("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
 
     modImplementation("com.gregtechceu.gtceu:gtceu-$project.minecraft_version:$project.gtceu_version") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-$project.minecraft_version:$project.ldlib_version") { transitive = false }

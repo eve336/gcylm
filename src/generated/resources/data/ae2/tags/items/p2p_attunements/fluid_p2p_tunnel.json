@@ -12,6 +12,14 @@
     "examplemod:fermium_258_bucket",
     "examplemod:mendelevium_261_bucket",
     "examplemod:lead_bismuth_eutatic_bucket",
+    "examplemod:polyetheretherketone_bucket",
+    "examplemod:zylon_bucket",
+    "examplemod:fullerene_polymer_matrix_bucket",
+    "examplemod:cinobite_bucket",
+    "examplemod:proto_adamantium_bucket",
+    "examplemod:molten_proto_adamantium_bucket",
+    "examplemod:trinium_titanium_bucket",
+    "examplemod:molten_trinium_titanium_bucket",
     "examplemod:tantalum_hafnium_seaborgium_carbide_bucket",
     "examplemod:germanium_tungsten_nitride_bucket",
     "examplemod:polyimide_bucket",
@@ -30,8 +38,6 @@
     "examplemod:hydrogen_peroxide_bucket",
     "examplemod:ethylanthraquinone_bucket",
     "examplemod:ethylanthrahydroquinone_bucket",
-    "examplemod:phthalicacid_bucket",
-    "examplemod:naphtalene_bucket",
     "examplemod:dense_hydrazine_fuel_mixture_bucket",
     "examplemod:rocket_fuel_b_bucket",
     "examplemod:rocket_fuel_c_bucket",
@@ -515,8 +521,13 @@
     "examplemod:ascorbic_acid_bucket",
     "examplemod:dehydroascorbic_acid_bucket",
     "examplemod:chloroauric_acid_bucket",
+    "examplemod:quantumdots_bucket",
     "examplemod:chlorodiisopropyl_phosphine_bucket",
     "examplemod:cesium_bromide_solution_bucket",
-    "examplemod:polystyrene_bucket"
+    "examplemod:polystyrene_bucket",
+    "examplemod:quantum_bucket",
+    "examplemod:molten_quantum_bucket",
+    "examplemod:enriched_naquadah_alloy_bucket",
+    "examplemod:molten_enriched_naquadah_alloy_bucket"
   ]
 }

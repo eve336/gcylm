@@ -3,34 +3,52 @@ package com.eve.examplemod;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.EVCovers;
 import com.eve.examplemod.common.data.EVElements;
+import com.eve.examplemod.common.data.EVItems;
 import com.eve.examplemod.common.data.EVRecipes;
 import com.eve.examplemod.data.recipe.Removal;
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
+import com.gregtechceu.gtceu.api.cover.CoverDefinition;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @GTAddon
 public class EVAddon implements IGTAddon {
+
+
+
     @Override
     public GTRegistrate getRegistrate() {
         return EVRegistries.REGISTRATE;
     }
 
+
+
+    @Override
+    public void registerCovers() {
+        EVCovers.init();
+    }
     @Override
     public void initializeAddon() {
-
+        EVItems.init();
     }
+
 
     @Override
     public String addonModId() {
         return EVMain.MOD_ID;
     }
+
+
+
+
 
     @Override
     public void registerTagPrefixes() {
@@ -54,13 +72,7 @@ public class EVAddon implements IGTAddon {
 
 
 
-    @Override
-    public void registerCovers() {
 
-        GTRegistries.COVERS.register(EVCovers.ROBOT_ARM.id, EVCovers.ROBOT_ARM.definition);
-        GTRegistries.COVERS.register(EVCovers.CONVEYOR.id, EVCovers.CONVEYOR.definition);
-        GTRegistries.COVERS.register(EVCovers.PUMP.id, EVCovers.PUMP.definition);
-    }
 
     
     // If you have custom ingredient types, uncomment this & change to match your capability.

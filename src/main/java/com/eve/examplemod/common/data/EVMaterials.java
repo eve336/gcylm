@@ -4,6 +4,7 @@ import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.data.material.properties.EVMixerProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
 import com.eve.examplemod.config.EVConfig;
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
@@ -19,6 +20,7 @@ import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.AUTOGEN_
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.DISABLE_AUTOGEN_MIXER;
 import static com.eve.examplemod.common.data.EVElements.*;
 import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.GTValues.V;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;
 import static com.gregtechceu.gtceu.common.data.GTElements.*;
@@ -80,7 +82,7 @@ public class EVMaterials {
 
         HastelloyX78.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, -1));
 
-        if (EVConfig.INSTANCE != null && EVConfig.INSTANCE.programmerArt) {
+        if (EVConfig.INSTANCE.programmerArt) {
             ReinforcedEpoxyResin.setMaterialARGB(7491595);
             ReinforcedEpoxyResin.setMaterialIconSet(DULL);
             Epoxy.setMaterialARGB(0xC88C14);
@@ -506,6 +508,7 @@ public class EVMaterials {
             .color(0x403e37)
             .iconSet(DULL)
             .ingot(2)
+            .fluid()
             .components(Carbon, 20, Hydrogen, 12, Oxygen, 3)
             .flags(EXCLUDE_BLOCK_CRAFTING_RECIPES, NO_SMASHING, GENERATE_FOIL, DISABLE_DECOMPOSITION)
             .buildAndRegister();
@@ -514,6 +517,7 @@ public class EVMaterials {
             .color(0xFFE000)
             .iconSet(SHINY)
             .ingot(2)
+            .fluid()
             .components(Carbon, 14, Hydrogen, 6, Nitrogen, 2, Oxygen, 2)
             .flags(EXCLUDE_BLOCK_CRAFTING_RECIPES, NO_SMASHING, DISABLE_DECOMPOSITION)
             .buildAndRegister();
@@ -522,6 +526,7 @@ public class EVMaterials {
             .color(0x403e37)
             .iconSet(DULL)
             .ingot(2)
+            .fluid()
             .components(Palladium, 1, Iron, 1, Carbon, 153, Hydrogen, 36, Nitrogen, 1, Oxygen, 2)
             .flags(EXCLUDE_BLOCK_CRAFTING_RECIPES, NO_SMASHING, DISABLE_DECOMPOSITION)
             .buildAndRegister();
@@ -593,6 +598,7 @@ public class EVMaterials {
             .color(0x010101)
             .iconSet(SHINY)
             .ingot(5)
+            .fluid()
             .components(Zeron100, 8, Naquadria, 4, Gadolinium, 3, Aluminium, 2, Mercury, 1, Tin, 1, Titanium, 6, Osmiridium, 1)
             .flags(DISABLE_DECOMPOSITION)
             .appendFlags(CORE_METAL)
@@ -605,7 +611,9 @@ public class EVMaterials {
             .ingot(7)
             .components(Adamantium, 3, Promethium, 2)
             .flags()
+            .fluid()
             .appendFlags(CORE_METAL)
+            .blastTemp(11244)
             .buildAndRegister();
 
 
@@ -613,9 +621,11 @@ public class EVMaterials {
             .color(0x9986a3)
             .iconSet(SHINY)
             .ingot(7)
+            .fluid()
             .components(Trinium, 2, Titanium, 1)
             .flags()
             .appendFlags(CORE_METAL)
+            .blastTemp(11000)
             .buildAndRegister();
 
     public static final Material LithiumTitanate = new Material.Builder(EVMain.id("lithium_titanate"))
@@ -4814,7 +4824,7 @@ public class EVMaterials {
     public static final Material QuantumDots = new Material.Builder(EVMain.id("quantumdots"))
             .color(0xff0000)
             .iconSet(DULL)
-            .dust()
+            .fluid()
             .components()
             .buildAndRegister()
             .setFormula("CdSe", true);
@@ -6938,6 +6948,7 @@ public class EVMaterials {
             .color(0x0f0f0f)
             .iconSet(SHINY)
             .ingot(7)
+            .fluid()
             .components(Stellite, 7, Jasper, 5, Gallium, 5, Americium, 5, Palladium, 5, Bismuth, 5, Germanium, 5, SiliconCarbide, 5)
             .appendFlags(CORE_METAL)
             .blastTemp(11400)
@@ -7946,6 +7957,7 @@ public class EVMaterials {
             .color(0xe0d207)
             .iconSet(MaterialIconSet.SHINY)
             .components(UVSuperconductorBase, 1, Nitrogen, 1)
+            .cableProperties(V[UV], 4, 0, true)
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
@@ -8012,11 +8024,37 @@ public class EVMaterials {
             .blastTemp(12000)
             .buildAndRegister();
 
+    public static final Material Einsteinium255 = new Material.Builder(EVMain.id("einsteinium_255"))
+            .ingot()
+            .color(0xCE9F00)
+            .iconSet(METALLIC)
+            .buildAndRegister();
+
+    public static final Material HDCS = new Material.Builder(EVMain.id("hdcs"))
+            .color(0x334433)
+            .ingot()
+            .iconSet(SHINY)
+            .components(TungstenSteel, 12, HSSS, 9, HSSG, 6, Ruridit, 3, MagnetoResonatic, 2, Plutonium239, 1)
+            .blastTemp(9900)
+            .appendFlags(CORE_METAL)
+            .buildAndRegister();
+
+    public static final Material EnrichedNaquadahAlloy = new Material.Builder(EVMain.id("enriched_naquadah_alloy"))
+            .ingot()
+            .iconSet(SHINY)
+            .color(0x403f3d)
+            .fluid()
+            .components(NaquadahEnriched, 4, Rhodium, 2, Ruthenium, 2, Dubnium, 1, Rubidium, 2, Einsteinium255, 1)
+            .appendFlags(EXT2_METAL)
+            .blastTemp(10000)
+            .buildAndRegister();
+
     public static final Material UMVSuperconductor = new Material.Builder(EVMain.id("uxv_superconductor"))
             .ingot()
             .color(0x883afc)
             .iconSet(MaterialIconSet.SHINY)
             .components(UMVSuperconductorBase, 1, Nitrogen, 1)
+            .cableProperties(V[UXV], 4, 0, true)
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 

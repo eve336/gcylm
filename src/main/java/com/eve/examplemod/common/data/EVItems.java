@@ -2,9 +2,10 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.IComponentItem;
-import com.gregtechceu.gtceu.common.data.GTCompassSections;
+import com.gregtechceu.gtceu.common.data.GTCovers;
 import com.gregtechceu.gtceu.common.item.CoverPlaceBehavior;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
@@ -14,7 +15,6 @@ import net.minecraft.world.item.Item;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 
-import static com.gregtechceu.gtceu.common.data.GTItems.compassNode;
 import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
 
 
@@ -24,7 +24,12 @@ public class EVItems {
 
     // TODO Hot wrought iron ingot that hurts you
 
-    public static ItemEntry<Item> smd_capacitor_refined = EVRegistries.REGISTRATE.item("smd_capacitor_refined", Item::new)
+
+
+
+
+
+    public static ItemEntry<Item> SMD_CAPACITOR_REFINED = EVRegistries.REGISTRATE.item("smd_capacitor_refined", Item::new)
             .register();
 
 
@@ -56,6 +61,24 @@ public class EVItems {
 
     public static ItemEntry<Item> NANOSILICON_CATHODE = EVRegistries.REGISTRATE.item("NANOSILICON_CATHODE".toLowerCase(), Item::new).register();
 
+
+    public static ItemEntry<Item> ARAM = EVRegistries.REGISTRATE.item("aram", Item::new).register();
+    public static ItemEntry<Item> ARAM_WAFER = EVRegistries.REGISTRATE.item("aram_wafer".toLowerCase(), Item::new).register();
+
+    public static ItemEntry<Item> KAPTON_BOARD = EVRegistries.REGISTRATE.item("kapton_board", Item::new).register();
+    public static ItemEntry<Item> KAPTON_CIRCUIT_BOARD = EVRegistries.REGISTRATE.item("kapton_board".toLowerCase(), Item::new).register();
+
+    public static ItemEntry<Item> COSMIC_MESH = EVRegistries.REGISTRATE.item("cosmic_mesh", Item::new).register();
+    public static ItemEntry<Item> COSMIC_FABRIC = EVRegistries.REGISTRATE.item("cosmic_fabric".toLowerCase(), Item::new).register();
+
+    public static ItemEntry<Item> UHPIC = EVRegistries.REGISTRATE.item("uhpic", Item::new).register();
+    public static ItemEntry<Item> UHPIC_WAFER = EVRegistries.REGISTRATE.item("uhpic_wafer".toLowerCase(), Item::new).register();
+
+    public static ItemEntry<Item> HASOC = EVRegistries.REGISTRATE.item("hasoc", Item::new).register();
+    public static ItemEntry<Item> HASOC_WAFER = EVRegistries.REGISTRATE.item("hasoc_wafer".toLowerCase(), Item::new).register();
+
+    public static ItemEntry<Item> UHASOC = EVRegistries.REGISTRATE.item("uhasoc", Item::new).register();
+    public static ItemEntry<Item> UHASOC_WAFER = EVRegistries.REGISTRATE.item("uhasoc_wafer".toLowerCase(), Item::new).register();
 
     public static ItemEntry<Item> BATTERY_NIMH_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_NIMH_EMPTY".toLowerCase(), Item::new).register();
 
@@ -115,74 +138,77 @@ public class EVItems {
     public static ItemEntry<Item> cryogenic_interface = EVRegistries.REGISTRATE.item("cryogenic_interface", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> rydberg_spinorial_assembly = EVRegistries.REGISTRATE.item("rydberg_spinorial_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> x_ray_laser = EVRegistries.REGISTRATE.item("x_ray_laser", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> exotic_processing_core = EVRegistries.REGISTRATE.item("exotic_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> EXOTIC_PROCESSING_CORE = EVRegistries.REGISTRATE.item("exotic_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> protonated_fullerene_sieving_matrix = EVRegistries.REGISTRATE.item("protonated_fullerene_sieving_matrix", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> saturated_fullerene_sieving_matrix = EVRegistries.REGISTRATE.item("saturated_fullerene_sieving_matrix", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> petri_dish = EVRegistries.REGISTRATE.item("petri_dish", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_micro  = EVRegistries.REGISTRATE.item("smd_capacitor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_micro  = EVRegistries.REGISTRATE.item("smd_resistor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_micro  = EVRegistries.REGISTRATE.item("smd_diode_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_micro  = EVRegistries.REGISTRATE.item("smd_transistor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_nano = EVRegistries.REGISTRATE.item("smd_capacitor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_quantum = EVRegistries.REGISTRATE.item("smd_capacitor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_crystal = EVRegistries.REGISTRATE.item("smd_capacitor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_wetware = EVRegistries.REGISTRATE.item("smd_capacitor_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_bioware = EVRegistries.REGISTRATE.item("smd_capacitor_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_optical = EVRegistries.REGISTRATE.item("smd_capacitor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_exotic = EVRegistries.REGISTRATE.item("smd_capacitor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_cosmic = EVRegistries.REGISTRATE.item("smd_capacitor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_capacitor_supracausal = EVRegistries.REGISTRATE.item("smd_capacitor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_refined = EVRegistries.REGISTRATE.item("smd_resistor_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_nano = EVRegistries.REGISTRATE.item("smd_resistor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_quantum = EVRegistries.REGISTRATE.item("smd_resistor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_crystal = EVRegistries.REGISTRATE.item("smd_resistor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_wetware = EVRegistries.REGISTRATE.item("smd_resistor_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_bioware = EVRegistries.REGISTRATE.item("smd_resistor_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_optical = EVRegistries.REGISTRATE.item("smd_resistor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_exotic = EVRegistries.REGISTRATE.item("smd_resistor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_cosmic = EVRegistries.REGISTRATE.item("smd_resistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_resistor_supracausal = EVRegistries.REGISTRATE.item("smd_resistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_refined = EVRegistries.REGISTRATE.item("smd_diode_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_nano = EVRegistries.REGISTRATE.item("smd_diode_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_quantum = EVRegistries.REGISTRATE.item("smd_diode_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_crystal = EVRegistries.REGISTRATE.item("smd_diode_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_wetware = EVRegistries.REGISTRATE.item("smd_diode_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_bioware = EVRegistries.REGISTRATE.item("smd_diode_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_optical = EVRegistries.REGISTRATE.item("smd_diode_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_exotic = EVRegistries.REGISTRATE.item("smd_diode_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_cosmic = EVRegistries.REGISTRATE.item("smd_diode_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_diode_supracausal = EVRegistries.REGISTRATE.item("smd_diode_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_refined = EVRegistries.REGISTRATE.item("smd_transistor_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_nano = EVRegistries.REGISTRATE.item("smd_transistor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_quantum = EVRegistries.REGISTRATE.item("smd_transistor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_crystal = EVRegistries.REGISTRATE.item("smd_transistor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_wetware = EVRegistries.REGISTRATE.item("smd_transistor_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_bioware = EVRegistries.REGISTRATE.item("smd_transistor_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_optical = EVRegistries.REGISTRATE.item("smd_transistor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_exotic = EVRegistries.REGISTRATE.item("smd_transistor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_cosmic = EVRegistries.REGISTRATE.item("smd_transistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> smd_transistor_supracausal = EVRegistries.REGISTRATE.item("smd_transistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cosmic_processor = EVRegistries.REGISTRATE.item("cosmic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cosmic_assembly = EVRegistries.REGISTRATE.item("cosmic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cosmic_computer = EVRegistries.REGISTRATE.item("cosmic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cosmic_mainframe = EVRegistries.REGISTRATE.item("cosmic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> bioware_processor = EVRegistries.REGISTRATE.item("bioware_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> bioware_assembly = EVRegistries.REGISTRATE.item("bioware_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> bioware_computer = EVRegistries.REGISTRATE.item("bioware_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> bioware_mainframe = EVRegistries.REGISTRATE.item("bioware_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_processor = EVRegistries.REGISTRATE.item("optical_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_assembly = EVRegistries.REGISTRATE.item("optical_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_computer = EVRegistries.REGISTRATE.item("optical_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_mainframe = EVRegistries.REGISTRATE.item("optical_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> exotic_processor = EVRegistries.REGISTRATE.item("exotic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> exotic_assembly = EVRegistries.REGISTRATE.item("exotic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> exotic_computer = EVRegistries.REGISTRATE.item("exotic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> exotic_mainframe = EVRegistries.REGISTRATE.item("exotic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_processor = EVRegistries.REGISTRATE.item("supracasual_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_assembly = EVRegistries.REGISTRATE.item("supracasual_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_computer = EVRegistries.REGISTRATE.item("supracasual_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_mainframe = EVRegistries.REGISTRATE.item("supracasual_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> unstable_star = EVRegistries.REGISTRATE.item("unstable_star", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+
+    public static ItemEntry<Item> SMD_CAPACITOR_MICRO = EVRegistries.REGISTRATE.item("smd_capacitor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_MICRO = EVRegistries.REGISTRATE.item("smd_resistor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_MICRO = EVRegistries.REGISTRATE.item("smd_diode_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_MICRO = EVRegistries.REGISTRATE.item("smd_transistor_micro", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_NANO = EVRegistries.REGISTRATE.item("smd_capacitor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_QUANTUM = EVRegistries.REGISTRATE.item("smd_capacitor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_CRYSTAL = EVRegistries.REGISTRATE.item("smd_capacitor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_WETWARE = EVRegistries.REGISTRATE.item("smd_capacitor_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_BIOWARE = EVRegistries.REGISTRATE.item("smd_capacitor_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_OPTICAL = EVRegistries.REGISTRATE.item("smd_capacitor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_EXOTIC = EVRegistries.REGISTRATE.item("smd_capacitor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_COSMIC = EVRegistries.REGISTRATE.item("smd_capacitor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_CAPACITOR_SUPRACAUSAL = EVRegistries.REGISTRATE.item("smd_capacitor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_REFINED = EVRegistries.REGISTRATE.item("smd_resistor_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_NANO = EVRegistries.REGISTRATE.item("smd_resistor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_QUANTUM = EVRegistries.REGISTRATE.item("smd_resistor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_CRYSTAL = EVRegistries.REGISTRATE.item("smd_resistor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_WETWARE = EVRegistries.REGISTRATE.item("smd_resistor_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_BIOWARE = EVRegistries.REGISTRATE.item("smd_resistor_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_OPTICAL = EVRegistries.REGISTRATE.item("smd_resistor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_EXOTIC = EVRegistries.REGISTRATE.item("smd_resistor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_COSMIC = EVRegistries.REGISTRATE.item("smd_resistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_RESISTOR_SUPRACAUSAL = EVRegistries.REGISTRATE.item("smd_resistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_REFINED = EVRegistries.REGISTRATE.item("smd_diode_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_NANO = EVRegistries.REGISTRATE.item("smd_diode_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_QUANTUM = EVRegistries.REGISTRATE.item("smd_diode_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_CRYSTAL = EVRegistries.REGISTRATE.item("smd_diode_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_WETWARE = EVRegistries.REGISTRATE.item("smd_diode_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_BIOWARE = EVRegistries.REGISTRATE.item("smd_diode_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_OPTICAL = EVRegistries.REGISTRATE.item("smd_diode_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_EXOTIC = EVRegistries.REGISTRATE.item("smd_diode_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_COSMIC = EVRegistries.REGISTRATE.item("smd_diode_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_DIODE_SUPRACAUSAL = EVRegistries.REGISTRATE.item("smd_diode_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_REFINED = EVRegistries.REGISTRATE.item("smd_transistor_refined", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_NANO = EVRegistries.REGISTRATE.item("smd_transistor_nano", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_QUANTUM = EVRegistries.REGISTRATE.item("smd_transistor_quantum", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_CRYSTAL = EVRegistries.REGISTRATE.item("smd_transistor_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_WETWARE = EVRegistries.REGISTRATE.item("smd_transistor_wetware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_BIOWARE = EVRegistries.REGISTRATE.item("smd_transistor_bioware", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_OPTICAL = EVRegistries.REGISTRATE.item("smd_transistor_optical", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_EXOTIC = EVRegistries.REGISTRATE.item("smd_transistor_exotic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_COSMIC = EVRegistries.REGISTRATE.item("smd_transistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SMD_TRANSISTOR_SUPRACAUSAL = EVRegistries.REGISTRATE.item("smd_transistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+
+    public static ItemEntry<Item> COSMIC_PROCESSOR = EVRegistries.REGISTRATE.item("cosmic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> COSMIC_ASSEMBLY = EVRegistries.REGISTRATE.item("cosmic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> COSMIC_COMPUTER= EVRegistries.REGISTRATE.item("cosmic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> COSMIC_MAINFRAME = EVRegistries.REGISTRATE.item("cosmic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BIOWARE_PROCESSOR = EVRegistries.REGISTRATE.item("bioware_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BIOWARE_ASSEMBLY = EVRegistries.REGISTRATE.item("bioware_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BIOWARE_COMPUTER= EVRegistries.REGISTRATE.item("bioware_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> BIOWARE_MAINFRAME = EVRegistries.REGISTRATE.item("bioware_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_PROCESSOR = EVRegistries.REGISTRATE.item("optical_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_ASSEMBLY = EVRegistries.REGISTRATE.item("optical_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_COMPUTER= EVRegistries.REGISTRATE.item("optical_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_MAINFRAME = EVRegistries.REGISTRATE.item("optical_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> EXOTIC_PROCESSOR = EVRegistries.REGISTRATE.item("exotic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> EXOTIC_ASSEMBLY = EVRegistries.REGISTRATE.item("exotic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> EXOTIC_COMPUTER= EVRegistries.REGISTRATE.item("exotic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> EXOTIC_MAINFRAME = EVRegistries.REGISTRATE.item("exotic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SUPRACAUSAL_PROCESSOR = EVRegistries.REGISTRATE.item("supracasual_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SUPRACAUSAL_ASSEMBLY = EVRegistries.REGISTRATE.item("supracasual_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SUPRACAUSAL_COMPUTER= EVRegistries.REGISTRATE.item("supracasual_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SUPRACAUSAL_MAINFRAME = EVRegistries.REGISTRATE.item("supracasual_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+
+    public static ItemEntry<Item> UNSTABLE_STAR = EVRegistries.REGISTRATE.item("unstable_star", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
     public static ItemEntry<Item> electric_piston_max = EVRegistries.REGISTRATE.item("electric_piston_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> emitter_max = EVRegistries.REGISTRATE.item("emitter_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -191,7 +217,7 @@ public class EVItems {
 
 
     public static ItemEntry<ComponentItem> conveyor_module_max = EVRegistries.REGISTRATE.item("conveyor_module_max", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVEYOR.definition)))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVEYOR[0])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.conveyor.module.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", 16));
@@ -200,7 +226,7 @@ public class EVItems {
             .register();
 
     public static ItemEntry<ComponentItem> robot_arm_max = EVRegistries.REGISTRATE.item("robot_arm_max", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.ROBOT_ARM.definition)))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.ROBOT_ARM[0])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.robot.arm.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", 16));
@@ -210,13 +236,18 @@ public class EVItems {
 
 
     public static ItemEntry<ComponentItem> electric_pump_max = EVRegistries.REGISTRATE.item("electric_pump_max", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP.definition)))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[0])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.electric.pump.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
                         1280 * 64 * 64 * 4 / 20));
             })))
             .lang("Max Electric Pump")
+            .register();
+
+
+    public static ItemEntry<ComponentItem> EV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("ev_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[1])))
             .register();
 
 
@@ -233,7 +264,7 @@ public class EVItems {
     public static ItemEntry<Item> clean_culture = EVRegistries.REGISTRATE.item("clean_culture", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> piezoelectric_crystal = EVRegistries.REGISTRATE.item("piezoelectric_crystal", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> neuro_support_unit = EVRegistries.REGISTRATE.item("neuro_support_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cyber_processing_unit = EVRegistries.REGISTRATE.item("cyber_processing_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> CYBER_PROCESSING_UNIT = EVRegistries.REGISTRATE.item("cyber_processing_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> shewanella_culture = EVRegistries.REGISTRATE.item("shewanella_culture", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> streptococcus_culture = EVRegistries.REGISTRATE.item("streptococcus_culture", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> escherichia_culture = EVRegistries.REGISTRATE.item("escherichia_culture", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -252,7 +283,7 @@ public class EVItems {
     public static ItemEntry<Item> hot_annealed_zblan_ingot = EVRegistries.REGISTRATE.item("hot_annealed_zblan_ingot", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> zblan_fiber = EVRegistries.REGISTRATE.item("zblan_fiber", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> erbium_doped_zblan = EVRegistries.REGISTRATE.item("erbium_doped_zblan", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cladded_optical_fiber_core = EVRegistries.REGISTRATE.item("cladded_optical_fiber_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> CLADDED_OPTICAL_FIBER_CORE = EVRegistries.REGISTRATE.item("cladded_optical_fiber_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ACRYLIC_YARN = EVRegistries.REGISTRATE.item("acrylic_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> RAPIDLY_ROTATING_CRUCIBLE = EVRegistries.REGISTRATE.item("rapidly_rotating_crucible", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> HEAVY_METAL_ABSORBING_YARN = EVRegistries.REGISTRATE.item("heavy_metal_absorbing_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -295,9 +326,9 @@ public class EVItems {
     public static ItemEntry<Item> highly_reflective_mirror = EVRegistries.REGISTRATE.item("highly_reflective_mirror", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> rotating_transparent_surface = EVRegistries.REGISTRATE.item("rotating_transparent_surface", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> electron_source = EVRegistries.REGISTRATE.item("electron_source", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_soc = EVRegistries.REGISTRATE.item("optical_soc", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_soc_wafer = EVRegistries.REGISTRATE.item("optical_soc_wafer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> optical_processing_core = EVRegistries.REGISTRATE.item("optical_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_SOC = EVRegistries.REGISTRATE.item("optical_soc", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_SOC_WAFER = EVRegistries.REGISTRATE.item("optical_soc_wafer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> OPTICAL_PROCESSING_CORE = EVRegistries.REGISTRATE.item("optical_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> peek_polyamide_foil = EVRegistries.REGISTRATE.item("peek_polyamide_foil", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> insulation_wire_assembly = EVRegistries.REGISTRATE.item("insulation_wire_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> neutronium_sphere = EVRegistries.REGISTRATE.item("neutronium_sphere", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -326,14 +357,14 @@ public class EVItems {
     public static ItemEntry<Item> grating_lithography_mask = EVRegistries.REGISTRATE.item("grating_lithography_mask", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> diffractor_grating_mirror = EVRegistries.REGISTRATE.item("diffractor_grating_mirror", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ultrashort_pulse_laser = EVRegistries.REGISTRATE.item("ultrashort_pulse_laser", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cosmic_processing_unit_core = EVRegistries.REGISTRATE.item("cosmic_processing_unit_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> cosmic_processing_core = EVRegistries.REGISTRATE.item("cosmic_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> COSMIC_PROCESSING_UNIT_CORE = EVRegistries.REGISTRATE.item("cosmic_processing_unit_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> COSMIC_PROCESSING_CORE = EVRegistries.REGISTRATE.item("cosmic_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> graphene_iron_plate = EVRegistries.REGISTRATE.item("graphene_iron_plate", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> topological_manipulator_unit = EVRegistries.REGISTRATE.item("topological_manipulator_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> relativistic_spinorial_memory_system = EVRegistries.REGISTRATE.item("relativistic_spinorial_memory_system", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> graviton_transducer = EVRegistries.REGISTRATE.item("graviton_transducer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> nuclear_clock = EVRegistries.REGISTRATE.item("nuclear_clock", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> supracausal_processing_core = EVRegistries.REGISTRATE.item("supracasual_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> SUPRACAUSAL_PROCESSING_CORE = EVRegistries.REGISTRATE.item("supracasual_processing_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> manifold_oscillatory_power_cell = EVRegistries.REGISTRATE.item("manifold_oscillatory_power_cell", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> qcd_protective_plating = EVRegistries.REGISTRATE.item("qcd_protective_plating", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ctc_guidance_unit = EVRegistries.REGISTRATE.item("ctc_guidance_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

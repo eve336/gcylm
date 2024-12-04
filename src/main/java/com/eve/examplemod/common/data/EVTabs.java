@@ -10,7 +10,7 @@ import static com.eve.examplemod.EVMain.EV_REGISTRATE;
 public class    EVTabs {
     public static RegistryEntry<CreativeModeTab> EV_MATERIALS = EV_REGISTRATE.defaultCreativeTab("ev_items",
                     builder -> builder.displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator("ev_items", EV_REGISTRATE))
-                            .icon(() -> EVItems.smd_capacitor_refined.asStack())
+                            .icon(() -> EVItems.SMD_CAPACITOR_BIOWARE.asStack())
                             .title(EV_REGISTRATE.addLang("itemGroup", EVMain.id("ev_items"),  "ev Materials"))
                             .build())
             .register();

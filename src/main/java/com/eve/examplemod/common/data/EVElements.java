@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 public class EVElements {
     public static final Element Fm258 = createAndRegister(100,158, -1, null, "Fermium-258", "Fm-258", true);
     public static final Element Md261 = createAndRegister(101, 160, -1, null, "Mendelevium-261", "Md-261", true);
+    public static final Element Es255 = createAndRegister(99, 156, -1, null, "Einsteinium-255", "Es-255", true);
 
     public static final Element Ad = createAndRegister(101, 160, -1, null, "Adamantium", "Ad", false);
 
