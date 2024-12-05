@@ -1,5 +1,6 @@
 package com.eve.examplemod.data.recipe;
 
+import com.eve.examplemod.config.EVConfig;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 
@@ -7,8 +8,9 @@ import java.util.function.Consumer;
 
 public class Removal {
     public static void init(Consumer<ResourceLocation> registry) {
-        platline(registry);
-        tungsten(registry);
+        if (EVConfig.INSTANCE.harderPlatline) platline(registry);
+        if (EVConfig.INSTANCE.harderTungsten) tungsten(registry);
+        if (EVConfig.INSTANCE.harderGold) gold(registry);
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -93,6 +95,16 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_tungstate"));
         registry.accept(new ResourceLocation("gtceu:electrolyzer/tungstic_acid_electrolysis"));
         registry.accept(new ResourceLocation("gtceu:mixer/tungstencarbide"));
+    }
+    public static void gold(Consumer<ResourceLocation> registry) {
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_gold_ore"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_deepslate_gold_ore"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_nether_gold_ore"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_raw_gold"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_gold_ore"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_deepslate_gold_ore"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_nether_gold_ore"));
+        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_raw_gold"));
     }
 
 }

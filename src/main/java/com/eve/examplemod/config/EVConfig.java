@@ -26,7 +26,7 @@ public class EVConfig {
     public boolean programmerArt = false;
 
     @Configurable
-    @Configurable.Comment({"Default = true"})
+    @Configurable.Comment({"Default = true Turn off to add back gold ore"})
     public boolean harderGold = true;
 
     @Configurable

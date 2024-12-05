@@ -88,6 +88,9 @@ public class EVMaterials {
             Epoxy.setMaterialARGB(0xC88C14);
             Epoxy.setMaterialIconSet(DULL);
         }
+        if (EVConfig.INSTANCE.harderGold){
+        Gold.getProperties().removeProperty(PropertyKey.ORE);
+        }
     }
 
 

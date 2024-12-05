@@ -62,6 +62,8 @@ public class MiscRecipes {
                 .inputFluids(Methanol.getFluid(1000))
                 .save(provider);
 
+
+
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("quartz_block_2x2"),
                 QUARTZ_BLOCK.getDefaultInstance(),
                 "QQ",
