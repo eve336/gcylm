@@ -1,5 +1,6 @@
 package com.eve.examplemod.common.data;
 
+import com.eve.examplemod.config.EVConfig;
 import com.eve.examplemod.data.recipe.MiscRecipes;
 import com.eve.examplemod.data.recipe.SuperconductorRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
@@ -23,7 +24,7 @@ public class EVRecipes {
             }
         };
         Replication.init(consumer);
-        GoldChain.init(consumer);
+        if (EVConfig.INSTANCE.harderGold) GoldChain.init(consumer);
         AluminiumChain.init(consumer);
         MiscRecipes.init(consumer);
         Machines.init(consumer);
@@ -38,8 +39,8 @@ public class EVRecipes {
         Mixer.init(consumer);
         FusionRecipes.init(consumer);
         FullereneChain.init(consumer);
-        Platline.init(consumer);
-        TungstenChain.init(consumer);
+        if (EVConfig.INSTANCE.harderPlatline) Platline.init(consumer);
+        if (EVConfig.INSTANCE.harderTungsten) TungstenChain.init(consumer);
         HydrogenPeroxide.init(consumer);
     }
 }

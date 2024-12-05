@@ -246,15 +246,45 @@ public class EVItems {
             .register();
 
 
-    public static ItemEntry<ComponentItem> EV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("ev_solar_panel", ComponentItem::create)
+    public static ItemEntry<ComponentItem> ULV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("ulv_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[0])))
+            .register();
+
+    public static ItemEntry<ComponentItem> LV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("lv_solar_panel", ComponentItem::create)
             .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[1])))
             .register();
 
+    public static ItemEntry<ComponentItem> MV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("mv_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[2])))
+            .register();
 
+    public static ItemEntry<ComponentItem> HV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("hv_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[3])))
+            .register();
 
+    public static ItemEntry<ComponentItem> EV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("ev_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[4])))
+            .register();
 
+    public static ItemEntry<ComponentItem> IV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("iv_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[5])))
+            .register();
 
+    public static ItemEntry<ComponentItem> LuV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("luv_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[6])))
+            .register();
 
+    public static ItemEntry<ComponentItem> ZPM_SOLAR_PANEL = EVRegistries.REGISTRATE.item("zpm_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[7])))
+            .register();
+
+    public static ItemEntry<ComponentItem> UV_SOLAR_PANEL = EVRegistries.REGISTRATE.item("uv_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[8])))
+            .register();
+
+    public static ItemEntry<ComponentItem> MAX_SOLAR_PANEL = EVRegistries.REGISTRATE.item("max_solar_panel", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.EVSOLAR[GTValues.MAX])))
+            .register();
 
     public static ItemEntry<Item> sensor_max = EVRegistries.REGISTRATE.item("sensor_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ultrasonic_homogenizer = EVRegistries.REGISTRATE.item("ultrasonic_homogenizer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

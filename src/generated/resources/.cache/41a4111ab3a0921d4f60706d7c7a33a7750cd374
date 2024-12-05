@@ -1,6 +1,6 @@
-// 1.20.1	2024-12-03T13:30:16.854339	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
-2210d6040032df20f3f25a38b2d32ae2733102d2 assets/examplemod/lang/en_ud.json
-c36da37000dea96579d6d1336ab245c61c3ccddd assets/examplemod/lang/en_us.json
+// 1.20.1	2024-12-05T20:20:01.7482479	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+1ebc744e0ee0989922c1838f6b643d04e532a0e6 assets/examplemod/lang/en_ud.json
+df5da531f99145d0fa4a03e1951363c46f20f7d0 assets/examplemod/lang/en_us.json
 2b33051d77fa96e1858c3db10a12f522cc9da700 assets/examplemod/models/item/acrylic_yarn.json
 3598d4bcd27199d5d68c0953a4177277a71f0abe assets/examplemod/models/item/actinium_plasma_containment_cell.json
 9e556946ac05f808e0da2133b5fd880d0a15651e assets/examplemod/models/item/aerographene.json
@@ -156,6 +156,7 @@ bd0ff794d7ec93bcfaa846d455def961fb7c6750 assets/examplemod/models/item/electron_
 5ccb8965118cccab172650cfc45e30537cba8f0a assets/examplemod/models/item/empty_laser_cooling_container.json
 767ffe378251df41c1af3687546711270ff80d79 assets/examplemod/models/item/erbium_doped_zblan.json
 7d7be40b8f513b139b08e4b12d3e1a102aa2f641 assets/examplemod/models/item/escherichia_culture.json
+99343f6c6391092de059203d2267d6ffd553e6c8 assets/examplemod/models/item/ev_solar_panel.json
 c06aa810116fcb74066d4ab278812e9aee05639b assets/examplemod/models/item/excitation_maintainer.json
 829cd6921f778ca2bf7941a07a41e650d0fb1464 assets/examplemod/models/item/exotic_assembly.json
 a478cb4e5914e1601ee5c91eb968ccd16ce9140f assets/examplemod/models/item/exotic_chip.json
@@ -181,8 +182,10 @@ e34dd58382e42ca6f19c1d35b09969f2be17ac2b assets/examplemod/models/item/hassium_w
 e9932cc3f02f158fb4636f5248ece02661d91032 assets/examplemod/models/item/highly_reflective_mirror.json
 cb6458358facdce0510cff8d392a2bd4b68382c1 assets/examplemod/models/item/high_frequency_laser.json
 bc3a9ed102a2e279e9db4f19161fa18e14e891fd assets/examplemod/models/item/hot_annealed_zblan_ingot.json
+d1c5d7088f521298416b4533b35662416b22645e assets/examplemod/models/item/hv_solar_panel.json
 166b49c9ebbd366728f1a4bda4fae88ed09c15ba assets/examplemod/models/item/ingot_field_shape.json
 ce80cd20c3b600894d9513befd91475b1153bc7a assets/examplemod/models/item/insulation_wire_assembly.json
+899025650c675577b84306334a1e0ed90ede11a7 assets/examplemod/models/item/iv_solar_panel.json
 b6ea160f219938d09f9c2c16586b5857cc3b09ca assets/examplemod/models/item/kapton_board.json
 1fc8b34f2bedcdd119ec869f8696e810dd3f2b2d assets/examplemod/models/item/laser_cooling_unit.json
 254a9cb732776050cd99bc2397eb9980bd0b3744 assets/examplemod/models/item/laser_diode.json
@@ -192,9 +195,12 @@ ee62037e52dfd94d606e4bbca9562788e319c02d assets/examplemod/models/item/lithium_s
 3a7af211d3bb66098491dfe66a73d98823bec0c9 assets/examplemod/models/item/low_frequency_laser.json
 6f99a60a57bbdabf6d300c72a456bf48836ce2eb assets/examplemod/models/item/lutmyvo_boule.json
 d4d79a865d86c245fe3b5db08e33258e64d4a68d assets/examplemod/models/item/lutmyvo_rod.json
+7a3438583c3e162a13455c6e8d776fde19809bb8 assets/examplemod/models/item/luv_solar_panel.json
+ebba2832dda03c8dd2c70a057254ef58f14c1ad6 assets/examplemod/models/item/lv_solar_panel.json
 6b76e06d9e7374e40ecf10544f122dde31183dfb assets/examplemod/models/item/macrowormhole_generator.json
 3d089e72c3f312cb71211361a10d62e66278de16 assets/examplemod/models/item/magnetic_trap.json
 739944e09cd1a2be3df59095e58599f5f0b82542 assets/examplemod/models/item/manifold_oscillatory_power_cell.json
+aaf5b7f0043dea971ee114700ac6a10ae6c4707e assets/examplemod/models/item/max_solar_panel.json
 feda96ae74ff13d921b7c6d0b1fa57b3b9ceb271 assets/examplemod/models/item/medium_frequency_laser.json
 fbf1411f0022e35d527faeb064be512a09674b2e assets/examplemod/models/item/memory_foam_block.json
 dd832608bfbe420dffb43893e9b79da3d0931c78 assets/examplemod/models/item/mica_insulator_foil.json
@@ -202,6 +208,7 @@ dd832608bfbe420dffb43893e9b79da3d0931c78 assets/examplemod/models/item/mica_insu
 750fd2bea69ae392f7d9da9dd6b1932687318bc6 assets/examplemod/models/item/mica_sheet.json
 5aa87c4a8b95cc9a7c37e2edbf8db0d1b65854d5 assets/examplemod/models/item/microfocus_x_ray_tube.json
 5a186498b9e786a01938024fc8aaf0e172381f85 assets/examplemod/models/item/microwormhole_generator.json
+e245eee8ce4a0bcc1b089120d1b528c4a47f67c4 assets/examplemod/models/item/mv_solar_panel.json
 b589b5fe5700b613882d67bbc42ac80a413aad93 assets/examplemod/models/item/nanosilicon_cathode.json
 fa2dfa2e08a6aef22568a8cf387289400bbf3ebc assets/examplemod/models/item/nanotome.json
 e0d75e4746fd96bfbda45ceb18a07693fa0ca043 assets/examplemod/models/item/ndyag_boule.json
@@ -310,11 +317,13 @@ f4a43bcb542f9f1c29c42a5ad96d55b431c48c11 assets/examplemod/models/item/time_dila
 87c6dbb0ee249a6864ae9cc4b7a9d30ca67c6477 assets/examplemod/models/item/uhpic_wafer.json
 fb3532405b8b19fbac5a0feba26ba3b9667e72cc assets/examplemod/models/item/ultrashort_pulse_laser.json
 00052c71b82edd9b515613524663bf3d9a31e373 assets/examplemod/models/item/ultrasonic_homogenizer.json
+5720bb985bfe71a356d4ea072ae936bdaba45fea assets/examplemod/models/item/ulv_solar_panel.json
 b92b4c52326412058d0463ee45f69c373f44a191 assets/examplemod/models/item/unstable_star.json
 a01a78dc688a7f88d5b03eea71c5d164e6aded02 assets/examplemod/models/item/untreated_exotic_wafer.json
 b5d37047b87611e4f83a7e639fbfe06df0d5cfac assets/examplemod/models/item/uranium_saturated_yarn.json
 9b1f13126677ca4c24461e41df71e06aa7c7bc71 assets/examplemod/models/item/uva_halide_lamp.json
 366d4d58bcc13c3c62e8fed6717217d1254521ca assets/examplemod/models/item/uva_lamp_core.json
+76abe6202539983e1dec9df22401f424982cb81e assets/examplemod/models/item/uv_solar_panel.json
 8b82e26e47318beca8b7ad3deee1a9efde39390e assets/examplemod/models/item/white_halide_lamp.json
 88d71ed5fffea2e44a63f3de44449ac187ae1bdb assets/examplemod/models/item/white_lamp_core.json
 a1e9be0be340ea0d70e927e1da3b7ddf397655da assets/examplemod/models/item/x_ray_laser.json
@@ -323,6 +332,7 @@ e76f4935935125ddeaa1cb9648208a2be9bb0fbe assets/examplemod/models/item/x_ray_mir
 6f31595b75ef67dd024ec63841243a2edeb7bc9e assets/examplemod/models/item/zblan.json
 d072a4fbdc5953a3599106c23d053d559673b17b assets/examplemod/models/item/zblan_fiber.json
 dda2343de71b17e465a5080744abf7c5c4bc9b2c assets/examplemod/models/item/zblan_ingot.json
+c0506c8e39a241b58890d4cbf04e6fc9dc831d94 assets/examplemod/models/item/zpm_solar_panel.json
 a57f933cdfc5f0249071a89806b332388837675a data/ae2/tags/items/p2p_attunements/fluid_p2p_tunnel.json
 31f52b70b2865b969a5367bd1615932064d7afb5 data/gtceu/tags/items/circuits/ev.json
 6d693b3125c1d85176280e194c5e8c3914fa1056 data/gtceu/tags/items/circuits/hv.json

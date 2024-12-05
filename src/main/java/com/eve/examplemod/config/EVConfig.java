@@ -24,4 +24,16 @@ public class EVConfig {
     @Configurable
     @Configurable.Comment({"Default = false"})
     public boolean programmerArt = false;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean harderGold = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean harderPlatline = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean harderTungsten = true;
 }

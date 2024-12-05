@@ -19,13 +19,13 @@ import net.minecraftforge.fml.ModLoader;
 import java.util.Arrays;
 import java.util.Locale;
 
-import static com.gregtechceu.gtceu.common.data.GTCovers.ALL_TIERS_WITH_ULV;
-import static com.gregtechceu.gtceu.common.data.GTCovers.registerTiered;
+
 
 @SuppressWarnings("SpellCheckingInspection")
 public class EVCovers {
 
 
+    public static final int[] ALL_TIERS_WITH_ULV = GTValues.tiersBetween(GTValues.ULV, GTValues.MAX);
 
 
     public static CoverDefinition[] EVSOLAR = registerTiered(
