@@ -21,6 +21,7 @@ import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.GTValues.V;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
+import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.ELECTRIC_BLAST_FURNACE;
 import static com.gregtechceu.gtceu.common.data.GTMachines.PRIMITIVE_BLAST_FURNACE;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -62,13 +63,57 @@ public class MiscRecipes {
                 .inputFluids(Methanol.getFluid(1000))
                 .save(provider);
 
+        VanillaRecipeHelper.addSmeltingRecipe(provider, id("precious_metal_smelting"),
+                ChemicalHelper.get(ingot, PreciousMetal), ChemicalHelper.get(nugget, Gold, 2), 1);
 
+        VanillaRecipeHelper.addBlastingRecipe(provider, id("precious_metal_blasting"),
+                ChemicalHelper.get(ingot, PreciousMetal).kjs$asIngredient(), ChemicalHelper.get(nugget, Gold, 2), 1);
 
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("quartz_block_2x2"),
                 QUARTZ_BLOCK.getDefaultInstance(),
                 "QQ",
                 "QQ",
                 'Q', QUARTZ);
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("ulv_motor"),
+                ELECTRIC_MOTOR_ULV.asStack(3),
+                ChemicalHelper.get(plate, Lead),
+                ChemicalHelper.get(wireGtSingle, Lead),
+                ChemicalHelper.get(rod, IronMagnetic));
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("ulv_conveyor_kelp"),
+                CONVEYOR_MODULE_ULV.asStack(1),
+                DRIED_KELP,
+                DRIED_KELP,
+                ELECTRIC_MOTOR_ULV,
+                ELECTRIC_MOTOR_ULV);
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("ulv_conveyor"),
+                CONVEYOR_MODULE_ULV.asStack(1),
+                ChemicalHelper.get(plate, Rubber),
+                ChemicalHelper.get(plate, Rubber),
+                ELECTRIC_MOTOR_ULV,
+                ELECTRIC_MOTOR_ULV);
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("ulv_piston"),
+                ELECTRIC_PISTON_ULV.asStack(),
+                ChemicalHelper.get(plate, Lead),
+                ELECTRIC_MOTOR_ULV,
+                ChemicalHelper.get(rod, Lead),
+                ChemicalHelper.get(gear, Iron));
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("ulv_pump"),
+                ELECTRIC_PUMP_ULV.asStack(),
+                ChemicalHelper.get(rotor, Tin),
+                ELECTRIC_MOTOR_ULV,
+                ChemicalHelper.get(pipeSmallFluid, Bronze));
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("robot_arm_ulv"),
+                ROBOT_ARM_ULV.asStack(),
+                ChemicalHelper.get(rod, Lead),
+                ELECTRIC_MOTOR_ULV,
+                VACUUM_TUBE,
+                ELECTRIC_PISTON_ULV);
 
         CHEMICAL_RECIPES.recipeBuilder("biodiesel_creosote_oil_ethanol")
                 .inputItems(dustTiny, SodiumHydroxide)

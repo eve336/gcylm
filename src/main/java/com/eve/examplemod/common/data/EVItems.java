@@ -213,11 +213,14 @@ public class EVItems {
     public static ItemEntry<Item> electric_piston_max = EVRegistries.REGISTRATE.item("electric_piston_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> emitter_max = EVRegistries.REGISTRATE.item("emitter_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> field_generator_max = EVRegistries.REGISTRATE.item("field_generator_max", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> MAX_ELECTRIC_MOTOR = EVRegistries.REGISTRATE.item("max_electric_motor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
 
+    public static ItemEntry<Item> ELECTRIC_PISTON_ULV = EVRegistries.REGISTRATE.item("ulv_electric_piston", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> ELECTRIC_MOTOR_ULV = EVRegistries.REGISTRATE.item("ulv_electric_motor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
     public static ItemEntry<ComponentItem> conveyor_module_max = EVRegistries.REGISTRATE.item("conveyor_module_max", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVEYOR[0])))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVEYOR[GTValues.MAX])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.conveyor.module.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", 16));
@@ -226,7 +229,7 @@ public class EVItems {
             .register();
 
     public static ItemEntry<ComponentItem> robot_arm_max = EVRegistries.REGISTRATE.item("robot_arm_max", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.ROBOT_ARM[0])))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.ROBOT_ARM[GTValues.MAX])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.robot.arm.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate_stacks", 16));
@@ -234,15 +237,49 @@ public class EVItems {
             .lang("Max Robot Arm")
             .register();
 
+    public static ItemEntry<ComponentItem> converter_cover = EVRegistries.REGISTRATE.item("converter_cover", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVERTER[0])))
+            .lang("Converter Cover")
+            .register();
+
 
     public static ItemEntry<ComponentItem> electric_pump_max = EVRegistries.REGISTRATE.item("electric_pump_max", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[0])))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[GTValues.MAX])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.electric.pump.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
                         1280 * 64 * 64 * 4 / 20));
             })))
             .lang("Max Electric Pump")
+            .register();
+
+    public static ItemEntry<ComponentItem> CONVEYOR_MODULE_ULV = EVRegistries.REGISTRATE.item("ulv_conveyor_module", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVEYOR[0])))
+            .onRegister(attach(new TooltipBehavior(lines -> {
+                lines.add(Component.translatable("item.gtceu.conveyor.module.tooltip"));
+                lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate", 8));
+            })))
+            .lang("ULV Conveyor Module")
+            .register();
+
+    public static ItemEntry<ComponentItem> ROBOT_ARM_ULV = EVRegistries.REGISTRATE.item("ulv_robot_arm", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.ROBOT_ARM[0])))
+            .onRegister(attach(new TooltipBehavior(lines -> {
+                lines.add(Component.translatable("item.gtceu.robot.arm.tooltip"));
+                lines.add(Component.translatable("gtceu.universal.tooltip.item_transfer_rate", 8));
+            })))
+            .lang("ULV Robot Arm")
+            .register();
+
+
+    public static ItemEntry<ComponentItem> ELECTRIC_PUMP_ULV = EVRegistries.REGISTRATE.item("ulv_electric_pump", ComponentItem::create)
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[0])))
+            .onRegister(attach(new TooltipBehavior(lines -> {
+                lines.add(Component.translatable("item.gtceu.electric.pump.tooltip"));
+                lines.add(Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",
+                        64));
+            })))
+            .lang("ULV Electric Pump")
             .register();
 
 

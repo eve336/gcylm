@@ -36,14 +36,12 @@ import static com.eve.examplemod.api.EVValues.CLR;
 import static com.eve.examplemod.api.EVValues.ROMAN;
 import static com.eve.examplemod.common.data.EVRecipeTypes.ACTIVE_COOLER_RECIPES;
 import static com.gregtechceu.gtceu.api.GTValues.*;
-import static com.gregtechceu.gtceu.api.pattern.Predicates.abilities;
+import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 
-
-import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.ALL_TIERS;
@@ -122,6 +120,14 @@ public class EVMachines{
                     .rotationState(RotationState.ALL)
                     .abilities(EVPartAbility.FUEL_CELL)
                     .register();
+
+    public static final MachineDefinition GECKO_CASING = REGISTRATE
+            .machine("gecko_casing", GeckoCasing::new)
+            .langValue("Gecko Casing")
+            .rotationState(RotationState.ALL)
+            .modelRenderer(() -> EVMain.id("block/casings/gecko"))
+            .abilities(EVPartAbility.GECKO_CASING)
+            .register();
 
     public static final MachineDefinition COOLER = REGISTRATE
             .machine("cooler", holder -> new PassiveCooler(holder, 100))
@@ -233,6 +239,32 @@ public class EVMachines{
                     .where('#', Predicates.air())
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_primitive_bricks"),
+                    GTCEu.id("block/multiblock/primitive_blast_furnace"))
+            .compassSections(GTCompassSections.TIER[IV])
+            .compassNodeSelf()
+            .register();
+
+
+    public static final MultiblockMachineDefinition GECKO_MULTIBLOCK = REGISTRATE
+            .multiblock("gecko_multiblock", GeckoMultiblock::new)
+            .langValue("Gecko")
+            .rotationState(RotationState.ALL)
+            .recipeType(GTRecipeTypes.DUMMY_RECIPES)
+            .alwaysTryModifyRecipe(true)
+            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
+                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK_SUBTICK))
+            .appearanceBlock(CASING_PRIMITIVE_BRICKS)
+            .pattern(definition -> FactoryBlockPattern.start(RIGHT, UP, BACK)
+                    .aisle("FFF", "FSF", "FFF", "FFF")
+                    .aisle("FFF", "I#I", "F#F", "F#F")
+                    .aisle("FFF", "FOF", "FFF", "FFF")
+                    .where('S', Predicates.controller(blocks(definition.getBlock())))
+                    .where('F', ability(EVPartAbility.GECKO_CASING))
+                    .where('O',blocks(ITEM_EXPORT_BUS[1].getBlock()))
+                    .where('I', blocks(ITEM_IMPORT_BUS[1].getBlock()).setMaxLayerLimited(1).setMinLayerLimited(1).or(blocks(CASING_PRIMITIVE_BRICKS.get())))
+                    .where('#', Predicates.air())
+                    .build())
+            .workableCasingRenderer(EVMain.id("block/casings/gecko"),
                     GTCEu.id("block/multiblock/primitive_blast_furnace"))
             .compassSections(GTCompassSections.TIER[IV])
             .compassNodeSelf()

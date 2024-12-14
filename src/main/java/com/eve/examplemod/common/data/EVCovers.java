@@ -1,20 +1,15 @@
 package com.eve.examplemod.common.data;
 
-import com.eve.examplemod.EVMain;
 import com.eve.examplemod.common.cover.EVSolarPanel;
+import com.eve.examplemod.common.cover.ConverterCover;
 import com.gregtechceu.gtceu.GTCEu;
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.addon.AddonFinder;
-import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.cover.CoverDefinition;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.cover.*;
 import com.gregtechceu.gtceu.client.renderer.cover.*;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectFunction;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fml.ModLoader;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -34,27 +29,29 @@ public class EVCovers {
             tier -> new SimpleCoverRenderer(GTCEu.id("block/cover/overlay_solar_panel")), ALL_TIERS_WITH_ULV
     );
 
+    public static CoverDefinition[] CONVERTER = registerTiered(
+            "converter",
+            ConverterCover::new,
+            tier -> new SimpleCoverRenderer(GTCEu.id("block/cover/overlay_solar_panel")), ALL_TIERS_WITH_ULV
+    );
+
     public static CoverDefinition[] ROBOT_ARM = registerTiered(
-            "robot_arm",
+            "ev_robot_arm",
             RobotArmCover::new,
-            tier -> RobotArmCoverRenderer.INSTANCE, GTValues.MAX
+            tier -> RobotArmCoverRenderer.INSTANCE, ALL_TIERS_WITH_ULV
     );
 
     public static CoverDefinition[] PUMP = registerTiered(
-            "pump",
+            "ev_pump",
             PumpCover::new,
-            tier -> PumpCoverRenderer.INSTANCE, GTValues.MAX
+            tier -> PumpCoverRenderer.INSTANCE, ALL_TIERS_WITH_ULV
     );
 
     public static CoverDefinition[] CONVEYOR = registerTiered(
-            "conveyor",
+            "ev_conveyor",
             ConveyorCover::new,
-            tier -> ConveyorCoverRenderer.INSTANCE, GTValues.MAX
+            tier -> ConveyorCoverRenderer.INSTANCE, ALL_TIERS_WITH_ULV
     );
-
-
-
-
 
     public static CoverDefinition register(String id, CoverDefinition.CoverBehaviourProvider behaviorCreator) {
         return register(id, behaviorCreator, new SimpleCoverRenderer(GTCEu.id("block/cover/" + id)));
