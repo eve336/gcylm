@@ -1,5 +1,6 @@
 package com.eve.examplemod;
 
+import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.EVCovers;
 import com.eve.examplemod.common.data.EVElements;
@@ -49,10 +50,10 @@ public class EVAddon implements IGTAddon {
 
 
 
-
     @Override
     public void registerTagPrefixes() {
         //CustomTagPrefixes.init();
+        EVTagPrefix.init();
     }
 
     @Override

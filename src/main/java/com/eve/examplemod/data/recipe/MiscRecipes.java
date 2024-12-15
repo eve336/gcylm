@@ -205,11 +205,6 @@ public class MiscRecipes {
                 .duration(20)
                 .save(provider);
 
-        NUCLEAR_REACTOR_RECIPES.recipeBuilder("rizz")
-                .inputItems(ingot, Uranium235)
-                .addData("temp", 100)
-                .save(provider);
-
         CHEMICAL_RECIPES.recipeBuilder("sodium_hydroxide")
                 .EUt(32)
                 .inputItems(dust, Sodium, 2)

@@ -237,10 +237,6 @@ public class EVItems {
             .lang("Max Robot Arm")
             .register();
 
-    public static ItemEntry<ComponentItem> converter_cover = EVRegistries.REGISTRATE.item("converter_cover", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVERTER[0])))
-            .lang("Converter Cover")
-            .register();
 
 
     public static ItemEntry<ComponentItem> electric_pump_max = EVRegistries.REGISTRATE.item("electric_pump_max", ComponentItem::create)

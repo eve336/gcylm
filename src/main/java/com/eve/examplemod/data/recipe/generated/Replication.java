@@ -16,7 +16,7 @@ public class Replication {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.isElement() && material.hasFluid() && !material.hasFlag(DISABLE_REPLICATION)) {
-                    AUTOCLAVE_RECIPES.recipeBuilder("autoclave_")
+                    AUTOCLAVE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_replication")
                             .notConsumableFluid(material.getFluid(1))
                             .outputFluids(material.getFluid(100))
                             .duration(1200).EUt(9000000)

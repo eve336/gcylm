@@ -7,6 +7,7 @@ import com.eve.examplemod.data.recipe.chain.*;
 import com.eve.examplemod.data.recipe.circuit.CircuitRecipes;
 import com.eve.examplemod.data.recipe.generated.Machines;
 import com.eve.examplemod.data.recipe.generated.Mixer;
+import com.eve.examplemod.data.recipe.generated.Nuclear;
 import com.eve.examplemod.data.recipe.generated.Replication;
 import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
@@ -42,5 +43,6 @@ public class EVRecipes {
         if (EVConfig.INSTANCE.harderPlatline) Platline.init(consumer);
         if (EVConfig.INSTANCE.harderTungsten) TungstenChain.init(consumer);
         HydrogenPeroxide.init(consumer);
+        Nuclear.init(consumer);
     }
 }

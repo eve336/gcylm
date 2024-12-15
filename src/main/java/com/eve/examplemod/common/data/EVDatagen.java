@@ -11,8 +11,8 @@ import static com.eve.examplemod.EVMain.EV_REGISTRATE;
 
 public class EVDatagen {
     public static void init(){
-        EV_REGISTRATE.addDataGenerator(ProviderType.LANG, LangHandler::init);
         EV_REGISTRATE.addDataGenerator(ProviderType.LANG, EVLangHandler::init);
+        EV_REGISTRATE.addDataGenerator(ProviderType.LANG, LangHandler::init);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.eve.examplemod;
 
+import com.eve.examplemod.api.data.material.info.EVMaterialIconType;
+import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.*;
 import com.eve.examplemod.config.EVConfig;
@@ -56,6 +58,8 @@ public class EVMain {
         EVDatagen.init();
         EVBlocks.init();
         EVConfig.init();
+        EVMaterialIconType.init();
+
     }
 
 

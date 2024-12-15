@@ -7,5 +7,7 @@ public class EVPropertyKey extends PropertyKey {
     public EVPropertyKey(String key, Class type) {
         super(key, type);
     }
+    public static final PropertyKey<EVNuclearProperty> NUCLEAR = new PropertyKey<>("nuclear", EVNuclearProperty.class);
     public static final PropertyKey<EVMixerProperty> MIXER = new PropertyKey<>("mixer", EVMixerProperty.class);
+
 }
