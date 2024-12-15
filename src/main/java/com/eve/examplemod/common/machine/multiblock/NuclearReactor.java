@@ -1,6 +1,8 @@
 package com.eve.examplemod.common.machine.multiblock;
 
 import com.eve.examplemod.api.capability.IFuelCell;
+import com.eve.examplemod.common.machine.multiblock.part.PassiveCooler;
+import com.gregtechceu.gtceu.api.block.IMachineBlock;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
@@ -10,6 +12,8 @@ import com.gregtechceu.gtceu.api.pattern.BlockPattern;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
+import com.gregtechceu.gtceu.common.block.FluidPipeBlock;
+import com.gregtechceu.gtceu.common.blockentity.FluidPipeBlockEntity;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import net.minecraft.core.BlockPos;
@@ -23,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
+import static com.gregtechceu.gtceu.common.data.GTBlockEntities.FLUID_PIPE;
 import static com.gregtechceu.gtceu.common.machine.multiblock.electric.CleanroomMachine.MIN_DEPTH;
 import static com.gregtechceu.gtceu.common.machine.multiblock.electric.CleanroomMachine.MIN_RADIUS;
 
@@ -172,12 +177,12 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
 
     @NotNull
     protected BlockState getCasingState() {
-        return GTBlocks.PLASTCRETE.getDefaultState();
+        return GTBlocks.CASING_TITANIUM_STABLE.getDefaultState();
     }
 
     @NotNull
     protected BlockState getGlassState() {
-        return GTBlocks.CLEANROOM_GLASS.getDefaultState();
+        return GTBlocks.CASING_LAMINATED_GLASS.getDefaultState();
     }
 
     @NotNull
@@ -268,7 +273,14 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         // layer the slices one behind the next
         return  // the block beneath the controller must only be a casing for structure
                 // dimension checks
-                FactoryBlockPattern.start().aisle(wall).aisle(slice).setRepeatable(bDist - 1).aisle(center).aisle(slice).setRepeatable(fDist - 1).aisle(wall).where('S', controller(blocks(this.getDefinition().get()))).where('B', states(getCasingState()).or(basePredicate)).where('X', wallPredicate.or(basePredicate).or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30))).where('K', wallPredicate).where('F', cleanroomFilters()).where(' ', any().or(abilities(EVPartAbility.FUEL_CELL))).build();
+                FactoryBlockPattern.start().aisle(wall).aisle(slice).setRepeatable(bDist - 1).aisle(center).aisle(slice).setRepeatable(fDist - 1).aisle(wall).where('S', controller(blocks(this.getDefinition().get()))).where('B', states(getCasingState()).or(basePredicate)).where('X', wallPredicate.or(basePredicate).or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30)))
+                        .where('K', wallPredicate)
+                        .where('F', cleanroomFilters())
+                        .where(' ', air().or(abilities(EVPartAbility.FUEL_CELL)).or(abilities(EVPartAbility.COOLER).or(blocks(FLUID_PIPE))))
+
+
+
+                        .build();
 
 
     }

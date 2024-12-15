@@ -95,14 +95,50 @@ public class EVMaterials {
         Uranium239.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Neptunium239, 9000)));
         Neptunium237.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Protactinium233, 9000)));
         Neptunium239.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium239, 9000)));
-        Neptunium235.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium235, 9000)));
+        Plutonium240.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium241, 9000)));
+        Plutonium245.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
+        Americium243.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Neptunium239, 9000)));
+        Americium245.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Curium245, 9000)));
+        Americium241.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium241, 9000)));
+        Curium250.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
+                Curium251, 100,
+                Berkelium251, 1000,
+                Californium251, 8900
+        )));
+        Thorium.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
+                Thorium233, 100,
+                Protactinium233, 1000,
+                Uranium233, 8900
+        )));
+        Curium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
 
+        Berkelium249.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
+        Berkelium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium251, 9000)));
+        Berkelium247.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Curium247, 9000)));
+        Californium252.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium253, 9000)));
+        Californium256.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
+                Californium257, 100,
+                Einsteinium257, 1000,
+                Fermium257, 8900
+        )));
+        Californium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Einsteinium257, 9000)));
+        Einsteinium255.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Berkelium251, 9000)));
+        Einsteinium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium257, 9000)));
+        Einsteinium253.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium253, 9000)));
+        Fermium258.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium259, 9000)));
+        Fermium262.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
+                Fermium263, 1000,
+                Mendelevium263, 9000
+        )));
+        Fermium263.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Mendelevium263, 9000)));
+        Mendelevium261.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Einsteinium257, 9000)));
+        Mendelevium259.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium259, 9000)));
 
-
-
-        Thorium.addFlags(GENERATE_NUCLEAR);
-
-        Uranium238.addFlags(GENERATE_NUCLEAR);
+        Uranium235.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
+        Thorium.addFlags(GENERATE_NUCLEAR, FISSILE);
+        Plutonium241.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
+        Uranium238.addFlags(GENERATE_NUCLEAR, FISSILE);
+        Plutonium239.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
 
 
 
@@ -132,7 +168,7 @@ public class EVMaterials {
             .ingot()
             .color(Protactinium.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(U233)
             .buildAndRegister()
             .setFormula("U233", true);
@@ -151,7 +187,7 @@ public class EVMaterials {
             .color(Protactinium.getMaterialRGB())
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR)
-            .element(Pa)
+            .element(Pa233)
             .buildAndRegister()
             .setFormula("Pa233", true);
 
@@ -169,7 +205,7 @@ public class EVMaterials {
             .color(Thorium.getMaterialRGB())
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR)
-            .element(Th233)
+            .element(Th232)
             .buildAndRegister()
             .setFormula("Th232", true);
 
@@ -177,19 +213,37 @@ public class EVMaterials {
             .ingot()
             .color(Uranium238.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .element(U234)
             .buildAndRegister()
             .setFormula("U234", true);
+
+    public static final Material Fermium259 = new Material.Builder(EVMain.id("fermium_259"))
+            .ingot()
+            .color(Fermium.getMaterialRGB())
+            .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
+            .element(Fm259)
+            .buildAndRegister()
+            .setFormula("Fm259", true);
 
     public static final Material Fermium262 = new Material.Builder(EVMain.id("fermium_262"))
             .ingot()
             .color(Fermium.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .element(Fm262)
             .buildAndRegister()
             .setFormula("Fm262", true);
+
+    public static final Material Fermium263 = new Material.Builder(EVMain.id("fermium_263"))
+            .ingot()
+            .color(Fermium.getMaterialRGB())
+            .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR)
+            .element(Fm263)
+            .buildAndRegister()
+            .setFormula("Fm263", true);
 
     public static final Material Plutonium245 = new Material.Builder(EVMain.id("plutonium_245"))
             .ingot()
@@ -204,7 +258,7 @@ public class EVMaterials {
             .ingot()
             .color(Plutonium241.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .element(Pu244)
             .buildAndRegister()
             .setFormula("Pu244", true);
@@ -214,13 +268,14 @@ public class EVMaterials {
             .color(Plutonium241.getMaterialRGB())
             .iconSet(METALLIC)
             .element(Pu240)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .buildAndRegister()
             .setFormula("Pu244", true);
 
     public static final Material Einsteinium257 = new Material.Builder(EVMain.id("einsteinium"))
             .ingot()
             .color(Einsteinium.getMaterialRGB())
+            .flags(GENERATE_NUCLEAR)
             .iconSet(METALLIC)
             .element(Es257)
             .buildAndRegister()
@@ -230,6 +285,7 @@ public class EVMaterials {
             .ingot()
             .color(Californium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(Cf253)
             .buildAndRegister()
             .setFormula("Cf253", true);
@@ -237,25 +293,44 @@ public class EVMaterials {
     public static final Material Californium256 = new Material.Builder(EVMain.id("californium_256"))
             .ingot()
             .color(Californium.getMaterialRGB())
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .iconSet(METALLIC)
             .element(Cf256)
             .buildAndRegister()
             .setFormula("Cf256", true);
 
+    public static final Material Californium257 = new Material.Builder(EVMain.id("californium_257"))
+            .ingot()
+            .color(Californium.getMaterialRGB())
+            .flags(GENERATE_NUCLEAR)
+            .iconSet(METALLIC)
+            .element(Cf257)
+            .buildAndRegister()
+            .setFormula("Cf257", true);
+
     public static final Material Californium252 = new Material.Builder(EVMain.id("californium_252"))
             .ingot()
             .color(Californium.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .element(Cf252)
             .buildAndRegister()
             .setFormula("Cf252", true);
+
+    public static final Material Californium251 = new Material.Builder(EVMain.id("californium_251"))
+            .ingot()
+            .color(Californium.getMaterialRGB())
+            .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
+            .element(Cf251)
+            .buildAndRegister()
+            .setFormula("Cf251", true);
 
     public static final Material Berkelium251 = new Material.Builder(EVMain.id("berkelium_251"))
             .ingot()
             .color(Berkelium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR)
             .element(Bk251)
             .buildAndRegister()
             .setFormula("Bk251", true);
@@ -264,14 +339,32 @@ public class EVMaterials {
             .ingot()
             .color(Berkelium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(Bk249)
             .buildAndRegister()
             .setFormula("Bk249", true);
 
-    public static final Material Curium250 = new Material.Builder(EVMain.id("curium_250"))
+    public static final Material Berkelium247 = new Material.Builder(EVMain.id("berkelium_247"))
+            .ingot()
+            .color(Berkelium.getMaterialRGB())
+            .iconSet(METALLIC)
+            .element(Bk249)
+            .buildAndRegister()
+            .setFormula("Bk247", true);
+
+    public static final Material Curium251 = new Material.Builder(EVMain.id("curium_251"))
             .ingot()
             .color(Curium.getMaterialRGB())
             .flags(GENERATE_NUCLEAR)
+            .iconSet(METALLIC)
+            .element(Cm251)
+            .buildAndRegister()
+            .setFormula("Cm251", true);
+
+    public static final Material Curium250 = new Material.Builder(EVMain.id("curium_250"))
+            .ingot()
+            .color(Curium.getMaterialRGB())
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .iconSet(METALLIC)
             .element(Cm250)
             .buildAndRegister()
@@ -280,7 +373,7 @@ public class EVMaterials {
     public static final Material Curium246 = new Material.Builder(EVMain.id("curium_246"))
             .ingot()
             .color(Curium.getMaterialRGB())
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .iconSet(METALLIC)
             .element(Cm246)
             .buildAndRegister()
@@ -289,7 +382,7 @@ public class EVMaterials {
     public static final Material Curium245 = new Material.Builder(EVMain.id("curium_245"))
             .ingot()
             .color(Curium.getMaterialRGB())
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .iconSet(METALLIC)
             .element(Cm245)
             .buildAndRegister()
@@ -298,7 +391,7 @@ public class EVMaterials {
     public static final Material Curium247 = new Material.Builder(EVMain.id("curium_247"))
             .ingot()
             .color(Curium.getMaterialRGB())
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .iconSet(METALLIC)
             .element(Cm247)
             .buildAndRegister()
@@ -308,6 +401,7 @@ public class EVMaterials {
             .ingot()
             .color(Americium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR)
             .element(Am245)
             .buildAndRegister()
             .setFormula("Am245", true);
@@ -316,9 +410,18 @@ public class EVMaterials {
             .ingot()
             .color(Americium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(Am243)
             .buildAndRegister()
             .setFormula("Am243", true);
+
+    public static final Material Americium241 = new Material.Builder(EVMain.id("americium_241"))
+            .ingot()
+            .color(Americium.getMaterialRGB())
+            .iconSet(METALLIC)
+            .element(Am241)
+            .buildAndRegister()
+            .setFormula("Am241", true);
 
     public static final Material Neptunium235 = new Material.Builder(EVMain.id("neptunium_235"))
             .ingot()
@@ -332,6 +435,7 @@ public class EVMaterials {
             .ingot()
             .color(Neptunium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(Np237)
             .buildAndRegister()
             .setFormula("Np237", true);
@@ -340,6 +444,7 @@ public class EVMaterials {
             .ingot()
             .color(Neptunium.getMaterialRGB())
             .iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR)
             .element(Np239)
             .buildAndRegister()
             .setFormula("Np239", true);
@@ -646,22 +751,48 @@ public class EVMaterials {
             .appendFlags(EXT2_METAL)
             .buildAndRegister();
 
+    public static final Material Fermium257 = new Material.Builder(EVMain.id("fermium_257"))
+            .ingot().liquid()
+            .color(0x984ACF).iconSet(METALLIC)
+            .appendFlags(EXT2_METAL)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
+            .element(Fm257)
+            .buildAndRegister()
+            .setFormula("Fm257", true);
+
     public static final Material Fermium258 = new Material.Builder(EVMain.id("fermium_258"))
             .ingot().liquid()
             .color(0x984ACF).iconSet(METALLIC)
             .appendFlags(EXT2_METAL)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR,FISSILE)
             .element(Fm258)
             .buildAndRegister()
             .setFormula("Fm258", true);
 
+    public static final Material Mendelevium259 = new Material.Builder(EVMain.id("mendelevium_259"))
+            .ingot().liquid()
+            .color(Mendelevium.getMaterialRGB()).iconSet(METALLIC)
+            .appendFlags(EXT2_METAL)
+            .element(Md259)
+            .buildAndRegister()
+            .setFormula("Md-259", true);
+
     public static final Material Mendelevium261 = new Material.Builder(EVMain.id("mendelevium_261"))
             .ingot().liquid()
             .color(Mendelevium.getMaterialRGB()).iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .appendFlags(EXT2_METAL)
             .element(Md261)
             .buildAndRegister()
             .setFormula("Md-261", true);
+
+    public static final Material Mendelevium263 = new Material.Builder(EVMain.id("mendelevium_263"))
+            .ingot().liquid()
+            .color(Mendelevium.getMaterialRGB()).iconSet(METALLIC)
+            .flags(GENERATE_NUCLEAR)
+            .element(Md263)
+            .buildAndRegister()
+            .setFormula("Md-263", true);
 
 
 
@@ -8268,9 +8399,18 @@ public class EVMaterials {
             .blastTemp(12000)
             .buildAndRegister();
 
+    public static final Material Einsteinium253 = new Material.Builder(EVMain.id("einsteinium_253"))
+            .ingot()
+            .color(Einsteinium.getMaterialRGB())
+            .iconSet(METALLIC)
+            .element(Es253)
+            .buildAndRegister()
+            .setFormula("Es253", true);
+
     public static final Material Einsteinium255 = new Material.Builder(EVMain.id("einsteinium_255"))
             .ingot()
             .color(Einsteinium.getMaterialRGB())
+            .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .iconSet(METALLIC)
             .element(Es255)
             .buildAndRegister()

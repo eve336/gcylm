@@ -57,18 +57,18 @@ public class Nuclear {
     static void nuclearReactorRecipes(Consumer<FinishedRecipe> provider) {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
-                if (material.hasFlag(GENERATE_NUCLEAR)) {
+                if (material.hasFlags(GENERATE_NUCLEAR, FISSILE_OXIDE)) {
 
                         for (MaterialRegistry registry2 : GTCEuAPI.materialManager.getRegistries()) {
                             for (Material material2 : registry2.getAllMaterials()) {
-                                if (material2.hasFlag(GENERATE_NUCLEAR)) {
+                                if (material2.hasFlags(GENERATE_NUCLEAR, FISSILE)) {
                                     Plutonium244.getProperty(EVPropertyKey.NUCLEAR);
                                     EVNuclearProperty property = new EVNuclearProperty(0, Map.of());
                                     if (material2.getProperty(EVPropertyKey.NUCLEAR) != null){
                                         property = material2.getProperty(EVPropertyKey.NUCLEAR);
                                     }
                                     for (int i = 2; i < 7; i++) {
-                                    GTRecipeBuilder NuclearReactorRecipe = NUCLEAR_REACTOR_RECIPES.recipeBuilder("circuit_" + i +"_" + material.getName().toLowerCase().repeat(3) + "_and_" + material2.getName().toLowerCase());
+                                    GTRecipeBuilder NuclearReactorRecipe = NUCLEAR_REACTOR_RECIPES.recipeBuilder("circuit_" + i +"_" + material.getName().toLowerCase() + "_and_" + material2.getName().toLowerCase());
                                     NuclearReactorRecipe.inputItems(fuel_pure, material2, 9);
                                     NuclearReactorRecipe.inputItems(fuel_oxide, material, i);
                                     NuclearReactorRecipe.circuitMeta(i);

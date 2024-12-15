@@ -306,8 +306,8 @@ public class EVMachines{
                     .where('F', blocks(CASING_PRIMITIVE_BRICKS.get()).or(abilities(PartAbility.INPUT_ENERGY)).or(abilities(PartAbility.EXPORT_FLUIDS)).or(abilities(EVPartAbility.FUEL_CELL)))
                     .where('#', Predicates.air())
                     .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_primitive_bricks"),
-                    GTCEu.id("block/multiblock/primitive_blast_furnace"))
+            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_stable_titanium"),
+                    GTCEu.id("block/multiblock/cleanroom"))
             .compassSections(GTCompassSections.TIER[IV])
             .compassNodeSelf()
             .register();
