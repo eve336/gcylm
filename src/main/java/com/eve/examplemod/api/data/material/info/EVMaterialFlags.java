@@ -11,6 +11,9 @@ public class EVMaterialFlags extends MaterialFlags {
     public static final MaterialFlag GENERATE_NUCLEAR = new MaterialFlag.Builder("generate_nuclear").build();
     public static final MaterialFlag FISSILE = new MaterialFlag.Builder("fissile").build();
     public static final MaterialFlag FISSILE_OXIDE = new MaterialFlag.Builder("fissile_oxide").build();
+    public static final MaterialFlag DEPLETED = new MaterialFlag.Builder("depleted").build();
+    public static final MaterialFlag DEPLETED_OXIDE = new MaterialFlag.Builder("depleted_oxide").build();
+
 
 
 

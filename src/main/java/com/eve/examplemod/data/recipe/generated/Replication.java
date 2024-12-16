@@ -15,7 +15,7 @@ public class Replication {
     public static void init(Consumer<FinishedRecipe> provider) {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
-                if (material.isElement() && material.hasFluid() && !material.hasFlag(DISABLE_REPLICATION)) {
+                if (material.isElement() && material.hasFluid() && !material.hasFlag(DISABLE_REPLICATION) && material.getElement() != null && !material.getElement().isIsotope()) {
                     AUTOCLAVE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_replication")
                             .notConsumableFluid(material.getFluid(1))
                             .outputFluids(material.getFluid(100))

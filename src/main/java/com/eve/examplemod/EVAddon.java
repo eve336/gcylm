@@ -2,10 +2,7 @@ package com.eve.examplemod;
 
 import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.eve.examplemod.api.registries.EVRegistries;
-import com.eve.examplemod.common.data.EVCovers;
-import com.eve.examplemod.common.data.EVElements;
-import com.eve.examplemod.common.data.EVItems;
-import com.eve.examplemod.common.data.EVRecipes;
+import com.eve.examplemod.common.data.*;
 import com.eve.examplemod.data.recipe.Removal;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
@@ -71,7 +68,10 @@ public class EVAddon implements IGTAddon {
         EVElements.init();
     }
 
-
+    @Override
+    public void registerOreVeins() {
+        EVOres.init();
+    }
 
 
 

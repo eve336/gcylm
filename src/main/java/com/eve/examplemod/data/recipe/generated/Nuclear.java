@@ -6,7 +6,6 @@ import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -25,31 +24,35 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 public class Nuclear {
     public static void init(Consumer<FinishedRecipe> provider) {
         nuclearReactorRecipes(provider);
+        fuelReprocessing(provider);
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
                     if (material.hasProperty(PropertyKey.INGOT)) {
-                        CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_oxide")
-                                .inputItems(ingot, material)
-                                .inputFluids(Oxygen.getFluid(1000))
-                                .outputItems(oxide, material)
-                                .duration(300).EUt(30)
-                                .save(provider);
+                        if (material.hasFlag(FISSILE_OXIDE)) {
+                            CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_oxide")
+                                    .inputItems(ingot, material)
+                                    .inputFluids(Oxygen.getFluid(1000))
+                                    .outputItems(oxide, material)
+                                    .duration(300).EUt(30)
+                                    .save(provider);
 
-                        ALLOY_SMELTER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_fuel_pure")
-                                .inputItems(ingot, material)
-                                .notConsumable(SHAPE_MOLD_BALL)
-                                .outputItems(fuel_pure, material)
-                                .duration(200).EUt(30)
-                                .save(provider);
+                            ALLOY_SMELTER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_fuel_oxide")
+                                    .inputItems(oxide, material)
+                                    .notConsumable(SHAPE_MOLD_BALL)
+                                    .outputItems(fuel_oxide, material)
+                                    .duration(200).EUt(30)
+                                    .save(provider);
+                        }
+                        if (material.hasFlag(FISSILE)) {
+                            ALLOY_SMELTER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_fuel_pure")
+                                    .inputItems(ingot, material)
+                                    .notConsumable(SHAPE_MOLD_BALL)
+                                    .outputItems(fuel_pure, material)
+                                    .duration(200).EUt(30)
+                                    .save(provider);
+                        }
                     }
-                    ALLOY_SMELTER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_fuel_oxide")
-                            .inputItems(oxide, material)
-                            .notConsumable(SHAPE_MOLD_BALL)
-                            .outputItems(fuel_oxide, material)
-                            .duration(200).EUt(30)
-                            .save(provider);
-
                 }
             }
         }
@@ -73,7 +76,7 @@ public class Nuclear {
                                     NuclearReactorRecipe.inputItems(fuel_oxide, material, i);
                                     NuclearReactorRecipe.circuitMeta(i);
                                     NuclearReactorRecipe.outputItems(depleted_fuel_oxide, material, i);
-                                    property.getDecay().forEach((key, value) ->
+                                    property.getDecayProducts().forEach((key, value) ->
                                             NuclearReactorRecipe.chancedOutput(depleted_fuel, key,9, value, 100)
                                             );
                                     NuclearReactorRecipe.addData("temp", property.getHeat());
@@ -86,4 +89,20 @@ public class Nuclear {
             }
         }
     }
+    static void fuelReprocessing(Consumer<FinishedRecipe> provider) {
+        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+            for (Material material : registry.getAllMaterials()) {
+                if (material.hasFlag(GENERATE_NUCLEAR)) {
+                    CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_to_oxide")
+                            .inputItems(depleted_fuel, material)
+                            .inputFluids(Oxygen.getFluid(1000))
+                            .outputItems(depleted_fuel_oxide, material)
+                            .save(provider);
+
+                    LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_nitrate_solution");
+                }
+            }
+        }
+    }
+
 }

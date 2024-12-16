@@ -1,5 +1,6 @@
 {
   "values": [
+    "examplemod:uranium_233_depleted_fuel_nitrate_solution_bucket",
     "examplemod:pyrotheum_bucket",
     "examplemod:blizz_bucket",
     "examplemod:cryotheum_bucket",
@@ -9,8 +10,11 @@
     "examplemod:metastable_oganesson_bucket",
     "examplemod:metastable_flerovium_bucket",
     "examplemod:fluorinated_ethylene_propylene_bucket",
+    "examplemod:fermium_257_bucket",
     "examplemod:fermium_258_bucket",
+    "examplemod:mendelevium_259_bucket",
     "examplemod:mendelevium_261_bucket",
+    "examplemod:mendelevium_263_bucket",
     "examplemod:lead_bismuth_eutatic_bucket",
     "examplemod:polyetheretherketone_bucket",
     "examplemod:zylon_bucket",

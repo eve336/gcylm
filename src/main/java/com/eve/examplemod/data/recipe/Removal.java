@@ -97,14 +97,7 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:mixer/tungstencarbide"));
     }
     public static void gold(Consumer<ResourceLocation> registry) {
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_gold_ore"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_deepslate_gold_ore"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_nether_gold_ore"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_smelting_raw_gold"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_gold_ore"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_deepslate_gold_ore"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_nether_gold_ore"));
-        registry.accept(new ResourceLocation("minecraft:gold_ingot_from_blasting_raw_gold"));
+
     }
 
 }

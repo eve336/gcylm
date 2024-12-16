@@ -4,17 +4,16 @@ import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.data.material.properties.EVMixerProperty;
 import com.eve.examplemod.api.data.material.properties.EVNuclearProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
+import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.eve.examplemod.config.EVConfig;
-import com.eve.examplemod.data.recipe.generated.Nuclear;
-import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
+import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
-import com.gregtechceu.gtceu.common.data.GTElements;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 
 import java.util.*;
 
@@ -22,7 +21,6 @@ import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
 import static com.eve.examplemod.common.data.EVElements.*;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.GTValues.V;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;
 import static com.gregtechceu.gtceu.common.data.GTElements.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -92,7 +90,7 @@ public class EVMaterials {
         Protactinium233.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium233, 9000)));
         Uranium234.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium235, 9000)));
         Uranium238.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium239, 100, Neptunium239, 1000, Plutonium239, 8900)));
-        Uranium239.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Neptunium239, 9000)));
+
         Neptunium237.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Protactinium233, 9000)));
         Neptunium239.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium239, 9000)));
         Plutonium240.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium241, 9000)));
@@ -152,6 +150,24 @@ public class EVMaterials {
         Gold.getProperties().removeProperty(PropertyKey.ORE);
         }
 
+        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+            for (Material material : registry.getAllMaterials()) {
+                if (material.hasFlag(GENERATE_NUCLEAR)) {
+                    if (material.getProperty(PropertyKey.FLUID) == null){
+                        material.setProperty(PropertyKey.FLUID, new FluidProperty(EVFluidStorageKeys.skib, new FluidBuilder()));
+                        return;
+                    }
+                    else {
+                        material.getProperty(PropertyKey.FLUID).enqueueRegistration(EVFluidStorageKeys.skib, new FluidBuilder());
+                    }
+                }
+            }
+        }
+
+
+        Thorium233.setProperty(PropertyKey.FLUID, new FluidProperty(EVFluidStorageKeys.skib, new FluidBuilder()));
+
+
     }
 
 
@@ -164,9 +180,11 @@ public class EVMaterials {
         CORE_METAL.addAll(Arrays.asList(GENERATE_RING, GENERATE_FRAME, GENERATE_ROTOR, GENERATE_SMALL_GEAR, GENERATE_DENSE));
     }
 
+
+
     public static final Material Uranium233 = new Material.Builder(EVMain.id("uranium_233"))
             .ingot()
-            .color(Protactinium.getMaterialRGB())
+            .color(Uranium238.getMaterialRGB())
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(U233)
@@ -175,7 +193,7 @@ public class EVMaterials {
 
     public static final Material Uranium239 = new Material.Builder(EVMain.id("uranium_239"))
             .ingot()
-            .color(Protactinium.getMaterialRGB())
+            .color(Uranium238.getMaterialRGB())
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR)
             .element(U239)
