@@ -11,11 +11,13 @@ public class EVLangHandler  {
     public static void init(RegistrateLangProvider provider){
 
 
-        provider.add("tagprefix.oxide", TagPrefix.get("oxide").langValue());
-        provider.add("tagprefix.fuel_oxide", TagPrefix.get("fuelOxide").langValue());
-        provider.add("tagprefix.fuel_pure", TagPrefix.get("fuelPure").langValue());
 
-        provider.add("gtceu.fluid.depleted_nitrate_solution", "Depleted %t Fuel Nitrate Solution");
+
+        for (TagPrefix tagPrefix : TagPrefix.values()) {
+            provider.add(tagPrefix.getUnlocalizedName(), tagPrefix.langValue);
+        }
+
+        provider.add("gtceu.fluid.depleted_nitrate_solution", "Depleted %s Fuel Nitrate Solution");
 
     }
 }

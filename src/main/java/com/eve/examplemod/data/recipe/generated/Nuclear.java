@@ -103,7 +103,7 @@ public class Nuclear {
                             .outputItems(depleted_fuel_oxide, material)
                             .save(provider);
 
-                    // HNO3 + [Fuel + O] + O = [Fuel + NO3 + H2O]   i dont think this one makes sense TODO fix this stoich
+                    // HNO3 + [Fuel + O] = [Fuel + NO3 + H2O]   i dont think this one makes sense TODO fix this stoich
                     LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_nitrate_solution").EUt(30).duration(50*20)
                             .notConsumable(dust, Boron)
                             .inputItems(depleted_fuel_oxide, material)
@@ -116,6 +116,7 @@ public class Nuclear {
                             .notConsumableFluid(TributylPhosphate.getFluid(1))
                             .notConsumableFluid(Hydrazine.getFluid(1))
                             .notConsumableFluid(RP1.getFluid(1))
+                            .inputFluids(material.getFluid(EVFluidStorageKeys.skib, 1000))
                             .notConsumable(dust, FerriteMixture)
                             .outputItems(depleted_fuel_nitride, material)
                             .outputFluids(Oxygen.getFluid(4000))
