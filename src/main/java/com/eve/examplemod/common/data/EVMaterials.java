@@ -4,8 +4,10 @@ import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.data.material.properties.EVMixerProperty;
 import com.eve.examplemod.api.data.material.properties.EVNuclearProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
+import com.eve.examplemod.api.data.material.properties.EVWasteProperty;
 import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.eve.examplemod.config.EVConfig;
+import com.eve.examplemod.data.recipe.generated.Nuclear;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
@@ -63,15 +65,31 @@ public class EVMaterials {
 
         Germanium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
+        Mendelevium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+        Californium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+        Berkelium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+        Curium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+        Neptunium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+        Fermium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
         Technetium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Promethium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Gadolinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
+        Protactinium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
         Rhenium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Strontium.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+        Einsteinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Polonium.setProperty(PropertyKey.INGOT, new IngotProperty());
         Polonium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
@@ -109,7 +127,6 @@ public class EVMaterials {
                 Uranium233, 8900
         )));
         Curium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
-
         Berkelium249.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
         Berkelium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium251, 9000)));
         Berkelium247.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Curium247, 9000)));
@@ -132,13 +149,35 @@ public class EVMaterials {
         Mendelevium261.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Einsteinium257, 9000)));
         Mendelevium259.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium259, 9000)));
 
+
+        Protactinium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Thorium), Map.of(Protactinium233, 3000)));
+        Thorium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Uranium238), Map.of(Protactinium233, 3000)));
+        Uranium238.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Neptunium), Map.of(Uranium238, 3000)));
+        Neptunium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Plutonium239), Map.of(Neptunium, 3000)));
+        Plutonium239.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Americium), Map.of(Plutonium239, 3000)));
+        Americium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Curium), Map.of(Americium, 3000)));
+        Curium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Berkelium), Map.of(Curium, 3000)));
+        Berkelium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Californium), Map.of(Berkelium, 3000)));
+        Californium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Californium), Map.of(Berkelium, 3000)));
+        Einsteinium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Fermium), Map.of(Einsteinium, 3000)));
+        Fermium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Mendelevium), Map.of(Fermium, 3000)));
+
+
         Uranium235.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
         Thorium.addFlags(GENERATE_NUCLEAR, FISSILE);
         Plutonium241.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
         Uranium238.addFlags(GENERATE_NUCLEAR, FISSILE);
         Plutonium239.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
 
-
+        Mendelevium.addFlags(GENERATE_NUCLEAR);
+        Fermium.addFlags(GENERATE_NUCLEAR);
+        Einsteinium.addFlags(GENERATE_NUCLEAR);
+        Californium.addFlags(GENERATE_NUCLEAR);
+        Berkelium.addFlags(GENERATE_NUCLEAR);
+        Protactinium.addFlags(GENERATE_NUCLEAR);
+        Curium.addFlags(GENERATE_NUCLEAR);
+        Americium.addFlags(GENERATE_NUCLEAR);
+        Neptunium.addFlags(GENERATE_NUCLEAR);
 
         if (EVConfig.INSTANCE.programmerArt) {
             ReinforcedEpoxyResin.setMaterialARGB(7491595);

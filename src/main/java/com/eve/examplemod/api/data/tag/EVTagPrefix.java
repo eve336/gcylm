@@ -25,11 +25,21 @@ public class EVTagPrefix{
     public static final TagPrefix depleted_fuel = new TagPrefix("depletedFuel").generateItem(true).idPattern("depleted_%s_fuel").generationCondition((material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("Depleted %s Fuel").materialIconType(depletedFuel);
     public static final TagPrefix depleted_fuel_oxide = new TagPrefix("depletedFuelOxide").generateItem(true).idPattern("depleted_%s_fuel_oxide").generationCondition((material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("Depleted %s Fuel Oxide").materialIconType(depletedFuel);
     public static final TagPrefix depleted_fuel_nitride = new TagPrefix("depletedFuelNitride").generateItem(true).idPattern("depleted_%s_fuel_nitride").generationCondition((material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("Depleted %s Fuel Nitride").materialIconType(depletedFuel);
-    public static final TagPrefix nuclear_waste = new TagPrefix("nuclear_waste").generateItem(true).idPattern("%s_waste").generationCondition((material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("%s Waste").materialIconType(waste);
+    public static final TagPrefix nuclear_waste = new TagPrefix("nuclear_waste").generateItem(true).idPattern("%s_waste").generationCondition(isNotIsotope.and(material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("%s Waste").materialIconType(waste);
 
 
     public static class Conditions {
         public static final Predicate<Material> hasIngotProperty = mat -> mat.hasProperty(PropertyKey.INGOT);
+        public static final Predicate<Material> isElement = Material::isElement;
+        public static final Predicate<Material> isNotIsotope = mat -> {
+            if (mat.getElement() != null && !mat.getElement().isIsotope()){
+                return true;
+            }
+            if (mat.getElement() != null && mat.getElement().isIsotope()){
+                return false;
+            }
+            return false;
+        };
         public static final Predicate<Material> isIsotope = mat -> {
             if (mat == GTMaterials.Naquadah || mat == GTMaterials.NaquadahEnriched || mat == GTMaterials.Naquadria){
                 return false;
