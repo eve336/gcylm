@@ -78,6 +78,7 @@
   "block.examplemod.zpm_integral_framework": "IIIΛ ʞɹoʍǝɯɐɹℲ ןɐɹbǝʇuIɔ§",
   "block.examplemod.zpm_robot_arm_component": "ʞɔoןᗺ ɯɹⱯ ʇoqoᴚ WԀZɔ§",
   "block.examplemod.zpm_tri_input_hatch": "ɥɔʇɐH ʇnduI ןɐnᗡ WԀZɔ§",
+  "gtceu.fluid.depleted_nitrate_solution": "uoıʇnןoS ǝʇɐɹʇıN ןǝnℲ ʇ% pǝʇǝןdǝᗡ",
   "item.examplemod.acrylic_yarn": "uɹɐʎ ɔıןʎɹɔⱯ",
   "item.examplemod.actinium_plasma_containment_cell": "ןןǝƆ ʇuǝɯuıɐʇuoƆ ɐɯsɐןԀ ɯnıuıʇɔⱯ",
   "item.examplemod.aerographene": "ǝuǝɥdɐɹboɹǝⱯ",
@@ -1532,5 +1533,8 @@
   "material.examplemod.zrhf_chloride": "ǝpıɹoןɥƆ ɟɥɹZ",
   "material.examplemod.zrhf_oxychloride": "ǝpıɹoןɥɔʎxO ɟɥɹZ",
   "material.examplemod.zrhf_separation_mix": "xıW uoıʇɐɹɐdǝS ɟɥɹZ",
-  "material.examplemod.zylon": "uoןʎZ"
+  "material.examplemod.zylon": "uoןʎZ",
+  "tagprefix.fuel_oxide": "ǝpıxO ןǝnℲ %s",
+  "tagprefix.fuel_pure": "ןǝnℲ %s ǝɹnԀ",
+  "tagprefix.oxide": "ǝpıxO %s"
 }

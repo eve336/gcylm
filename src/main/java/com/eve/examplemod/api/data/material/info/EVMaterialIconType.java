@@ -10,6 +10,7 @@ public class EVMaterialIconType {
 
     public static final MaterialIconType fuel = new MaterialIconType("fuel");
     public static final MaterialIconType depletedFuel = new MaterialIconType("depleted_fuel");
+    public static final MaterialIconType waste = new MaterialIconType("waste");
 
 
     public static void init(){

@@ -154,8 +154,10 @@ public class EVMaterials {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
                     if (material.getProperty(PropertyKey.FLUID) == null){
-                        material.setProperty(PropertyKey.FLUID, new FluidProperty(EVFluidStorageKeys.skib, new FluidBuilder()));
-                        return;
+                        var prop = new FluidProperty();
+                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.skib, new FluidBuilder());
+                        material.setProperty(PropertyKey.FLUID, prop);
+
                     }
                     else {
                         material.getProperty(PropertyKey.FLUID).enqueueRegistration(EVFluidStorageKeys.skib, new FluidBuilder());
@@ -165,7 +167,6 @@ public class EVMaterials {
         }
 
 
-        Thorium233.setProperty(PropertyKey.FLUID, new FluidProperty(EVFluidStorageKeys.skib, new FluidBuilder()));
 
 
     }
@@ -827,7 +828,6 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(2).ore()
             .components(Gold, 1, RareEarth, 1)
-            .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
     public static final Material LithiumFluoride = new Material.Builder(EVMain.id("lithium_fluoride"))

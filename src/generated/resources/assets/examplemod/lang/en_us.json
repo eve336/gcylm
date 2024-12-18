@@ -78,6 +78,7 @@
   "block.examplemod.zpm_integral_framework": "§cIntegral Framework VIII",
   "block.examplemod.zpm_robot_arm_component": "§cZPM Robot Arm Block",
   "block.examplemod.zpm_tri_input_hatch": "§cZPM Dual Input Hatch",
+  "gtceu.fluid.depleted_nitrate_solution": "Depleted %t Fuel Nitrate Solution",
   "item.examplemod.acrylic_yarn": "Acrylic Yarn",
   "item.examplemod.actinium_plasma_containment_cell": "Actinium Plasma Containment Cell",
   "item.examplemod.aerographene": "Aerographene",
@@ -1532,5 +1533,8 @@
   "material.examplemod.zrhf_chloride": "Zrhf Chloride",
   "material.examplemod.zrhf_oxychloride": "Zrhf Oxychloride",
   "material.examplemod.zrhf_separation_mix": "Zrhf Separation Mix",
-  "material.examplemod.zylon": "Zylon"
+  "material.examplemod.zylon": "Zylon",
+  "tagprefix.fuel_oxide": "%s Fuel Oxide",
+  "tagprefix.fuel_pure": "Pure %s Fuel",
+  "tagprefix.oxide": "%s Oxide"
 }

@@ -1,21 +1,27 @@
 package com.eve.examplemod.api.fluids.store;
 
 import com.eve.examplemod.EVMain;
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.FluidProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.fluids.FluidState;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import org.jetbrains.annotations.NotNull;
 
 public class EVFluidStorageKeys {
+
+
     public static final FluidStorageKey skib = new FluidStorageKey(EVMain.id("depleted_nitrate_solution"),
             "depleted_nitrate_solution",
             MaterialIconType.liquid,
-            m -> m.getName() + "_depleted_fuel_nitrate_solution",
-            m -> "gtceu.fluid.generic",
+            m -> "depleted_" + m.getName(),
+            m -> "gtceu.fluid.depleted_nitrate_solution",
             FluidState.LIQUID, -1);
+
+
 
 
     private static @NotNull String prefixedRegisteredName(@NotNull String prefix, @NotNull FluidStorageKey key,

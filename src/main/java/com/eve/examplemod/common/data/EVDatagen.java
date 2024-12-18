@@ -1,5 +1,6 @@
 package com.eve.examplemod.common.data;
 
+import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.lang.EVLangHandler;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
@@ -11,8 +12,7 @@ import static com.eve.examplemod.EVMain.EV_REGISTRATE;
 
 public class EVDatagen {
     public static void init(){
-        EV_REGISTRATE.addDataGenerator(ProviderType.LANG, EVLangHandler::init);
-        EV_REGISTRATE.addDataGenerator(ProviderType.LANG, LangHandler::init);
+        EVRegistries.REGISTRATE.addDataGenerator(ProviderType.LANG, EVLangHandler::init);
     }
 
 }

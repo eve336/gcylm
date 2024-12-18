@@ -2,6 +2,7 @@ package com.eve.examplemod.data.recipe.generated;
 
 import com.eve.examplemod.api.data.material.properties.EVNuclearProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
+import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
@@ -14,8 +15,9 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
 import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
-import static com.eve.examplemod.common.data.EVMaterials.Plutonium244;
+import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.NUCLEAR_REACTOR_RECIPES;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.ingot;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BALL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -93,13 +95,38 @@ public class Nuclear {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
+
+                    // Fuel + O = [Fuel + O]
                     CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_to_oxide")
                             .inputItems(depleted_fuel, material)
                             .inputFluids(Oxygen.getFluid(1000))
                             .outputItems(depleted_fuel_oxide, material)
                             .save(provider);
 
-                    LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_nitrate_solution");
+                    // HNO3 + [Fuel + O] + O = [Fuel + NO3 + H2O]   i dont think this one makes sense TODO fix this stoich
+                    LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_nitrate_solution").EUt(30).duration(50*20)
+                            .notConsumable(dust, Boron)
+                            .inputItems(depleted_fuel_oxide, material)
+                            .inputFluids(NitricAcid.getFluid(1000))
+                            .outputFluids(material.getFluid(EVFluidStorageKeys.skib, 1000))
+                            .save(provider);
+
+                    // Fuel2N3 ???
+                    LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_fuel_nitride")
+                            .notConsumableFluid(TributylPhosphate.getFluid(1))
+                            .notConsumableFluid(Hydrazine.getFluid(1))
+                            .notConsumableFluid(RP1.getFluid(1))
+                            .notConsumable(dust, FerriteMixture)
+                            .outputItems(depleted_fuel_nitride, material)
+                            .outputFluids(Oxygen.getFluid(4000))
+                            .outputFluids(Hydrogen.getFluid(1000))
+                            .save(provider);
+
+                    ELECTROLYZER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_fuel_electrolysing")
+                            .inputItems(depleted_fuel_nitride, material)
+                            .outputItems(nuclear_waste, material)
+                            .outputFluids(Nitrogen.getFluid(1000))
+                            .save(provider);
                 }
             }
         }
