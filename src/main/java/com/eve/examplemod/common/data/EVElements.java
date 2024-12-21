@@ -45,7 +45,9 @@ public class EVElements {
     public static final Element U233 = createAndRegister(99, 156, -1, null, "Uranium-233", "U-233", true);
     public static final Element U239 = createAndRegister(99, 156, -1, null, "Uranium-239", "U-239", true);
 
-
+    //Possibly temporary
+    public static final Element Pu239 = createAndRegister(94, 145, -1, null, "plutonium-239", "Pu-239", true);
+    public static final Element U238 = createAndRegister(92, 146, -1, null, "uranium-238", "U-238", true);
 
 
     public static final Element Ad = createAndRegister(101, 160, -1, null, "Adamantium", "Ad", false);

@@ -28,6 +28,9 @@ public class EVRecipeTypes {
             .setMaxIOSize(9,1,6,1)
             .setSmallRecipeMap(MIXER_RECIPES);
 
+    public static final GTRecipeType GAS_CENTRIFUGE = GTRecipeTypes.register("gas_centrifuge", MULTIBLOCK)
+            .setMaxIOSize(0,0,1,3);
+
 
     public static void init(){
 

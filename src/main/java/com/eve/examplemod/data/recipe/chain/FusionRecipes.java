@@ -1,5 +1,7 @@
 package com.eve.examplemod.data.recipe.chain;
 
+import static com.eve.examplemod.common.data.EVMaterials.Plutonium239;
+import static com.eve.examplemod.common.data.EVMaterials.Uranium238;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.FUSION_RECIPES;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;

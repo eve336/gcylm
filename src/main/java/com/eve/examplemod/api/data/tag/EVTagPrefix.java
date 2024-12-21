@@ -12,6 +12,7 @@ import static com.eve.examplemod.api.data.material.info.EVMaterialIconType.*;
 import static com.eve.examplemod.api.data.tag.EVTagPrefix.Conditions.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.PREFIXES;
+import static com.gregtechceu.gtceu.common.data.GTElements.*;
 
 public class EVTagPrefix{
 
@@ -26,6 +27,8 @@ public class EVTagPrefix{
     public static final TagPrefix depleted_fuel_oxide = new TagPrefix("depletedFuelOxide").generateItem(true).idPattern("depleted_%s_fuel_oxide").generationCondition((material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("Depleted %s Fuel Oxide").materialIconType(depletedFuel);
     public static final TagPrefix depleted_fuel_nitride = new TagPrefix("depletedFuelNitride").generateItem(true).idPattern("depleted_%s_fuel_nitride").generationCondition((material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("Depleted %s Fuel Nitride").materialIconType(depletedFuel);
     public static final TagPrefix nuclear_waste = new TagPrefix("nuclear_waste").generateItem(true).idPattern("%s_waste").generationCondition(isNotIsotope.and(material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("%s Waste").materialIconType(waste);
+    public static final TagPrefix nitrite = new TagPrefix("nitrite").generateItem(true).idPattern("%s_nitrite").generationCondition(isElement.and(isNotIsotope).and(material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("%s Nitrite").materialIconType(dust);
+    public static final TagPrefix dioxide = new TagPrefix("dioxide").generateItem(true).idPattern("%s_dioxide").generationCondition(isElement.and(material -> material.hasFlag(GENERATE_NUCLEAR))).langValue("%s Dioxide").materialIconType(dust);
 
 
     public static class Conditions {

@@ -1,12 +1,14 @@
 package com.eve.examplemod.data.recipe.generated;
 
+import com.eve.examplemod.api.data.material.properties.EVComponentProperty;
 import com.eve.examplemod.api.data.material.properties.EVNuclearProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
 import com.eve.examplemod.api.data.material.properties.EVWasteProperty;
 import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.data.chemical.Element;
+import com.gregtechceu.gtceu.api.capability.IPropertyFluidFilter;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
@@ -17,12 +19,12 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
 import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
-import static com.eve.examplemod.common.data.EVElements.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.NUCLEAR_REACTOR_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GTElements.Pu;
-import static com.gregtechceu.gtceu.common.data.GTElements.Pu241;
+import static com.gregtechceu.gtceu.common.data.GTElements.Pu239;
+import static com.gregtechceu.gtceu.common.data.GTElements.U238;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BALL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
@@ -35,6 +37,8 @@ public class Nuclear {
     public static void init(Consumer<FinishedRecipe> provider) {
         nuclearReactorRecipes(provider);
         fuelReprocessing(provider);
+        isotopeSeparation(provider);
+
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
@@ -104,7 +108,7 @@ public class Nuclear {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
-                    if (material.getElement() != null && !material.getElement().isIsotope()){
+                    if (material.getElement() != null && !material.getElement().isIsotope() && material.getElement() != U238 && material.getElement() != Pu239){
                         String symbol;
                         String[] symbolArray = material.getElement().symbol().split("-");
                         symbol = symbolArray[0];
@@ -130,7 +134,7 @@ public class Nuclear {
                             .notConsumable(dust, Boron)
                             .inputItems(depleted_fuel_oxide, material)
                             .inputFluids(NitricAcid.getFluid(1000))
-                            .outputFluids(material.getFluid(EVFluidStorageKeys.skib, 1000))
+                            .outputFluids(material.getFluid(EVFluidStorageKeys.depleted_nitrate, 1000))
                             .save(provider);
 
                     // Fuel2N3 ???
@@ -138,7 +142,7 @@ public class Nuclear {
                             .notConsumableFluid(TributylPhosphate.getFluid(1))
                             .notConsumableFluid(Hydrazine.getFluid(1))
                             .notConsumableFluid(RP1.getFluid(1))
-                            .inputFluids(material.getFluid(EVFluidStorageKeys.skib, 1000))
+                            .inputFluids(material.getFluid(EVFluidStorageKeys.depleted_nitrate, 1000))
                             .notConsumable(dust, FerriteMixture)
                             .outputItems(depleted_fuel_nitride, material)
                             .outputFluids(Oxygen.getFluid(4000))
@@ -165,9 +169,7 @@ public class Nuclear {
                         property.getRealMaterials().forEach(material1 ->
                                 recipeBuilder.outputItems(dust, material1)
                         );
-                        property.getWasteProducts().forEach((key, value) ->{
-                        recipeBuilder.chancedOutput(dust, key, value, 0);
-                        });
+                        property.getWasteProducts().forEach((key, value) -> recipeBuilder.chancedOutput(dust, key, value, 0));
                         recipeBuilder.save(provider);
                     }
                 }
@@ -175,6 +177,92 @@ public class Nuclear {
         }
     }
 
+    static void isotopeSeparation(Consumer<FinishedRecipe> provider) {
+        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+        for (Material material : registry.getAllMaterials()) {
+            if (material.hasFlag(GENERATE_NUCLEAR)) {
+                if (material.getElement() != null && !material.getElement().isIsotope()){
+
+                    // Mat + 2HNO3 = [Mat + 2NO3] + 2H
+                    CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_dust_to_nitrite")
+                            .inputItems(dust, material)
+                            .inputFluids(NitricAcid.getFluid(2000))
+                            .outputItems(nitrite, material, 1)
+                            .inputFluids(Hydrogen.getFluid(2000))
+                            .save(provider);
+
+                    // [Mat + 2NO3] = [Mat + 2O] + 2NO2
+                    BLAST_RECIPES.recipeBuilder(material.getName().toLowerCase() + "nitrite_to_dioxide").EUt(120).duration(5*20)
+                            .inputItems(nitrite, material, 1)
+                            .outputItems(dioxide, material)
+                            .outputFluids(NitrogenDioxide.getFluid(2000))
+                            .blastFurnaceTemp(600)
+                            .save(provider);
+
+                    // [Mat + 2O] + 6Cl = [Mat + 6Cl] + 2O
+                    CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "dioxide_to_hexachloride")
+                            .inputItems(dioxide, material)
+                            .inputFluids(Chlorine.getFluid(6000))
+                            .outputFluids(material.getFluid(EVFluidStorageKeys.hexachloride, 1000))
+                            .outputFluids(Oxygen.getFluid(2000))
+                            .save(provider);
+
+                    // [Mat + 6Cl] + 6HF = 6HCl + [Mat + 6F]
+                    CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "hexachloride_to_hexafluoride")
+                            .inputFluids(HydrofluoricAcid.getFluid(6000))
+                            .inputFluids(material.getFluid(EVFluidStorageKeys.hexachloride, 1000))
+                            .outputFluids(HydrochloricAcid.getFluid(6000))
+                            .outputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 1000))
+                            .save(provider);
+
+                    if (material.hasProperty(EVPropertyKey.COMPONENT)){
+                        EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
+                        GTRecipeBuilder recipeBuilder = GAS_CENTRIFUGE.recipeBuilder(material.getName().toLowerCase() + "_gas_centrifuge");
+                        recipeBuilder.inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 20000));
+                        prop.components.forEach((key, value) ->
+                                recipeBuilder.outputFluids(key.getFluid(EVFluidStorageKeys.hexafluoride, value))
+                                );
+                        recipeBuilder.save(provider);
+
+                        GTRecipeBuilder recipeBuilder2 = CHEMICAL_PLANT_RECIPES.recipeBuilder(material.getName().toLowerCase() + "isotope_separation");
+                                recipeBuilder2.inputItems(dust, material, 100);
+                                prop.components.forEach((key, value) ->
+                                        recipeBuilder2.outputItems(dust, key, value / 10)
+                                        );
+                                recipeBuilder2.save(provider);
+                    }
+
+
+                }
+                if ((material.getElement() != null && material.getElement().isIsotope())){
+
+                    // [Mat + F6] + 3H2O -> [Mat + F6 + 3H2O]
+                    CRACKING_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_hexafluoride_steam_cracking")
+                            .inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 1000))
+                            .inputFluids(Steam.getFluid(3000))
+                            .outputFluids(material.getFluid(EVFluidStorageKeys.steam_cracked_hexafluoride, 1000))
+                            .save(provider);
+
+                    // [Mat + F6 + 3H2O] -> [Mat + 2O] + 6HF + O (O lost)
+                    BLAST_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_steam_cracked_to_dioxide")
+                            .inputFluids(material.getFluid(EVFluidStorageKeys.steam_cracked_hexafluoride, 1000))
+                            .outputItems(dioxide, material, 1)
+                            .outputFluids(HydrofluoricAcid.getFluid(6000))
+                            .blastFurnaceTemp(600)
+                            .save(provider);
+
+                    // [Mat + 2O] -> Mat + 2O
+                    BLAST_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_dioxide_to_ingot")
+                            .inputItems(dioxide, material, 1)
+                            .outputItems(ingot, material)
+                            .outputFluids(Oxygen.getFluid(2000))
+                            .blastFurnaceTemp(600)
+                            .save(provider);
+                }
+            }
+            }
+        }
+    }
 
 
 }

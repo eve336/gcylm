@@ -86,6 +86,9 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barite"));
         registry.accept(new ResourceLocation("gtceu:shaped/emitter_ev"));
 
+
+
+
     }
     public static void platline(Consumer<ResourceLocation> registry) {
         registry.accept(new ResourceLocation("gtceu:electrolyzer/raw_platinum_separation"));

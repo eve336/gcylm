@@ -18,6 +18,9 @@ public class EVLangHandler  {
         }
 
         provider.add("gtceu.fluid.depleted_nitrate_solution", "Depleted %s Fuel Nitrate Solution");
+        provider.add("gtceu.fluid.hexachloride", "%s Hexachloride");
+        provider.add("gtceu.fluid.hexafluoride", "%s Hexafluoride");
+        provider.add("gtceu.fluid.steam_cracked_hexafluoride", "Steam Cracked %s Hexafluoride");
 
     }
 }
