@@ -35,6 +35,7 @@ public class Nuclear {
 
 
     public static void init(Consumer<FinishedRecipe> provider) {
+
         nuclearReactorRecipes(provider);
         fuelReprocessing(provider);
         isotopeSeparation(provider);
@@ -79,7 +80,6 @@ public class Nuclear {
                         for (MaterialRegistry registry2 : GTCEuAPI.materialManager.getRegistries()) {
                             for (Material material2 : registry2.getAllMaterials()) {
                                 if (material2.hasFlags(GENERATE_NUCLEAR, FISSILE)) {
-                                    Plutonium244.getProperty(EVPropertyKey.NUCLEAR);
                                     EVNuclearProperty property = new EVNuclearProperty(0, Map.of());
                                     if (material2.getProperty(EVPropertyKey.NUCLEAR) != null){
                                         property = material2.getProperty(EVPropertyKey.NUCLEAR);
@@ -178,6 +178,22 @@ public class Nuclear {
     }
 
     static void isotopeSeparation(Consumer<FinishedRecipe> provider) {
+
+
+        Set<Material> set = new HashSet<>();
+
+        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+            for (Material material : registry.getAllMaterials()) {
+                if (material.hasFlag(GENERATE_NUCLEAR)) {
+                    if (material.getProperty(EVPropertyKey.COMPONENT) != null){
+                        EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
+                        prop.components.forEach((ohio, rizz) -> set.add(ohio));
+                    }
+                }
+            }
+        }
+
+
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
         for (Material material : registry.getAllMaterials()) {
             if (material.hasFlag(GENERATE_NUCLEAR)) {
@@ -188,7 +204,7 @@ public class Nuclear {
                             .inputItems(dust, material)
                             .inputFluids(NitricAcid.getFluid(2000))
                             .outputItems(nitrite, material, 1)
-                            .inputFluids(Hydrogen.getFluid(2000))
+                            .outputFluids(Hydrogen.getFluid(2000))
                             .save(provider);
 
                     // [Mat + 2NO3] = [Mat + 2O] + 2NO2
@@ -236,20 +252,26 @@ public class Nuclear {
                 }
                 if ((material.getElement() != null && material.getElement().isIsotope())){
 
-                    // [Mat + F6] + 3H2O -> [Mat + F6 + 3H2O]
-                    CRACKING_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_hexafluoride_steam_cracking")
-                            .inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 1000))
-                            .inputFluids(Steam.getFluid(3000))
-                            .outputFluids(material.getFluid(EVFluidStorageKeys.steam_cracked_hexafluoride, 1000))
-                            .save(provider);
+                    if (set.contains(material)) {
 
-                    // [Mat + F6 + 3H2O] -> [Mat + 2O] + 6HF + O (O lost)
-                    BLAST_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_steam_cracked_to_dioxide")
-                            .inputFluids(material.getFluid(EVFluidStorageKeys.steam_cracked_hexafluoride, 1000))
-                            .outputItems(dioxide, material, 1)
-                            .outputFluids(HydrofluoricAcid.getFluid(6000))
-                            .blastFurnaceTemp(600)
-                            .save(provider);
+                        // [Mat + F6] + 3H2O -> [Mat + F6 + 3H2O]
+                        CRACKING_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_hexafluoride_steam_cracking")
+                                .inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 1000))
+                                .inputFluids(Steam.getFluid(3000))
+                                .outputFluids(material.getFluid(EVFluidStorageKeys.steam_cracked_hexafluoride, 1000))
+                                .save(provider);
+
+
+                        // [Mat + F6 + 3H2O] -> [Mat + 2O] + 6HF + O (O lost)
+                        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_steam_cracked_to_dioxide")
+                                .inputFluids(material.getFluid(EVFluidStorageKeys.steam_cracked_hexafluoride, 1000))
+                                .outputItems(dioxide, material, 1)
+                                .outputFluids(HydrofluoricAcid.getFluid(6000))
+                                .outputFluids(Oxygen.getFluid(1000))
+                                .blastFurnaceTemp(600)
+                                .save(provider);
+
+                    }
 
                     // [Mat + 2O] -> Mat + 2O
                     BLAST_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_dioxide_to_ingot")

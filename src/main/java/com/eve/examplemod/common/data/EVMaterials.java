@@ -227,38 +227,56 @@ public class EVMaterials {
             Epoxy.setMaterialARGB(0xC88C14);
             Epoxy.setMaterialIconSet(DULL);
         }
+
+        Set<Material> set = new HashSet<>();
+
+        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+            for (Material material : registry.getAllMaterials()) {
+                if (material.hasFlag(GENERATE_NUCLEAR)) {
+                    if (material.getProperty(EVPropertyKey.COMPONENT) != null){
+                        EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
+                        prop.components.forEach((ohio, rizz) -> set.add(ohio));
+                    }
+                }
+            }
+        }
+
         // something something generate nuclear stuff probably
-//        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
-//            for (Material material : registry.getAllMaterials()) {
-//                if (material.hasFlag(GENERATE_NUCLEAR)) {
-//
-//                    if (!material.getProperties().hasProperty(PropertyKey.INGOT)){
-//                        material.setProperty(PropertyKey.INGOT, new IngotProperty());
-//                    }
-//                    if (material.getProperty(PropertyKey.FLUID) == null) {
-//                        var prop = new FluidProperty();
-//                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
-//                        material.setProperty(PropertyKey.FLUID, prop);
-//
-//                    } else {
-//                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
-//                                new FluidBuilder());
-//                    }
-//                    material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
-//                            new FluidBuilder());
-//                    material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
-//                            new FluidBuilder());
-//                }
-//                if (material.getElement() != null && !material.getElement().isIsotope()) {
-//                    if (material.getProperty(PropertyKey.FLUID) == null) {
-//                        var prop = new FluidProperty();
-//                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
-//                    } else {
-//                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
-//                    }
-//                }
-//            }
-//        }
+        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+            for (Material material : registry.getAllMaterials()) {
+                if (material.hasFlag(GENERATE_NUCLEAR)) {
+
+                    if (!material.getProperties().hasProperty(PropertyKey.INGOT)){
+                        material.setProperty(PropertyKey.INGOT, new IngotProperty());
+                    }
+                    if (material.getProperty(PropertyKey.FLUID) == null) {
+                        var prop = new FluidProperty();
+                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
+                        material.setProperty(PropertyKey.FLUID, prop);
+
+                    } else {
+                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
+                                new FluidBuilder());
+                    }
+                    if (set.contains(material)){
+                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
+                                new FluidBuilder());
+                    }
+                    if (set.contains(material) || (material.getElement() != null && !material.getElement().isIsotope())) {
+                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
+                                new FluidBuilder());
+                    }
+                }
+                if (material.getElement() != null && !material.getElement().isIsotope()) {
+                    if (material.getProperty(PropertyKey.FLUID) == null) {
+                        var prop = new FluidProperty();
+                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
+                    } else {
+                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
+                    }
+                }
+            }
+        }
     }
 
 
