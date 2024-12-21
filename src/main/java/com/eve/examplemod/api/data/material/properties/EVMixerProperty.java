@@ -3,7 +3,7 @@ package com.eve.examplemod.api.data.material.properties;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
 
-public class EVMixerProperty implements IMaterialProperty<EVMixerProperty> {
+public class EVMixerProperty implements IMaterialProperty {
 
     private int durationOverride = -1;
 

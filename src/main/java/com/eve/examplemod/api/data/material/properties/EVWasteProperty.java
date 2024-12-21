@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Getter
-public class EVWasteProperty implements IMaterialProperty<EVWasteProperty> {
+public class EVWasteProperty implements IMaterialProperty {
 
 
     public EVWasteProperty(Set<Material> realMaterials, Map<Material, Integer> wasteProducts){

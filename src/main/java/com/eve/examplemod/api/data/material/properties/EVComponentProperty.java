@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.util.Map;
 import java.util.Set;
 
-public class EVComponentProperty implements IMaterialProperty<EVComponentProperty> {
+public class EVComponentProperty implements IMaterialProperty {
 
 
     public EVComponentProperty(Map<Material, Integer> components){

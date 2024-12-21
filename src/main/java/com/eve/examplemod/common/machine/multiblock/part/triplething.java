@@ -49,29 +49,29 @@ public class triplething extends DualHatchPartMachine implements IExplosionMachi
         return container;
     }
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        // if machine need to check explosion conditions
-        if (ConfigHolder.INSTANCE.machines.doTerrainExplosion && shouldWeatherOrTerrainExplosion()) {
-            energyListener = energyContainer.addChangedListener(this::updateExplosionSubscription);
-            updateExplosionSubscription();
-        }
-    }
-
-    protected void updateExplosionSubscription() {
-        if (ConfigHolder.INSTANCE.machines.doTerrainExplosion && shouldWeatherOrTerrainExplosion() && energyContainer.getEnergyStored() > 0) {
-            explosionSubs = subscribeServerTick(explosionSubs, this::checkExplosion);
-        } else if (explosionSubs != null) {
-            explosionSubs.unsubscribe();
-            explosionSubs = null;
-        }
-    }
-
-    protected void checkExplosion() {
-        checkWeatherOrTerrainExplosion(tier, tier * 10);
-        updateExplosionSubscription();
-    }
+//    @Override
+//    public void onLoad() {
+//        super.onLoad();
+//        // if machine need to check explosion conditions
+//        if (ConfigHolder.INSTANCE.machines.doTerrainExplosion && shouldWeatherOrTerrainExplosion()) {
+//            energyListener = energyContainer.addChangedListener(this::updateExplosionSubscription);
+//            updateExplosionSubscription();
+//        }
+//    }
+//
+//    protected void updateExplosionSubscription() {
+//        if (ConfigHolder.INSTANCE.machines.doTerrainExplosion && shouldWeatherOrTerrainExplosion() && energyContainer.getEnergyStored() > 0) {
+//            explosionSubs = subscribeServerTick(explosionSubs, this::checkExplosion);
+//        } else if (explosionSubs != null) {
+//            explosionSubs.unsubscribe();
+//            explosionSubs = null;
+//        }
+//    }
+//
+//    protected void checkExplosion() {
+//        checkWeatherOrTerrainExplosion(tier, tier * 10);
+//        updateExplosionSubscription();
+//    }
 
     public int getAmperage() {
         return this.amperage;

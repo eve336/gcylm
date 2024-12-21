@@ -7,13 +7,14 @@ import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.WorkableTieredMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
+import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import it.unimi.dsi.fastutil.ints.Int2LongFunction;
 import net.minecraft.core.Direction;
 
 public class ActiveCooler extends WorkableTieredMachine {
     private TickableSubscription serverTickEvent;
 
-    public ActiveCooler(IMachineBlockEntity holder, int tier, Int2LongFunction tankScalingFunction, Object... args) {
+    public ActiveCooler(IMachineBlockEntity holder, int tier, Int2IntFunction tankScalingFunction, Object... args) {
         super(holder, tier, tankScalingFunction, args);
     }
 

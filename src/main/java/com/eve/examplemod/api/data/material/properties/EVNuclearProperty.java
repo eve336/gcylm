@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.Map;
 
 @Getter
-public class EVNuclearProperty implements IMaterialProperty<EVNuclearProperty> {
+public class EVNuclearProperty implements IMaterialProperty {
 
 
     public EVNuclearProperty(int heat, Map<Material, Integer> decayProducts){

@@ -2,7 +2,6 @@ package com.eve.examplemod.common.data;
 
 
 import com.eve.examplemod.EVMain;
-import com.eve.examplemod.api.recipe.EVOverclockingLogic;
 import com.eve.examplemod.common.machine.multiblock.*;
 import com.eve.examplemod.common.machine.multiblock.part.*;
 import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
@@ -10,7 +9,10 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.data.RotationState;
-import com.gregtechceu.gtceu.api.machine.*;
+import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
+import com.gregtechceu.gtceu.api.machine.MachineDefinition;
+import com.gregtechceu.gtceu.api.machine.MetaMachine;
+import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.*;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
@@ -20,6 +22,7 @@ import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.client.renderer.block.TextureOverrideRenderer;
 import com.gregtechceu.gtceu.client.renderer.machine.TieredHullMachineRenderer;
 import com.gregtechceu.gtceu.common.data.*;
+import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
 
 import it.unimi.dsi.fastutil.ints.Int2LongFunction;
@@ -39,12 +42,12 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
+import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
 
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 
 
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
-import static com.gregtechceu.gtceu.common.data.GTMachines.ALL_TIERS;
 
 
 
@@ -66,22 +69,21 @@ public class EVMachines{
                     .abilities(PartAbility.INPUT_ENERGY)
                     .tooltips(Component.translatable("gtceu.machine.energy_hatch.input.tooltip"))
                     .overlayTieredHullRenderer("energy_hatch.input_high")
-                    .compassNode("energy_hatch")
                     .register(),
-            ALL_TIERS);
+            GTMachineUtils.ALL_TIERS);
 
 
-    public static final MachineDefinition[] DUAL_IMPORT_HATCH = registerTieredMachines(
-            "tri_input_hatch",
-            (holder, tier) -> new triplething(holder, tier, IO.IN, 2),
-            (tier, builder) -> builder
-                    .langValue("%s Dual Input Hatch".formatted(VNF[tier]))
-                    .rotationState(RotationState.ALL)
-                    .abilities(TRI_INPUT_HATCH_ABILITIES)
-                    .overlayTieredHullRenderer("dual_hatch.import")
-                    .compassNode("dual_hatch")
-                    .register(),
-            DUAL_HATCH_TIERS);
+//    public static final MachineDefinition[] DUAL_IMPORT_HATCH = registerTieredMachines(
+//            "tri_input_hatch",
+//            (holder, tier) -> new triplething(holder, tier, IO.IN, 2),
+//            (tier, builder) -> builder
+//                    .langValue("%s Dual Input Hatch".formatted(VNF[tier]))
+//                    .rotationState(RotationState.ALL)
+//                    .abilities(TRI_INPUT_HATCH_ABILITIES)
+//                    .overlayTieredHullRenderer("dual_hatch.import")
+//                    .compassNode("dual_hatch")
+//                    .register(),
+//            DUAL_HATCH_TIERS);
 
     public static final MachineDefinition[] CHEMICAL_DEHYDRATOR = registerSimpleMachines("chemical_dehydrator", EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES);
 
@@ -92,7 +94,7 @@ public class EVMachines{
                     .rotationState(RotationState.ALL)
                     .abilities(EVPartAbility.ROBOT_ARM)
                     .register(),
-            ALL_TIERS);
+            GTMachineUtils.ALL_TIERS);
 
     public static final MachineDefinition[] CONVEYOR_COMPONENT = registerTieredMachines("conveyor_component",
             ComponentPartBlock::new,
@@ -101,7 +103,7 @@ public class EVMachines{
                     .rotationState(RotationState.ALL)
                     .abilities(EVPartAbility.CONVEYOR)
                     .register(),
-            ALL_TIERS);
+            GTMachineUtils.ALL_TIERS);
 
     public static final MachineDefinition[] INTEGRAL_FRAMEWORK = registerTieredMachines("integral_framework",
             ComponentPartBlock::new,
@@ -113,7 +115,7 @@ public class EVMachines{
                     // TODO find anything but this shitty workaround,, kinda fixed but want to make it so it doesnt get replaced by the multiblock texture
                     .abilities(EVPartAbility.INTEGRAL_FRAMEWORK)
                     .register(),
-            ALL_TIERS);
+            GTMachineUtils.ALL_TIERS);
 
     public static final MachineDefinition FUEL_CELL = REGISTRATE
                     .machine("fuel_cell", FuelCell::new)
@@ -144,7 +146,7 @@ public class EVMachines{
 
     public static final MultiblockMachineDefinition VOM1 = REGISTRATE
             .multiblock("vom", holder -> new miner(holder, UHV, 9000))
-            .tooltips(GTMachines.defaultEnvironmentRequirement())
+            .tooltips(defaultEnvironmentRequirement())
             .rotationState(RotationState.ALL)
             .recipeType(GTRecipeTypes.DUMMY_RECIPES)
             .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
@@ -214,8 +216,6 @@ public class EVMachines{
             })
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
                     GTCEu.id("block/multiblock/large_chemical_reactor"))
-            .compassSections(GTCompassSections.TIER[HV])
-            .compassNodeSelf()
             .register();
 
 
@@ -240,8 +240,6 @@ public class EVMachines{
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_primitive_bricks"),
                     GTCEu.id("block/multiblock/primitive_blast_furnace"))
-            .compassSections(GTCompassSections.TIER[IV])
-            .compassNodeSelf()
             .register();
 
 
@@ -266,8 +264,6 @@ public class EVMachines{
                     .build())
             .workableCasingRenderer(EVMain.id("block/casings/gecko"),
                     GTCEu.id("block/multiblock/primitive_blast_furnace"))
-            .compassSections(GTCompassSections.TIER[IV])
-            .compassNodeSelf()
             .register();
 
 
@@ -287,8 +283,6 @@ public class EVMachines{
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_primitive_bricks"),
                     GTCEu.id("block/multiblock/primitive_blast_furnace"))
-            .compassSections(GTCompassSections.TIER[IV])
-            .compassNodeSelf()
             .register();
 
 
@@ -308,15 +302,13 @@ public class EVMachines{
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_stable_titanium"),
                     GTCEu.id("block/multiblock/cleanroom"))
-            .compassSections(GTCompassSections.TIER[IV])
-            .compassNodeSelf()
             .register();
 
 
 
     public static final MultiblockMachineDefinition EV_CHEMICAL_REACTOR = REGISTRATE
             .multiblock("ev_chemical_reactor", ComponentMultiblock::new)
-            .tooltips(GTMachines.defaultEnvironmentRequirement())
+            .tooltips(defaultEnvironmentRequirement())
             .rotationState(RotationState.ALL)
             .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
             .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
@@ -380,8 +372,6 @@ public class EVMachines{
             })
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
                     GTCEu.id("block/multiblock/large_chemical_reactor"))
-            .compassSections(GTCompassSections.TIER[HV])
-            .compassNodeSelf()
             .register();
 
 

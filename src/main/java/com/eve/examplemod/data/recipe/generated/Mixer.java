@@ -55,7 +55,7 @@ public class Mixer {
                         long amount = input.getMaterialComponents().get(i).amount();
                         totalamount = totalamount + (int) amount;
                         if (material.hasFluid() && !material.hasProperty(PropertyKey.INGOT) && !material.hasProperty(PropertyKey.DUST)) {
-                            mixerRecipe.inputFluids(material.getFluid(amount * 1000));
+                            mixerRecipe.inputFluids(material.getFluid(((int) amount * 1000)));
                         } else {
                             mixerRecipe.inputItems(dust, material, (int) amount);
                         }

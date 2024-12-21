@@ -220,7 +220,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_DIODE_NANO, 6)
                 .inputItems(RANDOM_ACCESS_MEMORY, 12)
                 .inputItems(frameGt, TungstenSteel, 4)
-                .outputItems(NANO_MAINFRAME_LUV, 1)
+                .outputItems(NANO_MAINFRAME_LuV, 1)
                 .save(provider);
     }
     public static void quantum(Consumer<FinishedRecipe> provider) {
@@ -258,11 +258,11 @@ public class CircuitRecipes {
                 .inputItems(POWER_INTEGRATED_CIRCUIT, 4)
                 .inputItems(MULTILAYER_FIBER_BOARD)
                 .inputItems(wireGtSingle, IVSuperconductor, 2)
-                .outputItems(QUANTUM_COMPUTER_LUV, 1)
+                .outputItems(QUANTUM_COMPUTER_LuV, 1)
                 .save(provider);
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder("evquantum_mainframe").duration(500).EUt(8000)
-                .inputItems(QUANTUM_COMPUTER_LUV, 2)
+                .inputItems(QUANTUM_COMPUTER_LuV, 2)
                 .inputItems(SMD_RESISTOR_QUANTUM, 32)
                 .inputItems(SMD_TRANSISTOR_QUANTUM, 28)
                 .inputItems(SMD_CAPACITOR_QUANTUM, 28)
@@ -299,11 +299,11 @@ public class CircuitRecipes {
                 .inputItems(QUBIT_CENTRAL_PROCESSING_UNIT)
                 .inputItems(KAPTON_CIRCUIT_BOARD)
                 .inputItems(wireGtSingle, IndiumTinBariumTitaniumCuprate, 4)
-                .outputItems(CRYSTAL_ASSEMBLY_LUV, 1)
+                .outputItems(CRYSTAL_ASSEMBLY_LuV, 1)
                 .save(provider);
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder("evcrystal_computer").duration(300).EUt(30000)
-                .inputItems(CRYSTAL_ASSEMBLY_LUV, 4)
+                .inputItems(CRYSTAL_ASSEMBLY_LuV, 4)
                 .inputItems(SMD_DIODE_CRYSTAL, 8)
                 .inputItems(SMD_RESISTOR_CRYSTAL, 8)
                 .inputItems(QUANTUM_EYE)
@@ -335,18 +335,18 @@ public class CircuitRecipes {
                 .inputItems(CYBER_PROCESSING_UNIT)
                 .inputItems(QUBIT_CENTRAL_PROCESSING_UNIT)
                 .inputItems(wireFine, YttriumBariumCuprate, 2)
-                .outputItems(WETWARE_PROCESSOR_LUV, 4)
+                .outputItems(WETWARE_PROCESSOR_LuV, 4)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("evwetware_processor_luv_variant").duration(200).EUt(480000)
                 .inputItems(CYBER_PROCESSING_UNIT)
                 .inputItems(ADVANCED_SYSTEM_ON_CHIP, 4)
                 .inputItems(wireFine, NaquadahAlloy, 8)
-                .outputItems(WETWARE_PROCESSOR_LUV, 4)
+                .outputItems(WETWARE_PROCESSOR_LuV, 4)
                 .save(provider);
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder("evwetware_processor_assembly_zpm").duration(400).EUt(120000)
-                .inputItems(WETWARE_PROCESSOR_LUV, 3)
+                .inputItems(WETWARE_PROCESSOR_LuV, 3)
                 .inputItems(SMD_RESISTOR_WETWARE, 16)
                 .inputItems(SMD_TRANSISTOR_WETWARE, 16)
                 .inputItems(SMD_CAPACITOR_WETWARE, 16)

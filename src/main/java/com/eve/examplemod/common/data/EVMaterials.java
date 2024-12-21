@@ -227,40 +227,38 @@ public class EVMaterials {
             Epoxy.setMaterialARGB(0xC88C14);
             Epoxy.setMaterialIconSet(DULL);
         }
-
-        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
-            for (Material material : registry.getAllMaterials()) {
-                if (material.hasFlag(GENERATE_NUCLEAR)) {
-
-                    if (!material.getProperties().hasProperty(PropertyKey.INGOT)){
-                        material.setProperty(PropertyKey.INGOT, new IngotProperty());
-                    }
-                    if (material.getProperty(PropertyKey.FLUID) == null) {
-                        var prop = new FluidProperty();
-                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
-                        material.setProperty(PropertyKey.FLUID, prop);
-
-                    } else {
-                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
-                                new FluidBuilder());
-                    }
-                    material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
-                            new FluidBuilder());
-                    material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
-                            new FluidBuilder());
-                }
-                if (material.getElement() != null && !material.getElement().isIsotope()) {
-                    if (material.getProperty(PropertyKey.FLUID) == null) {
-                        var prop = new FluidProperty();
-                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
-                    } else {
-                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
-                    }
-                }
-            }
-        }
-
-
+        // something something generate nuclear stuff probably
+//        for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
+//            for (Material material : registry.getAllMaterials()) {
+//                if (material.hasFlag(GENERATE_NUCLEAR)) {
+//
+//                    if (!material.getProperties().hasProperty(PropertyKey.INGOT)){
+//                        material.setProperty(PropertyKey.INGOT, new IngotProperty());
+//                    }
+//                    if (material.getProperty(PropertyKey.FLUID) == null) {
+//                        var prop = new FluidProperty();
+//                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
+//                        material.setProperty(PropertyKey.FLUID, prop);
+//
+//                    } else {
+//                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
+//                                new FluidBuilder());
+//                    }
+//                    material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
+//                            new FluidBuilder());
+//                    material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
+//                            new FluidBuilder());
+//                }
+//                if (material.getElement() != null && !material.getElement().isIsotope()) {
+//                    if (material.getProperty(PropertyKey.FLUID) == null) {
+//                        var prop = new FluidProperty();
+//                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
+//                    } else {
+//                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexachloride, new FluidBuilder());
+//                    }
+//                }
+//            }
+//        }
     }
 
 
