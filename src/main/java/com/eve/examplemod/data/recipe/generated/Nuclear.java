@@ -6,9 +6,7 @@ import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
 import com.eve.examplemod.api.data.material.properties.EVWasteProperty;
 import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.capability.IPropertyFluidFilter;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
@@ -105,14 +103,19 @@ public class Nuclear {
     }
     static void fuelReprocessing(Consumer<FinishedRecipe> provider) {
         var stringToElement = new HashMap<String, Material>();
+        Set<Material> decayset = new HashSet<>();
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
-                    if (material.getElement() != null && !material.getElement().isIsotope() && material.getElement() != U238 && material.getElement() != Pu239){
+                    if (material.getElement() != null && !material.getElement().isIsotope()){
                         String symbol;
                         String[] symbolArray = material.getElement().symbol().split("-");
                         symbol = symbolArray[0];
                         stringToElement.put(symbol, material);
+                    }
+                    if (material.getProperty(EVPropertyKey.NUCLEAR) != null){
+                        EVNuclearProperty nuclearProperty = material.getProperty(EVPropertyKey.NUCLEAR);
+                        nuclearProperty.decayProducts.forEach((key, value) -> decayset.add(key));
                     }
                 }
             }
@@ -122,56 +125,62 @@ public class Nuclear {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
 
-                    // Fuel + O = [Fuel + O]
-                    CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_to_oxide")
-                            .inputItems(depleted_fuel, material)
-                            .inputFluids(Oxygen.getFluid(1000))
-                            .outputItems(depleted_fuel_oxide, material)
-                            .save(provider);
-
-                    // HNO3 + [Fuel + O] = [Fuel + NO3 + H2O]   i dont think this one makes sense TODO fix this stoich
-                    LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_nitrate_solution").EUt(30).duration(50 * 20)
-                            .notConsumable(dust, Boron)
-                            .inputItems(depleted_fuel_oxide, material)
-                            .inputFluids(NitricAcid.getFluid(1000))
-                            .outputFluids(material.getFluid(EVFluidStorageKeys.depleted_nitrate, 1000))
-                            .save(provider);
-
-                    // Fuel2N3 ???
-                    LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_fuel_nitride")
-                            .notConsumableFluid(TributylPhosphate.getFluid(1))
-                            .notConsumableFluid(Hydrazine.getFluid(1))
-                            .notConsumableFluid(RP1.getFluid(1))
-                            .inputFluids(material.getFluid(EVFluidStorageKeys.depleted_nitrate, 1000))
-                            .notConsumable(dust, FerriteMixture)
-                            .outputItems(depleted_fuel_nitride, material)
-                            .outputFluids(Oxygen.getFluid(4000))
-                            .outputFluids(Hydrogen.getFluid(1000))
-                            .save(provider);
-
-                    String symbol = null;
-                    if (material.getElement() != null) {
-                        String[] symbolArray = material.getElement().symbol().split("-");
-                        symbol = symbolArray[0];
-                    }
-                    if (symbol != null) {
-                        Material material1 = stringToElement.get(symbol);
-                        ELECTROLYZER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_fuel_electrolysing")
-                                .inputItems(depleted_fuel_nitride, material)
-                                .outputItems(nuclear_waste, material1)
-                                .outputFluids(Nitrogen.getFluid(1000))
+                    if (decayset.contains(material)){
+                        // Fuel + O = [Fuel + O]
+                        CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_to_oxide")
+                                .inputItems(depleted_fuel, material)
+                                .inputFluids(Oxygen.getFluid(1000))
+                                .outputItems(depleted_fuel_oxide, material)
                                 .save(provider);
                     }
-                    if (material.getProperty(EVPropertyKey.WASTE) != null) {
-                        EVWasteProperty property = material.getProperty(EVPropertyKey.WASTE);
-                        GTRecipeBuilder recipeBuilder = THERMAL_CENTRIFUGE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_waste_centrifuging");
-                        recipeBuilder.inputItems(nuclear_waste, material);
-                        property.getRealMaterials().forEach(material1 ->
-                                recipeBuilder.outputItems(dust, material1)
-                        );
-                        property.getWasteProducts().forEach((key, value) -> recipeBuilder.chancedOutput(dust, key, value, 0));
-                        recipeBuilder.save(provider);
+
+                    if (material.hasFlag(FISSILE_OXIDE) || decayset.contains(material)) {
+
+                        // HNO3 + [Fuel + O] = [Fuel + NO3 + H2O]   i dont think this one makes sense TODO fix this stoich
+                        LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_nitrate_solution").EUt(30).duration(50 * 20)
+                                .notConsumable(dust, Boron)
+                                .inputItems(depleted_fuel_oxide, material)
+                                .inputFluids(NitricAcid.getFluid(1000))
+                                .outputFluids(material.getFluid(EVFluidStorageKeys.depleted_nitrate, 1000))
+                                .save(provider);
+
+                        // Fuel2N3 ???
+                        LARGE_CHEMICAL_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_fuel_nitride")
+                                .notConsumableFluid(TributylPhosphate.getFluid(1))
+                                .notConsumableFluid(Hydrazine.getFluid(1))
+                                .notConsumableFluid(RP1.getFluid(1))
+                                .inputFluids(material.getFluid(EVFluidStorageKeys.depleted_nitrate, 1000))
+                                .notConsumable(dust, FerriteMixture)
+                                .outputItems(depleted_fuel_nitride, material)
+                                .outputFluids(Oxygen.getFluid(4000))
+                                .outputFluids(Hydrogen.getFluid(1000))
+                                .save(provider);
+
+                        String symbol = null;
+                        if (material.getElement() != null) {
+                            String[] symbolArray = material.getElement().symbol().split("-");
+                            symbol = symbolArray[0];
+                        }
+                        if (symbol != null) {
+                            Material material1 = stringToElement.get(symbol);
+                            ELECTROLYZER_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_depleted_fuel_electrolysing")
+                                    .inputItems(depleted_fuel_nitride, material)
+                                    .outputItems(nuclear_waste, material1)
+                                    .outputFluids(Nitrogen.getFluid(1000))
+                                    .save(provider);
+                        }
                     }
+                        if (material.getProperty(EVPropertyKey.WASTE) != null) {
+                            EVWasteProperty property = material.getProperty(EVPropertyKey.WASTE);
+                            GTRecipeBuilder recipeBuilder = THERMAL_CENTRIFUGE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_waste_centrifuging");
+                            recipeBuilder.inputItems(nuclear_waste, material);
+                            property.getRealMaterials().forEach(material1 ->
+                                    recipeBuilder.outputItems(dust, material1)
+                            );
+                            property.getWasteProducts().forEach((key, value) -> recipeBuilder.chancedOutput(dust, key, value, 0));
+                            recipeBuilder.save(provider);
+                        }
+
                 }
             }
         }
@@ -240,6 +249,7 @@ public class Nuclear {
                                 );
                         recipeBuilder.save(provider);
 
+                        // do the ratios for this lmaoooo, think of some good solution for (chemplant) skip
                         GTRecipeBuilder recipeBuilder2 = CHEMICAL_PLANT_RECIPES.recipeBuilder(material.getName().toLowerCase() + "isotope_separation");
                                 recipeBuilder2.inputItems(dust, material, 100);
                                 prop.components.forEach((key, value) ->

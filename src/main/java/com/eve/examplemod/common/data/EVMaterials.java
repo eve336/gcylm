@@ -229,6 +229,7 @@ public class EVMaterials {
         }
 
         Set<Material> set = new HashSet<>();
+        Set<Material> decayset = new HashSet<>();
 
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
@@ -236,6 +237,10 @@ public class EVMaterials {
                     if (material.getProperty(EVPropertyKey.COMPONENT) != null){
                         EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
                         prop.components.forEach((ohio, rizz) -> set.add(ohio));
+                    }
+                    if (material.getProperty(EVPropertyKey.NUCLEAR) != null){
+                        EVNuclearProperty nuclearProperty = material.getProperty(EVPropertyKey.NUCLEAR);
+                        nuclearProperty.decayProducts.forEach((key, value) -> decayset.add(key));
                     }
                 }
             }
@@ -246,24 +251,39 @@ public class EVMaterials {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
 
-                    if (!material.getProperties().hasProperty(PropertyKey.INGOT)){
+                    if (!material.getProperties().hasProperty(PropertyKey.INGOT)) {
                         material.setProperty(PropertyKey.INGOT, new IngotProperty());
                     }
+
+                    // depleted fuel fluid
+                    if (material.hasFlag(FISSILE_OXIDE) || decayset.contains(material)) {
                     if (material.getProperty(PropertyKey.FLUID) == null) {
                         var prop = new FluidProperty();
                         prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
                         material.setProperty(PropertyKey.FLUID, prop);
-
                     } else {
                         material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
                                 new FluidBuilder());
                     }
+                }
+
+                    // isotope separation fluids
                     if (set.contains(material)){
-                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
+                        if (material.getProperty(PropertyKey.FLUID) == null) {
+                            var prop = new FluidProperty();
+                            prop.getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride, new FluidBuilder());
+                            material.setProperty(PropertyKey.FLUID, prop);
+                        }
+                        else material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
                                 new FluidBuilder());
                     }
                     if (set.contains(material) || (material.getElement() != null && !material.getElement().isIsotope())) {
-                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
+                        if (material.getProperty(PropertyKey.FLUID) == null) {
+                            var prop = new FluidProperty();
+                            prop.getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride, new FluidBuilder());
+                            material.setProperty(PropertyKey.FLUID, prop);
+                        }
+                        else material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
                                 new FluidBuilder());
                     }
                 }
@@ -364,7 +384,7 @@ public class EVMaterials {
 
     public static final Material Fermium259 = new Material.Builder(EVMain.id("fermium_259"))
             .ingot()
-            .color(Fermium.getMaterialRGB())
+            .color(0x984ACF)
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR, FISSILE_OXIDE)
             .element(Fm259)
@@ -373,7 +393,7 @@ public class EVMaterials {
 
     public static final Material Fermium262 = new Material.Builder(EVMain.id("fermium_262"))
             .ingot()
-            .color(Fermium.getMaterialRGB())
+            .color(0x984ACF)
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR, FISSILE)
             .element(Fm262)
@@ -382,7 +402,7 @@ public class EVMaterials {
 
     public static final Material Fermium263 = new Material.Builder(EVMain.id("fermium_263"))
             .ingot()
-            .color(Fermium.getMaterialRGB())
+            .color(0x984ACF)
             .iconSet(METALLIC)
             .flags(GENERATE_NUCLEAR)
             .element(Fm263)

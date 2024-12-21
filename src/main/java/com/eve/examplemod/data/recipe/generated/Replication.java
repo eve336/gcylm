@@ -2,12 +2,17 @@ package com.eve.examplemod.data.recipe.generated;
 
 import java.util.function.Consumer;
 
+import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
+import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.DISABLE_REPLICATION;
+import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.AUTOCLAVE_RECIPES;
 
 public class Replication {
@@ -16,11 +21,15 @@ public class Replication {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.isElement() && material.hasFluid() && !material.hasFlag(DISABLE_REPLICATION) && material.getElement() != null && !material.getElement().isIsotope()) {
-                    AUTOCLAVE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_replication")
-                            .notConsumableFluid(material.getFluid(1))
-                            .outputFluids(material.getFluid(100))
-                            .duration(1200).EUt(9000000)
-                            .save(provider);
+                    if (material.getProperty(PropertyKey.FLUID) != null) {
+                        if (material.getProperty(PropertyKey.FLUID).getPrimaryKey().equals(FluidStorageKeys.LIQUID)) {
+                            AUTOCLAVE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_replication")
+                                    .notConsumableFluid(material.getFluid(1))
+                                    .outputFluids(material.getFluid(100))
+                                    .duration(1200).EUt(9000000)
+                                    .save(provider);
+                        }
+                    }
                 }
             }
         }
