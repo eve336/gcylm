@@ -29,7 +29,7 @@ public class EVOres {
 
     public static final GTOreDefinition NETHER_PRECIOUS_METAL = create(EVMain.id("nether_gold_vein"), vein -> vein
             .clusterSize(UniformInt.of(25, 29))
-            .density(0.2F).weight(110)
+            .density(0.2F).weight(160)
             .layer(WorldGenLayers.NETHERRACK)
             .heightRangeUniform(10, 120)
             .biomes(BiomeTags.IS_NETHER)
@@ -42,8 +42,11 @@ public class EVOres {
                     .surfaceRock(PreciousMetal)
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)));
 
+
+    // find out a way to kill ore veins from gt...,,,, you should mixin and kill all of them hehehehehhehe
+    // kubejs works fine but pack creators need to do that manually :sob:
     public static final GTOreDefinition TUNGSTATE_VEIN_MARS = create(EVMain.id("tungstate_vein_mars"), vein -> vein
-            .clusterSize(UniformInt.of(30, 35)).density(0.4f).weight(100)
+            .clusterSize(UniformInt.of(30, 35)).density(0.4f).weight(200)
             .layer(WorldGenLayers.STONE)
             .heightRangeUniform(10, 80)
             .biomes(BiomeTags.IS_OVERWORLD)
@@ -56,6 +59,23 @@ public class EVOres {
             )
             .surfaceIndicatorGenerator(indicator -> indicator
                     .surfaceRock(Tungstate)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
+    // the most used material in all of gt is just insanely hard to find??? buff copper vein
+    public static final GTOreDefinition COPPER_VEIN = create(EVMain.id("copper_vein"), vein -> vein
+            .clusterSize(UniformInt.of(60, 90)).density(0.4f).weight(120)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(10, 80)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(9).mat(Copper).size(1, 4))
+                            .layer(l -> l.weight(10).mat(Tetrahedrite).size(1, 1))
+                            .build())
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Copper)
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 

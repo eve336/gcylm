@@ -4,10 +4,11 @@ import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.lang.LangHandler;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
+import org.apache.commons.codec.language.bm.Lang;
 
 import static com.gregtechceu.gtceu.data.lang.LangHandler.replace;
 
-public class EVLangHandler  {
+public class EVLangHandler  extends LangHandler {
     public static void init(RegistrateLangProvider provider){
 
 
