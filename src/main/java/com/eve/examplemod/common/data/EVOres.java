@@ -79,6 +79,23 @@ public class EVOres {
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 
+    public static final GTOreDefinition CHALCOCITE_VEIN = create(EVMain.id("chalcocite_vein"), vein -> vein
+            .clusterSize(UniformInt.of(60, 90)).density(0.4f).weight(120)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(10, 80)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(7).mat(Copper).size(1, 4))
+                            .layer(l -> l.weight(10).mat(Chalcocite).size(1, 4))
+                            .layer(l -> l.weight(7).mat(Iron).size(1, 3))
+                            .build())
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Copper)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
     public static void init(){
 
     }

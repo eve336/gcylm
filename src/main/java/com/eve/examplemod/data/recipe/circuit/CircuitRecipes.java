@@ -687,7 +687,7 @@ public class CircuitRecipes {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("supra_processor").duration(50).EUt(122_880_000)
                 .inputItems(UHASOC, 16)
                 .inputItems(manifold_oscillatory_power_cell)
-                .inputItems(microwormhole_generator)
+                .inputItems(MICROWORMHOLE_GENERATOR)
                 .inputItems(SUPRACAUSAL_PROCESSING_CORE)
                 .inputItems(plate, SuperheavyHAlloy)
                 .inputItems(wireGtSingle, UHVSuperconductor, 8)

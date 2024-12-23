@@ -55,13 +55,13 @@ public class InsulatorChain {
         ALLOY_SMELTER_RECIPES.recipeBuilder("aluminium_chain_8").duration(400).EUt(30)
                 .inputItems(mica_sheet, 5)
                 .inputItems(dust, SiliconDioxide, 3)
-                .outputItems(mica_insulator_sheet, 8)
+                .outputItems(MICA_INSULATOR_SHEET, 8)
                 .save(provider);
 
         BENDER_RECIPES.recipeBuilder("aluminium_chain_9").duration(100).EUt(30)
                 .circuitMeta(1)
-                .inputItems(mica_insulator_sheet, 1)
-                .outputItems(mica_insulator_foil, 4)
+                .inputItems(MICA_INSULATOR_SHEET, 1)
+                .outputItems(MICA_INSULATOR_FOIL, 4)
                 .save(provider);
     }
 }

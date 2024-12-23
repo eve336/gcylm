@@ -1,14 +1,9 @@
 package com.eve.examplemod.data.recipe;
 
-import com.eve.examplemod.common.data.EVItems;
 import com.eve.examplemod.common.data.EVMachines;
-import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
-import com.eve.examplemod.data.recipe.serialized.chemistry.MicaInsulator;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMachines;
-import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -25,7 +20,6 @@ import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static com.gregtechceu.gtceu.common.data.machines.GTMultiMachines.PRIMITIVE_BLAST_FURNACE;
-import static com.gregtechceu.gtceu.common.data.machines.GTMultiMachines.ELECTRIC_BLAST_FURNACE;
 import static net.minecraft.world.item.Items.*;
 
 public class MiscRecipes {
@@ -148,7 +142,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_cupronickel")
-                .inputItems(mica_insulator_foil, 8)
+                .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Cupronickel, 6)
                 .inputFluids(Tin.getFluid(144))
                 .outputItems(COIL_CUPRONICKEL.asItem())
@@ -157,7 +151,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal")
-                .inputItems(mica_insulator_foil, 8)
+                .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Kanthal, 6)
                 .inputFluids(Copper.getFluid(144))
                 .outputItems(COIL_KANTHAL.asItem())
@@ -166,7 +160,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal")
-                .inputItems(mica_insulator_foil, 8)
+                .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Nichrome, 6)
                 .inputFluids(Aluminium.getFluid(144))
                 .outputItems(COIL_KANTHAL.asItem())
@@ -175,7 +169,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_rtm_alloy")
-                .inputItems(mica_insulator_foil, 8)
+                .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, RTMAlloy, 6)
                 .inputFluids(Nichrome.getFluid(144))
                 .outputItems(COIL_RTMALLOY.asItem())
@@ -184,7 +178,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_hssg")
-                .inputItems(mica_insulator_foil, 8)
+                .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, HSSG, 6)
                 .inputFluids(Tungsten.getFluid(144))
                 .outputItems(COIL_HSSG.asItem())
@@ -193,7 +187,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_naquadah")
-                .inputItems(mica_insulator_foil, 8)
+                .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Naquadah, 6)
                 .inputFluids(HSSG.getFluid(144))
                 .outputItems(COIL_NAQUADAH.asItem())

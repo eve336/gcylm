@@ -4,6 +4,7 @@ import com.eve.examplemod.config.EVConfig;
 import com.eve.examplemod.data.recipe.MiscRecipes;
 import com.eve.examplemod.data.recipe.SuperconductorRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
+import com.eve.examplemod.data.recipe.circuit.CircuitComponentRecipes;
 import com.eve.examplemod.data.recipe.circuit.CircuitRecipes;
 import com.eve.examplemod.data.recipe.generated.Machines;
 import com.eve.examplemod.data.recipe.generated.Mixer;
@@ -44,5 +45,6 @@ public class EVRecipes {
         if (EVConfig.INSTANCE.harderTungsten) TungstenChain.init(consumer);
         HydrogenPeroxide.init(consumer);
         Nuclear.init(consumer);
+        CircuitComponentRecipes.init(consumer);
     }
 }
