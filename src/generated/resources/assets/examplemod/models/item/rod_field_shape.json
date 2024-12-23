@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "examplemod:item/petri_dish"
+    "layer0": "examplemod:item/rod_field_shape"
   }
 }

@@ -49,11 +49,11 @@ public class InsulatorChain {
         FORMING_PRESS_RECIPES.recipeBuilder("aluminium_chain_7").duration(400).EUt(28)
                 .inputItems(dust, MicaPulp, 4)
                 .inputItems(dust, Asbestos, 1)
-                .outputItems(mica_sheet, 5)
+                .outputItems(MICA_SHEET, 5)
                 .save(provider);
 
         ALLOY_SMELTER_RECIPES.recipeBuilder("aluminium_chain_8").duration(400).EUt(30)
-                .inputItems(mica_sheet, 5)
+                .inputItems(MICA_SHEET, 5)
                 .inputItems(dust, SiliconDioxide, 3)
                 .outputItems(MICA_INSULATOR_SHEET, 8)
                 .save(provider);

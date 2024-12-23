@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 
+import static com.eve.examplemod.common.data.EVBlocks.LEPTONIC_CHARGE;
+import static com.eve.examplemod.common.data.EVBlocks.QCD_CHARGE;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
@@ -31,7 +33,7 @@ public class CircuitComponentRecipes {
         
         int chainNumber = 1;
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(96)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(96)
                 .inputItems(wireFine, Copper, 6)
                 .inputItems(plate, Silver)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -39,7 +41,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(96)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(96)
                 .inputItems(wireFine, Copper, 4)
                 .inputItems(dust, Carbon)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -47,7 +49,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(60).EUt(120)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(120)
                 .inputItems(foil, Rubber, 4)
                 .inputItems(foil, Steel)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -55,7 +57,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Diode
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(600).EUt(30)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(30)
                 .inputItems(wireFine, Gold, 8)
                 .inputItems(dust, Lithium)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -66,7 +68,7 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(600).EUt(30)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(30)
                 .inputItems(wireFine, Platinum, 8)
                 .inputItems(dust, GalliumArsenide)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -78,7 +80,7 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(494)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(494)
                 .inputItems(wireFine, Palladium, 12)
                 .inputItems(plate, Magnalium)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -86,7 +88,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(494)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(494)
                 .inputItems(wireFine, Cerium, 8)
                 .inputItems(dust, Graphite)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -94,7 +96,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(60).EUt(480)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(480)
                 .inputItems(foil, Silicon, 4)
                 .inputItems(foil, Titanium)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -102,7 +104,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Diode
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(600).EUt(120)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(120)
                 .inputItems(wireFine, ReinforcedEpoxyResin, 8)
                 .inputItems(dust, Caesium)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -113,7 +115,7 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(1976)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(1976)
                 .inputItems(wireFine, GTMaterials.Plutonium239, 12)
                 .inputItems(plate, Americium)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -121,14 +123,14 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(1976)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(1976)
                 .inputItems(wireFine, Ruthenium, 8).inputItems(plate, Graphene)
                 .inputFluids(Polyethylene.getFluid(L))
                 .outputItems(SMD_RESISTOR_QUANTUM,24)
                 .save(provider);
 
         // Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(60).EUt(1920)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(1920)
                 .inputItems(foil, SiliconeRubber, 4)
                 .inputItems(foil, Tungsten)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -136,7 +138,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Diode
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(600).EUt(480)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(480)
                 .inputItems(wireFine, HSSG, 8)
                 .inputItems(dust, Polonium)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -145,7 +147,7 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(7904)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(7904)
                 .inputItems(wireFine, Rutherfordium, 12)
                 .inputItems(plate, NetherStar)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -153,7 +155,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(7904)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(7904)
                 .inputItems(wireFine, NaquadahAlloy, 8)
                 .inputItems(plate, Graphene)
                 .inputItems(SiliconCarbide)
@@ -162,7 +164,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(60).EUt(7680)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(7680)
                 .inputItems(foil, Polybenzimidazole, 4)
                 .inputItems(foil, NaquadahAlloy)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -170,7 +172,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Diode
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(600).EUt(1920)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(1920)
                 .inputItems(wireFine, HSSS, 8)
                 .inputItems(GermaniumSulfide)
                 .inputFluids(Polyethylene.getFluid(L))
@@ -179,7 +181,7 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(30720)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(30720)
                 .inputItems(wireFine, NaquadahAlloy, 8)
                 .inputFluids(Polytetrafluoroethylene.getFluid(L))
                 .inputItems(foil, NaquadahEnriched, 4)
@@ -188,7 +190,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(30720)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(30720)
                 .inputItems(wireFine, NaquadahAlloy, 8)
                 .inputFluids(Polytetrafluoroethylene.getFluid(L))
                 .inputItems(plate, Naquadria)
@@ -197,7 +199,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Transistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(30720)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(30720)
                 .inputItems(wireFine, NaquadahAlloy, 8)
                 .inputFluids(Polytetrafluoroethylene.getFluid(L))
                 .inputItems(plate, NaquadahEnriched)
@@ -205,7 +207,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Diode
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(30720)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(30720)
                 .inputItems(wireFine, NaquadahAlloy, 8)
                 .inputFluids(Polytetrafluoroethylene.getFluid(L))
                 .inputItems(dust, Naquadria)
@@ -217,14 +219,14 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
                 .inputItems(wireFine, Dubnium, 8)
                 .inputItems(plate, GermaniumTungstenNitride, 4)
                 .inputFluids(Polyimide.getFluid(L * 2))
                 .outputItems(SMD_TRANSISTOR_BIOWARE,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
                 .inputItems(wireFine, PEDOT, 8)
                 .inputItems(foil, Polytetrafluoroethylene, 4)
                 .inputItems(foil, BariumTitanate, 4)
@@ -232,7 +234,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_CAPACITOR_BIOWARE,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
                 .inputItems(wireFine, Osmiridium, 8)
                 .inputItems(AluminiumComplex)
                 .inputItems(CopperGalliumIndiumSelenide)
@@ -240,7 +242,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_DIODE_BIOWARE,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
                 .inputItems(wireFine, NaquadahAlloy, 6)
                 .inputItems(plate, BismuthRuthenate)
                 .inputItems(plate, BismuthIridiate)
@@ -248,7 +250,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_RESISTOR_BIOWARE,24)
                 .save(provider);
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
                 .inputItems(foil, SiliconeRubber, 32)
                 .inputItems(wireFine, NaquadahAlloy, 16)
                 .inputItems(SMD_TRANSISTOR_BIOWARE,2)
@@ -265,7 +267,7 @@ public class CircuitComponentRecipes {
 
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(plate, LithiumNiobate, 4)
                 .inputItems(plate, Polyetheretherketone, 4)
@@ -274,7 +276,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Transistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(plate, LeadZirconateTitanate, 4)
                 .inputItems(plate, LithiumTitanate, 4)
@@ -283,7 +285,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(foil, CarbonNanotubes, 4)
                 .inputItems(foil, Polyetheretherketone, 4)
@@ -292,7 +294,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(SodiumSeaborgate,5)
                 .inputItems(TBCCODust,4)
@@ -301,32 +303,32 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(foil, Cinobite)
                 .inputItems(foil, Quantum)
                 .outputItems(SMD_CAPACITOR_EXOTIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(wireFine, Cinobite)
                 .inputItems(foil, TriniumTitanium)
                 .outputItems(SMD_RESISTOR_EXOTIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(plate, Vibranium)
                 .inputItems(plate, Quantum)
                 .outputItems(SMD_DIODE_EXOTIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(DEGENERATE_RHENIUM_PLATE)
                 .inputItems(foil, TriniumTitanium)
                 .outputItems(SMD_TRANSISTOR_EXOTIC,32)
                 .save(provider);
 
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(6000000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(6000000)
                 .inputItems(wireFine, Cinobite, 8)
                 .inputItems(plate, SuperheavyHAlloy, 4)
                 .inputItems(plate, Vibranium, 4)
@@ -335,7 +337,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Transistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(6000000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(6000000)
                 .inputItems(wireFine, Cinobite, 8)
                 .inputItems(plate, MetastableHassium)
                 .inputItems(DEGENERATE_RHENIUM_PLATE,4)
@@ -344,7 +346,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(6000000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(6000000)
                 .inputItems(wireFine, Cinobite, 8)
                 .inputItems(foil, Quantum, 4)
                 .inputItems(foil, FullerenePolymerMatrix, 4)
@@ -353,7 +355,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(250).EUt(6000000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(6000000)
                 .inputItems(wireFine, Cinobite, 8)
                 .inputItems(plate, SuperheavyLAlloy, 4)
                 .inputItems(plate, TriniumTitanium, 4)
@@ -361,7 +363,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_RESISTOR_COSMIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(400).EUt(134217728)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(134217728)
                 .inputFluids(FullerenePolymerMatrix.getFluid(L))
                 .inputItems(plate, ProtoAdamantium)
                 .inputItems(MICA_INSULATOR_FOIL,8)
@@ -370,7 +372,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Diode
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(400).EUt(134217728)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(134217728)
                 .inputFluids(FullerenePolymerMatrix.getFluid(L))
                 .inputItems(plate, Vibranium)
                 .inputItems(Tetracene)
@@ -379,7 +381,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Transistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(400).EUt(134217728)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(134217728)
                 .inputFluids(FullerenePolymerMatrix.getFluid(L))
                 .inputItems(plate, Neutronium)
                 .inputItems(Tetracene)
@@ -388,7 +390,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Resistor
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(400).EUt(134217728)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(134217728)
                 .inputFluids(FullerenePolymerMatrix.getFluid(L))
                 .inputItems(foil, TitanSteel)
                 .inputItems(ChargedCesiumCeriumCobaltIndium)
@@ -396,7 +398,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_RESISTOR_SUPRACAUSAL,32)
                 .save(provider);
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(800).EUt(33550000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(800).EUt(33550000)
                 .inputItems(NUCLEAR_CLOCK)
                 .inputItems(TOPOLOGICAL_MANIPULATOR_UNIT,1)
                 .inputItems(RELATIVISTIC_SPINORIAL_MEMORY_SYSTEM,1)
@@ -413,7 +415,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Topological Manipulator Unit
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(300).EUt(33550000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(300).EUt(33550000)
                 .inputItems(CONTAINED_KERR_NEWMANN_SINGULARITY)
                 .inputItems(MICROWORMHOLE_GENERATOR)
                 .inputItems(FIELD_GENERATOR_UHV)
@@ -423,7 +425,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Graviton Transducer
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(200).EUt(33550000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(200).EUt(33550000)
                 .inputItems(CONTAINED_REISSNER_NORDSTROM_SINGULARITY)
                 .inputItems(MICROWORMHOLE_GENERATOR)
                 .inputItems(SENSOR_UIV)
@@ -433,19 +435,19 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Relativistic Spinorial Memory System
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(200).EUt(33550000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(200).EUt(33550000)
                 .inputItems(FIELD_GENERATOR_UHV)
                 .inputItems(SENSOR_UIV)
                 .inputItems(NEUTRON_REFLECTOR,2)
                 .inputItems(BATTERY_MEDIUM_LIS)
                 .inputItems(wireGtSingle, UMVSuperconductor, 2)
-                .inputItems(FUSION_CASING.getItemVariant(ADV_FUSION_COIL_1))
+//                .inputItems(FUSION_CASING.getItemVariant(ADV_FUSION_COIL_1))
                 .inputFluids(Neutronium.getFluid(L * 9))
                 .outputItems(RELATIVISTIC_SPINORIAL_MEMORY_SYSTEM)
                 .save(provider);
 
         // CTC Guidance Unit
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(400).EUt(134217728).qubit(8)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(134217728)
                 .inputItems(SUPRACAUSAL_PROCESSING_CORE)
                 .inputItems(TOOL_DATA_ORB)
                 .inputItems(NUCLEAR_CLOCK)
@@ -457,7 +459,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Nuclear Clock
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(33550000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(33550000)
                 .inputItems(SENSOR_UIV,2)
                 .inputItems(SCINTILLATOR)
                 .inputItems(ULTRASHORT_PULSE_LASER,2)
@@ -468,7 +470,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Manifold Oscillatory Power Cell
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(180).EUt(33550000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(180).EUt(33550000)
                 .inputItems(wireGtSingle, Pikyonium, 32)
                 .inputItems(DEGENERATE_RHENIUM_PLATE,2)
                 .inputItems(wireFine, Quantum, 8)
@@ -481,20 +483,20 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // QCD Charge
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(200).EUt(33550000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(200).EUt(33550000)
                 .inputItems(plate, ProtoAdamantium, 3)
                 .inputItems(TIME_DILATION_CONTAINMENT_UNIT)
-                .inputItems(EXPLOSIVE.getItemVariant(LEPTONIC_CHARGE))
+                .inputItems(LEPTONIC_CHARGE.asItem())
                 .inputItems(plate, HeavyQuarkDegenerateMatter, 2)
                 .inputItems(plate, SuperheavyHAlloy)
                 .inputItems(plate, SuperheavyLAlloy)
                 .inputItems(plate, Taranium, 2)
                 .inputFluids(Gluons.getFluid(L * 9))
-                .outputItems(EXPLOSIVE.getItemVariant(QCD_CHARGE))
+                .outputItems(QCD_CHARGE.asItem())
                 .save(provider);
 
         // CTC Computational Unit Container
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(1000).EUt(33550000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(1000).EUt(33550000)
                 .inputItems(CTC_GUIDANCE_UNIT)
                 .inputItems(MANIFOLD_OSCILLATORY_POWER_CELL)
                 .inputItems(plate, EnrichedNaquadahAlloy, 36)
@@ -513,39 +515,39 @@ public class CircuitComponentRecipes {
                 .outputItems(CTC_COMPUTATIONAL_UNIT_CONTAINER)
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(134217728)
+        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(134217728)
                 .inputItems(ingot, HeavyQuarkDegenerateMatter)
-                .inputItems(EXPLOSIVE.getItemVariant(QCD_CHARGE))
+                .inputItems(QCD_CHARGE.asItem())
                 .outputFluids(HighEnergyQGP.getFluid(L))
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(400).EUt(134217728)
+        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(134217728)
                 .inputItems(QCD_PROTECTIVE_PLATING,4)
-                .inputItems(EXPLOSIVE.getItemVariant((QCD_CHARGE)))
+                .inputItems(QCD_CHARGE.asItem())
                 .outputFluids(QCDMatter.getFluid(L * 9))
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(134217728)
-                .inputItems(EXPLOSIVE.getItemVariant((QCD_CHARGE)))
+        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(134217728)
+                .inputItems(QCD_CHARGE.asItem())
                 .inputItems(MACROWORMHOLE_GENERATOR,2)
                 .outputItems(RECURSIVELY_FOLDED_NEGATIVE_SPACE)
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(134217728)
+        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(134217728)
                 .inputItems(STABILIZED_WORMHOLE_GENERATOR)
                 .inputItems(RECURSIVELY_FOLDED_NEGATIVE_SPACE)
-                .inputItems(EXPLOSIVE.getItemVariant((QCD_CHARGE)))
+                .inputItems(QCD_CHARGE.asItem())
                 .outputItems(EIGENFOLDED_KERR_MANIFOLD)
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(800).EUt(134217728)
+        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(800).EUt(134217728)
                 .inputItems(EIGENFOLDED_KERR_MANIFOLD)
                 .inputItems(CTC_COMPUTATIONAL_UNIT_CONTAINER)
-                .inputItems(EXPLOSIVE.getItemVariant((QCD_CHARGE)))
+                .inputItems(QCD_CHARGE.asItem())
                 .outputItems(CTC_COMPUTATIONAL_UNIT)
                 .save(provider);
 
-        PLASMA_CONDENSER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(134217728)
+        PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(134217728)
                 .inputFluids(HighEnergyQGP.getFluid(L))
                 .inputFluids(LiquidHelium.getFluid(10000))
                 .outputFluids(Helium.getFluid(10000))
@@ -553,26 +555,24 @@ public class CircuitComponentRecipes {
                 .outputItems(QCD_PROTECTIVE_PLATING)
                 .save(provider);
 
-        PLASMA_CONDENSER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(40).EUt(134217728)
+        PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(40).EUt(134217728)
                 .inputFluids(QCDMatter.getFluid(L))
                 .inputFluids(LiquidHelium.getFluid(20000))
                 .outputFluids(Helium.getFluid(20000))
                 .notConsumable(PLATE_FIELD_SHAPE)
-                .output(plate, QCDMatter)
+                .outputItems(plate, QCDMatter)
                 .save(provider);
 
-        PLASMA_CONDENSER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(20).EUt(134217728)
+        PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20).EUt(134217728)
                 .inputFluids(QCDMatter.getFluid(L / 2))
                 .inputFluids(LiquidHelium.getFluid(10000))
                 .outputFluids(Helium.getFluid(10000))
                 .notConsumable(ROD_FIELD_SHAPE)
-                .output(rod, QCDMatter)
+                .outputItems(rod, QCDMatter)
                 .save(provider);
 
 
-        cosmic
-
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(320).EUt(11796480).qubit(2)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(11796480)
                 .inputItems(COSMIC_PROCESSING_UNIT_CORE)
                 .inputItems(SMD_DIODE_COSMIC,2)
                 .inputItems(SMD_RESISTOR_COSMIC,2)
@@ -591,25 +591,25 @@ public class CircuitComponentRecipes {
                 .outputItems(COSMIC_PROCESSING_CORE,8)
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(695000)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(695000)
                 .inputItems(COATED_HASSIUM_WAFER)
                 .inputFluids(PhotopolymerSolution.getFluid(500))
                 .outputItems(PHOTOCOATED_HASSIUM_WAFER)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(320).EUt(840000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(840000)
                 .inputItems(lens, White)
                 .inputItems(CLADDED_OPTICAL_FIBER_CORE,8)
                 .outputItems(GRATING_LITHOGRAPHY_MASK)
                 .save(provider);
 
-        LASER_ENGRAVER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(320).EUt(3200000)
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(3200000)
                 .inputItems(PHOTOCOATED_HASSIUM_WAFER)
                 .notConsumable(GRATING_LITHOGRAPHY_MASK)
                 .outputItems(DIFFRACTOR_GRATING_MIRROR)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(270).EUt(4500000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(270).EUt(4500000)
                 .inputItems(HIGH_FREQUENCY_LASER)
                 .inputItems(DIFFRACTOR_GRATING_MIRROR,4)
                 .inputItems(NDYAG_ROD)
@@ -620,7 +620,7 @@ public class CircuitComponentRecipes {
                 .outputItems(ULTRASHORT_PULSE_LASER)
                 .save(provider);
 
-        FORMING_PRESS_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(280).EUt(1500000)
+        FORMING_PRESS_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(280).EUt(1500000)
                 .inputItems(plate, Vibranium, 2)
                 .inputItems(TlTmCesiumIodide)
                 .inputItems(PolycyclicAromaticMix)
@@ -629,7 +629,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SCINTILLATOR_CRYSTAL)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(340).EUt(3450000).blastFurnaceTemp(10900)
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(340).EUt(3450000).blastFurnaceTemp(10900)
                 .inputItems(dust, MetastableHassium)
                 .inputItems(dust, Molybdenum)
                 .inputItems(dust, Rhenium)
@@ -637,7 +637,7 @@ public class CircuitComponentRecipes {
                 .outputItems(LEPTON_TRAP_CRYSTAL)
                 .save(provider);
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(380).EUt(3500000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(380).EUt(3500000)
                 .inputItems(SCINTILLATOR_CRYSTAL)
                 .inputItems(screw, HDCS, 12)
                 .inputItems(plate, Cinobite, 4)
@@ -650,7 +650,7 @@ public class CircuitComponentRecipes {
                 .outputItems(SCINTILLATOR)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(350).EUt(7500000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(350).EUt(7500000)
                 .inputItems(DEGENERATE_RHENIUM_PLATE,3)
                 .inputItems(wireFine, HeavyQuarkDegenerateMatter, 6)
                 .inputItems(plate, HeavyQuarkDegenerateMatter, 2)
@@ -658,50 +658,49 @@ public class CircuitComponentRecipes {
                 .outputItems(COSMIC_PROCESSING_UNIT_CORE)
                 .save(provider);
 
-        exotic
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(foil, Cinobite)
                 .inputItems(foil, Quantum)
                 .outputItems(SMD_CAPACITOR_EXOTIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(wireFine, Cinobite)
                 .inputItems(foil, TriniumTitanium)
                 .outputItems(SMD_RESISTOR_EXOTIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(plate, Vibranium)
                 .inputItems(plate, Quantum)
                 .outputItems(SMD_DIODE_EXOTIC,32)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt((int)1E+6).inputFluids(Polyetheretherketone.getFluid(144 * 4))
                 .inputItems(DEGENERATE_RHENIUM_PLATE)
                 .inputItems(foil, TriniumTitanium)
                 .outputItems(SMD_TRANSISTOR_EXOTIC,32)
                 .save(provider);
 
-        LASER_ENGRAVER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(800000)
-                .inputItems(WAFER_RUTHERFORDIUM)
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(800000)
+//                .inputItems(WAFER_RUTHERFORDIUM)
                 .notConsumable(lens, Diamond)
                 .outputItems(UNTREATED_EXOTIC_WAFER)
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(2000)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(2000)
                 .inputItems(UNTREATED_EXOTIC_WAFER)
                 .inputFluids(MicrocrystallizingHydrogen.getFluid(100))
                 .outputItems(EXOTIC_WAFER)
                 .save(provider);
 
-        CUTTER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(200000)
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(200000)
                 .inputItems(EXOTIC_WAFER)
                 .outputItems(EXOTIC_CHIP,16)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(2000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(2000)
                 .inputItems(HIGH_FREQUENCY_LASER)
                 .inputItems(plate, MetastableHassium)
                 .inputItems(HIGHLY_REFLECTIVE_MIRROR)
@@ -709,7 +708,7 @@ public class CircuitComponentRecipes {
                 .outputItems(EXCITATION_MAINTAINER)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(8000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(8000)
                 .inputItems(plate, Graphene)
                 .inputItems(AEROGRAPHENE,5)
                 .inputItems(wireFine, TriniumTitanium)
@@ -717,7 +716,7 @@ public class CircuitComponentRecipes {
                 .outputItems(CRYOGENIC_INTERFACE)
                 .save(provider);
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(4000000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(4000000)
                 .inputItems(CRYOGENIC_INTERFACE)
                 .inputItems(EXCITATION_MAINTAINER)
                 .inputItems(EXOTIC_CHIP)
@@ -730,7 +729,7 @@ public class CircuitComponentRecipes {
                 .outputItems(RYDBERG_SPINORIAL_ASSEMBLY)
                 .save(provider);
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(4000000)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(4000000)
                 .inputItems(NON_LINEAR_OPTICAL_LENS)
                 .inputItems(DEGENERATE_RHENIUM_PLATE)
                 .inputItems(foil, TriniumTitanium)
@@ -740,7 +739,7 @@ public class CircuitComponentRecipes {
                 .outputItems(EXOTIC_PROCESSING_CORE,6)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(5000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(5000)
                 .inputItems(X_RAY_WAVEGUIDE)
                 .inputItems(MICROFOCUS_X_RAY_TUBE)
                 .inputItems(X_RAY_MIRROR_PLATE)
@@ -748,55 +747,55 @@ public class CircuitComponentRecipes {
                 .outputItems(X_RAY_LASER)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(1800).EUt(120) //2H + 2IrO2 -> Ir2O3 + H2O
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(1800).EUt(120) //2H + 2IrO2 -> Ir2O3 + H2O
                 .inputFluids(Hydrogen.getFluid(2000))
                 .inputItems(dust, IridiumDioxide, 6)
                 .outputItems(IridiumTrioxide,5)
                 .outputFluids(Water.getFluid(1000))
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(2000)
+        MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(2000)
                 .inputFluids(HydrochloricAcid.getFluid(6000))
                 .inputItems(IridiumTrioxide,5)
                 .outputFluids(IridiumTrichlorideSolution.getFluid(6000))
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(100)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(100)
                 .inputFluids(FullerenePolymerMatrix.getFluid(18))
                 .notConsumable(wireFine, Polyetheretherketone)
                 .outputItems(FULLERENE_POLYMER_MATRIX_SOFT_TUBING)
                 .save(provider);
 
-        VACUUM_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(500)
+        VACUUM_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(500)
                 .inputItems(FULLERENE_POLYMER_MATRIX_SOFT_TUBING)
                 .outputItems(FULLERENE_POLYMER_MATRIX_FINE_TUBING)
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(800000)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(800000)
                 .inputItems(FULLERENE_POLYMER_MATRIX_FINE_TUBING)
                 .inputFluids(IridiumTrichlorideSolution.getFluid(100))
                 .outputItems(X_RAY_WAVEGUIDE)
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(200000)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(200000)
                 .inputFluids(IridiumTrichlorideSolution.getFluid(100))
                 .inputItems(plate, Graphene)
                 .outputItems(X_RAY_MIRROR_PLATE)
                 .save(provider);
 
-        VACUUM_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(500)
+        VACUUM_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(500)
                 .inputFluids(LiquidHydrogen.getFluid(1000))
                 .outputFluids(SemisolidHydrogen.getFluid(1000))
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(80).EUt(500)
+        MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(500)
                 .inputFluids(LiquidHydrogen.getFluid(1000))
                 .inputFluids(SemisolidHydrogen.getFluid(1000))
                 .outputFluids(MicrocrystallizingHydrogen.getFluid(1000))
                 .save(provider);
 
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(320).EUt(1474560)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(1474560)
                 .inputItems(OPTICAL_SOC)
                 .inputItems(SMD_DIODE_OPTICAL,2)
                 .inputItems(SMD_RESISTOR_OPTICAL,2)
@@ -817,7 +816,7 @@ public class CircuitComponentRecipes {
                 .outputItems(OPTICAL_PROCESSING_CORE,6)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(200).EUt(750000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(200).EUt(750000)
                 .inputItems(dustSmall, Radium)
                 .inputItems(plate, Polybenzimidazole, 4)
                 .inputItems(plate, Polyetheretherketone, 6)
@@ -826,14 +825,14 @@ public class CircuitComponentRecipes {
                 .outputItems(ELECTRON_SOURCE)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(200).EUt(800000)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(200).EUt(800000)
                 .inputItems(plate, Graphene, 2)
                 .inputItems(ELECTRIC_MOTOR_UHV)
                 .inputFluids(SolderingAlloy.getFluid(L * 2))
                 .outputItems(ROTATING_TRANSPARENT_SURFACE)
                 .save(provider);
 
-        LARGE_CHEMICAL_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(320).EUt(3200000)
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(3200000)
                 .inputItems(LithiumNiobateNanoparticles,2)
                 .notConsumable(ROTATING_TRANSPARENT_SURFACE)
                 .notConsumable(ELECTRON_SOURCE)
@@ -841,12 +840,12 @@ public class CircuitComponentRecipes {
                 .outputItems(PERIODICALLY_POLED_LITHIUM_NIOBATE_BOULE)
                 .save(provider);
 
-        LATHE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(260).EUt(1600000)
+        LATHE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(1600000)
                 .inputItems(PERIODICALLY_POLED_LITHIUM_NIOBATE_BOULE)
                 .outputItems(NON_LINEAR_OPTICAL_LENS)
                 .save(provider);
 
-        CHEMICAL_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(240).EUt(710000)
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(710000)
                 .inputItems(plate, Germanium)
                 .inputFluids(Zinc.getFluid(144))
                 .inputFluids(HydrogenSulfide.getFluid(1000))
@@ -854,7 +853,7 @@ public class CircuitComponentRecipes {
                 .outputItems(HIGHLY_REFLECTIVE_MIRROR)
                 .save(provider);
 
-        LARGE_MIXER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(3000)
+        LARGE_MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(3000)
                 .inputItems(ZirconiumTetrafluoride,90)
                 .inputItems(BariumDifluoride,21)
                 .inputItems(LanthanumTrifluoride,8)
@@ -863,59 +862,59 @@ public class CircuitComponentRecipes {
                 .outputItems(ZBLANDust,35)
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(3000)
+        MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(3000)
                 .inputItems(ZBLANDust)
                 .inputItems(ErbiumTrifluoride,4)
                 .outputItems(ErbiumDopedZBLANDust,2)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(6000)
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
                 .inputFluids(Argon.getFluid(1000))
                 .inputItems(ZBLANDust)
                 .outputItems(ZBLAN)
                 .blastFurnaceTemp(2500)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(6000)
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
                 .inputFluids(Argon.getFluid(1000))
                 .inputItems(ErbiumDopedZBLANDust)
                 .outputItems(ERBIUM_DOPED_ZBLAN)
                 .blastFurnaceTemp(2500)
                 .save(provider);
 
-        FORMING_PRESS_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(7680).duration(2000)
+        FORMING_PRESS_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(2000)
                 .notConsumable(SHAPE_MOLD_INGOT)
                 .inputItems(ZBLAN)
                 .outputItems(ZBLAN_INGOT)
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(10000)
+        ARC_FURNACE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(10000)
                 .inputFluids(Oxygen.getFluid(1000))
                 .inputItems(ZBLAN_INGOT)
                 .outputItems(HOT_ANNEALED_ZBLAN_INGOT)
                 .save(provider);
 
-        EXTRUDER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(7680).duration(2000)
+        EXTRUDER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(2000)
                 .notConsumable(SHAPE_EXTRUDER_WIRE)
                 .inputItems(HOT_ANNEALED_ZBLAN_INGOT)
                 .outputItems(ZBLAN_FIBER,2)
                 .save(provider);
 
         // Optical Fiber
-        FORMING_PRESS_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(4000).duration(2000)
+        FORMING_PRESS_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(4000).duration(2000)
                 .inputItems(ZBLAN_FIBER)
                 .inputItems(ERBIUM_DOPED_ZBLAN)
                 .outputItems(CLADDED_OPTICAL_FIBER_CORE)
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30).duration(150)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(150)
                 .inputItems(CLADDED_OPTICAL_FIBER_CORE)
                 .inputFluids(Polytetrafluoroethylene.getFluid(144))
-                .outputItems(OreDictUnifier.get(opticalFiberSingle.toString()))
+//                .outputItems(OreDictUnifier.get(opticalFiberSingle.toString()))
                 .save(provider);
 
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
                 .inputItems(wireFine, NaquadahAlloy, 16)
                 .inputItems(plate, Tritanium, 2)
                 .inputItems(ELECTRIC_PUMP_LuV)
@@ -928,7 +927,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // Cyber Processing Unit
-        ASSEMBLY_LINE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
                 .inputItems(ELECTRICALLY_WIRED_PETRI_DISH)
                 .inputItems(foil, SiliconeRubber, 8)
                 .inputItems(wireFine, Gold, 64)
@@ -949,26 +948,26 @@ public class CircuitComponentRecipes {
 
 
 
-        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(24)
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(24)
                 .inputFluids(Polystyrene.getFluid(L / 4))
                 .notConsumable(SHAPE_MOLD_CYLINDER)
                 .outputItems(PETRI_DISH)
                 .save(provider);
 
-        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(160).EUt(24)
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(24)
                 .inputFluids(Polytetrafluoroethylene.getFluid(L / 4))
                 .notConsumable(SHAPE_MOLD_CYLINDER)
                 .outputItems(PETRI_DISH)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(7680).duration(100)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(100)
                 .inputItems(wireFine, Titanium)
                 .inputFluids(Polyethylene.getFluid(1008))
                 .inputItems(STERILIZED_PETRI_DISH)
                 .outputItems(ELECTRICALLY_WIRED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(200)
                 .inputFluids(Biomass.getFluid(1000))
                 .inputFluids(SaltWater.getFluid(1000))
                 .outputItems(GreenAlgae)
@@ -976,94 +975,94 @@ public class CircuitComponentRecipes {
                 .outputItems(BrownAlgae)
                 .save(provider);
 
-        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30).duration(150)
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(150)
                 .inputItems(RedAlgae)
                 .outputItems(DryRedAlgae)
                 .save(provider);
 
-        MACERATOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30).duration(75)
+        MACERATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(75)
                 .inputItems(DryRedAlgae)
                 .outputItems(RedAlgaePowder)
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30).duration(150)
+        MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(150)
                 .inputItems(RedAlgaePowder)
                 .inputItems(dustSmall, SodaAsh)
                 .outputItems(PreFreezeAgar)
                 .save(provider);
 
-        VACUUM_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        VACUUM_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(PreFreezeAgar)
                 .outputItems(FrozenAgarCrystals)
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30).duration(200)
+        MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(200)
                 .inputItems(FrozenAgarCrystals)
                 .inputFluids(DistilledWater.getFluid(1000))
                 .outputFluids(WaterAgarMix.getFluid(1000))
                 .save(provider);
 
-        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30).duration(50)
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(50)
                 .inputFluids(WaterAgarMix.getFluid(1000))
                 .outputItems(Agar)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(480).duration(100)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(480).duration(100)
                 .inputItems(STERILIZED_PETRI_DISH)
                 .inputItems(Agar)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(CLEAN_CULTURE)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(500)
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(500)
                 .inputItems(PIEZOELECTRIC_CRYSTAL)
                 .inputItems(rodLong, RhodiumPlatedPalladium)
                 .outputItems(ULTRASONIC_HOMOGENIZER)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(2400)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
                 .inputItems(GreenAlgae)
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(SHEWANELLA_CULTURE)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(2400)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
                 .inputItems(new ItemStack(Blocks.DIRT))
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(BREVIBACTERIUM_CULTURE)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(2400)
-                .inputItems(new ItemStack(Blocks.DIRT, 1, 1))
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
+                .inputItems(new ItemStack(Blocks.DIRT))
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(CUPRIVADUS_CULTURE)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(2400)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
                 .inputItems(new ItemStack(Items.BEEF))
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(ESCHERICHIA_CULTURE)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(2400)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
                 .inputFluids(Milk.getFluid(1000))
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(BIFIDOBACTERIUM_CULTURE)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(2400)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
                 .inputItems(ROTTEN_FLESH)
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(STREPTOCOCCUS_CULTURE)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(SHEWANELLA_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(Shewanella)
@@ -1071,7 +1070,7 @@ public class CircuitComponentRecipes {
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(STREPTOCOCCUS_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(StreptococcusPyogenes)
@@ -1079,7 +1078,7 @@ public class CircuitComponentRecipes {
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(BIFIDOBACTERIUM_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(BifidobacteriumBreve)
@@ -1087,7 +1086,7 @@ public class CircuitComponentRecipes {
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(ESCHERICHIA_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(EschericiaColi)
@@ -1095,7 +1094,7 @@ public class CircuitComponentRecipes {
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(BREVIBACTERIUM_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(BrevibacteriumFlavium)
@@ -1103,7 +1102,7 @@ public class CircuitComponentRecipes {
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(30720).duration(200)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(CUPRIVADUS_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(CupriavidusNecator)
@@ -1111,42 +1110,42 @@ public class CircuitComponentRecipes {
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(Shewanella)
                 .outputItems(Shewanella,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(BrevibacteriumFlavium)
                 .outputItems(BrevibacteriumFlavium,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(EschericiaColi)
                 .outputItems(EschericiaColi,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(StreptococcusPyogenes)
                 .outputItems(StreptococcusPyogenes,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(BifidobacteriumBreve)
                 .outputItems(BifidobacteriumBreve,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
-        BIO_REACTOR_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).EUt(120).duration(100)
+        BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
                 .inputItems(CupriavidusNecator)
                 .outputItems(CupriavidusNecator,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
@@ -1154,29 +1153,29 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
 
-        AUTOCLAVE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemExquisite, Olivine).inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP, 5000, 1000).save(provider);
-        AUTOCLAVE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemExquisite, Emerald).inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP, 5000, 1000).save(provider);
-        AUTOCLAVE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemFlawless, Olivine) .inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP, 2500, 750).save(provider);
-        AUTOCLAVE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemFlawless, Emerald) .inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP, 2500, 750).save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemExquisite, Olivine).inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP.asItem(), "1/2", 1000).save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemExquisite, Emerald).inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP.asItem(), "1/2", 1000).save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemFlawless, Olivine) .inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP.asItem(), "1/4", 750).save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemFlawless, Emerald) .inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP.asItem(), "1/4", 750).save(provider);
 
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Emerald).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Olivine).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(900).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(block, Emerald).inputFluids(Helium.getFluid(1000))        .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
-        BLAST_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(900).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(block, Olivine).inputFluids(Helium.getFluid(1000))        .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Emerald).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Olivine).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(900).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(block, Emerald).inputFluids(Helium.getFluid(1000))        .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(900).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(block, Olivine).inputFluids(Helium.getFluid(1000))        .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
 
-        AUTOCLAVE_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(150).EUt(6)
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
                 .inputItems(dust, Carbon)
                 .inputFluids(Cerium.getFluid(1))
                 .chancedOutput(CARBON_FIBERS.get(),2, "1/8", 250)
                 .save(provider);
 
-        LASER_ENGRAVER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(100).EUt(10000)
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(10000)
                 .inputItems(ENGRAVED_CRYSTAL_CHIP)
                 .notConsumable(lens, Lime)
                 .outputItems(CRYSTAL_CENTRAL_PROCESSING_UNIT)
                 .save(provider);
 
-        CUTTER_RECIPES.recipeBuilder(" circuit_components_" + chainNumber++).duration(960).EUt(60)
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(960).EUt(60)
                 .inputItems(CRYSTAL_CENTRAL_PROCESSING_UNIT)
                 .outputItems(RAW_CRYSTAL_CHIP,2)
                 .save(provider);

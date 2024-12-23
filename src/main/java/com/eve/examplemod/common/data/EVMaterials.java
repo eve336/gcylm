@@ -41,6 +41,9 @@ public class EVMaterials {
 
         AmmoniumChloride.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
+        Rutherfordium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+
+
 
         Bohrium.setProperty(PropertyKey.INGOT, new IngotProperty());
         Bohrium.addFlags(GENERATE_PLATE);
@@ -1082,6 +1085,7 @@ public class EVMaterials {
     public static final Material BlackTitanium = new Material.Builder(EVMain.id("black_titanium"))
             .color(0x6C003B)
             .iconSet(SHINY)
+            .fluid()
             .ingot(7)
             .components(Titanium, 26, Lanthanum, 6, Tungsten, 4, Cobalt, 3, Manganese, 2, Phosphorus, 2, Palladium, 2, Niobium, 1, Argon, 5)
             .flags(DISABLE_DECOMPOSITION)
@@ -1288,6 +1292,7 @@ public class EVMaterials {
             .color(0xE84B36)
             .iconSet(SHINY)
             .ingot(6)
+            .liquid()
             .components(Copernicium, 1, Nihonium, 1, MetastableFlerovium, 1, Moscovium, 1, Livermorium, 1, Tennessine, 1, MetastableOganesson, 1)
             .flags(GENERATE_PLATE, DISABLE_DECOMPOSITION)
             .buildAndRegister();
@@ -1296,6 +1301,7 @@ public class EVMaterials {
             .color(0x2B45DF)
             .iconSet(SHINY)
             .ingot(6)
+            .fluid()
             .components(Rutherfordium, 1, Dubnium, 1, Seaborgium, 1, Bohrium, 1, MetastableHassium, 1, Meitnerium, 1, Roentgenium, 1)
             .flags(GENERATE_PLATE, DISABLE_DECOMPOSITION)
             .buildAndRegister();
@@ -1304,6 +1310,7 @@ public class EVMaterials {
             .color(0xeb9e3f)
             .iconSet(SHINY)
             .ingot(7)
+            .fluid()
             .flags(GENERATE_PLATE, NO_WORKING, NO_SMELTING, NO_SMASHING, GENERATE_FRAME, GENERATE_ROD)
             .buildAndRegister();
 
@@ -5277,6 +5284,7 @@ public class EVMaterials {
             .color(0x94445b)
             .iconSet(DULL)
             .dust()
+            .fluid()
             .components()
             .buildAndRegister();
 
@@ -5324,6 +5332,7 @@ public class EVMaterials {
             .color(0x96821a)
             .iconSet(DULL)
             .dust()
+            .fluid()
             .components()
             .buildAndRegister()
             .setFormula("IrCl3", true);
@@ -5332,6 +5341,7 @@ public class EVMaterials {
             .color(0x044c4b)
             .iconSet(DULL)
             .dust()
+            .fluid()
             .components()
             .buildAndRegister()
             .setFormula("H", true);
@@ -5341,6 +5351,7 @@ public class EVMaterials {
             .iconSet(DULL)
             .dust()
             .components()
+            .fluid()
             .buildAndRegister()
             .setFormula("H", true);
 

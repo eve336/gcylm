@@ -34,7 +34,7 @@ public class CircuitRecipes {
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
                 .inputItems(CENTRAL_PROCESSING_UNIT, 1)
                 .inputItems(wireFine, TinAlloy, 2)
-                .outputItems(refined_processor, 4)
+                .outputItems(REFINED_PROCESSOR, 4)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_processor_smd").duration(200).EUt(60)
@@ -44,73 +44,73 @@ public class CircuitRecipes {
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
                 .inputItems(CENTRAL_PROCESSING_UNIT, 1)
                 .inputItems(wireFine, TinAlloy, 2)
-                .outputItems(refined_processor, 4)
+                .outputItems(REFINED_PROCESSOR, 4)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_processor_soc").duration(50).EUt(600)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
                 .inputItems(SYSTEM_ON_CHIP, 1)
                 .inputItems(wireFine, TinAlloy, 8)
-                .outputItems(refined_processor, 4)
+                .outputItems(REFINED_PROCESSOR, 4)
                 .save(provider);
 
 // Refined Assembly
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_assembly").duration(100).EUt(60)
-                .inputItems(refined_processor, 3)
+                .inputItems(REFINED_PROCESSOR, 3)
                 .inputItems(RESISTOR, 8)
                 .inputItems(TRANSISTOR, 8)
                 .inputItems(CAPACITOR, 8)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .outputItems(refined_assembly, 1)
+                .outputItems(REFINED_ASSEMBLY, 1)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_assembly_smd").duration(100).EUt(60)
-                .inputItems(refined_processor, 3)
+                .inputItems(REFINED_PROCESSOR, 3)
                 .inputItems(SMD_RESISTOR_REFINED, 2)
                 .inputItems(SMD_TRANSISTOR_REFINED, 2)
                 .inputItems(SMD_CAPACITOR_REFINED, 2)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .outputItems(refined_assembly, 1)
+                .outputItems(REFINED_ASSEMBLY, 1)
                 .save(provider);
 
 // Refined Computer
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_computer").duration(200).EUt(90)
-                .inputItems(refined_assembly, 4)
+                .inputItems(REFINED_ASSEMBLY, 4)
                 .inputItems(RESISTOR, 8)
                 .inputItems(TRANSISTOR, 8)
                 .inputItems(RANDOM_ACCESS_MEMORY, 2)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .outputItems(refined_computer, 1)
+                .outputItems(REFINED_COMPUTER, 1)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_computer_smd").duration(200).EUt(90)
-                .inputItems(refined_assembly, 4)
+                .inputItems(REFINED_ASSEMBLY, 4)
                 .inputItems(SMD_RESISTOR_REFINED, 2)
                 .inputItems(SMD_TRANSISTOR_REFINED, 2)
                 .inputItems(RANDOM_ACCESS_MEMORY, 2)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
-                .outputItems(refined_computer, 1)
+                .outputItems(REFINED_COMPUTER, 1)
                 .save(provider);
 
 // Refined Mainframe
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_mainframe").duration(500).EUt(110)
-                .inputItems(refined_computer, 2)
+                .inputItems(REFINED_COMPUTER, 2)
                 .inputItems(RESISTOR, 32)
                 .inputItems(TRANSISTOR, 16)
                 .inputItems(DIODE, 8)
                 .inputItems(RANDOM_ACCESS_MEMORY, 4)
                 .inputItems(frameGt, StainlessSteel, 4)
-                .outputItems(refined_mainframe, 1)
+                .outputItems(REFINED_MAINFRAME, 1)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_mainframe_smd").duration(500).EUt(110)
-                .inputItems(refined_computer, 2)
+                .inputItems(REFINED_COMPUTER, 2)
                 .inputItems(SMD_RESISTOR_REFINED, 16)
                 .inputItems(SMD_TRANSISTOR_REFINED, 8)
                 .inputItems(SMD_DIODE_REFINED, 4)
                 .inputItems(RANDOM_ACCESS_MEMORY, 4)
                 .inputItems(frameGt, StainlessSteel, 4)
-                .outputItems(refined_mainframe, 1)
+                .outputItems(REFINED_MAINFRAME, 1)
                 .save(provider);
     }
 
@@ -686,7 +686,7 @@ public class CircuitRecipes {
 // Supracausal Processor
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("supra_processor").duration(50).EUt(122_880_000)
                 .inputItems(UHASOC, 16)
-                .inputItems(manifold_oscillatory_power_cell)
+                .inputItems(MANIFOLD_OSCILLATORY_POWER_CELL)
                 .inputItems(MICROWORMHOLE_GENERATOR)
                 .inputItems(SUPRACAUSAL_PROCESSING_CORE)
                 .inputItems(plate, SuperheavyHAlloy)
@@ -703,7 +703,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_RESISTOR_SUPRACAUSAL, 16)
                 .inputItems(UHASOC, 4)
                 .inputItems(SUPRACAUSAL_PROCESSOR, 3)
-                .inputItems(recursively_folded_negative_space)
+                .inputItems(RECURSIVELY_FOLDED_NEGATIVE_SPACE)
                 .inputItems(plate, TriniumTitanium, 16)
                 .inputItems(foil, FullerenePolymerMatrix, 24)
                 .inputItems(wireGtSingle, UEVSuperconductor, 8)
@@ -722,7 +722,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_RESISTOR_SUPRACAUSAL, 32)
                 .inputItems(SUPRACAUSAL_ASSEMBLY, 4)
                 .inputItems(ARAM, 12)
-                .inputItems(eigenfolded_kerr_manifold)
+                .inputItems(EIGENFOLDED_KERR_MANIFOLD)
                 .inputItems(plate, TriniumTitanium, 32)
                 .inputItems(plate, MetastableFlerovium, 16)
                 .inputItems(plate, Neutronium, 4)
@@ -744,7 +744,7 @@ public class CircuitRecipes {
                 .inputItems(SUPRACAUSAL_COMPUTER, 2)
                 .inputItems(UHPIC, 8)
                 .inputItems(ARAM, 16)
-                .inputItems(ctc_computational_unit)
+                .inputItems(CTC_COMPUTATIONAL_UNIT)
                 .inputItems(COSMIC_MESH, 64)
                 .inputItems(frameGt, Neutronium, 1)
                 .inputItems(wireGtSingle, UXVSuperconductor, 64)

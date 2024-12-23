@@ -21,8 +21,6 @@ import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.NUCLEAR_REACTOR_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GTElements.Pu239;
-import static com.gregtechceu.gtceu.common.data.GTElements.U238;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BALL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
@@ -242,7 +240,7 @@ public class Nuclear {
 
                     if (material.hasProperty(EVPropertyKey.COMPONENT)){
                         EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
-                        GTRecipeBuilder recipeBuilder = GAS_CENTRIFUGE.recipeBuilder(material.getName().toLowerCase() + "_gas_centrifuge");
+                        GTRecipeBuilder recipeBuilder = GAS_CENTRIFUGE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_gas_centrifuge");
                         recipeBuilder.inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 20000));
                         prop.components.forEach((key, value) ->
                                 recipeBuilder.outputFluids(key.getFluid(EVFluidStorageKeys.hexafluoride, value))
