@@ -146,17 +146,19 @@ public class EVMaterials {
         Fermium263.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Mendelevium263, 9000)));
         Mendelevium261.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Einsteinium257, 9000)));
         Mendelevium259.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium259, 9000)));
+        Fermium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(90, Map.of()));
+
 
 
         Protactinium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Thorium), Map.of(Protactinium233, 3000)));
         Thorium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Uranium238), Map.of(Protactinium233, 3000)));
         GTMaterials.Uranium238.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Neptunium), Map.of(Uranium238, 3000)));
-        Neptunium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Plutonium239), Map.of(Neptunium, 3000)));
-        Plutonium239.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Americium), Map.of(Plutonium239, 3000)));
+        Neptunium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(GTMaterials.Plutonium239), Map.of(Neptunium, 3000)));
+        GTMaterials.Plutonium239.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Americium), Map.of(GTMaterials.Plutonium239, 3000)));
         Americium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Curium), Map.of(Americium, 3000)));
         Curium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Berkelium), Map.of(Curium, 3000)));
         Berkelium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Californium), Map.of(Berkelium, 3000)));
-        Californium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Californium), Map.of(Berkelium, 3000)));
+        Californium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Einsteinium), Map.of(Berkelium, 3000)));
         Einsteinium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Fermium), Map.of(Einsteinium, 3000)));
         Fermium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Mendelevium), Map.of(Fermium, 3000)));
 
@@ -209,10 +211,10 @@ public class EVMaterials {
 
 
         Uranium235.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
-        Thorium.addFlags(GENERATE_NUCLEAR, FISSILE);
+        Thorium.addFlags(GENERATE_NUCLEAR);
         Plutonium241.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
-        GTMaterials.Uranium238.addFlags(GENERATE_NUCLEAR, FISSILE);
-        GTMaterials.Plutonium239.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
+        GTMaterials.Uranium238.addFlags(GENERATE_NUCLEAR);
+        GTMaterials.Plutonium239.addFlags(GENERATE_NUCLEAR);
 
         Mendelevium.addFlags(GENERATE_NUCLEAR);
         Fermium.addFlags(GENERATE_NUCLEAR);
@@ -317,7 +319,7 @@ public class EVMaterials {
             .ingot()
             .color(GTMaterials.Uranium238.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE)
             .element(EVElements.U238)
             .buildAndRegister()
             .setFormula("U238", true);

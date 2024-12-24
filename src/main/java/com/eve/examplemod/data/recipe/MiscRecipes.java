@@ -197,6 +197,13 @@ public class MiscRecipes {
 
         ACTIVE_COOLER_RECIPES.recipeBuilder("cryotheum")
                 .inputFluids(Cryotheum.getFluid(1))
+                .addData("cooling", 15)
+                .duration(20)
+                .save(provider);
+
+        ACTIVE_COOLER_RECIPES.recipeBuilder("distilled_water")
+                .inputFluids(DistilledWater.getFluid(1))
+                .addData("cooling", 10)
                 .duration(20)
                 .save(provider);
 

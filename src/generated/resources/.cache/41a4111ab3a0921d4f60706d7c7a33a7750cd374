@@ -1,8 +1,8 @@
-// 1.20.1	2024-12-23T15:22:32.5946413	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2024-12-24T20:46:14.8777852	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 9b56d585804e13e8e4fd87fe4cd4c17a750ee256 assets/examplemod/blockstates/leptonic_charge.json
 ad97d63e304aa54e6e137cbd28d462d45069fa4f assets/examplemod/blockstates/qcd_charge.json
-c12e66389d8dca23f745cbb6fb7cf8f464e7cf8c assets/examplemod/lang/en_ud.json
-615ebe03ecebdf20560c0881d8d7f62b17d09531 assets/examplemod/lang/en_us.json
+19219d13b79866c0e4f7eedcd2a556a244f2d8c0 assets/examplemod/lang/en_ud.json
+ce244f6f22793a5967e082dd95d24ee7f4e86848 assets/examplemod/lang/en_us.json
 fb9b2a880e1d24647db5cd8cfc52d2bc8ed5eb51 assets/examplemod/models/block/leptonic_charge.json
 15cca140859131756b494d50a807d9e234c80014 assets/examplemod/models/block/qcd_charge.json
 2b33051d77fa96e1858c3db10a12f522cc9da700 assets/examplemod/models/item/acrylic_yarn.json

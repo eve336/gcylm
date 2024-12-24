@@ -16,11 +16,14 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class PassiveCooler extends MultiblockPartMachine {
     private TickableSubscription serverTickEvent;
     private int cooling;
+    public List<IFuelCell> fuelCellList;
 
     public PassiveCooler(IMachineBlockEntity holder, int cooling) {
         super(holder);
@@ -47,11 +50,22 @@ public class PassiveCooler extends MultiblockPartMachine {
     }
 
     private void serverTickEvent() {
-        for (var direction : Direction.values()) {
-            if (MetaMachine.getMachine(getLevel(), getPos().relative(direction)) instanceof IFuelCell rizz) {
-                rizz.subtractHeat(200);
-            }
+        if (getLevel() == null){
+            return;
         }
+            for (var direction : Direction.values()) {
+                if (MetaMachine.getMachine(getLevel(), getPos().relative(direction)) instanceof IFuelCell rizz) {
+                    fuelCellList = new ArrayList<>();
+                    fuelCellList.add(rizz);
+                }
+                if (fuelCellList == null){
+                }
+                else {
+                    for (IFuelCell cell : fuelCellList){
+                    cell.subtractHeat(cooling/fuelCellList.size());
+                    }
+                }
+            }
     }
 
 

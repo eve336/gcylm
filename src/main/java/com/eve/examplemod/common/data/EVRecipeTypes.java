@@ -14,15 +14,23 @@ public class EVRecipeTypes {
     public static final GTRecipeType STELLAR_FORGE_RECIPES = GTRecipeTypes.register("stellar_forge", MULTIBLOCK).setMaxIOSize(3,2,3,2);
     public static final GTRecipeType CHEMICAL_PLANT_RECIPES = GTRecipeTypes.register("chemplant", MULTIBLOCK).setMaxIOSize(6,4,5,4);
     public static final GTRecipeType BIO_REACTOR_RECIPES = GTRecipeTypes.register("bio_reactor", MULTIBLOCK).setMaxIOSize(3,3,5,2);
-    public static final GTRecipeType ACTIVE_COOLER_RECIPES = GTRecipeTypes.register("active_cooler", ELECTRIC).setMaxIOSize(0,0,1,0);
+
+    public static final GTRecipeType ACTIVE_COOLER_RECIPES = GTRecipeTypes.register("active_cooler", ELECTRIC)
+            .setMaxIOSize(0,0,1,0)
+            .addDataInfo(data ->{
+                int cooling = data.getInt("cooling");
+                return LocalizationUtils.format("examplemod.recipe.cooling", cooling);
+                    }
+            );
 
 
     public static final GTRecipeType NUCLEAR_REACTOR_RECIPES = GTRecipeTypes.register("nuclear_reactor", MULTIBLOCK)
             .setMaxIOSize(4,4,0,0)
-            .addDataInfo(data -> {
-                    int temp = data.getInt("temp");
-                    return LocalizationUtils.format("gtceu.recipe.temperature", temp);
-            });
+            .addDataInfo(data ->{
+                        int temperature = data.getInt("temperature");
+                        return LocalizationUtils.format("examplemod.recipe.temperature", temperature);
+                    }
+            );
 
     public static final GTRecipeType LARGE_MIXER_RECIPES = GTRecipeTypes.register("large_mixer", MULTIBLOCK)
             .setMaxIOSize(9,1,6,1)

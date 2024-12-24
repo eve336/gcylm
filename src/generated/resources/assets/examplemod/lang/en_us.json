@@ -71,6 +71,8 @@
   "block.examplemod.zpm_energy_input_hatch_64a": "§cZPM 64a Energy Hatch",
   "block.examplemod.zpm_integral_framework": "§cIntegral Framework VIII",
   "block.examplemod.zpm_robot_arm_component": "§cZPM Robot Arm Block",
+  "examplemod.recipe.cooling": "Cooling: %s",
+  "examplemod.recipe.temperature": "Temperature: %s",
   "gtceu.fluid.depleted_nitrate_solution": "Depleted %s Fuel Nitrate Solution",
   "gtceu.fluid.hexachloride": "%s Hexachloride",
   "gtceu.fluid.hexafluoride": "%s Hexafluoride",

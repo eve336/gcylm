@@ -71,6 +71,8 @@
   "block.examplemod.zpm_energy_input_hatch_64a": "ɥɔʇɐH ʎbɹǝuƎ ɐㄣ9 WԀZɔ§",
   "block.examplemod.zpm_integral_framework": "IIIΛ ʞɹoʍǝɯɐɹℲ ןɐɹbǝʇuIɔ§",
   "block.examplemod.zpm_robot_arm_component": "ʞɔoןᗺ ɯɹⱯ ʇoqoᴚ WԀZɔ§",
+  "examplemod.recipe.cooling": "%s :buıןooƆ",
+  "examplemod.recipe.temperature": "%s :ǝɹnʇɐɹǝdɯǝ⟘",
   "gtceu.fluid.depleted_nitrate_solution": "uoıʇnןoS ǝʇɐɹʇıN ןǝnℲ %s pǝʇǝןdǝᗡ",
   "gtceu.fluid.hexachloride": "ǝpıɹoןɥɔɐxǝH %s",
   "gtceu.fluid.hexafluoride": "ǝpıɹonןɟɐxǝH %s",

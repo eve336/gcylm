@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import net.minecraft.network.chat.Component;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,8 +29,18 @@ public class EVTagPrefix{
     }
 
     public static final TagPrefix oxide = new TagPrefix("oxide").generateItem(true).idPattern("%s_oxide").generationCondition((material -> material.hasFlags(GENERATE_NUCLEAR, FISSILE_OXIDE))).langValue("%s Oxide").materialIconType(dust);
-    public static final TagPrefix fuel_oxide = new TagPrefix("fuelOxide").generateItem(true).idPattern("%s_fuel_oxide").generationCondition((material -> material.hasFlags(GENERATE_NUCLEAR, FISSILE_OXIDE))).langValue("%s Fuel Oxide").materialIconType(fuel);
-    public static final TagPrefix fuel_pure = new TagPrefix("fuelPure").generateItem(true).idPattern("%s_fuel_pure").generationCondition((material -> material.hasFlags(GENERATE_NUCLEAR, FISSILE))).langValue("Pure %s Fuel").materialIconType(fuel);
+    public static final TagPrefix fuel_oxide = new TagPrefix("fuelOxide").generateItem(true).idPattern("%s_fuel_oxide").generationCondition((material -> material.hasFlags(GENERATE_NUCLEAR, FISSILE_OXIDE))).langValue("%s Fuel Oxide").materialIconType(fuel).tooltip((material, components) -> {
+        if (material.hasProperty(EVPropertyKey.NUCLEAR)){
+            int heat = material.getProperty(EVPropertyKey.NUCLEAR).getHeat();
+            components.add(Component.literal("Heat: " + heat));
+        }
+    });
+    public static final TagPrefix fuel_pure = new TagPrefix("fuelPure").generateItem(true).idPattern("%s_fuel_pure").generationCondition((material -> material.hasFlags(GENERATE_NUCLEAR, FISSILE))).langValue("Pure %s Fuel").materialIconType(fuel).tooltip((material, components) -> {
+        if (material.hasProperty(EVPropertyKey.NUCLEAR)){
+            int heat = material.getProperty(EVPropertyKey.NUCLEAR).getHeat();
+            components.add(Component.literal("Heat: " + heat));
+        }
+    });
     public static final TagPrefix depleted_fuel = new TagPrefix("depletedFuel").generateItem(true).idPattern("depleted_%s_fuel").generationCondition(onDecaySet).langValue("Depleted %s Fuel").materialIconType(depletedFuel);
     public static final TagPrefix depleted_fuel_oxide = new TagPrefix("depletedFuelOxide").generateItem(true).idPattern("depleted_%s_fuel_oxide").generationCondition(onDecaySet.or(material -> material.hasFlag(FISSILE_OXIDE))).langValue("Depleted %s Fuel Oxide").materialIconType(depletedFuel);
     public static final TagPrefix depleted_fuel_nitride = new TagPrefix("depletedFuelNitride").generateItem(true).idPattern("depleted_%s_fuel_nitride").generationCondition(onDecaySet.or(material -> material.hasFlag(FISSILE_OXIDE))).langValue("Depleted %s Fuel Nitride").materialIconType(depletedFuel);

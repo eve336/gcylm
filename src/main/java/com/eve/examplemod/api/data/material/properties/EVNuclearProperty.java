@@ -18,7 +18,8 @@ public class EVNuclearProperty implements IMaterialProperty {
     }
 
     @Setter
-    private int heat;
+    @Getter
+    public int heat;
     private int complexity;
     @Override
     public void verifyProperty(MaterialProperties properties) {

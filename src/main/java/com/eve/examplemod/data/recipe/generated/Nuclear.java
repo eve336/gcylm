@@ -72,28 +72,34 @@ public class Nuclear {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlags(GENERATE_NUCLEAR, FISSILE_OXIDE)) {
+                    if (material.getProperty(EVPropertyKey.NUCLEAR) != null) {
+                        EVNuclearProperty property = material.getProperty(EVPropertyKey.NUCLEAR);
+                        int heat = material.getProperty(EVPropertyKey.NUCLEAR).getHeat();
 
                         for (MaterialRegistry registry2 : GTCEuAPI.materialManager.getRegistries()) {
                             for (Material material2 : registry2.getAllMaterials()) {
                                 if (material2.hasFlags(GENERATE_NUCLEAR, FISSILE)) {
-                                    EVNuclearProperty property = new EVNuclearProperty(0, Map.of());
-                                    if (material2.getProperty(EVPropertyKey.NUCLEAR) != null){
-                                        property = material2.getProperty(EVPropertyKey.NUCLEAR);
-                                    }
-                                    for (int i = 2; i < 7; i++) {
-                                    GTRecipeBuilder NuclearReactorRecipe = NUCLEAR_REACTOR_RECIPES.recipeBuilder("circuit_" + i +"_" + material.getName().toLowerCase() + "_and_" + material2.getName().toLowerCase());
-                                    NuclearReactorRecipe.inputItems(fuel_pure, material2, 9);
-                                    NuclearReactorRecipe.inputItems(fuel_oxide, material, i);
-                                    NuclearReactorRecipe.circuitMeta(i);
-                                    NuclearReactorRecipe.outputItems(depleted_fuel_oxide, material, i);
-                                    property.getDecayProducts().forEach((key, value) ->
-                                            NuclearReactorRecipe.chancedOutput(depleted_fuel, key,9, value, 100)
+                                    if (material2.getProperty(EVPropertyKey.NUCLEAR) != null) {
+                                        EVNuclearProperty property2 = material2.getProperty(EVPropertyKey.NUCLEAR);
+                                        int heat2 = material2.getProperty(EVPropertyKey.NUCLEAR).getHeat();
+
+                                        for (int i = 1; i < 6; i++) {
+                                            GTRecipeBuilder NuclearReactorRecipe = NUCLEAR_REACTOR_RECIPES.recipeBuilder("circuit_" + i + "_" + material.getName().toLowerCase() + "_and_" + material2.getName().toLowerCase());
+                                            NuclearReactorRecipe.inputItems(fuel_pure, material2, 9);
+                                            NuclearReactorRecipe.inputItems(fuel_oxide, material, i);
+                                            NuclearReactorRecipe.circuitMeta(i);
+                                            NuclearReactorRecipe.addData("temperature", heat2 + heat);
+                                            NuclearReactorRecipe.outputItems(depleted_fuel_oxide, material, i);
+                                            property2.getDecayProducts().forEach((key, value) ->
+                                                    NuclearReactorRecipe.chancedOutput(depleted_fuel, key, 9, value, 100)
                                             );
-                                    NuclearReactorRecipe.addData("temp", property.getHeat());
-                                    NuclearReactorRecipe.save(provider);
+                                            NuclearReactorRecipe.addData("temp", property2.getHeat());
+                                            NuclearReactorRecipe.save(provider);
+                                        }
+                                    }
+                                }
                             }
                         }
-                    }
                     }
                 }
             }

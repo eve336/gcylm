@@ -22,6 +22,8 @@ public class EVLangHandler  extends LangHandler {
         provider.add("gtceu.fluid.hexachloride", "%s Hexachloride");
         provider.add("gtceu.fluid.hexafluoride", "%s Hexafluoride");
         provider.add("gtceu.fluid.steam_cracked_hexafluoride", "Steam Cracked %s Hexafluoride");
+        provider.add("examplemod.recipe.temperature", "Temperature: %s");
+        provider.add("examplemod.recipe.cooling", "Cooling: %s");
 
     }
 }

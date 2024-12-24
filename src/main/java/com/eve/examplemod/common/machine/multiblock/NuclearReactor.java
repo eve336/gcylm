@@ -99,7 +99,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     @Override
     public void addDisplayText(List<Component> textList) {
         super.addDisplayText(textList);
-        textList.add(Component.translatable(String.valueOf(fuelCells)));
+        textList.add(Component.translatable("Fuel Cells: " + fuelCells));
         textList.add(Component.translatable("Total Heat: " + totalHeat));
     }
 
@@ -113,17 +113,19 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     @Override
     public boolean onWorking() {
         if (recipeLogic.getLastRecipe() != null) {
-            temp = recipeLogic.getLastRecipe().data.getInt("temp");
+            temp = recipeLogic.getLastRecipe().data.getInt("temperature");
         }
         totalHeat = 0;
-        if (isFormed && iFuelCells != null) {
+        if (isFormed() && !iFuelCells.isEmpty()) {
             for (IFuelCell cell : iFuelCells) {
                 cell.changeHeat(temp);
                 totalHeat = totalHeat + cell.getHeat();
+                if (cell.getHeat() > (temp * 20 * 20)){
+                    recipeLogic.setWorkingEnabled(false);
+                }
             }
         }
         return super.onWorking();
-
     }
 
     public boolean isBlockEdge(@NotNull Level world, @NotNull BlockPos.MutableBlockPos pos, @NotNull Direction direction) {
@@ -282,7 +284,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
                         .where('X', wallPredicate.or(basePredicate).or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30)))
                         .where('K', wallPredicate)
                         .where('F', cleanroomFilters())
-                        .where(' ', air().or(abilities(EVPartAbility.FUEL_CELL)).or(abilities(EVPartAbility.COOLER)))
+                        .where(' ', any().or(abilities(EVPartAbility.FUEL_CELL)).or(abilities(EVPartAbility.COOLER)))
                         .build();
 
 

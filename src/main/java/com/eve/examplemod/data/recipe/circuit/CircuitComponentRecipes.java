@@ -75,10 +75,34 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_DIODE_MICRO,32)
                 .save(provider);
 
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(120)
+                .inputItems(foil, Aluminium)
+                .inputItems(foil, SiliconeRubber, 4)
+                .inputFluids(Polyethylene.getFluid(36))
+                .outputItems(SMD_CAPACITOR_MICRO,16)
+                .save(provider);
 
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(120)
+                .inputItems(foil, Aluminium)
+                .inputItems(foil, PolyvinylChloride, 4)
+                .inputFluids(Polyethylene.getFluid(36))
+                .outputItems(SMD_CAPACITOR_MICRO,16)
+                .save(provider);
 
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(96)
+                .inputItems(wireFine, Electrum, 8)
+                .inputItems(dust, Carbon)
+                .circuitMeta(1)
+                .inputFluids(Polyethylene.getFluid(L))
+                .outputItems(SMD_RESISTOR_MICRO,24)
+                .save(provider);
 
-
+        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(96)
+                .inputItems(plate, Gallium)
+                .inputItems(wireFine, AnnealedCopper, 6)
+                .inputFluids(Polyethylene.getFluid(L * 2))
+                .outputItems(SMD_TRANSISTOR_MICRO,32)
+                .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(494)
                 .inputItems(wireFine, Palladium, 12)

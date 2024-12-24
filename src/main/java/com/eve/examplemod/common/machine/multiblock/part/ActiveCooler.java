@@ -1,18 +1,34 @@
 package com.eve.examplemod.common.machine.multiblock.part;
 
 import com.eve.examplemod.api.capability.IFuelCell;
+import com.eve.examplemod.common.machine.trait.ActiveCoolerLogic;
+import com.eve.examplemod.common.machine.trait.VOMLogic;
 import com.gregtechceu.gtceu.api.blockentity.MetaMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.WorkableTieredMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
+import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
+import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import it.unimi.dsi.fastutil.ints.Int2LongFunction;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActiveCooler extends WorkableTieredMachine {
+    public List<IFuelCell> fuelCellList;
     private TickableSubscription serverTickEvent;
+
+    //TODO remove energy container bc its ugly
+
+    //TODO make cooler check for fuel cells only on placement and when block is updated maybe
 
     public ActiveCooler(IMachineBlockEntity holder, int tier, Int2IntFunction tankScalingFunction, Object... args) {
         super(holder, tier, tankScalingFunction, args);
@@ -20,52 +36,67 @@ public class ActiveCooler extends WorkableTieredMachine {
 
 
     @Override
-    public void onLoad(){
+    public void onLoad() {
         super.onLoad();
-        if(!isRemote()) {
+        if (!isRemote()) {
             updateServerTickSubscription();
         }
-
-
-
-
     }
 
     private void updateServerTickSubscription() {
         serverTickEvent = this.subscribeServerTick(serverTickEvent, this::serverTickEvent);
     }
+
+    @Override
+    protected RecipeLogic createRecipeLogic(Object... args) {
+        return new ActiveCoolerLogic(this);
+    }
+
+    @NotNull
+    @Override
+    public ActiveCoolerLogic getRecipeLogic() {
+        return (ActiveCoolerLogic) super.getRecipeLogic();
+    }
+
+
     private void serverTickEvent() {
-        if(recipeLogic.isWorking()){
-            if (getLevel().getBlockEntity(getPos().relative(Direction.DOWN, 1)) instanceof MetaMachineBlockEntity blockentity){
-                if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                    fuel.subtractHeat(200);
-                }
+
+    }
+
+    public boolean fuelCellsEmpty(){
+        fuelCellList = new ArrayList<>();
+        if (getLevel() != null) {
+        for (var direction : Direction.values()) {
+            if (MetaMachine.getMachine(getLevel(), getPos().relative(direction)) instanceof IFuelCell rizz) {
+                fuelCellList.add(rizz);
             }
-            if (getLevel().getBlockEntity(getPos().relative(Direction.NORTH, 1)) instanceof MetaMachineBlockEntity blockentity){
-                if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                    fuel.subtractHeat(200);
-                }
-            }
-            if (getLevel().getBlockEntity(getPos().relative(Direction.SOUTH, 1)) instanceof MetaMachineBlockEntity blockentity){
-                if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                    fuel.subtractHeat(200);
-                }
-            }
-            if (getLevel().getBlockEntity(getPos().relative(Direction.EAST, 1)) instanceof MetaMachineBlockEntity blockentity){
-                if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                    fuel.subtractHeat(200);
-                }
-            }
-            if (getLevel().getBlockEntity(getPos().relative(Direction.WEST, 1)) instanceof MetaMachineBlockEntity blockentity){
-                if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                    fuel.subtractHeat(200);
-                }
-            }
-            if (getLevel().getBlockEntity(getPos().relative(Direction.UP, 1)) instanceof MetaMachineBlockEntity blockentity){
-                if (blockentity.getMetaMachine() instanceof IFuelCell fuel){
-                    fuel.subtractHeat(200);
+        }
+        return fuelCellList.isEmpty();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onWorking() {
+        fuelCellList = new ArrayList<>();
+        if (getLevel() != null) {
+            if (recipeLogic.getLastRecipe() != null) {
+                int cooling = recipeLogic.getLastRecipe().data.getInt("cooling");
+
+                for (var direction : Direction.values()) {
+                    if (MetaMachine.getMachine(getLevel(), getPos().relative(direction)) instanceof IFuelCell rizz) {
+                        fuelCellList.add(rizz);
+                    }
+                    if (!fuelCellList.isEmpty()) {
+                        for (IFuelCell cell : fuelCellList) {
+                            if (cell.getHeat() > cooling/fuelCellList.size()) {
+                                cell.subtractHeat(cooling / fuelCellList.size());
+                            }
+                        }
+                    }
                 }
             }
         }
+        return super.onWorking();
     }
 }

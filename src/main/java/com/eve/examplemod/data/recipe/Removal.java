@@ -49,6 +49,7 @@ public class Removal {
             registry.accept(new ResourceLocation("gtceu:circuit_assembler/crystal_computer_zpm" + solderingAlloy));
             registry.accept(new ResourceLocation("gtceu:circuit_assembler/wetware_processor_luv" + solderingAlloy));
             registry.accept(new ResourceLocation("gtceu:circuit_assembler/wetware_processor_luv_soc" + solderingAlloy));
+            registry.accept(new ResourceLocation("gtceu:circuit_assembler/wetware_processor_assembly_zpm" + solderingAlloy));
             registry.accept(new ResourceLocation("gtceu:circuit_assembler/wetware_processor_assembly" + solderingAlloy));
         }
         registry.accept(new ResourceLocation("gtceu:assembly_line/crystal_mainframe_uv"));
