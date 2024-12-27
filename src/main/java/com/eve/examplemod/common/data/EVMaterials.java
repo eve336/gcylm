@@ -34,6 +34,16 @@ public class EVMaterials {
 
     public static void modifyMaterials() {
 
+        List<Material> fluidList = List.of(Water, HydrofluoricAcid, SodiumHexafluoroaluminate, Oxygen, SodiumHydroxideSolution, SodiumHydroxideBauxite, ImpureAluminiumHydroxideSolution, RedMud, PureAluminiumHydroxideSolution, HydrochloricAcid, NeutralisedRedMud, RedSlurry, FerricREEChloride, SaltWater, RareEarthChloridesSolution, IronChloride, SulfuricAcid, TitanylSulfate, TitaniumTetrachloride, Methane, Steam, Air, RichNitrogenMix, Nitrogen, OxidisedNitrogenMix, Ethanolamine, PurifiedNitrogenMix, CarbonatedEthanolamine, AmmoniaRichMix, Ammonia, CarbonDioxide, Hydrogen, HydrogenSulfide, CalciumCarbonateSolution);
+        List<String> nonFluidList = new ArrayList<>();
+        fluidList.forEach((material -> {
+                    if (!material.hasProperty(PropertyKey.FLUID)) {
+                        nonFluidList.add(material.getName());
+                    }
+                })
+        );
+        System.out.println("non Fluid List: " + nonFluidList);
+
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
 
@@ -42,7 +52,6 @@ public class EVMaterials {
         AmmoniumChloride.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
         Rutherfordium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
-
 
 
         Bohrium.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -149,7 +158,6 @@ public class EVMaterials {
         Fermium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(90, Map.of()));
 
 
-
         Protactinium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Thorium), Map.of(Protactinium233, 3000)));
         Thorium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Uranium238), Map.of(Protactinium233, 3000)));
         GTMaterials.Uranium238.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Neptunium), Map.of(Uranium238, 3000)));
@@ -239,11 +247,11 @@ public class EVMaterials {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasFlag(GENERATE_NUCLEAR)) {
-                    if (material.getProperty(EVPropertyKey.COMPONENT) != null){
+                    if (material.getProperty(EVPropertyKey.COMPONENT) != null) {
                         EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
                         prop.components.forEach((ohio, rizz) -> set.add(ohio));
                     }
-                    if (material.getProperty(EVPropertyKey.NUCLEAR) != null){
+                    if (material.getProperty(EVPropertyKey.NUCLEAR) != null) {
                         EVNuclearProperty nuclearProperty = material.getProperty(EVPropertyKey.NUCLEAR);
                         nuclearProperty.decayProducts.forEach((key, value) -> decayset.add(key));
                     }
@@ -262,34 +270,34 @@ public class EVMaterials {
 
                     // depleted fuel fluid
                     if (material.hasFlag(FISSILE_OXIDE) || decayset.contains(material)) {
-                    if (material.getProperty(PropertyKey.FLUID) == null) {
-                        var prop = new FluidProperty();
-                        prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
-                        material.setProperty(PropertyKey.FLUID, prop);
-                    } else {
-                        material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
-                                new FluidBuilder());
+                        if (material.getProperty(PropertyKey.FLUID) == null) {
+                            var prop = new FluidProperty();
+                            prop.getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate, new FluidBuilder());
+                            material.setProperty(PropertyKey.FLUID, prop);
+                        } else {
+                            material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.depleted_nitrate,
+                                    new FluidBuilder());
+                        }
                     }
-                }
 
                     // isotope separation fluids
-                    if (set.contains(material)){
+                    if (set.contains(material)) {
                         if (material.getProperty(PropertyKey.FLUID) == null) {
                             var prop = new FluidProperty();
                             prop.getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride, new FluidBuilder());
                             material.setProperty(PropertyKey.FLUID, prop);
-                        }
-                        else material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
-                                new FluidBuilder());
+                        } else
+                            material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.steam_cracked_hexafluoride,
+                                    new FluidBuilder());
                     }
                     if (set.contains(material) || (material.getElement() != null && !material.getElement().isIsotope())) {
                         if (material.getProperty(PropertyKey.FLUID) == null) {
                             var prop = new FluidProperty();
                             prop.getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride, new FluidBuilder());
                             material.setProperty(PropertyKey.FLUID, prop);
-                        }
-                        else material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
-                                new FluidBuilder());
+                        } else
+                            material.getProperty(PropertyKey.FLUID).getStorage().enqueueRegistration(EVFluidStorageKeys.hexafluoride,
+                                    new FluidBuilder());
                     }
                 }
                 if (material.getElement() != null && !material.getElement().isIsotope()) {
@@ -1198,7 +1206,7 @@ public class EVMaterials {
             .flags(GENERATE_PLATE, DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material Polyurethane = new Material.Builder(EVMain.id("polyurethane"))
+    public static final Material Polyurethane = new Material.Builder(EVMain.id("polyurethane")).fluid()
             .color(0xeffcef)
             .iconSet(DULL)
             .ingot(2)

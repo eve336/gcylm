@@ -76,6 +76,13 @@ public class ActiveCooler extends WorkableTieredMachine {
         return true;
     }
 
+    public int cooling(){
+        if (recipeLogic.getLastRecipe() != null){
+            return recipeLogic.getLastRecipe().data.getInt("cooling");
+        }
+        return 0;
+    }
+
     @Override
     public boolean onWorking() {
         fuelCellList = new ArrayList<>();
