@@ -21,6 +21,7 @@ import static com.gregtechceu.gtceu.api.GTValues.L;
 import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Lime;
 import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.White;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;

@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVItems.*;
+import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
