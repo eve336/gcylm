@@ -10,7 +10,6 @@ import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
 import static com.gregtechceu.gtceu.common.data.GTItems.STICKY_RESIN;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
 public class InsulatorChain {
