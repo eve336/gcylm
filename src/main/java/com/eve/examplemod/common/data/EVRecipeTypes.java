@@ -42,6 +42,15 @@ public class EVRecipeTypes {
     public static final GTRecipeType PLASMA_CONDENSER_RECIPES = GTRecipeTypes.register("plasma_condenser", MULTIBLOCK)
             .setMaxIOSize(5,5,5,5);
 
+    public static final GTRecipeType RECPLICATION_RECIPES = GTRecipeTypes.register("replication", MULTIBLOCK)
+            .setMaxIOSize(0,0,3,1);
+
+    public static final GTRecipeType LARGE_CENTRIFUGE_RECIPES = GTRecipeTypes.register("large_centrifuge", MULTIBLOCK)
+            .setMaxIOSize(0,0,3,1);
+
+    public static final GTRecipeType LARGE_ENGRAVER_RECIPES = GTRecipeTypes.register("large_engraver", MULTIBLOCK)
+            .setMaxIOSize(5,5,3,1);
+
 
     public static void init(){
 

@@ -46,5 +46,9 @@ public class EVRecipes {
         HydrogenPeroxide.init(consumer);
         Nuclear.init(consumer);
         CircuitComponentRecipes.init(consumer);
+        UltimateMaterials.init(consumer);
+        UHVMaterials.init(consumer);
+        TriniumChain.init(consumer);
+        TaraniumChain.init(consumer);
     }
 }

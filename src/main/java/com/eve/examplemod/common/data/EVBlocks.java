@@ -42,6 +42,37 @@ public class EVBlocks {
             .simpleItem()
             .register();
 
+    public static final BlockEntry<LeptonicBlock> NAQUADRIA_CHARGE = EVRegistries.REGISTRATE
+            .block("naquadria_charge", LeptonicBlock::new)
+            .lang("Naquadria Charge")
+            .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
+            .tag(BlockTags.MINEABLE_WITH_AXE)
+            .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models().cubeTop(ctx.getName(),
+                    EVMain.id("block/misc/naquadria_charge_side"),
+                    EVMain.id("block/misc/naquadria_charge_top_bottom"))))
+            .simpleItem()
+            .register();
+
+    public static final BlockEntry<LeptonicBlock> TARANIUM_CHARGE = EVRegistries.REGISTRATE
+            .block("taranium_charge", LeptonicBlock::new)
+            .lang("Taranium Charge")
+            .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
+            .tag(BlockTags.MINEABLE_WITH_AXE)
+            .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models().cubeTop(ctx.getName(),
+                    EVMain.id("block/misc/taranium_charge_side"),
+                    EVMain.id("block/misc/taranium_charge_top_bottom"))))
+            .simpleItem()
+            .register();
+
+    public static final BlockEntry<Block> SUPERHEAVY_BLOCK = EVRegistries.REGISTRATE
+            .block("superheavy_block", Block::new)
+            .lang("Super Heavy Block")
+            .simpleItem()
+            .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(),prov.models().cubeAll(ctx.getName(),
+                    EVMain.id("block/superheavy_block")
+                    )))
+            .register();
+
     public static final BlockEntry<QCDBlock> QCD_CHARGE = EVRegistries.REGISTRATE
             .block("qcd_charge", QCDBlock::new)
             .lang("Quantum Chromodynamically Charged Charge")

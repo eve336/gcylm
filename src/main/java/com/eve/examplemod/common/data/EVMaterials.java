@@ -39,11 +39,7 @@ public class EVMaterials {
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
 
-        PotassiumHydroxide.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
-        AmmoniumChloride.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
-
-        Rutherfordium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
 
         Bohrium.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -80,6 +76,8 @@ public class EVMaterials {
 
         Promethium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
+        Ferrosilite.setProperty(PropertyKey.INGOT, new IngotProperty());
+
         Gadolinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Protactinium.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -91,12 +89,60 @@ public class EVMaterials {
         Einsteinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
         Polonium.setProperty(PropertyKey.INGOT, new IngotProperty());
-        Polonium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
         Copernicium.setProperty(PropertyKey.INGOT, new IngotProperty());
-        Copernicium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
+        // fluids
+        Copernicium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Polonium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        PotassiumHydroxide.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        AmmoniumChloride.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Rutherfordium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Sodium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Rubidium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Caesium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Francium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Praseodymium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Ytterbium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        RutheniumTetroxide.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Hafnium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Sulfur.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Calcium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Bohrium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Seaborgium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Dubnium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Meitnerium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Tennessine.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Livermorium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Moscovium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Astatine.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Nihonium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Radium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Roentgenium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+        Scandium.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
+
+        // mixer duration + eut override
         HastelloyX78.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, -1));
+
+        // dusts
+        Hafnium.setProperty(PropertyKey.DUST, new DustProperty());
+        Thallium.setProperty(PropertyKey.DUST, new DustProperty());
+        Radium.setProperty(PropertyKey.DUST, new DustProperty());
+        Scandium.setProperty(PropertyKey.DUST, new DustProperty());
+        Terbium.setProperty(PropertyKey.DUST, new DustProperty());
+        Thulium.setProperty(PropertyKey.DUST, new DustProperty());
+        Holmium.setProperty(PropertyKey.DUST, new DustProperty());
+        Erbium.setProperty(PropertyKey.DUST, new DustProperty());
+        Dysprosium.setProperty(PropertyKey.DUST, new DustProperty());
+        Actinium.setProperty(PropertyKey.DUST, new DustProperty());
+        Selenium.setProperty(PropertyKey.DUST, new DustProperty());
+        Tellurium.setProperty(PropertyKey.DUST, new DustProperty());
+        Astatine.setProperty(PropertyKey.DUST, new DustProperty());
+        Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
+        IridiumDioxide.setProperty(PropertyKey.DUST, new DustProperty());
+        Rubidium.setProperty(PropertyKey.DUST, new DustProperty());
+        Francium.setProperty(PropertyKey.DUST, new DustProperty());
+        Praseodymium.setProperty(PropertyKey.DUST, new DustProperty());
 
 
         //Nuclear Properties
@@ -312,6 +358,27 @@ public class EVMaterials {
                 })
         );
         System.out.println("non Fluid List: " + nonFluidList);
+
+        List<Material> ingotList = List.of(NickelZincFerrite, Barium, Iron, CosmicNeutronium, Rhenium, Neutronium, ThoriumDopedTungsten, Copper, Palladium, Tin, Ferrosilite, PreciousMetal, GoldAlloy, LithiumTitanate, Silver);
+        List<String> nonIngotList = new ArrayList<>();
+        ingotList.forEach((material -> {
+                    if (!material.hasProperty(PropertyKey.INGOT)) {
+                        nonIngotList.add(material.getName());
+                    }
+                })
+        );
+        System.out.println("non ingot List: " + nonIngotList);
+
+
+        List<Material> dustList = List.of(SodiumHydroxide, Aluminium, SodiumFluoride, Bauxite, Magnetite, Garnierite, Iron, ChromiumTrioxide, Antimony, AntimonyTrioxide, FerriteMixture, Cobalt, CobaltOxide, Barium, Barite, Carbon, Barytocalcite, Calcite, Witherite, Zeolite, Gold, Salt, Zylon, Sulfur, Zircon, RareEarth, Silicon, CubicZirconia, Magnesium, Zirconium, MagnesiumChloride, Hafnium, Sphalerite, Coke, Zincite, ZincSulfate, Phosphorus, Sodium, Indium, Zinc, Cadmium, Thallium, SodaAsh, Wood, Germanium, Quicklime, CalciumChloride, Silver, Copper, Sugar, Meat, SiliconDioxide, Naquadria, SodiumNitrate, Graphite, Graphene, Coal, Blaze, Charcoal, Redstone, Pyrotheum, Blizz, Cryotheum, SodiumBisulfate, Calcium, Phosphate, OrganicFertilizer, Bentonite, Clay, Lithium, PhthalicAnhydride, Ash, VanadiumMagnetite, DarkAsh, SodiumSulfate, Vanadium, Uraninite, Lead, Potash, Potassium, Caesium, GTMaterials.Uranium238, Thorium, Ruthenium, Rhodium, Palladium, Rhenium, Osmium, Iridium, Platinum, Niobium, Tantalum, Molybdenum, Tungsten, Technetium, Titanium, Manganese, Chromium, Nickel, Beryllium, Strontium, Radium, Scandium, Yttrium, Samarium, Gadolinium, Terbium, Thulium, Holmium, Lutetium, Promethium, Erbium, Dysprosium, Actinium, Thorium, Protactinium, Americium, Curium, Berkelium, Fermium, Californium, Boron, Arsenic, Selenium, Tellurium, Iodine, Astatine, SuperheavyLAlloy, SuperheavyHAlloy, Periodicium, Neutronium, Taranium, Seaborgium, Bohrium, Rutherfordium, Dubnium, SilverOxide, Triniite, SodiumSulfide, PotassiumFluoride, RockSalt, Fluorite, Trinium, PhosphorusPentoxide, Stone, NaquadricCompound, Gallium, Pyrolusite, SodiumRuthenate, RutheniumDioxide, Bismuth, BismuthRuthenate, IridiumDioxide, BismuthIridiate, BariumTitanate, PEDOT, LeadNitrate, Rutile, LeadZirconateTitanate, Quartzite, Rubidium, YttriumOxide, Celestine, PotassiumDichromate, Lanthanum, LithiumFluoride, Francium, Copernicium, MetastableFlerovium, MetastableHassium, Naquadah, NaquadahEnriched, Vibranium, Adamantium, Duranium, Tritanium, Cerium, Europium, CarbonNanotubes, ElectricallyImpureCopper, Ferrosilite, Molybdenite, PlatinumSalt, PlatinumSaltRefined, Praseodymium, Neodymium, Ytterbium, Saltpeter, Tin, Bowieite, PlatinumMetallicPowder, IridiumMetalResidue, CrudeRhodiumMetal, PGSDResidue, IridiumChloride, PGSDResidue2, PotassiumDisulfate, PlatinumResidue, LeachResidue, RarestMetalResidue, PlatinumRawPowder, PalladiumMetallicPowder, PalladiumSalt, PalladiumRawPowder, RhodiumSalt, RhodiumNitrate, RhodiumFilterCake, RutheniumTetroxide, Borax, LithiumNiobate, Magnesia,IndiumPhosphide, BerylliumFluoride, Rhodocrosite, Cassiterite, Columbite, TungstenTrioxide, Tantalite, Pyrochlore, Gypsum, EnrichedNaquadricCompound, NaquadriaticCompound, Spodumene, Lepidolite, Caliche, Massicot, GoldAlloy, PreciousMetal, PotassiumMetabisulfite, AluminoSilicateWool, SilverChloride, FullerenePolymerMatrix, Ice, TungstenCarbide, Chromite, Ruby, Sapphire, GreenSapphire, LithiumTitanate, Diatomite);
+        List<String> nonDustList = new ArrayList<>();
+        dustList.forEach((material -> {
+                    if (!material.hasProperty(PropertyKey.DUST)) {
+                        nonDustList.add(material.getName());
+                    }
+                })
+        );
+        System.out.println("non dust List: " + nonDustList);
 
     }
 
@@ -1123,6 +1190,12 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .appendFlags(CORE_METAL)
             .buildAndRegister();
+
+    public static final Material CarbonFluoride = new Material.Builder(EVMain.id("carbon_fluoride"))
+            .color(0xE6E6E6)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CF4");
 
     public static final Material Pikyonium = new Material.Builder(EVMain.id("pikyonium"))
             .color(0x3467BA)
@@ -5341,7 +5414,7 @@ public class EVMaterials {
             .setFormula("CdSe", true);
 
 
-    public static final Material IridiumTrichlorideSolution = new Material.Builder(EVMain.id("iridiumtrichloridesolution"))
+    public static final Material IridiumTrichlorideSolution = new Material.Builder(EVMain.id("iridium_trichloride_solution"))
             .color(0x96821a)
             .iconSet(DULL)
             .dust()
@@ -7091,6 +7164,12 @@ public class EVMaterials {
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("Sc(OSO2CF3)3", true);
+
+    public static final Material CopperSulfateSolution = new Material.Builder(EVMain.id("copper_sulfate_solution"))
+            .color(4761024)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("CuSO4");
 
     public static final Material SodiumThiosulfate = new Material.Builder(EVMain.id("sodium_thiosulfate"))
             .color(0x2090fc)

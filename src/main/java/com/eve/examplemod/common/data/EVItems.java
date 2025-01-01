@@ -334,6 +334,7 @@ public class EVItems {
     public static ItemEntry<Item> CUPRIVADUS_CULTURE = EVRegistries.REGISTRATE.item("cuprivadus_culture", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> PLATE_FIELD_SHAPE = EVRegistries.REGISTRATE.item("plate_field_shape", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> INGOT_FIELD_SHAPE = EVRegistries.REGISTRATE.item("ingot_field_shape", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    public static ItemEntry<Item> WIRE_FIELD_SHAPE = EVRegistries.REGISTRATE.item("wire_field_shape", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ROD_FIELD_SHAPE = EVRegistries.REGISTRATE.item("rod_field_shape", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> PLASMA_CONTAINMENT_CELL = EVRegistries.REGISTRATE.item("plasma_containment_cell", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> RHENIUM_PLASMA_CONTAINMENT_CELL = EVRegistries.REGISTRATE.item("rhenium_plasma_containment_cell", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
@@ -434,6 +435,18 @@ public class EVItems {
     public static ItemEntry<Item> EIGENFOLDED_KERR_MANIFOLD = EVRegistries.REGISTRATE.item("eigenfolded_kerr_manifold", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> CTC_COMPUTATIONAL_UNIT = EVRegistries.REGISTRATE.item("ctc_computational_unit", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> RECURSIVELY_FOLDED_NEGATIVE_SPACE = EVRegistries.REGISTRATE.item("recursively_folded_negative_space", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+
+    public static ItemEntry<Item> COSMIC_MESH_CONTAINMENT_UNIT = EVRegistries.REGISTRATE.item("cosmic_mesh_containment_unit", Item::new).register();
+    public static ItemEntry<Item> HIGHLY_DENSE_POLYMER_PLATE = EVRegistries.REGISTRATE.item("highly_dense_polymer_plate", Item::new).register();
+    public static ItemEntry<Item> EXTREMELY_DURABLE_PLASMA_CELL = EVRegistries.REGISTRATE.item("extremely_durable_plasma_cell", Item::new).register();
+    public static ItemEntry<Item> COSMIC_NEUTRON_PLASMA_CELL = EVRegistries.REGISTRATE.item("cosmic_neutron_plasma_cell", Item::new).register();
+    public static ItemEntry<Item> DENSE_NEUTRON_PLASMA_CELL = EVRegistries.REGISTRATE.item("dense_neutron_plasma_cell", Item::new).register();
+
+
+
+
+
+
 
     public static <T extends IComponentItem> NonNullConsumer<T> attach(IItemComponent components) {
         return item -> item.attachComponents(components);
