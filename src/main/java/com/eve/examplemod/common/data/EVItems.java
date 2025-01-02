@@ -442,6 +442,9 @@ public class EVItems {
     public static ItemEntry<Item> COSMIC_NEUTRON_PLASMA_CELL = EVRegistries.REGISTRATE.item("cosmic_neutron_plasma_cell", Item::new).register();
     public static ItemEntry<Item> DENSE_NEUTRON_PLASMA_CELL = EVRegistries.REGISTRATE.item("dense_neutron_plasma_cell", Item::new).register();
 
+    public static ItemEntry<Item> CHARGED_LEPTON_TRAP_CRYSTAL = EVRegistries.REGISTRATE.item("charged_lepton_trap_crystal", Item::new).register();
+
+
 
 
 

@@ -14,6 +14,7 @@ import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
@@ -201,6 +202,225 @@ public class Platline {
                 .save(provider);
     }
     public static void palladium(Consumer<FinishedRecipe> provider) {
+        var chainNumber = 0;
+// NH3 + Pd? -> NH3Pd?
+        CHEMICAL_RECIPES.recipeBuilder("palladium_chain_" + chainNumber++)
+                .inputFluids(Ammonia.getFluid(1000))
+                .inputItems(dust, PalladiumMetallicPowder, 2)
+                .outputFluids(PalladiumAmmonia.getFluid(1000))
+                .EUt(30)
+                .duration(250)
+                .save(provider);
 
+        // NH3Pd? -> Pd?
+        CHEMICAL_RECIPES.recipeBuilder("palladium_chain_" + chainNumber++)
+                .circuitMeta(1)
+                .inputFluids(PalladiumAmmonia.getFluid(1000))
+                .outputItems(dust, PalladiumSalt, 2)
+                .EUt(30)
+                .duration(250)
+                .save(provider);
+
+        // Pd? -> Pd?
+        SIFTER_RECIPES.recipeBuilder("palladium_chain_" + chainNumber++)
+                .inputItems(dust, PalladiumSalt, 2)
+                .chancedOutput(dust, PalladiumMetallicPowder, 2, 9500, 0)
+                .EUt(24)
+                .duration(300)
+                .save(provider);
+
+        // NH3Pd? + Pd? ->
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("palladium_chain_" + chainNumber++)
+                .circuitMeta(0)
+                .inputFluids(PalladiumAmmonia.getFluid(1000))
+                .inputItems(dust, PalladiumMetallicPowder, 2)
+                .outputItems(dustSmall, PalladiumSalt, 10)
+                .outputItems(dustTiny, PalladiumRawPowder, 12)
+                .EUt(30)
+                .duration(250)
+                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("palladium_chain_" + chainNumber++)
+                .inputItems(dust, PalladiumRawPowder, 2)
+                .inputFluids(FormicAcid.getFluid(2000))
+                .outputFluids(Ammonia.getFluid(3000))
+                .outputFluids(AceticAcid.getFluid(1000))
+                .outputItems(dust, Palladium, 2)
+                .EUt(1920)
+                .duration(300)
+                .save(provider);
     }
+    public static void rhodium(Consumer<FinishedRecipe> provider) {
+
+        var chainNumber = 0;
+        CHEMICAL_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputFluids(RhodiumSulfate.getFluid(3000))
+                .inputFluids(Water.getFluid(1000))
+                .outputFluids(RhodiumSulfateSolution.getFluid(3000))
+                .outputItems(dustTiny, LeachResidue, 4)
+                .EUt(30)
+                .duration(400)
+                .save(provider);
+
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputFluids(RhodiumSulfateSolution.getFluid(1000))
+                .inputItems(dust, Zinc)
+                .outputItems(dust, ZincSulfate, 6)
+                .outputItems(dust, CrudeRhodiumMetal, 2)
+                .EUt(30)
+                .duration(300)
+                .save(provider);
+
+        // Rh[NaCl] + NaCl -> Rh(NaCl)2
+        BLAST_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputItems(dust, CrudeRhodiumMetal, 2)
+                .inputItems(dust, Salt, 2)
+                .outputItems(dust, RhodiumSalt, 3)
+                .blastFurnaceTemp(775)
+                .EUt(120)
+                .duration(300)
+                .save(provider);
+
+        // Rh(NaCl)2 + Cl -> Rh(NaCl)2Cl
+        MIXER_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputItems(dust, RhodiumSalt, 3)
+                .inputFluids(Chlorine.getFluid(1000))
+                .outputFluids(RhodiumSaltSolution.getFluid(1000))
+                .EUt(30)
+                .duration(30)
+                .save(provider);
+
+        // 2Na + 2HNO3 + O -> 2NaNO3 + H2O
+        CHEMICAL_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputItems(dust, Sodium, 2)
+                .inputFluids(NitricAcid.getFluid(2000))
+                .inputFluids(Oxygen.getFluid(1000))
+                .outputItems(dust, SodiumNitrate, 10)
+                .outputFluids(Water.getFluid(1000))
+                .EUt(60)
+                .duration(8)
+                .save(provider);
+
+        // Rh(NaCl)2Cl + NaNO3 + 2NO2 + 2O -> 3NaCl + Rh(NH3)3
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputFluids(RhodiumSaltSolution.getFluid(1000))
+                .inputFluids(NitrogenDioxide.getFluid(2000))
+                .inputFluids(Oxygen.getFluid(2000))
+                .inputItems(dust, SodiumNitrate, 5)
+                .outputItems(dust, Salt, 6)
+                .outputItems(dust, RhodiumNitrate, 13)
+                .EUt(30)
+                .duration(300)
+                .save(provider);
+
+        // Rh(NH3)3 -> Rh(NH3)3
+        SIFTER_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputItems(dust, RhodiumNitrate, 13)
+                .chancedOutput(dust, RhodiumFilterCake, 2, 9500, 0)
+                .EUt(30)
+                .duration(600)
+                .save(provider);
+
+        // Rh(NH3)3 + 2H2O -> Rh(NH3)3(H2O)2
+        MIXER_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputItems(dust, RhodiumFilterCake, 2)
+                .inputFluids(Water.getFluid(2000))
+                .outputFluids(RhodiumFilterCakeSolution.getFluid(1000))
+                .EUt(30)
+                .duration(300)
+                .save(provider);
+
+        // Rh(NH3)2(H2O)2 -> Rh + 2NH3 + 2H2O (H2O lost to dehydrator)
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("rhodium_chain_" + chainNumber++)
+                .inputFluids(RhodiumFilterCakeSolution.getFluid(1000))
+                .outputItems(dust, Rhodium)
+                .outputFluids(Ammonia.getFluid(2000))
+                .EUt(30)
+                .duration(500)
+                .save(provider);
+    }
+
+    public static void ruthenium(Consumer<FinishedRecipe> provider) {
+        var chainNumber = 0;
+        // Na2O4Ru + 2Cl -> (NaCl)2RuO4
+        CHEMICAL_RECIPES.recipeBuilder("ruthenium_chain_" + chainNumber++)
+                .inputItems(dust, SodiumRuthenate, 14)
+                .inputFluids(Chlorine.getFluid(2000))
+                .outputFluids(RutheniumTetroxideSolution.getFluid(1000))
+                .EUt(30)
+                .duration(100)
+                .save(provider);
+
+        // (NaCl)2RuO4 + H2O -> (NaCl)2RuO4(H2O)
+        CRACKING_RECIPES.recipeBuilder("ruthenium_chain_" + chainNumber++)
+                .inputFluids(Steam.getFluid(1000))
+                .inputFluids(RutheniumTetroxideSolution.getFluid(1000))
+                .outputFluids(HotRutheniumTetroxideSolution.getFluid(2000))
+                .EUt(480)
+                .duration(150)
+                .save(provider);
+
+        // Multiplying the mixture out
+        // (NaCl)2RuO4(H2O) -> 2NaCl + RuO4 + H2O
+        DISTILLATION_RECIPES.recipeBuilder("ruthenium_chain_" + chainNumber++)
+                .inputFluids(HotRutheniumTetroxideSolution.getFluid(2000))
+                .outputItems(dust, Salt, 4)
+                .outputFluids(RutheniumTetroxide.getFluid(1000))
+                .outputFluids(Water.getFluid(1000))
+                .duration(1500)
+                .EUt(480)
+                .save(provider);
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("ruthenium_chain_" + chainNumber++)
+                .notConsumable(SHAPE_MOLD_BALL)
+                .inputFluids(RutheniumTetroxide.getFluid(1000))
+                .outputItems(dust, RutheniumTetroxide, 5)
+                .EUt(8)
+                .duration(16)
+                .save(provider);
+
+        // RuO4 + 8HCl -> 4H2O + 8Cl + Ru
+        CHEMICAL_RECIPES.recipeBuilder("ruthenium_chain_" + chainNumber++)
+                .inputItems(dust, RutheniumTetroxide, 5)
+                .inputFluids(HydrochloricAcid.getFluid(8000))
+                .outputFluids(Water.getFluid(4000))
+                .outputFluids(Chlorine.getFluid(8000))
+                .outputItems(dust, Ruthenium)
+                .EUt(30)
+                .duration(300)
+                .save(provider);
+    }
+
+    public static void osmium(Consumer<FinishedRecipe> provider) {
+        int chainNumber = 0;
+        // OsO4(H2O)(HCl) -> OsO4(H2O) + HCl
+        DISTILLATION_RECIPES.recipeBuilder("osmium_chain_" + chainNumber++)
+                .inputFluids(AcidicOsmiumSolution.getFluid(2000))
+                .outputFluids(OsmiumSolution.getFluid(1000))
+                .outputFluids(HydrochloricAcid.getFluid(1000))
+                .EUt(7680)
+                .duration(150)
+                .save(provider);
+
+        // OsO4(H2O) + 8HCl -> Os + 8Cl + 5H2O
+        CHEMICAL_RECIPES.recipeBuilder("osmium_chain_" + chainNumber++)
+                .inputFluids(OsmiumSolution.getFluid(1000))
+                .inputFluids(HydrochloricAcid.getFluid(8000))
+                .outputItems(dust, Osmium)
+                .outputFluids(Chlorine.getFluid(8000))
+                .outputFluids(Water.getFluid(5000))
+                .EUt(30)
+                .duration(300)
+                .save(provider);
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("osmium_chain_" + chainNumber++)
+                .inputItems(ingot, Palladium, 3)
+                .inputFluids(Rhodium.getFluid(144))
+                .outputItems(ingotHot, RhodiumPlatedPalladium, 4)
+                .EUt(7680)
+                .duration(200)
+                .save(provider);
+    }
+    
+
 }

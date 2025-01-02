@@ -50,5 +50,10 @@ public class EVRecipes {
         UHVMaterials.init(consumer);
         TriniumChain.init(consumer);
         TaraniumChain.init(consumer);
+        SensorEmitter.init(consumer);
+        SeleniumChain.init(consumer);
+        SuperconductorsSMDChain.init(consumer);
+        RheniumChain.init(consumer);
+        REEChain.init(consumer);
     }
 }

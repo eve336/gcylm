@@ -21,7 +21,7 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 public class UHVMaterials {
     static int chainNumber = 1;
     public static void init(Consumer<FinishedRecipe> provider) {
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        ASSEMBLER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(dust, Naquadria)
                 .inputItems(GELLED_TOLUENE,2)
                 .inputItems(plate, EVMaterials.Uranium238, 1)
@@ -34,7 +34,7 @@ public class UHVMaterials {
                 .duration(100)
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        STELLAR_FORGE_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(ingot, Rhenium)
                 .inputItems(NAQUADRIA_CHARGE.asItem())
                 .outputFluids(ElectronDegenerateRheniumPlasma.getFluid(1000))
@@ -42,7 +42,7 @@ public class UHVMaterials {
                 .duration(20)
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        STELLAR_FORGE_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(plateDense, Rhenium)
                 .inputItems(NAQUADRIA_CHARGE.asItem())
                 .outputFluids(ElectronDegenerateRheniumPlasma.getFluid(10000))
@@ -50,7 +50,7 @@ public class UHVMaterials {
                 .duration(100)
                 .save(provider);
 
-        CANNER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        CANNER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(PLASMA_CONTAINMENT_CELL)
                 .inputFluids(ElectronDegenerateRheniumPlasma.getFluid(1000))
                 .outputItems(RHENIUM_PLASMA_CONTAINMENT_CELL)
@@ -58,7 +58,7 @@ public class UHVMaterials {
                 .duration(20)
                 .save(provider);
 
-        PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        PLASMA_CONDENSER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(RHENIUM_PLASMA_CONTAINMENT_CELL)
                 .inputFluids(LiquidHelium.getFluid(16000))
                 .outputFluids(Helium.getFluid(16000))
@@ -69,7 +69,7 @@ public class UHVMaterials {
                 .duration(250)
                 .save(provider);
 
-        VACUUM_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        VACUUM_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputFluids(Helium.getFluid(5000))
                 .outputFluids(LiquidHelium.getFluid(5000))
                 .EUt(7680)
@@ -77,7 +77,7 @@ public class UHVMaterials {
                 .save(provider);
 
 
-        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(rodLong, NeodymiumMagnetic, 2)
                 .inputItems(wireGtSingle, UVSuperconductor, 16)
                 .inputItems(pipeLargeItem, Ultimet, 4)
@@ -89,14 +89,14 @@ public class UHVMaterials {
                 .duration(50)
                 .save(provider);
 
-        MACERATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        MACERATOR_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(DEGENERATE_RHENIUM_PLATE)
                 .outputItems(DEGENERATE_RHENIUM_DUST,4)
                 .duration(100)
                 .EUt(62_914_560)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        ASSEMBLER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(plate, Mendelevium)
                 .inputItems(GELLED_TOLUENE,4)
                 .inputItems(rodLong, NaquadriaticTaranium)
@@ -109,7 +109,7 @@ public class UHVMaterials {
                 .duration(20)
                 .save(provider);
 
-        ALLOY_BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        ALLOY_BLAST_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(dust, Seaborgium)
                 .inputItems(dust, Bohrium)
                 .inputItems(dust, Rutherfordium)
@@ -121,7 +121,7 @@ public class UHVMaterials {
                 .blastFurnaceTemp(11000)
                 .save(provider);
 
-        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .notConsumable(SHAPE_MOLD_BLOCK)
                 .inputFluids(SuperheavyMix.getFluid(1000))
                 .outputItems(SUPERHEAVY_BLOCK.asItem())
@@ -129,7 +129,7 @@ public class UHVMaterials {
                 .duration(40)
                 .save(provider);
 
-        STELLAR_FORGE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        STELLAR_FORGE_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(SUPERHEAVY_BLOCK.asItem())
                 .inputItems(TARANIUM_CHARGE.asItem())
                 .outputFluids(NeutronPlasma.getFluid(1000))
@@ -137,7 +137,7 @@ public class UHVMaterials {
                 .duration(10)
                 .save(provider);
 
-        CANNER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        CANNER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(PLASMA_CONTAINMENT_CELL)
                 .inputFluids(NeutronPlasma.getFluid(1000))
                 .outputItems(NEUTRON_PLASMA_CONTAINMENT_CELL)
@@ -145,7 +145,7 @@ public class UHVMaterials {
                 .duration(80)
                 .save(provider);
 
-        PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+        PLASMA_CONDENSER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(NEUTRON_PLASMA_CONTAINMENT_CELL)
                 .inputFluids(LiquidHelium.getFluid(32000))
                 .outputFluids(Helium.getFluid(32000))

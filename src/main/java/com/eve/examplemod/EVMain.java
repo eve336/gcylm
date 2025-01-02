@@ -98,6 +98,7 @@ public class EVMain {
     public void registerMaterials(MaterialEvent event) {
         //CustomMaterials.init();
         EVMaterials.init();
+        EVMaterials2.init();
     }
 
     @SubscribeEvent
