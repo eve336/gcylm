@@ -13,6 +13,8 @@ import com.eve.examplemod.data.recipe.generated.Replication;
 import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
 import net.minecraft.data.recipes.FinishedRecipe;
+
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipes.RECIPE_FILTERS;
@@ -55,5 +57,22 @@ public class EVRecipes {
         SuperconductorsSMDChain.init(consumer);
         RheniumChain.init(consumer);
         REEChain.init(consumer);
+        PEEKChain.init(consumer);
+        OrganometallicChains.init(consumer);
+        OpticalChain.init(consumer);
+        NaquadahChain.init(consumer);
+        LithiumChain.init(consumer);
+        IodineChain.init(consumer);
+        InsulationWireAssemblyChain.init(consumer);
+        HNIWChain.init(consumer);
+        CosmicChain.init(consumer);
+        CombinedChains.init(consumer);
+        ChromiumChain.init(consumer);
+        VariousChains.init(consumer);
+        VanadiumChain.init(consumer);
+        WetwareChain.init(consumer);
+        ZincChain.init(consumer);
+        ZirconChain.init(consumer);
+        WormholeGeneratorChain.init(consumer);
     }
 }

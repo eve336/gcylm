@@ -51,6 +51,9 @@ public class EVRecipeTypes {
     public static final GTRecipeType LARGE_ENGRAVER_RECIPES = GTRecipeTypes.register("large_engraver", MULTIBLOCK)
             .setMaxIOSize(5,5,3,1);
 
+    public static final GTRecipeType ADV_FUSION_RECIPES = GTRecipeTypes.register("adv_fusion", MULTIBLOCK)
+            .setMaxIOSize(0,0,3,1);
+
 
     public static void init(){
 

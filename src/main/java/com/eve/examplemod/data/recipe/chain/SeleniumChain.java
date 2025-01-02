@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Magenta;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import com.eve.examplemod.common.data.EVMaterials;
 import com.gregtechceu.gtceu.api.GTValues;
 import net.minecraft.data.recipes.FinishedRecipe;

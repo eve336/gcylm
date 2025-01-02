@@ -362,8 +362,9 @@ public class EVMaterials2 {
             .buildAndRegister()
             .setFormula("(CH2)6N4", true);
 
-    public static final Material PdCCatalyst = new Material.Builder(EVMain.id("pdc_catalyst"))
+    public static final Material PdCCatalyst = new Material.Builder(EVMain.id("palladium_on_carbon"))
             .color((Palladium.getMaterialRGB() + Carbon.getMaterialRGB()) / 2)
+            .dust()
             .iconSet(MaterialIconSet.DULL).dust()
             .buildAndRegister()
             .setFormula("PdC", true);
@@ -391,6 +392,12 @@ public class EVMaterials2 {
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("KNO2", true);
+
+    public static final Material PotassiumNitrate = new Material.Builder(EVMain.id("potassium_nitrate"))
+            .color(0xF0EAD6).dust()
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("KNO3", true);
 
     public static final Material HydroxylammoniumSulfate = new Material.Builder(EVMain.id("hydroxylammonium_sulfate"))
             .color(0xF0EAD6).dust()

@@ -307,7 +307,7 @@ public class EVMachines{
 
 
     public static final MultiblockMachineDefinition EV_CHEMICAL_REACTOR = REGISTRATE
-            .multiblock("ev_chemical_reactor", ComponentMultiblock::new)
+            .multiblock("ev_chemical_reactor", EfficiencyMachine::new)
             .tooltips(defaultEnvironmentRequirement())
             .rotationState(RotationState.ALL)
             .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
@@ -323,7 +323,7 @@ public class EVMachines{
                         .aisle("XCX", "CPC", "XCX")
                         .aisle("XXX", "XSX", "XXX")
                         .where('S', Predicates.controller(blocks(definition.getBlock())))
-                        .where('X', casing.or(abilities).or(Predicates.abilities(EVPartAbility.ROBOT_ARM).setMaxGlobalLimited(1).setMinGlobalLimited(1)))
+                        .where('X', casing.or(abilities))
                         .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
                         .where('C', blocks(COIL_CUPRONICKEL.get()).setExactLimit(1)
                                 .or(abilities)

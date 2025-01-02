@@ -1485,15 +1485,6 @@ public class EVMaterials {
             .buildAndRegister();
 
 
-    public static final Material EthylTertButylEther = new Material.Builder(EVMain.id("ethyl_tert_butyl_ether"))
-            .color(0xCBCBCB)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Carbon, 6, Hydrogen, 14, Oxygen, 1)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
-
-
     public static final Material RocketFuelH8N4C2O4 = new Material.Builder(EVMain.id("rocket_fuel_a"))
             .color(0x5ECB22)
             .iconSet(FLUID)
@@ -6868,6 +6859,7 @@ public class EVMaterials {
 
     public static final Material ScandiumTriflate = new Material.Builder(EVMain.id("scandium_triflate"))
             .color(0xdfcfcf)
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("Sc(OSO2CF3)3", true);

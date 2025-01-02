@@ -444,8 +444,7 @@ public class EVItems {
 
     public static ItemEntry<Item> CHARGED_LEPTON_TRAP_CRYSTAL = EVRegistries.REGISTRATE.item("charged_lepton_trap_crystal", Item::new).register();
 
-
-
+    public static ItemEntry<Item> HIGHLY_INSULATING_FOIL = EVRegistries.REGISTRATE.item("highly_insulating_foil", Item::new).register();
 
 
 
