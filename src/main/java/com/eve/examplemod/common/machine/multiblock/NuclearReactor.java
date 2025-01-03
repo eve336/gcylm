@@ -2,6 +2,7 @@ package com.eve.examplemod.common.machine.multiblock;
 
 import com.eve.examplemod.api.capability.IFuelCell;
 import com.eve.examplemod.common.machine.multiblock.part.PassiveCooler;
+import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.block.IMachineBlock;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     @Persisted
     private int hDist = 0;
 
-    public List<IFuelCell> iFuelCells;
+    public List<IFuelCell> iFuelCells = new ArrayList<>();
 
 
     public NuclearReactor(IMachineBlockEntity holder) {
@@ -91,7 +93,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         super.onStructureInvalid();
         fuelCells = 0;
         totalHeat = 0;
-        iFuelCells = null;
+        iFuelCells = new ArrayList<>();
     }
 
 
@@ -108,6 +110,14 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     }
 
     private void serverTickEvent() {
+        if (iFuelCells != null && isFormed() && (recipeLogic.isIdle() || !recipeLogic.isWorking())){
+            if (!iFuelCells.isEmpty()){
+                totalHeat = 0;
+                iFuelCells.forEach(c -> {
+                    totalHeat = totalHeat + c.getHeat();
+                });
+            }
+        }
     }
 
     @Override
@@ -116,12 +126,16 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
             temp = recipeLogic.getLastRecipe().data.getInt("temperature");
         }
         totalHeat = 0;
-        if (isFormed() && !iFuelCells.isEmpty()) {
-            for (IFuelCell cell : iFuelCells) {
-                cell.changeHeat(temp);
-                totalHeat = totalHeat + cell.getHeat();
-                if (cell.getHeat() > (temp * 20 * 20)){
-                    recipeLogic.setWorkingEnabled(false);
+        if (iFuelCells != null) {
+            if (isFormed() && !iFuelCells.isEmpty() && isActive() && recipeLogic.isWorking() && !recipeLogic.isIdle()) {
+                for (IFuelCell cell : iFuelCells) {
+                    if (getOffsetTimer() % 20 == 0) {
+                        cell.changeHeat(temp);
+                    }
+                    totalHeat = totalHeat + cell.getHeat();
+                    if (cell.getHeat() > (temp * 20 * EVConfig.INSTANCE.reactorMeltdownTime)) {
+                        recipeLogic.setWorkingEnabled(false);
+                    }
                 }
             }
         }

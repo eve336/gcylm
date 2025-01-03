@@ -2,38 +2,21 @@ package com.eve.examplemod.common.machine.multiblock;
 
 import com.eve.examplemod.common.data.EVMaterials;
 import com.eve.examplemod.common.machine.trait.VOMLogic;
-import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.capability.recipe.IO;
-import com.gregtechceu.gtceu.api.capability.recipe.IRecipeCapabilityHolder;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.feature.IFancyUIMachine;
 import com.gregtechceu.gtceu.api.machine.feature.multiblock.IDisplayUIMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
-import com.gregtechceu.gtceu.api.recipe.GTRecipe;
-import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
-import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
-import com.gregtechceu.gtceu.utils.GTUtil;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 @SuppressWarnings({"SpellCheckingInspection"})
-public class miner extends WorkableElectricMultiblockMachine
+public class VoidOreMiner extends WorkableElectricMultiblockMachine
         implements IFancyUIMachine, IDisplayUIMachine {
 
 
@@ -61,7 +44,7 @@ public class miner extends WorkableElectricMultiblockMachine
         textList.add(Component.translatable("cryotheum: " + cryotheum));
     }
 
-    public miner(IMachineBlockEntity holder, int tier, int temp) {
+    public VoidOreMiner(IMachineBlockEntity holder, int tier, int temp) {
         super(holder);
         this.tier=tier;
         this.maxTemperature=temp;

@@ -19,16 +19,12 @@ import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
-import com.gregtechceu.gtceu.client.renderer.block.TextureOverrideRenderer;
-import com.gregtechceu.gtceu.client.renderer.machine.TieredHullMachineRenderer;
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
 
-import it.unimi.dsi.fastutil.ints.Int2LongFunction;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 
 
 import java.util.ArrayList;
@@ -145,7 +141,7 @@ public class EVMachines{
 
 
     public static final MultiblockMachineDefinition VOM1 = REGISTRATE
-            .multiblock("vom", holder -> new miner(holder, UHV, 9000))
+            .multiblock("vom", holder -> new VoidOreMiner(holder, UHV, 9000))
             .tooltips(defaultEnvironmentRequirement())
             .rotationState(RotationState.ALL)
             .recipeType(GTRecipeTypes.DUMMY_RECIPES)
@@ -307,7 +303,7 @@ public class EVMachines{
 
 
     public static final MultiblockMachineDefinition EV_CHEMICAL_REACTOR = REGISTRATE
-            .multiblock("ev_chemical_reactor", EfficiencyMachine::new)
+            .multiblock("ev_chemical_reactor", holder -> new EfficiencyMachine(holder, 3000))
             .tooltips(defaultEnvironmentRequirement())
             .rotationState(RotationState.ALL)
             .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)

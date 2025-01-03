@@ -1,7 +1,7 @@
 package com.eve.examplemod.common.machine.trait;
 
 
-import com.eve.examplemod.common.machine.multiblock.miner;
+import com.eve.examplemod.common.machine.multiblock.VoidOreMiner;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -44,8 +44,8 @@ public class VOMLogic extends RecipeLogic{
     }
 
     @Override
-    public miner getMachine() {
-        return (miner) super.getMachine();
+    public VoidOreMiner getMachine() {
+        return (VoidOreMiner) super.getMachine();
     }
 
 

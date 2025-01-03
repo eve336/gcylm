@@ -1,7 +1,6 @@
 package com.eve.examplemod.common.machine.trait;
 
 import com.eve.examplemod.api.capability.IFuelCell;
-import com.eve.examplemod.common.machine.multiblock.miner;
 import com.eve.examplemod.common.machine.multiblock.part.ActiveCooler;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
@@ -18,17 +17,24 @@ public class ActiveCoolerLogic extends RecipeLogic {
         return (ActiveCooler) super.getMachine();
     }
 
+    // I forgot how my code (didn't) work
+    // why does intellij have grammarly built in?
+
+    // does this work??
+
     // TODO fix jank
 
     @Override
     public void serverTick() {
+        System.out.println(this.getStatus());
         System.out.println(getMachine().fuelCellsEmpty());
-        if (!isActive && !getMachine().fuelCellsEmpty()) {
+        if ((!isActive || isIdle()) && !getMachine().fuelCellsEmpty()) {
+            getMachine().fuelCellsEmpty();
             boolean b = false;
             System.out.println(getMachine().fuelCellList);
             getMachine().fuelCellsEmpty();
             for (IFuelCell cell : getMachine().fuelCellList) {
-                if (cell.getHeat() > 0) {
+                if (cell.getHeat() > getMachine().cooling()) {
                     b = true;
                 }
             }
@@ -45,6 +51,7 @@ public class ActiveCoolerLogic extends RecipeLogic {
             boolean b = false;
             getMachine().fuelCellsEmpty();
             int cooling = recipe.data.getInt("cooling");
+            // what is this comment for
             // fuelCellList == null
             if (getMachine().fuelCellList != null) {
                 for (IFuelCell cell : getMachine().fuelCellList) {
@@ -62,7 +69,7 @@ public class ActiveCoolerLogic extends RecipeLogic {
             }
             recipe.preWorking(this.machine);
 
-            if (handleRecipeIO(recipe, IO.IN) && b) {
+            if (handleRecipeIO(recipe, IO.IN)) {
                 if (lastRecipe != null && !recipe.equals(lastRecipe)) {
                     chanceCaches.clear();
                 }

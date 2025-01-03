@@ -36,4 +36,8 @@ public class EVConfig {
     @Configurable
     @Configurable.Comment({"Default = true"})
     public boolean harderTungsten = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = 20 seconds"})
+    public int reactorMeltdownTime = 20;
 }

@@ -97,7 +97,10 @@ public class ActiveCooler extends WorkableTieredMachine {
                     if (!fuelCellList.isEmpty()) {
                         for (IFuelCell cell : fuelCellList) {
                             if (cell.getHeat() > cooling/fuelCellList.size()) {
-                                cell.subtractHeat(cooling / fuelCellList.size());
+                                // remove getoffsettimer if it doesnt work
+                                if (getOffsetTimer() % 20 == 0) {
+                                    cell.subtractHeat(cooling / fuelCellList.size());
+                                }
                             }
                         }
                     }

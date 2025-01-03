@@ -1,14 +1,13 @@
 package com.eve.examplemod.common.machine.trait;
 
 import com.eve.examplemod.common.machine.multiblock.EfficiencyMachine;
-import com.eve.examplemod.common.machine.multiblock.miner;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 
-public class EfficienyLogic extends RecipeLogic {
-    public EfficienyLogic(IRecipeLogicMachine machine) {
+public class EfficiencyLogic extends RecipeLogic {
+    public EfficiencyLogic(IRecipeLogicMachine machine) {
         super(machine);
     }
 
@@ -31,6 +30,7 @@ public class EfficienyLogic extends RecipeLogic {
             if (handleRecipeIO(recipe, IO.IN)) {
                 if (lastRecipe != null && !recipe.equals(lastRecipe)) {
                     chanceCaches.clear();
+                    getMachine().setTicks(getMachine().getRampUpTime() / 10);
                 }
                 recipeDirty = false;
                 lastRecipe = recipe;
