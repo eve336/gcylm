@@ -129,11 +129,12 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         if (iFuelCells != null) {
             if (isFormed() && !iFuelCells.isEmpty() && isActive() && recipeLogic.isWorking() && !recipeLogic.isIdle()) {
                 for (IFuelCell cell : iFuelCells) {
+                    // remove get offset timer if it doesnt work
                     if (getOffsetTimer() % 20 == 0) {
                         cell.changeHeat(temp);
                     }
                     totalHeat = totalHeat + cell.getHeat();
-                    if (cell.getHeat() > (temp * 20 * EVConfig.INSTANCE.reactorMeltdownTime)) {
+                    if (cell.getHeat() > (temp * EVConfig.INSTANCE.reactorMeltdownTime)) {
                         recipeLogic.setWorkingEnabled(false);
                     }
                 }
