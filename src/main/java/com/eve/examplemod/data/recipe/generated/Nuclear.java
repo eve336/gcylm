@@ -247,7 +247,7 @@ public class Nuclear {
                     if (material.hasProperty(EVPropertyKey.COMPONENT)){
                         EVComponentProperty prop = material.getProperty(EVPropertyKey.COMPONENT);
                         GTRecipeBuilder recipeBuilder = GAS_CENTRIFUGE_RECIPES.recipeBuilder(material.getName().toLowerCase() + "_gas_centrifuge");
-                        recipeBuilder.inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 20000));
+                        recipeBuilder.inputFluids(material.getFluid(EVFluidStorageKeys.hexafluoride, 10000));
                         prop.components.forEach((key, value) ->
                                 recipeBuilder.outputFluids(key.getFluid(EVFluidStorageKeys.hexafluoride, value))
                                 );

@@ -682,12 +682,12 @@ public class SuperconductorsSMDChain {
                 .save(provider);
 
         // C + 4Cl -> CCl4
-        CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(320).EUt(30)
-                .inputItems(dust, Carbon)
-                .circuitMeta(0)
-                .inputFluids(Chlorine.getFluid(4000))
-                .outputFluids(CarbonTetrachloride.getFluid(1000))
-                .save(provider);
+//        CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(320).EUt(30)
+//                .inputItems(dust, Carbon)
+//                .circuitMeta(0)
+//                .inputFluids(Chlorine.getFluid(4000))
+//                .outputFluids(CarbonTetrachloride.getFluid(1000))
+//                .save(provider);
 
         // Ac(C2O4)2 + 3NaH + 13Na + 4CCl4 -> AcH3 + 16NaCl + 8CO
         BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(530).EUt(120)

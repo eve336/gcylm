@@ -29,11 +29,10 @@ public class VoidOreMiner extends WorkableElectricMultiblockMachine
     public boolean overheat = false;
     public FluidStack CRYOTHEUM_STACK = EVMaterials.Cryotheum.getFluid(1);
     public FluidStack PYROTHEUM_STACK = EVMaterials.Pyrotheum.getFluid(1);
+    public FluidStack DRILLING_MUD_STACK = EVMaterials.DrillingMud.getFluid(1);
+    public FluidStack USED_DRILLING_MUD_STACK = EVMaterials.UsedDrillingMud.getFluid(1);
     private static final int CONSUME_START = 100;
     private double currentDrillingFluid = CONSUME_START;
-
-
-
 
 
     @Override
@@ -112,7 +111,8 @@ public class VoidOreMiner extends WorkableElectricMultiblockMachine
         if (getOffsetTimer() % 20 == 0) {
             PYROTHEUM_STACK = EVMaterials.Pyrotheum.getFluid((int) currentDrillingFluid);
             CRYOTHEUM_STACK = EVMaterials.Cryotheum.getFluid((int) currentDrillingFluid);
-
+            DRILLING_MUD_STACK = EVMaterials.DrillingMud.getFluid((int) currentDrillingFluid);
+            USED_DRILLING_MUD_STACK = EVMaterials.UsedDrillingMud.getFluid((int) currentDrillingFluid);
 
             if (getRecipeLogic().isWorking() && !overheat && !cryotheum) {
                 temperature += (int)(currentDrillingFluid / 100.0);

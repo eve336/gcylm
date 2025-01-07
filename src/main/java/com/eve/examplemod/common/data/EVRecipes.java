@@ -1,6 +1,7 @@
 package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.config.EVConfig;
+import com.eve.examplemod.data.recipe.CoolerRecipes;
 import com.eve.examplemod.data.recipe.MiscRecipes;
 import com.eve.examplemod.data.recipe.SuperconductorRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
@@ -74,5 +75,6 @@ public class EVRecipes {
         ZincChain.init(consumer);
         ZirconChain.init(consumer);
         WormholeGeneratorChain.init(consumer);
+        CoolerRecipes.init(consumer);
     }
 }

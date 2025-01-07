@@ -17,6 +17,7 @@ import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
 import com.gregtechceu.gtceu.api.pipenet.IPipeNode;
 import com.gregtechceu.gtceu.common.block.FluidPipeBlock;
 import com.gregtechceu.gtceu.common.blockentity.FluidPipeBlockEntity;
+import com.gregtechceu.gtceu.common.blockentity.ItemPipeBlockEntity;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import net.minecraft.core.BlockPos;
@@ -24,6 +25,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
@@ -36,6 +38,80 @@ import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.common.data.GTBlockEntities.FLUID_PIPE;
 import static com.gregtechceu.gtceu.common.machine.multiblock.electric.CleanroomMachine.MIN_DEPTH;
 import static com.gregtechceu.gtceu.common.machine.multiblock.electric.CleanroomMachine.MIN_RADIUS;
+
+import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.block.IFilterType;
+import com.gregtechceu.gtceu.api.capability.GTCapabilityHelper;
+import com.gregtechceu.gtceu.api.capability.ICleanroomReceiver;
+import com.gregtechceu.gtceu.api.capability.IEnergyContainer;
+import com.gregtechceu.gtceu.api.capability.recipe.EURecipeCapability;
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
+import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
+import com.gregtechceu.gtceu.api.machine.MetaMachine;
+import com.gregtechceu.gtceu.api.machine.SimpleGeneratorMachine;
+import com.gregtechceu.gtceu.api.machine.feature.ICleanroomProvider;
+import com.gregtechceu.gtceu.api.machine.feature.IDataInfoProvider;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IDisplayUIMachine;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMaintenanceMachine;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMufflerMachine;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
+import com.gregtechceu.gtceu.api.machine.multiblock.CleanroomType;
+import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
+import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
+import com.gregtechceu.gtceu.api.machine.multiblock.WorkableMultiblockMachine;
+import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
+import com.gregtechceu.gtceu.api.misc.EnergyContainerList;
+import com.gregtechceu.gtceu.api.pattern.BlockPattern;
+import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
+import com.gregtechceu.gtceu.api.pattern.Predicates;
+import com.gregtechceu.gtceu.api.pattern.TraceabilityPredicate;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
+import com.gregtechceu.gtceu.common.data.GTMachines;
+import com.gregtechceu.gtceu.common.item.PortableScannerBehavior;
+import com.gregtechceu.gtceu.common.machine.electric.HullMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.generator.LargeCombustionEngineMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.generator.LargeTurbineMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.part.DiodePartMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.primitive.CokeOvenMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.primitive.PrimitiveBlastFurnaceMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.primitive.PrimitivePumpMachine;
+import com.gregtechceu.gtceu.common.machine.trait.CleanroomLogic;
+import com.gregtechceu.gtceu.config.ConfigHolder;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
+import com.gregtechceu.gtceu.utils.GTUtil;
+
+import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
+import com.lowdragmc.lowdraglib.syncdata.field.ManagedFieldHolder;
+import com.lowdragmc.lowdraglib.utils.BlockInfo;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.HoverEvent;
+import net.minecraft.network.chat.Style;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import it.unimi.dsi.fastutil.longs.Long2ObjectMaps;
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
+import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 
 public class NuclearReactor extends WorkableElectricMultiblockMachine {
 
@@ -134,6 +210,8 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
                         cell.changeHeat(temp);
                     }
                     totalHeat = totalHeat + cell.getHeat();
+                    // it stopped after 4 recipes (5 seconds) and me timing 20 seconds so i think it works
+                    // shut up grammarly
                     if (cell.getHeat() > (temp * EVConfig.INSTANCE.reactorMeltdownTime)) {
                         recipeLogic.setWorkingEnabled(false);
                     }
@@ -144,26 +222,31 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
     }
 
     public boolean isBlockEdge(@NotNull Level world, @NotNull BlockPos.MutableBlockPos pos, @NotNull Direction direction) {
-        return world.getBlockState(pos.move(direction)) == GTBlocks.PLASTCRETE.getDefaultState();
+        return world.getBlockState(pos.move(direction)) == GTBlocks.CASING_TITANIUM_STABLE.getDefaultState();
     }
 
 
     public boolean isBlockFloor(@NotNull Level world, @NotNull BlockPos.MutableBlockPos pos, @NotNull Direction direction) {
-        return isBlockEdge(world, pos, direction) || world.getBlockState(pos) == GTBlocks.CLEANROOM_GLASS.getDefaultState();
+        return isBlockEdge(world, pos, direction) || world.getBlockState(pos) == GTBlocks.CASING_LAMINATED_GLASS.getDefaultState();
     }
 
 
+    // troll laugh
+
     public void updateStructureDimensions() {
         Level world = getLevel();
+        if (world == null) return;
         Direction front = getFrontFacing();
         Direction back = front.getOpposite();
         Direction left = front.getCounterClockWise();
         Direction right = left.getOpposite();
+
         BlockPos.MutableBlockPos lPos = getPos().mutable();
         BlockPos.MutableBlockPos rPos = getPos().mutable();
         BlockPos.MutableBlockPos fPos = getPos().mutable();
         BlockPos.MutableBlockPos bPos = getPos().mutable();
         BlockPos.MutableBlockPos hPos = getPos().mutable();
+
         // find the distances from the controller to the plascrete blocks on one horizontal axis and the Y axis
         // repeatable aisles take care of the second horizontal axis
         int lDist = 0;
@@ -171,6 +254,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         int bDist = 0;
         int fDist = 0;
         int hDist = 0;
+
         // find the left, right, back, and front distances for the structure pattern
         // maximum size is 15x15x15 including walls, so check 7 block radius around the controller for blocks
         for (int i = 1; i < 8; i++) {
@@ -180,15 +264,23 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
             if (fDist == 0 && isBlockEdge(world, fPos, front)) fDist = i;
             if (lDist != 0 && rDist != 0 && bDist != 0 && fDist != 0) break;
         }
+
         // height is diameter instead of radius, so it needs to be done separately
         for (int i = 1; i < 15; i++) {
             if (isBlockFloor(world, hPos, Direction.DOWN)) hDist = i;
             if (hDist != 0) break;
         }
+
+        if (Math.abs(lDist - rDist) > 1 || Math.abs(bDist - fDist) > 1) {
+            this.isFormed = false;
+            return;
+        }
+
         if (lDist < MIN_RADIUS || rDist < MIN_RADIUS || bDist < MIN_RADIUS || fDist < MIN_RADIUS || hDist < MIN_DEPTH) {
             this.isFormed = false;
             return;
         }
+
         this.lDist = lDist;
         this.rDist = rDist;
         this.bDist = bDist;
@@ -206,102 +298,145 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         return GTBlocks.CASING_LAMINATED_GLASS.getDefaultState();
     }
 
+    private TraceabilityPredicate getValidFloorBlocks() {
+        return states(GTBlocks.CASING_TITANIUM_STABLE.getDefaultState(), GTBlocks.PLASTCRETE.getDefaultState());
+//        return Predicates.blockTag(CustomTags.CLEANROOM_FLOORS);
+    }
+
+    @NotNull
+    protected TraceabilityPredicate innerPredicate() {
+        return new TraceabilityPredicate(blockWorldState -> {
+            Set<ICleanroomReceiver> receivers = blockWorldState.getMatchContext().getOrCreate("cleanroomReceiver",
+                    Sets::newHashSet);
+            // all non-GTMachines are allowed inside by default
+            BlockEntity blockEntity = blockWorldState.getTileEntity();
+//            if (blockEntity instanceof IMachineBlockEntity machineBlockEntity) {
+//                var machine = machineBlockEntity.getMetaMachine();
+//            }
+            // wanna check if this how to allow pipes inside
+//            if (blockEntity instanceof ItemPipeBlockEntity || blockEntity instanceof  FluidPipeBlockEntity){
+//               return true;
+//            }
+            if (blockEntity != null) {
+                var receiver = GTCapabilityHelper.getCleanroomReceiver(blockWorldState.getWorld(),
+                        blockWorldState.getPos(), null);
+                if (receiver != null) {
+                    receivers.add(receiver);
+                }
+            }
+            return true;
+        }, null) {
+
+            @Override
+            public boolean isAny() {
+                return true;
+            }
+
+            @Override
+            public boolean addCache() {
+                return true;
+            }
+        };
+    }
+
     @NotNull
     @Override
     public BlockPattern getPattern() {
         // return the default structure, even if there is no valid size found
         // this means auto-build will still work, and prevents terminal crashes.
         if (getLevel() != null) updateStructureDimensions();
+
         // these can sometimes get set to 0 when loading the game, breaking JEI
         if (lDist < MIN_RADIUS) lDist = MIN_RADIUS;
         if (rDist < MIN_RADIUS) rDist = MIN_RADIUS;
         if (bDist < MIN_RADIUS) bDist = MIN_RADIUS;
         if (fDist < MIN_RADIUS) fDist = MIN_RADIUS;
         if (hDist < MIN_DEPTH) hDist = MIN_DEPTH;
+
         if (this.getFrontFacing() == Direction.EAST || this.getFrontFacing() == Direction.WEST) {
             int tmp = lDist;
             lDist = rDist;
             rDist = tmp;
         }
-        // build each row of the structure
-        StringBuilder borderBuilder = new StringBuilder(); // BBBBB
-        StringBuilder wallBuilder = new StringBuilder(); // BXXXB
-        StringBuilder insideBuilder = new StringBuilder(); // X X
-        StringBuilder roofBuilder = new StringBuilder(); // BFFFB
-        StringBuilder controllerBuilder = new StringBuilder(); // BFSFB
-        StringBuilder centerBuilder = new StringBuilder(); // BXKXB
-        // everything to the left of the controller
-        for (int i = 0; i < lDist; i++) {
-            borderBuilder.append("B");
-            if (i == 0) {
-                wallBuilder.append("B");
-                insideBuilder.append("X");
-                roofBuilder.append("B");
-                controllerBuilder.append("B");
-                centerBuilder.append("B");
-            } else {
-                insideBuilder.append(" ");
-                wallBuilder.append("X");
-                roofBuilder.append("F");
-                controllerBuilder.append("F");
-                centerBuilder.append("X");
+
+        StringBuilder[] floorLayer = new StringBuilder[fDist + bDist + 1];
+        List<StringBuilder[]> wallLayers = new ArrayList<>();
+        StringBuilder[] ceilingLayer = new StringBuilder[fDist + bDist + 1];
+
+        for (int i = 0; i < floorLayer.length; i++) {
+            floorLayer[i] = new StringBuilder(lDist + rDist + 1);
+            ceilingLayer[i] = new StringBuilder(lDist + rDist + 1);
+        }
+
+        for (int i = 0; i < hDist - 1; i++) {
+            wallLayers.add(new StringBuilder[fDist + bDist + 1]);
+            for (int j = 0; j < fDist + bDist + 1; j++) {
+                var s = new StringBuilder(lDist + rDist + 1);
+                wallLayers.get(i)[j] = s;
             }
         }
-        // everything in-line with the controller
-        borderBuilder.append("B");
-        wallBuilder.append("X");
-        insideBuilder.append(" ");
-        roofBuilder.append("F");
-        controllerBuilder.append("S");
-        centerBuilder.append("K");
-        // everything to the right of the controller
-        for (int i = 0; i < rDist; i++) {
-            borderBuilder.append("B");
-            if (i == rDist - 1) {
-                wallBuilder.append("B");
-                insideBuilder.append("X");
-                roofBuilder.append("B");
-                controllerBuilder.append("B");
-                centerBuilder.append("B");
-            } else {
-                insideBuilder.append(" ");
-                wallBuilder.append("X");
-                roofBuilder.append("F");
-                controllerBuilder.append("F");
-                centerBuilder.append("X");
+
+        for (int i = 0; i < lDist + rDist + 1; i++) {
+            for (int j = 0; j < fDist + bDist + 1; j++) {
+                if (i == 0 || i == lDist + rDist || j == 0 || j == fDist + bDist) { // all edges
+                    floorLayer[j].append('A'); // floor edge
+                    for (int k = 0; k < hDist - 1; k++) {
+                        wallLayers.get(k)[j].append('W'); // walls
+                    }
+                    ceilingLayer[j].append('D'); // ceiling edge
+                } else { // not edges
+                    if (i == lDist && j == fDist) { // very center
+                        floorLayer[j].append('K');
+                    } else {
+                        floorLayer[j].append('E'); // floor valid blocks
+                    }
+                    for (int k = 0; k < hDist - 1; k++) {
+                        wallLayers.get(k)[j].append(' ');
+                    }
+                    if (i == lDist && j == fDist) { // very center
+                        ceilingLayer[j].append('C'); // controller
+                    } else {
+                        ceilingLayer[j].append('F'); // filter
+                    }
+                }
             }
         }
-        // build each slice of the structure
-        String[] wall = new String[hDist + 1]; // "BBBBB", "BXXXB", "BXXXB", "BXXXB", "BBBBB"
-        Arrays.fill(wall, wallBuilder.toString());
-        wall[0] = borderBuilder.toString();
-        wall[wall.length - 1] = borderBuilder.toString();
-        String[] slice = new String[hDist + 1]; // "BXXXB", "X X", "X X", "X X", "BFFFB"
-        Arrays.fill(slice, insideBuilder.toString());
-        slice[0] = wallBuilder.toString();
-        slice[slice.length - 1] = roofBuilder.toString();
-        String[] center = Arrays.copyOf(slice, slice.length); // "BXKXB", "X X", "X X", "X X", "BFSFB"
-        if (this.getFrontFacing() == Direction.NORTH || this.getFrontFacing() == Direction.SOUTH) {
-            center[0] = centerBuilder.reverse().toString();
-            center[center.length - 1] = controllerBuilder.reverse().toString();
-        } else {
-            center[0] = centerBuilder.toString();
-            center[center.length - 1] = controllerBuilder.toString();
+
+        String[] f = new String[bDist + fDist + 1];
+        for (int i = 0; i < floorLayer.length; i++) {
+            f[i] = floorLayer[i].toString();
         }
+        String[] m = new String[bDist + fDist + 1];
+        for (int i = 0; i < wallLayers.get(0).length; i++) {
+            m[i] = wallLayers.get(0)[i].toString();
+        }
+        String[] c = new String[bDist + fDist + 1];
+        for (int i = 0; i < ceilingLayer.length; i++) {
+            c[i] = ceilingLayer[i].toString();
+        }
+
         TraceabilityPredicate wallPredicate = states(getCasingState(), getGlassState());
-        TraceabilityPredicate basePredicate = abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2)
-                .or(autoAbilities(getRecipeType()));
-        // layer the slices one behind the next
-        return  // the block beneath the controller must only be a casing for structure
-                // dimension checks
-                FactoryBlockPattern.start().aisle(wall).aisle(slice).setRepeatable(bDist - 1).aisle(center).aisle(slice).setRepeatable(fDist - 1).aisle(wall)
-                        .where('S', controller(blocks(this.getDefinition().get()))).where('B', states(getCasingState()).or(basePredicate))
-                        .where('X', wallPredicate.or(basePredicate).or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30)))
-                        .where('K', wallPredicate)
-                        .where('F', cleanroomFilters())
-                        .where(' ', any().or(abilities(EVPartAbility.FUEL_CELL)).or(abilities(EVPartAbility.COOLER)))
-                        .build();
+        TraceabilityPredicate basePredicate = Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1)
+                .setMaxGlobalLimited(2)
+                .or(blocks(GTMachines.MAINTENANCE_HATCH.get(), GTMachines.AUTO_MAINTENANCE_HATCH.get())
+                        .setMinGlobalLimited(ConfigHolder.INSTANCE.machines.enableMaintenance ? 1 : 0)
+                        .setMaxGlobalLimited(1))
+                .or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30));
 
-
+        return FactoryBlockPattern.start(LEFT, FRONT, UP)
+                .aisle(f)
+                .aisle(m).setRepeatable(wallLayers.size())
+                .aisle(c)
+                .where('C', Predicates.controller(Predicates.blocks(this.getDefinition().get())))
+                .where('F', Predicates.cleanroomFilters())
+                .where('D', states(getCasingState())) // ceiling edges
+                .where(' ', innerPredicate())
+                .where('E', wallPredicate.or(basePredicate) // inner floor
+                        .or(getValidFloorBlocks().setMaxGlobalLimited(4)))
+                .where('K', wallPredicate // very center floor, needed for height check
+                        .or(getValidFloorBlocks()))
+                .where('W', wallPredicate.or(basePredicate))// walls
+                .where('A', wallPredicate.or(basePredicate)) // floor edges
+                .build();
     }
 }

@@ -127,8 +127,18 @@ public class EVMachines{
             .abilities(EVPartAbility.GECKO_CASING)
             .register();
 
-    public static final MachineDefinition COOLER = REGISTRATE
-            .machine("cooler", holder -> new PassiveCooler(holder, 100))
+    public static final MachineDefinition DISTILLED_WATER_COOLER = REGISTRATE
+            .machine("distilled_water_cooler", holder -> new PassiveCooler(holder, 1))
+            .abilities(EVPartAbility.COOLER)
+            .register();
+
+    public static final MachineDefinition CRYOTHEUM_COOLER = REGISTRATE
+            .machine("cryotheum_cooler", holder -> new PassiveCooler(holder, 3))
+            .abilities(EVPartAbility.COOLER)
+            .register();
+
+    public static final MachineDefinition SUPERCOOLED_CRYOTHEUM_COOLER = REGISTRATE
+            .machine("supercooled_cryotheum_cooler", holder -> new PassiveCooler(holder, 4))
             .abilities(EVPartAbility.COOLER)
             .register();
 
@@ -289,12 +299,15 @@ public class EVMachines{
             .alwaysTryModifyRecipe(true)
             .appearanceBlock(CASING_STEEL_SOLID)
             .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("FFF", "FFF", "FFF", "FFF")
-                    .aisle("FFF", "F#F", "F#F", "F#F")
-                    .aisle("FFF", "FSF", "FFF", "FFF")
+                    .aisle("FFFFF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
+                    .aisle("FFFFF", "G###G", "G###G", "G###G", "FFFFF")
+                    .aisle("FFFFF", "G###G", "G###G", "G###G", "FFSFF")
+                    .aisle("FFFFF", "G###G", "G###G", "G###G", "FFFFF")
+                    .aisle("FFFFF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
                     .where('S', Predicates.controller(blocks(definition.getBlock())))
-                    .where('F', blocks(CASING_PRIMITIVE_BRICKS.get()).or(abilities(PartAbility.INPUT_ENERGY)).or(abilities(PartAbility.EXPORT_FLUIDS)).or(abilities(EVPartAbility.FUEL_CELL)))
-                    .where('#', Predicates.air())
+                    .where('F', blocks(CASING_TITANIUM_STABLE.get()).or(Predicates.autoAbilities(definition.getRecipeTypes())))
+                    .where('G', blocks(CASING_TITANIUM_STABLE.get()).or(blocks(CASING_LAMINATED_GLASS.get())).or(abilities(PartAbility.PASSTHROUGH_HATCH)))
+                    .where('#', Predicates.any())
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_stable_titanium"),
                     GTCEu.id("block/multiblock/cleanroom"))

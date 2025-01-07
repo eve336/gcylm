@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class VOMLogic extends RecipeLogic{
+public class VOMLogic extends RecipeLogic {
 
     public static final List<Map.Entry<Integer, ItemStack>> ORES = new ArrayList<>();
 
@@ -36,7 +36,6 @@ public class VOMLogic extends RecipeLogic{
             }
         }
     }
-
 
 
     public VOMLogic(IRecipeLogicMachine machine) {
@@ -53,11 +52,11 @@ public class VOMLogic extends RecipeLogic{
     public void findAndHandleRecipe() {
         if (getMachine().getLevel() instanceof ServerLevel) {
             lastRecipe = null;
-            var match = getVOMRecipe();
+            var match = getCryotheumRecipe();
             var match2 = getPyrotheumRecipe();
 
             if (match != null) {
-                if (match.matchRecipe(this.machine).isSuccess() && match.matchTickRecipe(this.machine).isSuccess()  && !getMachine().overheat) {
+                if (match.matchRecipe(this.machine).isSuccess() && match.matchTickRecipe(this.machine).isSuccess() && !getMachine().overheat) {
                     setupRecipe(match);
                     if (getMachine().onWorking()) {
                         getMachine().cryotheum = true;
@@ -65,7 +64,7 @@ public class VOMLogic extends RecipeLogic{
                     }
                 }
             }
-            if (match2 != null ) {
+            if (match2 != null) {
                 if (match2.matchRecipe(this.machine).isSuccess() && match2.matchTickRecipe(this.machine).isSuccess() && !getMachine().overheat) {
                     setupRecipe(match2);
                     if (getMachine().onWorking()) {
@@ -76,26 +75,30 @@ public class VOMLogic extends RecipeLogic{
         }
     }
 
-    public GTRecipe getVOMRecipe() {
-            var recipe = GTRecipeBuilder.ofRaw()
-                    .inputFluids(getMachine().PYROTHEUM_STACK, getMachine().CRYOTHEUM_STACK)
-                    .duration(20)
-                    .inputEU(GTValues.V[getMachine().tier]);
-            for (int i = 0; i < getMachine().temperature/100; i++) {
-                recipe.outputItems(ORES.get(GTUtil.getRandomItem(GTValues.RNG, ORES, ORES.size())).getValue(), getMachine().temperature / 100);
-            }
-
-                return recipe.buildRawRecipe();
-    }
-    public GTRecipe getPyrotheumRecipe() {
-            var recipe = GTRecipeBuilder.ofRaw()
-                    .inputFluids(getMachine().PYROTHEUM_STACK)
-                    .duration(20)
-                    .inputEU(GTValues.V[getMachine().tier]);
-        for (int i = 0; i < getMachine().temperature/100; i++) {
+    public GTRecipe getCryotheumRecipe() {
+        var recipe = GTRecipeBuilder.ofRaw()
+                .inputFluids(getMachine().PYROTHEUM_STACK, getMachine().CRYOTHEUM_STACK, getMachine().DRILLING_MUD_STACK)
+                .outputFluids(getMachine().USED_DRILLING_MUD_STACK)
+                .duration(20)
+                .inputEU(GTValues.V[getMachine().tier]);
+        for (int i = 0; i < getMachine().temperature / 100; i++) {
+            // TODO formula plus blacklist for ores
+            // genuinely how the fuck does this even work
             recipe.outputItems(ORES.get(GTUtil.getRandomItem(GTValues.RNG, ORES, ORES.size())).getValue(), getMachine().temperature / 100);
         }
-                return recipe.buildRawRecipe();
+        return recipe.buildRawRecipe();
+    }
+
+    public GTRecipe getPyrotheumRecipe() {
+        var recipe = GTRecipeBuilder.ofRaw()
+                .inputFluids(getMachine().PYROTHEUM_STACK, getMachine().DRILLING_MUD_STACK)
+                .outputFluids(getMachine().USED_DRILLING_MUD_STACK)
+                .duration(20)
+                .inputEU(GTValues.V[getMachine().tier]);
+        for (int i = 0; i < getMachine().temperature / 100; i++) {
+            recipe.outputItems(ORES.get(GTUtil.getRandomItem(GTValues.RNG, ORES, ORES.size())).getValue(), getMachine().temperature / 100);
+        }
+        return recipe.buildRawRecipe();
     }
 
 

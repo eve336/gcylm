@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "examplemod:block/misc/taranium_charge_side",
+    "top": "examplemod:block/misc/taranium_charge_top_bottom"
+  }
+}

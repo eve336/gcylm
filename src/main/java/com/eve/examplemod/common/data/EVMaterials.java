@@ -151,56 +151,48 @@ public class EVMaterials {
 
 
         //Nuclear Properties
-        Curium246.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Curium247, 1000)));
-        Plutonium244.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium245, 1100, Curium245, 8900)));
-        Thorium232.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Thorium233, 100, Protactinium233, 1000, Uranium233, 8900)));
-        Thorium233.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Protactinium233, 9000)));
-        Protactinium233.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium233, 9000)));
-        Uranium234.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium235, 9000)));
-        Uranium238.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Uranium239, 100, Neptunium239, 1000, Plutonium239, 8900)));
+        Thorium232.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(5, Map.of(Thorium233, 100, Protactinium233, 1000, Uranium233, 8900)));
+        Thorium233.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(6, Map.of(Protactinium233, 9000)));
+        Uranium234.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(10, Map.of(Uranium235, 9000)));
+        Uranium238.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(12, Map.of(Uranium239, 100, Neptunium239, 1000, Plutonium239, 8900)));
 
-        Neptunium237.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Protactinium233, 9000)));
-        Neptunium239.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium239, 9000)));
-        Plutonium240.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium241, 9000)));
-        Plutonium245.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
-        Americium243.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Neptunium239, 9000)));
-        Americium245.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Curium245, 9000)));
-        Americium241.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Plutonium241, 9000)));
-        Curium250.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
-                Curium251, 100,
-                Berkelium251, 1000,
-                Californium251, 8900
-        )));
-        Thorium.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
-                Thorium233, 100,
-                Protactinium233, 1000,
-                Uranium233, 8900
-        )));
-        Curium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
-        Berkelium249.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Americium245, 9000)));
-        Berkelium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium251, 9000)));
-        Berkelium247.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Curium247, 9000)));
-        Californium252.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium253, 9000)));
-        Californium256.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
-                Californium257, 100,
-                Einsteinium257, 1000,
-                Fermium257, 8900
-        )));
-        Californium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Einsteinium257, 9000)));
-        Einsteinium255.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Berkelium251, 9000)));
-        Einsteinium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium257, 9000)));
-        Einsteinium253.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Californium253, 9000)));
-        Fermium258.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium259, 9000)));
-        Fermium262.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(
-                Fermium263, 1000,
-                Mendelevium263, 9000
-        )));
-        Fermium263.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Mendelevium263, 9000)));
-        Mendelevium261.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Einsteinium257, 9000)));
-        Mendelevium259.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(0, Map.of(Fermium259, 9000)));
-        Fermium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(90, Map.of()));
+        Neptunium237.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(31, Map.of(Protactinium233, 9000)));
+        Neptunium239.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(36, Map.of(Plutonium239, 9000)));
+
+        Americium243.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(85, Map.of(Neptunium239, 9000)));
+        Americium241.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(98, Map.of(Plutonium241, 9000)));
+        Americium245.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(94, Map.of(Curium245, 9000)));
+
+        Curium246.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Curium247, 1000)));
+        Plutonium244.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Plutonium245, 1100, Curium245, 8900)));
+        Protactinium233.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Uranium233, 9000)));
 
 
+
+        Plutonium240.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Plutonium241, 9000)));
+        Plutonium245.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Americium245, 9000)));
+
+        Curium250.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Curium251, 100, Berkelium251, 1000, Californium251, 8900)));
+        Thorium.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Thorium233, 100, Protactinium233, 1000, Uranium233, 8900)));
+        Curium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Americium245, 9000)));
+        Berkelium249.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Americium245, 9000)));
+        Berkelium251.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Californium251, 9000)));
+        Berkelium247.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Curium247, 9000)));
+        Californium252.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Californium253, 9000)));
+        Californium256.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Californium257, 100, Einsteinium257, 1000, Fermium257, 8900)));
+        Californium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Einsteinium257, 9000)));
+        Einsteinium255.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Berkelium251, 9000)));
+        Einsteinium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Fermium257, 9000)));
+        Einsteinium253.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Californium253, 9000)));
+        Fermium258.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Fermium259, 9000)));
+        Fermium262.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Fermium263, 1000, Mendelevium263, 9000)));
+        Fermium263.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Mendelevium263, 9000)));
+        Mendelevium261.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Einsteinium257, 9000)));
+        Mendelevium259.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of(Fermium259, 9000)));
+        Fermium257.setProperty(EVPropertyKey.NUCLEAR, new EVNuclearProperty(100, Map.of()));
+
+
+        // nuclear waste properties
         Protactinium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Thorium), Map.of(Protactinium233, 3000)));
         Thorium.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Uranium238), Map.of(Protactinium233, 3000)));
         GTMaterials.Uranium238.setProperty(EVPropertyKey.WASTE, new EVWasteProperty(Set.of(Neptunium), Map.of(Uranium238, 3000)));
@@ -447,7 +439,7 @@ public class EVMaterials {
             .ingot()
             .color(Thorium.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE, FISSILE_OXIDE)
             .element(Th233)
             .buildAndRegister()
             .setFormula("Th233", true);
@@ -456,7 +448,7 @@ public class EVMaterials {
             .ingot()
             .color(Thorium.getMaterialRGB())
             .iconSet(METALLIC)
-            .flags(GENERATE_NUCLEAR)
+            .flags(GENERATE_NUCLEAR, FISSILE, FISSILE_OXIDE)
             .element(Th232)
             .buildAndRegister()
             .setFormula("Th232", true);
@@ -719,17 +711,16 @@ public class EVMaterials {
             .iconSet(DULL)
             .dust(1)
             .components(Redstone, 1, Water, 1)
-            .flags(NO_SMELTING, MORTAR_GRINDABLE)
+            .flags(NO_SMELTING, MORTAR_GRINDABLE, AUTOGEN_MIXER_RECIPE)
             .liquid()
             .buildAndRegister();
 
     public static final Material Cryotheum = new Material.Builder(EVMain.id("cryotheum"))
-
             .color(0x01F3F6)
             .iconSet(SAND)
             .dust(1)
             .components(Redstone, 1, Blizz, 2, Water, 1)
-            .flags(DISABLE_DECOMPOSITION, EXCLUDE_BLOCK_CRAFTING_RECIPES)
+            .flags(DISABLE_DECOMPOSITION, EXCLUDE_BLOCK_CRAFTING_RECIPES, AUTOGEN_MIXER_RECIPE)
             .liquid()
             .buildAndRegister();
 
@@ -1196,7 +1187,7 @@ public class EVMaterials {
             .appendFlags(CORE_METAL)
             .buildAndRegister();
 
-    public static final Material CarbonFluoride = new Material.Builder(EVMain.id("carbon_fluoride"))
+    public static final Material CarbonFluoride = new Material.Builder(EVMain.id("carbon_tetrafluoride"))
             .color(0xE6E6E6)
             .fluid()
             .buildAndRegister()
@@ -3729,132 +3720,6 @@ public class EVMaterials {
             .fluid()
             .buildAndRegister()
             .setFormula("n", true);
-
-    public static final Material HotMetastableOganesson = new Material.Builder(EVMain.id("hot_oganesson"))
-            .color(0x521973)
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Og", true);
-
-    public static final Material TitaniumTetrafluoride = new Material.Builder(EVMain.id("titanium_tetrafluoride"))
-            .color(Titanium.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("TiF4", true);
-
-    public static final Material Titanium50Tetrafluoride = new Material.Builder(EVMain.id("titanium50_tetrafluoride"))
-            .color(Titanium.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("TiF4", true);
-
-    public static final Material Carbon12 = new Material.Builder(EVMain.id("carbon_12"))
-            .color(Carbon.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("C_12", true);
-
-    public static final Material Carbon13 = new Material.Builder(EVMain.id("carbon_13"))
-            .color(Carbon.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("C_13", true);
-
-    public static final Material Nitrogen14 = new Material.Builder(EVMain.id("nitrogen_14"))
-            .color(Nitrogen.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("N_14", true);
-
-    public static final Material Nitrogen15 = new Material.Builder(EVMain.id("nitrogen_15"))
-            .color(Nitrogen.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("N_15", true);
-
-    public static final Material CNOcatalyst = new Material.Builder(EVMain.id("cno_catalyst"))
-            .color((Nitrogen.getMaterialRGB() + Carbon.getMaterialRGB()) / 2)
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("(C_12)(C_13)(N_14)(N_15)", true);
-
-    public static final Material Calcium44 = new Material.Builder(EVMain.id("calcium_44"))
-            .color(Calcium.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Ca_44", true);
-
-    public static final Material OgannesonBreedingBase = new Material.Builder(EVMain.id("og_breeding_base"))
-            .color((Titanium.getMaterialRGB() + 0xA85A12) / 2)
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("(Ti_50)Cf_252", true);
-
-    public static final Material QuassifissioningPlasma = new Material.Builder(EVMain.id("quasifissioning_plasma"))
-            .color(0xD5CB54)
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("???", true);
-
-    public static final Material Ytterbium178 = new Material.Builder(EVMain.id("ytterbium_178"))
-            .color(Ytterbium.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Yb_178", true);
-
-    public static final Material FlYbPlasma = new Material.Builder(EVMain.id("flyb_plasma"))
-            .color((Ytterbium.getMaterialRGB() + 0x521973) / 2)
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("FlYb", true);
-
-    public static final Material Chromium48 = new Material.Builder(EVMain.id("chromium48"))
-            .color(Chromium.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Cr_48", true);
-
-    public static final Material Iron52 = new Material.Builder(EVMain.id("iron52"))
-            .color(Iron.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Fe_52", true);
-
-    public static final Material Nickel56 = new Material.Builder(EVMain.id("nickel56"))
-            .color(Nickel.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Ni_56", true);
-
-    public static final Material Titanium44 = new Material.Builder(EVMain.id("titanium44"))
-            .color(Titanium.getMaterialRGB())
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("Ti_44", true);
-
-    public static final Material HeliumCNO = new Material.Builder(EVMain.id("helium_rich_cno"))
-            .color(0x59ffa6)
-            .iconSet(DULL)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("He?", true);
 
     public static final Material SeleniteTelluriteMix = new Material.Builder(EVMain.id("selenite_tellurite_mixture"))
             .color(0x765A30)
@@ -6884,6 +6749,7 @@ public class EVMaterials {
 
     public static final Material SodiumBromide = new Material.Builder(EVMain.id("sodium_bromide"))
             .color(0xfeaffc)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("NaBr", true);
@@ -7143,78 +7009,7 @@ public class EVMaterials {
             .buildAndRegister()
             .setFormula("Lu/Tm:YVO?", true);
 
-    public static final Material RawSienna = new Material.Builder(EVMain.id("raw_siena"))
-            .color(0x663300)
-            .iconSet(MaterialIconSet.ROUGH)
-            .buildAndRegister()
-            .setFormula("SiO2(MnO2)(FeO2)", true);
 
-    public static final Material BurnedSienna = new Material.Builder(EVMain.id("burned_siena"))
-            .color(0xff0000)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("SiO2(MnO2)(FeO2)", true);
-
-    public static final Material BismuthVanadate = new Material.Builder(EVMain.id("bismuth_vanadate"))
-            .color(0xffff00)
-            .iconSet(MaterialIconSet.SHINY)
-            .buildAndRegister()
-            .setFormula("BiVO4", true);
-
-    public static final Material CopperArsenite = new Material.Builder(EVMain.id("copper_arsenite"))
-            .color(0x66ff66)
-            .iconSet(MaterialIconSet.ROUGH)
-            .buildAndRegister()
-            .setFormula("Cu3(AsO4)2", true);
-
-    public static final Material MercuryIodide = new Material.Builder(EVMain.id("mercury_iodide"))
-            .color(0xff0000)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("HgI2", true);
-
-    public static final Material TitaniumYellow = new Material.Builder(EVMain.id("titanium_yellow"))
-            .color(0xffff00)
-            .iconSet(MaterialIconSet.SHINY)
-            .buildAndRegister()
-            .setFormula("NiO(Sb2O3)(TiO2)20", true);
-
-    public static final Material CobaltZincOxide = new Material.Builder(EVMain.id("cobalt_zinc_oxide"))
-            .color(0x00ffff)
-            .iconSet(MaterialIconSet.SHINY)
-            .buildAndRegister()
-            .setFormula("CoZn4O5", true);
-
-    public static final Material ScheelesGreen = new Material.Builder(EVMain.id("scheeles_green"))
-            .color(0x00ff00)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("AsCuHO3", true);
-
-    public static final Material CobaltAluminate = new Material.Builder(EVMain.id("cobalt_aluminate"))
-            .color(0x0000ff)
-            .iconSet(MaterialIconSet.FINE)
-            .buildAndRegister()
-            .setFormula("Al2Co2O5", true);
-
-
-    public static final Material AmmoniumManganesePhosphate = new Material.Builder(EVMain.id("ammonium_manganese_phosphate"))
-            .color(0x660066)
-            .iconSet(MaterialIconSet.SHINY)
-            .buildAndRegister()
-            .setFormula("NH4MnPO4", true);
-
-    public static final Material HanPurple = new Material.Builder(EVMain.id("hans_purple"))
-            .color(0x660066)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("BaCuSi2O6", true);
-
-    public static final Material ChromeYellow = new Material.Builder(EVMain.id("chrome_yellow"))
-            .color(0xffff00)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("PbCrO4", true);
 
     public static final Material Jasper = new Material.Builder(EVMain.id("jasper"))
             .color(0xC85050)

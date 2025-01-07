@@ -1,6 +1,8 @@
 {
   "values": [
     "examplemod:leptonic_charge",
+    "examplemod:naquadria_charge",
+    "examplemod:taranium_charge",
     "examplemod:qcd_charge"
   ]
 }

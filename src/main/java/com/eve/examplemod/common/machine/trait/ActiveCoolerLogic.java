@@ -26,12 +26,9 @@ public class ActiveCoolerLogic extends RecipeLogic {
 
     @Override
     public void serverTick() {
-        System.out.println(this.getStatus());
-        System.out.println(getMachine().fuelCellsEmpty());
         if ((!isActive || isIdle()) && !getMachine().fuelCellsEmpty()) {
             getMachine().fuelCellsEmpty();
             boolean b = false;
-            System.out.println(getMachine().fuelCellList);
             getMachine().fuelCellsEmpty();
             for (IFuelCell cell : getMachine().fuelCellList) {
                 if (cell.getHeat() > getMachine().cooling()) {
