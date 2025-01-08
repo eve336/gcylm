@@ -25,6 +25,8 @@ import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
 
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.event.level.PistonEvent;
 
 
 import java.util.ArrayList;
@@ -298,16 +300,22 @@ public class EVMachines{
             .recipeType(EVRecipeTypes.NUCLEAR_REACTOR_RECIPES)
             .alwaysTryModifyRecipe(true)
             .appearanceBlock(CASING_STEEL_SOLID)
-            .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("FFFFF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
-                    .aisle("FFFFF", "G###G", "G###G", "G###G", "FFFFF")
-                    .aisle("FFFFF", "G###G", "G###G", "G###G", "FFSFF")
-                    .aisle("FFFFF", "G###G", "G###G", "G###G", "FFFFF")
-                    .aisle("FFFFF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
-                    .where('S', Predicates.controller(blocks(definition.getBlock())))
-                    .where('F', blocks(CASING_TITANIUM_STABLE.get()).or(Predicates.autoAbilities(definition.getRecipeTypes())))
-                    .where('G', blocks(CASING_TITANIUM_STABLE.get()).or(blocks(CASING_LAMINATED_GLASS.get())).or(abilities(PartAbility.PASSTHROUGH_HATCH)))
-                    .where('#', Predicates.any())
+            .pattern((definition) -> FactoryBlockPattern.start()
+                    .aisle("XXXXX", "XXXXX", "XXXXX", "XXXXX", "XXXXX")
+                    .aisle("XXXXX", "X   X", "X   X", "X   X", "XFFFX")
+                    .aisle("XXXXX", "X   X", "X   X", "X   X", "XFSFX")
+                    .aisle("XXXXX", "X   X", "X   X", "X   X", "XFFFX")
+                    .aisle("XXXXX", "XXXXX", "XXXXX", "XXXXX", "XXXXX")
+                    .where('X', blocks(CASING_TITANIUM_STABLE.get())
+                            .or(blocks(CASING_LAMINATED_GLASS.get()))
+                            .or(abilities(PartAbility.PASSTHROUGH_HATCH).setPreviewCount(3))
+                            .or(Predicates.autoAbilities(definition.getRecipeTypes()))
+                            .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1, 1).setMaxGlobalLimited(2)))
+                    .where('S', controller(blocks(definition.getBlock())))
+                    .where(' ', any())
+                    .where('E', abilities(PartAbility.INPUT_ENERGY))
+                    .where('F', cleanroomFilters())
+                    .where('I', abilities(PartAbility.PASSTHROUGH_HATCH))
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_stable_titanium"),
                     GTCEu.id("block/multiblock/cleanroom"))

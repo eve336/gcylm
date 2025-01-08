@@ -418,9 +418,7 @@ public class NuclearReactor extends WorkableElectricMultiblockMachine {
         TraceabilityPredicate wallPredicate = states(getCasingState(), getGlassState());
         TraceabilityPredicate basePredicate = Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1)
                 .setMaxGlobalLimited(2)
-                .or(blocks(GTMachines.MAINTENANCE_HATCH.get(), GTMachines.AUTO_MAINTENANCE_HATCH.get())
-                        .setMinGlobalLimited(ConfigHolder.INSTANCE.machines.enableMaintenance ? 1 : 0)
-                        .setMaxGlobalLimited(1))
+                .or(Predicates.autoAbilities(getDefinition().getRecipeTypes()))
                 .or(abilities(PartAbility.PASSTHROUGH_HATCH).setMaxGlobalLimited(30));
 
         return FactoryBlockPattern.start(LEFT, FRONT, UP)
