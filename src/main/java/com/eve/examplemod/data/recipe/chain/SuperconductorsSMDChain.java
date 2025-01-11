@@ -1,6 +1,7 @@
 package com.eve.examplemod.data.recipe.chain;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -719,7 +720,7 @@ public class SuperconductorsSMDChain {
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(340).EUt(8380000)
                 .inputItems(ACTINIUM_PLASMA_CONTAINMENT_CELL)
-                .inputFluids(LiquidHelium.getFluid(24000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID, 24000))
                 .outputItems(ActiniumSuperhydride,13)
                 .outputItems(PLASMA_CONTAINMENT_CELL)
                 .outputFluids(Helium.getFluid(24000))

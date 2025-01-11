@@ -1,6 +1,7 @@
 package com.eve.examplemod.data.recipe.chain;
 
 import com.eve.examplemod.common.data.EVMaterials;
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
@@ -60,7 +61,7 @@ public class UHVMaterials {
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(RHENIUM_PLASMA_CONTAINMENT_CELL)
-                .inputFluids(LiquidHelium.getFluid(16000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,16000))
                 .outputFluids(Helium.getFluid(16000))
                 .notConsumable(PLATE_FIELD_SHAPE)
                 .outputItems(DEGENERATE_RHENIUM_PLATE)
@@ -71,7 +72,7 @@ public class UHVMaterials {
 
         VACUUM_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputFluids(Helium.getFluid(5000))
-                .outputFluids(LiquidHelium.getFluid(5000))
+                .outputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,5000))
                 .EUt(7680)
                 .duration(20)
                 .save(provider);
@@ -147,7 +148,7 @@ public class UHVMaterials {
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("uhv_materials_" + chainNumber++)
                 .inputItems(NEUTRON_PLASMA_CONTAINMENT_CELL)
-                .inputFluids(LiquidHelium.getFluid(32000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,32000))
                 .outputFluids(Helium.getFluid(32000))
                 .notConsumable(INGOT_FIELD_SHAPE)
                 .outputItems(ingot, Neutronium)

@@ -12,6 +12,7 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
@@ -201,7 +202,7 @@ public class UltimateMaterials {
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("ultimate_materials_" + chainNumber++).duration(60).EUt(7680)
-                .inputFluids(LiquidHelium.getFluid(1000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,1000))
                 .inputFluids(LiquidHelium3.getFluid(1000))
                 .outputFluids(LiquidEnrichedHelium.getFluid(2000))
                 .save(provider);

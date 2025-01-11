@@ -40,7 +40,7 @@ public class WormholeGeneratorChain {
         PLASMA_CONDENSER_RECIPES.recipeBuilder("wormhole_generator_chain_" + chainNumber++).duration(500).EUt(400000)
                 .inputItems(NEUTRON_PLASMA_CONTAINMENT_CELL)
                 .notConsumable(SPHERE_FIELD_SHAPE)
-                .inputFluids(LiquidHelium.getFluid(32000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,32000))
                 .outputItems(NEUTRONIUM_SPHERE,4)
                 .outputItems(PLASMA_CONTAINMENT_CELL)
                 .outputFluids(Helium.getFluid(32000))

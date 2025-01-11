@@ -349,14 +349,14 @@ public class TaraniumChain {
 
         CENTRIFUGE_RECIPES.recipeBuilder("taranium_chain_" + chainNumber++)
                 .inputFluids(TaraniumPoorLiquidHeliumMix.getFluid(1200))
-                .outputFluids(LiquidHelium.getFluid(1000))
+                .outputFluids(Helium.getFluid(FluidStorageKeys.LIQUID, 1000))
                 .outputFluids(DustyLiquidHelium3.getFluid(200))
                 .duration(80)
                 .EUt(8000)
                 .save(provider);
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("taranium_chain_" + chainNumber++)
-                .inputFluids(LiquidHelium.getFluid(100))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,100))
                 .inputFluids(TaraniumRichHelium4.getFluid(FluidStorageKeys.PLASMA, 1000))
                 .outputFluids(TaraniumRichHelium4.getFluid(1000))
                 .outputFluids(Helium.getFluid(100))
@@ -366,7 +366,7 @@ public class TaraniumChain {
                 .save(provider);
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("taranium_chain_" + chainNumber++)
-                .inputFluids(LiquidHelium.getFluid(100))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,100))
                 .inputFluids(Hydrogen.getFluid(FluidStorageKeys.PLASMA, 1000))
                 .outputFluids(Hydrogen.getFluid(1000))
                 .outputFluids(Helium.getFluid(100))

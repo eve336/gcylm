@@ -1,13 +1,15 @@
 {
   "required": true,
-  "package": "com.example.examplemod.mixin",
+  "package": "com.eve.examplemod.mixins",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "mixins": [
+    "RubberTreeMixin"
   ],
   "client": [
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "examplemod.refmap.json"
 }

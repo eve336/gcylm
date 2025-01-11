@@ -1,5 +1,6 @@
 package com.eve.examplemod.data.recipe.circuit;
 
+import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -573,7 +574,7 @@ public class CircuitComponentRecipes {
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(134217728)
                 .inputFluids(HighEnergyQGP.getFluid(L))
-                .inputFluids(LiquidHelium.getFluid(10000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,10000))
                 .outputFluids(Helium.getFluid(10000))
                 .notConsumable(PLATE_FIELD_SHAPE)
                 .outputItems(QCD_PROTECTIVE_PLATING)
@@ -581,7 +582,7 @@ public class CircuitComponentRecipes {
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(40).EUt(134217728)
                 .inputFluids(QCDMatter.getFluid(L))
-                .inputFluids(LiquidHelium.getFluid(20000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,20000))
                 .outputFluids(Helium.getFluid(20000))
                 .notConsumable(PLATE_FIELD_SHAPE)
                 .outputItems(plate, QCDMatter)
@@ -589,7 +590,7 @@ public class CircuitComponentRecipes {
 
         PLASMA_CONDENSER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20).EUt(134217728)
                 .inputFluids(QCDMatter.getFluid(L / 2))
-                .inputFluids(LiquidHelium.getFluid(10000))
+                .inputFluids(Helium.getFluid(FluidStorageKeys.LIQUID,10000))
                 .outputFluids(Helium.getFluid(10000))
                 .notConsumable(ROD_FIELD_SHAPE)
                 .outputItems(rod, QCDMatter)

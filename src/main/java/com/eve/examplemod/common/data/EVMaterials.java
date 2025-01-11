@@ -2890,12 +2890,6 @@ public class EVMaterials {
             .buildAndRegister()
             .setFormula("Rh", false);
 
-    public static final Material LiquidHelium = new Material.Builder(EVMain.id("liquid_helium"))
-            .color(Helium.getMaterialRGB())
-            .fluid()
-            .buildAndRegister()
-            .setFormula("He", true);
-
     public static final Material BoricAcid = new Material.Builder(EVMain.id("boric_acid"))
             .color(0xD5D2D7)
             .fluid()
@@ -5363,7 +5357,7 @@ public class EVMaterials {
             .setFormula("Xe", true);
 
     public static final Material TaraniumPoorLiquidHeliumMix = new Material.Builder(EVMain.id("taranium_poor_liquid_helium_mix")).fluid()
-            .color(TaraniumPoorLiquidHelium.getMaterialRGB() * 10 / 11 + LiquidHelium.getMaterialRGB() / 11)
+            .color(TaraniumPoorLiquidHelium.getMaterialRGB() * 10 / 11 + Helium.getMaterialRGB() / 11)
             .buildAndRegister();
 
     public static final Material HydroiodicAcid = new Material.Builder(EVMain.id("hydroiodic_acid")).fluid()
