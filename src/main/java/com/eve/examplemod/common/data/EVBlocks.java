@@ -17,16 +17,23 @@ import com.gregtechceu.gtceu.common.data.GTModels;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.client.gui.spectator.categories.TeleportToPlayerMenuCategory;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.MapColor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
 
+import static com.gregtechceu.gtceu.common.data.GTBlocks.RUBBER_LEAVES_DROPPING_CHANCE;
+import static com.gregtechceu.gtceu.common.data.GTModels.createModelBlockState;
 import static com.gregtechceu.gtceu.common.registry.GTRegistration.REGISTRATE;
 
 public class EVBlocks {
@@ -82,6 +89,23 @@ public class EVBlocks {
                     EVMain.id("block/misc/qcd_charge_side"),
                     EVMain.id("block/misc/qcd_charge_top_bottom"))))
             .simpleItem()
+            .register();
+
+    public static final BlockEntry<SaplingBlock> STRAIGHT_RUBBER_SAPLING = EVRegistries.REGISTRATE
+            .block("straight_rubber_sapling", properties ->new SaplingBlock(new AbstractTreeGrower() {
+                @Override
+                protected @NotNull ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@NotNull RandomSource random, boolean hasFlowers) {
+                    return EVConfiguredFeatures.STRAIGHT_RUBBER;
+                }
+            }, properties))
+            .initialProperties(() -> Blocks.OAK_SAPLING)
+            .lang("Straight Rubber Sapling")
+            .blockstate(GTModels::createCrossBlockState)
+            .addLayer(() -> RenderType::cutoutMipped)
+            .tag(BlockTags.SAPLINGS)
+            .item()
+            .model(GTModels::rubberTreeSaplingModel)
+            .build()
             .register();
 
 

@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class RubberTreeMixin {
     @Inject(method = "onStructureFormed", at = @At("HEAD"), remap = false)
     private void mixin(CallbackInfo ci) {
-        System.out.println("ohio");
+//        System.out.println("ohio");
     }
 }

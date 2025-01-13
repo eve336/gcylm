@@ -1,8 +1,10 @@
 package com.eve.examplemod.data.recipe;
 
+import com.eve.examplemod.common.data.EVBlocks;
 import com.eve.examplemod.common.data.EVMachines;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -68,6 +70,11 @@ public class MiscRecipes {
                 "QQ",
                 "QQ",
                 'Q', QUARTZ);
+
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("straight_rubber"),
+                EVBlocks.STRAIGHT_RUBBER_SAPLING.asStack(),
+                RUBBER_SAPLING.asStack(),
+                STICK);
 
         VanillaRecipeHelper.addShapelessRecipe(provider, id("ulv_motor"),
                 ELECTRIC_MOTOR_ULV.asStack(3),
