@@ -80,9 +80,6 @@ public class VOMLogic extends RecipeLogic {
                 return false;
             }
         });
-        System.out.println(GTMaterials.Trinium.getName());
-        blacklist.forEach(System.out::println);
-        System.out.println(getMachine().tier);
     }
 
 
