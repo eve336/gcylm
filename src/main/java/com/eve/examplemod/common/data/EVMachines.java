@@ -83,6 +83,7 @@ public class EVMachines{
 //                    .register(),
 //            DUAL_HATCH_TIERS);
 
+    // TODO machine texture
     public static final MachineDefinition[] CHEMICAL_DEHYDRATOR = registerSimpleMachines("chemical_dehydrator", EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES);
 
     public static final MachineDefinition[] ROBOT_ARM_COMPONENT = registerTieredMachines("robot_arm_component",
@@ -153,7 +154,7 @@ public class EVMachines{
 
 
     public static final MultiblockMachineDefinition VOM1 = REGISTRATE
-            .multiblock("vom", holder -> new VoidOreMiner(holder, UHV, 9000))
+            .multiblock("vom", holder -> new VoidOreMiner(holder, UV, 9000))
             .tooltips(defaultEnvironmentRequirement())
             .rotationState(RotationState.ALL)
             .recipeType(GTRecipeTypes.DUMMY_RECIPES)

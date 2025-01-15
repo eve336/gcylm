@@ -269,11 +269,14 @@ public class EVMaterials {
         Americium.addFlags(GENERATE_NUCLEAR);
         Neptunium.addFlags(GENERATE_NUCLEAR);
 
-        if (EVConfig.INSTANCE.programmerArt) {
+        if (EVConfig.INSTANCE.programmerArtEpoxy) {
             ReinforcedEpoxyResin.setMaterialARGB(7491595);
             ReinforcedEpoxyResin.setMaterialIconSet(DULL);
             Epoxy.setMaterialARGB(0xC88C14);
             Epoxy.setMaterialIconSet(DULL);
+        }
+        if (EVConfig.INSTANCE.darkerSteel){
+            Steel.setMaterialARGB(0x868686);
         }
 
         Set<Material> set = new HashSet<>();

@@ -38,7 +38,7 @@ public class VoidOreMiner extends WorkableElectricMultiblockMachine
     @Override
     public void addDisplayText(List<Component> textList) {
         super.addDisplayText(textList);
-        textList.add(Component.translatable("working: " + onWorking()));
+        textList.add(Component.translatable("working: " + recipeLogic.isWorking()));
         textList.add(Component.translatable("Temperaure: " + temperature));
         textList.add(Component.translatable("cryotheum: " + cryotheum));
     }
@@ -68,6 +68,7 @@ public class VoidOreMiner extends WorkableElectricMultiblockMachine
     public void onStructureFormed() {
         super.onStructureFormed();
         updateServerTickSubscription();
+        getRecipeLogic().updateBlacklist();
     }
 
     @Override
@@ -80,6 +81,7 @@ public class VoidOreMiner extends WorkableElectricMultiblockMachine
         super.onLoad();
         if(!isRemote() && isFormed()) {
             updateServerTickSubscription();
+            getRecipeLogic().updateBlacklist();
         }
     }
 

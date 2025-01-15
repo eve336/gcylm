@@ -2,6 +2,7 @@ package com.eve.examplemod.common.machine.trait;
 
 
 import com.eve.examplemod.common.machine.multiblock.VoidOreMiner;
+import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -12,6 +13,7 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.gregtechceu.gtceu.utils.GTUtil;
 
@@ -25,13 +27,15 @@ import java.util.Map;
 
 public class VOMLogic extends RecipeLogic {
 
-    public static final List<Map.Entry<Integer, ItemStack>> ORES = new ArrayList<>();
+    public static List<Material> OreMaterial = new ArrayList<>();
+
+    public final List<Map.Entry<Integer, ItemStack>> ORES = new ArrayList<>();
 
     static {
         for (MaterialRegistry registry : GTCEuAPI.materialManager.getRegistries()) {
             for (Material material : registry.getAllMaterials()) {
                 if (material.hasProperty(PropertyKey.ORE)) {
-                    ORES.add(Map.entry(1, ChemicalHelper.get(TagPrefix.ore, material)));
+                    OreMaterial.add(material);
                 }
             }
         }
@@ -42,9 +46,43 @@ public class VOMLogic extends RecipeLogic {
         super(machine);
     }
 
+
+
     @Override
     public VoidOreMiner getMachine() {
         return (VoidOreMiner) super.getMachine();
+    }
+
+    // surely theres a better way to do this lmao
+    public void updateBlacklist() {
+
+
+        List<String> blacklist = new ArrayList<>();
+
+        // VOM1
+        if (getMachine().tier == GTValues.UV) {
+            blacklist = List.of(EVConfig.INSTANCE.VOM1Blacklist);
+        }
+        else if (getMachine().tier == GTValues.UHV){
+            blacklist = List.of(EVConfig.INSTANCE.VOM2Blacklist);
+        }
+        else if (getMachine().tier == GTValues.UEV){
+            blacklist = List.of(EVConfig.INSTANCE.VOM3Blacklist);
+        }
+
+        List<String> finalBlacklist = blacklist;
+        OreMaterial.removeIf(ore -> {
+            if (finalBlacklist.contains(ore.getName())) {
+                return true;
+            }
+            else {
+                ORES.add(Map.entry(1, ChemicalHelper.get(TagPrefix.ore, ore)));
+                return false;
+            }
+        });
+        System.out.println(GTMaterials.Trinium.getName());
+        blacklist.forEach(System.out::println);
+        System.out.println(getMachine().tier);
     }
 
 
@@ -75,6 +113,8 @@ public class VOMLogic extends RecipeLogic {
         }
     }
 
+    // gety someone else to make vom output ores formula for me
+
     public GTRecipe getCryotheumRecipe() {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputFluids(getMachine().PYROTHEUM_STACK, getMachine().CRYOTHEUM_STACK, getMachine().DRILLING_MUD_STACK)
@@ -90,6 +130,7 @@ public class VOMLogic extends RecipeLogic {
     }
 
     public GTRecipe getPyrotheumRecipe() {
+        int numberOres = getMachine().temperature / 1000;
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputFluids(getMachine().PYROTHEUM_STACK, getMachine().DRILLING_MUD_STACK)
                 .outputFluids(getMachine().USED_DRILLING_MUD_STACK)

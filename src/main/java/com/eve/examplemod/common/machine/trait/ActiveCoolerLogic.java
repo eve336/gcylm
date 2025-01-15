@@ -23,6 +23,7 @@ public class ActiveCoolerLogic extends RecipeLogic {
     // does this work??
 
     // TODO fix jank
+    // no it works
 
     @Override
     public void serverTick() {

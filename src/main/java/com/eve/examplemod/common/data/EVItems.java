@@ -20,14 +20,6 @@ import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class EVItems {
 
-
-    // TODO Hot wrought iron ingot that hurts you
-
-
-
-
-
-
     public static ItemEntry<Item> SMD_CAPACITOR_REFINED = EVRegistries.REGISTRATE.item("smd_capacitor_refined", Item::new)
             .register();
 
@@ -226,7 +218,7 @@ public class EVItems {
             .lang("Max Conveyor Module")
             .register();
 
-    public static ItemEntry<ComponentItem> robot_arm_max = EVRegistries.REGISTRATE.item("robot_arm_max", ComponentItem::create)
+    public static ItemEntry<ComponentItem> ROBOT_ARM_MAX = EVRegistries.REGISTRATE.item("robot_arm_max", ComponentItem::create)
             .onRegister(attach(new CoverPlaceBehavior(EVCovers.ROBOT_ARM[GTValues.MAX])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.robot.arm.tooltip"));

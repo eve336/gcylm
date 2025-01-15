@@ -11,7 +11,6 @@ import net.minecraft.world.phys.BlockHitResult;
 @Getter
 public class ComponentPartBlock extends MultiblockPartMachine implements IComponentPart{
 
-
     public int Tier;
 
     public ComponentPartBlock(IMachineBlockEntity holder, int Tier) {

@@ -62,8 +62,9 @@ public class MiscRecipes {
         VanillaRecipeHelper.addSmeltingRecipe(provider, id("precious_metal_smelting"),
                 ChemicalHelper.get(ingot, PreciousMetal), ChemicalHelper.get(nugget, Gold, 2), 1);
 
-        VanillaRecipeHelper.addBlastingRecipe(provider, id("precious_metal_blasting"),
-                ChemicalHelper.get(ingot, PreciousMetal).kjs$asIngredient(), ChemicalHelper.get(nugget, Gold, 2), 1);
+        // todo fix blasting recipe
+//        VanillaRecipeHelper.addBlastingRecipe(provider, id("precious_metal_blasting"),
+//                ChemicalHelper.get(ingot, PreciousMetal), ChemicalHelper.get(nugget, Gold, 2), 1);
 
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("quartz_block_2x2"),
                 QUARTZ_BLOCK.getDefaultInstance(),

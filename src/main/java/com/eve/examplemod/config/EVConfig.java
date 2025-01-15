@@ -23,7 +23,7 @@ public class EVConfig {
 
     @Configurable
     @Configurable.Comment({"Default = false"})
-    public boolean programmerArt = false;
+    public boolean programmerArtEpoxy = false;
 
     @Configurable
     @Configurable.Comment({"Default = true"})
@@ -40,4 +40,42 @@ public class EVConfig {
     @Configurable
     @Configurable.Comment({"Default = 20 seconds"})
     public int reactorMeltdownTime = 20;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean darkerSteel = true;
+
+    // eventually change these, especially nuclear materials bc nuclear rework
+
+    @Configurable
+    public String[] VOM1Blacklist = {
+            "triniite",
+            "trinium",
+            "duranium",
+            "tritanium",
+            "rutherfordium",
+            "californium",
+            "curium",
+            "seaborgium",
+            "berkelium",
+            "fermium",
+            "einsteinium",
+            "dubnium",
+            "bohrium"
+    };
+
+    @Configurable
+    public String[] VOM2Blacklist = {
+            "trinium",
+            "fermium",
+            "bohrium",
+            "seaborgium",
+            "einsteinium"
+    };
+
+    @Configurable
+    public String[] VOM3Blacklist = {
+            "bohrium",
+            "fermium"
+    };
 }

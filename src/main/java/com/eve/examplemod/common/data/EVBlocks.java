@@ -2,39 +2,27 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.registries.EVRegistries;
-import com.eve.examplemod.common.EVCoilBlock;
 import com.eve.examplemod.common.block.explosive.LeptonicBlock;
 import com.eve.examplemod.common.block.explosive.QCDBlock;
-import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.block.ICoilType;
-import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.block.CoilBlock;
-import com.gregtechceu.gtceu.common.block.explosive.IndustrialTNTBlock;
-import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTModels;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.minecraft.client.gui.spectator.categories.TeleportToPlayerMenuCategory;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.OakTreeGrower;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Locale;
-
-import static com.gregtechceu.gtceu.common.data.GTBlocks.RUBBER_LEAVES_DROPPING_CHANCE;
-import static com.gregtechceu.gtceu.common.data.GTModels.createModelBlockState;
-import static com.gregtechceu.gtceu.common.registry.GTRegistration.REGISTRATE;
 
 public class EVBlocks {
 
@@ -92,12 +80,7 @@ public class EVBlocks {
             .register();
 
     public static final BlockEntry<SaplingBlock> STRAIGHT_RUBBER_SAPLING = EVRegistries.REGISTRATE
-            .block("straight_rubber_sapling", properties ->new SaplingBlock(new AbstractTreeGrower() {
-                @Override
-                protected @NotNull ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@NotNull RandomSource random, boolean hasFlowers) {
-                    return EVConfiguredFeatures.STRAIGHT_RUBBER;
-                }
-            }, properties))
+            .block("straight_rubber_sapling", properties -> new SaplingBlock(new StraightRubberTreeGrower(), properties.noCollission()))
             .initialProperties(() -> Blocks.OAK_SAPLING)
             .lang("Straight Rubber Sapling")
             .blockstate(GTModels::createCrossBlockState)
@@ -107,6 +90,12 @@ public class EVBlocks {
             .model(GTModels::rubberTreeSaplingModel)
             .build()
             .register();
+
+//    public static final BlockEntry<SaplingBlock> skibidi = EVRegistries.REGISTRATE
+//            .block("oak_sapling", new SaplingBlock(new StraightRubberTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
+//
+//    OAK_SAPLING = register("oak_sapling", new SaplingBlock(new OakTreeGrower(), Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
+
 
 
     private static BlockEntry<CoilBlock> createCoilBlock(ICoilType coilType) {
