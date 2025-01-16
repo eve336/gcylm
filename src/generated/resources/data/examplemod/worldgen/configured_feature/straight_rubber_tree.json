@@ -46,7 +46,7 @@
         "Name": "gtceu:rubber_log",
         "Properties": {
           "axis": "y",
-          "natural": "false"
+          "natural": "true"
         }
       }
     }

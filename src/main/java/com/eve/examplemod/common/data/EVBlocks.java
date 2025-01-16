@@ -2,6 +2,7 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.registries.EVRegistries;
+import com.eve.examplemod.common.block.Spikes;
 import com.eve.examplemod.common.block.explosive.LeptonicBlock;
 import com.eve.examplemod.common.block.explosive.QCDBlock;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
@@ -59,14 +60,7 @@ public class EVBlocks {
             .simpleItem()
             .register();
 
-    public static final BlockEntry<Block> SUPERHEAVY_BLOCK = EVRegistries.REGISTRATE
-            .block("superheavy_block", Block::new)
-            .lang("Super Heavy Block")
-            .simpleItem()
-            .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(),prov.models().cubeAll(ctx.getName(),
-                    EVMain.id("block/superheavy_block")
-                    )))
-            .register();
+
 
     public static final BlockEntry<QCDBlock> QCD_CHARGE = EVRegistries.REGISTRATE
             .block("qcd_charge", QCDBlock::new)
@@ -91,11 +85,20 @@ public class EVBlocks {
             .build()
             .register();
 
-//    public static final BlockEntry<SaplingBlock> skibidi = EVRegistries.REGISTRATE
-//            .block("oak_sapling", new SaplingBlock(new StraightRubberTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
-//
-//    OAK_SAPLING = register("oak_sapling", new SaplingBlock(new OakTreeGrower(), Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
+    public static final BlockEntry<Block> SUPERHEAVY_BLOCK = EVRegistries.REGISTRATE
+            .block("superheavy_block", Block::new)
+            .lang("Super Heavy Block")
+            .simpleItem()
+            .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(),prov.models().cubeAll(ctx.getName(),
+                    EVMain.id("block/superheavy_block")
+            )))
+            .register();
 
+    // wetware farming :3
+//    public static final BlockEntry<Spikes> SPIKES = EVRegistries.REGISTRATE
+//            .block("spikes", Spikes::new)
+//            .lang("Spikes")
+//            .register();
 
 
     private static BlockEntry<CoilBlock> createCoilBlock(ICoilType coilType) {
