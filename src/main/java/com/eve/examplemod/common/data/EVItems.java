@@ -177,26 +177,71 @@ public class EVItems {
     public static ItemEntry<Item> SMD_TRANSISTOR_COSMIC = EVRegistries.REGISTRATE.item("smd_transistor_cosmic", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> SMD_TRANSISTOR_SUPRACAUSAL = EVRegistries.REGISTRATE.item("smd_transistor_supracasual", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
-    public static ItemEntry<Item> COSMIC_PROCESSOR = EVRegistries.REGISTRATE.item("cosmic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> COSMIC_ASSEMBLY = EVRegistries.REGISTRATE.item("cosmic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> COSMIC_COMPUTER= EVRegistries.REGISTRATE.item("cosmic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> COSMIC_MAINFRAME = EVRegistries.REGISTRATE.item("cosmic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> BIOWARE_PROCESSOR = EVRegistries.REGISTRATE.item("bioware_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> BIOWARE_ASSEMBLY = EVRegistries.REGISTRATE.item("bioware_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> BIOWARE_COMPUTER= EVRegistries.REGISTRATE.item("bioware_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> BIOWARE_MAINFRAME = EVRegistries.REGISTRATE.item("bioware_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> OPTICAL_PROCESSOR = EVRegistries.REGISTRATE.item("optical_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> OPTICAL_ASSEMBLY = EVRegistries.REGISTRATE.item("optical_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> OPTICAL_COMPUTER= EVRegistries.REGISTRATE.item("optical_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> OPTICAL_MAINFRAME = EVRegistries.REGISTRATE.item("optical_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> EXOTIC_PROCESSOR = EVRegistries.REGISTRATE.item("exotic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> EXOTIC_ASSEMBLY = EVRegistries.REGISTRATE.item("exotic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> EXOTIC_COMPUTER= EVRegistries.REGISTRATE.item("exotic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> EXOTIC_MAINFRAME = EVRegistries.REGISTRATE.item("exotic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> SUPRACAUSAL_PROCESSOR = EVRegistries.REGISTRATE.item("supracasual_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> SUPRACAUSAL_ASSEMBLY = EVRegistries.REGISTRATE.item("supracasual_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> SUPRACAUSAL_COMPUTER= EVRegistries.REGISTRATE.item("supracasual_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> SUPRACAUSAL_MAINFRAME = EVRegistries.REGISTRATE.item("supracasual_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+
+    public static ItemEntry<Item> BIOWARE_PROCESSOR = EVRegistries.REGISTRATE.item("bioware_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.ZPM_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> BIOWARE_ASSEMBLY = EVRegistries.REGISTRATE.item("bioware_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> BIOWARE_COMPUTER = EVRegistries.REGISTRATE.item("bioware_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UHV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> BIOWARE_MAINFRAME = EVRegistries.REGISTRATE.item("bioware_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UEV_CIRCUITS)
+            .register();
+
+    public static ItemEntry<Item> OPTICAL_PROCESSOR = EVRegistries.REGISTRATE.item("optical_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> OPTICAL_ASSEMBLY = EVRegistries.REGISTRATE.item("optical_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UHV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> OPTICAL_COMPUTER = EVRegistries.REGISTRATE.item("optical_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UEV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> OPTICAL_MAINFRAME = EVRegistries.REGISTRATE.item("optical_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UIV_CIRCUITS)
+            .register();
+
+    public static ItemEntry<Item> EXOTIC_PROCESSOR = EVRegistries.REGISTRATE.item("exotic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UHV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> EXOTIC_ASSEMBLY = EVRegistries.REGISTRATE.item("exotic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UEV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> EXOTIC_COMPUTER = EVRegistries.REGISTRATE.item("exotic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UIV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> EXOTIC_MAINFRAME = EVRegistries.REGISTRATE.item("exotic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UXV_CIRCUITS)
+            .register();
+
+    public static ItemEntry<Item> COSMIC_PROCESSOR = EVRegistries.REGISTRATE.item("cosmic_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UEV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> COSMIC_ASSEMBLY = EVRegistries.REGISTRATE.item("cosmic_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UIV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> COSMIC_COMPUTER = EVRegistries.REGISTRATE.item("cosmic_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UXV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> COSMIC_MAINFRAME = EVRegistries.REGISTRATE.item("cosmic_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.OpV_CIRCUITS)
+            .register();
+
+    public static ItemEntry<Item> SUPRACAUSAL_PROCESSOR = EVRegistries.REGISTRATE.item("supracasual_processor", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UIV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> SUPRACAUSAL_ASSEMBLY = EVRegistries.REGISTRATE.item("supracasual_assembly", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.UXV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> SUPRACAUSAL_COMPUTER = EVRegistries.REGISTRATE.item("supracasual_computer", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.OpV_CIRCUITS)
+            .register();
+    public static ItemEntry<Item> SUPRACAUSAL_MAINFRAME = EVRegistries.REGISTRATE.item("supracasual_mainframe", Item::new).tab(EVTabs.EV_MATERIALS.getKey())
+            .tag(CustomTags.MAX_CIRCUITS)
+            .register();
 
     public static ItemEntry<Item> UNSTABLE_STAR = EVRegistries.REGISTRATE.item("unstable_star", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
@@ -226,7 +271,6 @@ public class EVItems {
             })))
             .lang("Max Robot Arm")
             .register();
-
 
 
     public static ItemEntry<ComponentItem> electric_pump_max = EVRegistries.REGISTRATE.item("electric_pump_max", ComponentItem::create)
@@ -437,9 +481,6 @@ public class EVItems {
     public static ItemEntry<Item> CHARGED_LEPTON_TRAP_CRYSTAL = EVRegistries.REGISTRATE.item("charged_lepton_trap_crystal", Item::new).register();
 
     public static ItemEntry<Item> HIGHLY_INSULATING_FOIL = EVRegistries.REGISTRATE.item("highly_insulating_foil", Item::new).register();
-
-
-
 
 
     public static <T extends IComponentItem> NonNullConsumer<T> attach(IItemComponent components) {

@@ -54,6 +54,7 @@ public class VOMLogic extends RecipeLogic {
     }
 
     // surely theres a better way to do this lmao
+    // this can probably all be made static
     public void updateBlacklist() {
 
 

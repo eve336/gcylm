@@ -3,6 +3,7 @@ package com.eve.examplemod.common.data;
 import com.eve.examplemod.config.EVConfig;
 import com.eve.examplemod.data.recipe.CoolerRecipes;
 import com.eve.examplemod.data.recipe.MiscRecipes;
+import com.eve.examplemod.data.recipe.generated.SolarPanelRecipes;
 import com.eve.examplemod.data.recipe.SuperconductorRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
 import com.eve.examplemod.data.recipe.circuit.CircuitComponentRecipes;
@@ -15,7 +16,6 @@ import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
 import net.minecraft.data.recipes.FinishedRecipe;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipes.RECIPE_FILTERS;
@@ -76,5 +76,6 @@ public class EVRecipes {
         ZirconChain.init(consumer);
         WormholeGeneratorChain.init(consumer);
         CoolerRecipes.init(consumer);
+        SolarPanelRecipes.init(consumer);
     }
 }

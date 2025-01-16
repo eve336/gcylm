@@ -3,6 +3,7 @@ package com.eve.examplemod.data.recipe;
 import com.eve.examplemod.common.data.EVItems;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
 
 import java.util.stream.Collectors;
@@ -14,8 +15,29 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 
 public class EVCraftingComponent extends CraftingComponent {
 
+    public static Component BATTERY;
 
     public static void initialiseComponents() {
+
+
+        BATTERY = new Component(Stream.of(new Object[][] {
+
+                { 0, CustomTags.ULV_BATTERIES },
+                { 1, CustomTags.LV_BATTERIES },
+                { 2, CustomTags.MV_BATTERIES },
+                { 3, CustomTags.HV_BATTERIES },
+                { 4, CustomTags.EV_BATTERIES },
+                { 5, CustomTags.IV_BATTERIES },
+                { 6, CustomTags.LuV_BATTERIES },
+                { 7, CustomTags.ZPM_BATTERIES },
+                { 8, CustomTags.UV_BATTERIES },
+                { 9, CustomTags.UHV_BATTERIES },
+//                { 10, CustomTags.UEV_BATT },
+//                { 11, CustomTags.UIV_CIRCUITS },
+//                { 12, CustomTags.UXV_CIRCUITS },
+//                { 13, CustomTags.OpV_CIRCUITS },
+//                { 14, CustomTags.MAX_BATTERIES },
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
         PUMP = new Component(Stream.of(new Object[][]{
 

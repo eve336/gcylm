@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-12T17:56:04.0626207	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2025-01-16T16:08:28.5718922	Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 9b56d585804e13e8e4fd87fe4cd4c17a750ee256 assets/examplemod/blockstates/leptonic_charge.json
 911347167b17bcee96439b34adbcef5f1d32b71f assets/examplemod/blockstates/naquadria_charge.json
 ad97d63e304aa54e6e137cbd28d462d45069fa4f assets/examplemod/blockstates/qcd_charge.json
@@ -375,6 +375,14 @@ f10a8db0af8d6dec4ed600e9668b6794fd4eed37 data/examplemod/loot_tables/blocks/qcd_
 31f52b70b2865b969a5367bd1615932064d7afb5 data/gtceu/tags/items/circuits/ev.json
 6d693b3125c1d85176280e194c5e8c3914fa1056 data/gtceu/tags/items/circuits/hv.json
 90062a0b6aaafa289fdf7171e222a5383843052f data/gtceu/tags/items/circuits/lv.json
+b99a77e3c0620783826572927cc198efff1f4006 data/gtceu/tags/items/circuits/max.json
 6b858032bbe21f76bad238870d68404eff0b43df data/gtceu/tags/items/circuits/mv.json
+ed3ed3615e7d238519dcb5be3d4af115906489f4 data/gtceu/tags/items/circuits/opv.json
+1e0d9d0cb99a62cf9a71907be62e6aff59e5f7b6 data/gtceu/tags/items/circuits/uev.json
+4e0c4c55ff3e511c4c1c18a01c921b5c805f9838 data/gtceu/tags/items/circuits/uhv.json
+8572ab8031fa1874af86cdc18eb79ab7947c2ff0 data/gtceu/tags/items/circuits/uiv.json
+a927f32d93725ce41f2c165529c47e28a725f2bf data/gtceu/tags/items/circuits/uv.json
+ce662c9159e6ab1f259b1a5da7e16bfa0c11f056 data/gtceu/tags/items/circuits/uxv.json
+7ba4c2e452e806cdb581d4af977b48b87fd701c8 data/gtceu/tags/items/circuits/zpm.json
 71e53a79d68164286d7b2f41c087c2f04115f7fd data/minecraft/tags/blocks/mineable/axe.json
 9542b19cdcc02db684981d1cfa16cc03b9861ddc data/minecraft/tags/blocks/saplings.json
