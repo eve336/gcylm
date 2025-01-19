@@ -37,7 +37,7 @@ public class Machines {
 
         for (int tier = 0; tier < EVMachines.ROBOT_ARM_COMPONENT.length; tier++){
 
-            ASSEMBLER_RECIPES.recipeBuilder(GTValues.VN[tier].toLowerCase() + "robot_arm_component")
+            ASSEMBLER_RECIPES.recipeBuilder(GTValues.VN[tier].toLowerCase() + "_robot_arm_component")
                     .inputItems(CraftingComponent.CABLE.getIngredient(tier),8)
                     .inputItems(HULL[tier].asStack())
                     .inputItems(EVCraftingComponent.ROBOT_ARM.getIngredient(tier), 2)
@@ -45,6 +45,16 @@ public class Machines {
                     .outputItems(EVMachines.ROBOT_ARM_COMPONENT[tier].asStack())
                     .EUt(VA[tier])
                     .duration(20*10)
+                    .save(provider);
+        }
+        for (int tier = 0; tier < EVMachines.INTEGRAL_FRAMEWORK.length; tier++){
+            ASSEMBLER_RECIPES.recipeBuilder(GTValues.VN[tier].toLowerCase() + "_integral_framework").EUt(tier).duration(100)
+                    .inputItems(EVCraftingComponent.CIRCUIT.getIngredient(tier), 4)
+                    .inputItems(EVCraftingComponent.HULL.getIngredient(tier))
+                    .inputItems(EVCraftingComponent.CABLE_QUAD.getIngredient(tier))
+                    .inputItems(EVCraftingComponent.PLATE.getIngredient(tier), 4)
+                    .inputItems(EVCraftingComponent.GEAR.getIngredient(tier), 4)
+                    .outputItems(EVMachines.INTEGRAL_FRAMEWORK[tier].asStack())
                     .save(provider);
         }
 

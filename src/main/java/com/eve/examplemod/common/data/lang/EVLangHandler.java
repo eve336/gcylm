@@ -1,14 +1,10 @@
 package com.eve.examplemod.common.data.lang;
 
-import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.lang.LangHandler;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
-import org.apache.commons.codec.language.bm.Lang;
 
-import static com.gregtechceu.gtceu.data.lang.LangHandler.replace;
-
-public class EVLangHandler  extends LangHandler {
+public class EVLangHandler extends LangHandler {
     public static void init(RegistrateLangProvider provider){
 
 
@@ -24,6 +20,8 @@ public class EVLangHandler  extends LangHandler {
         provider.add("gtceu.fluid.steam_cracked_hexafluoride", "Steam Cracked %s Hexafluoride");
         provider.add("examplemod.recipe.temperature", "Temperature: %s");
         provider.add("examplemod.recipe.cooling", "Cooling: %s");
+
+        provider.add("item.examplemod.bioware_processor.tooltip", "§4ZPM-Tier Circuit");
 
     }
 }

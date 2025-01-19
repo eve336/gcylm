@@ -37,7 +37,7 @@ public class InsulationWireAssemblyChain {
         int chainNumber = 0;
 
         // 4C2H4 + NH3 + HBr -> C8H20NBr
-        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(120)
+        CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(240).EUt(120)
                 .inputFluids(Ethylene.getFluid(4000))
                 .inputFluids(Ammonia.getFluid(1000))
                 .inputFluids(HydrobromicAcid.getFluid(1000))
@@ -45,7 +45,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // H2O + C6H12O6 -> C6H14O2 + 5O
-        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(180).EUt(120)
+        CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(180).EUt(120)
                 .notConsumable(dust, PdIrReOCeOS)
                 .inputFluids(Water.getFluid(1000))
                 .inputItems(Fructose, 24)
@@ -55,7 +55,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // 2NH3 + C6H14O2 -> 2H2O + C6H16N2
-        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(480)
+        CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(240).EUt(480)
                 .inputFluids(Hexanediol.getFluid(1000))
                 .inputFluids(Ammonia.getFluid(2000))
                 .outputFluids(Water.getFluid(2000))
@@ -65,7 +65,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // C6H12O6 + 3 O -> C6H10O8 + H2O
-        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(480)
+        CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(160).EUt(480)
                 .inputItems(Glucose, 24)
                 .inputFluids(Oxygen.getFluid(3000))
                 .outputFluids(Water.getFluid(1000))
@@ -73,7 +73,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // C6H10O8 + 8H -> C6H10O4 + 4H2O
-        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(480)
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(160).EUt(480)
                 .inputItems(SaccharicAcid, 24)
                 .notConsumable(dust, AuPdCCatalyst)
                 .notConsumable(dust, ScandiumTriflate)
@@ -83,7 +83,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // C3H6O + CH4 -> C4H10O
-        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(125).EUt(120)
+        CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(125).EUt(120)
                 .notConsumable(dust, MagnesiumChloride)
                 .inputItems(ZeoliteSievingPellets)
                 .inputFluids(Acetone.getFluid(1000))
@@ -93,7 +93,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // 2C4H10O + 2CO2 -> H2O + C10H18O5
-        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(480)
+        CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(260).EUt(480)
                 .inputFluids(Tertbutanol.getFluid(2000))
                 .inputFluids(CarbonDioxide.getFluid(2000))
                 .notConsumableFluid(Toluenesulfonate.getFluid(0))
@@ -102,7 +102,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // C4H8 + C10H18O5 + 4NH3 + 3C -> 2 C4H10O + C6H18N4 + 3CO
-        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(370).EUt(480)
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(370).EUt(480)
                 .inputItems(DitertbutylDicarbonate, 33)
                 .inputItems(dust, Carbon, 3)
                 .inputFluids(Butene.getFluid(1000))
@@ -113,7 +113,7 @@ public class InsulationWireAssemblyChain {
                 .outputFluids(Triaminoethaneamine.getFluid(1000))
                 .save(provider);
 
-        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(290).EUt(30720)
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(290).EUt(30720)
                 .inputItems(foil, Polyetheretherketone)
                 .inputItems(foil, SiliconeRubber)
                 .inputItems(AdipicAcid, 20)
@@ -123,7 +123,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         // 2K + 2NaN3 + C10H18O5 -> 2Na + K2O + 2C5H9N3O2
-        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(210).EUt(480)
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(210).EUt(480)
                 .inputItems(dust, Potassium, 2)
                 .inputItems(SodiumAzide, 8)
                 .inputItems(DitertbutylDicarbonate, 33)
@@ -134,7 +134,7 @@ public class InsulationWireAssemblyChain {
 
         // Aminated Fullerene is a Secondary Amine
         // C60 + 4C5H9N3O2 + 8H2O + 4CO -> C60N12H12 + 4C4H10O + 8CO2
-        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(120).EUt(30720)
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(120).EUt(30720)
                 .inputItems(Fullerene)
                 .inputFluids(TertButylAzidoformate.getFluid(4000))
                 .inputFluids(Water.getFluid(8000))
@@ -144,45 +144,45 @@ public class InsulationWireAssemblyChain {
                 .outputFluids(Tertbutanol.getFluid(4000))
                 .save(provider);
 
-        FLUID_HEATER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(120).EUt(480)
+        FLUID_HEATER_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(120).EUt(480)
                 .inputFluids(AminatedFullerene.getFluid(1000))
                 .outputFluids(Azafullerene.getFluid(1000))
                 .notConsumable(wireFine, Rhenium)
                 .save(provider);
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(30).EUt(7680)
+        CHEMICAL_BATH_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(30).EUt(7680)
                 .inputItems(PEEK_POLYAMIDE_FOIL)
                 .inputFluids(Azafullerene.getFluid(10))
                 .outputItems(HIGHLY_INSULATING_FOIL)
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(120)
+        MIXER_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(100).EUt(120)
                 .inputFluids(Resorcinol.getFluid(500))
                 .inputFluids(Formaldehyde.getFluid(1000))
                 .inputItems(GrapheneOxide, 3)
                 .outputItems(GrapheneGelSuspension)
                 .save(provider);
 
-        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(480)
+        AUTOCLAVE_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(260).EUt(480)
                 .inputItems(GrapheneGelSuspension)
                 .inputFluids(Acetone.getFluid(100))
                 .outputItems(DryGrapheneGel)
                 .save(provider);
 
-        FLUID_HEATER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(480)
+        FLUID_HEATER_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(80).EUt(480)
                 .inputFluids(CarbonDioxide.getFluid(1000))
                 .outputFluids(SupercriticalCO2.getFluid(1000))
                 .circuitMeta(0)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(400).EUt(120).blastFurnaceTemp(5000)
+        BLAST_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(400).EUt(120).blastFurnaceTemp(5000)
                 .inputItems(DryGrapheneGel)
                 .inputFluids(SupercriticalCO2.getFluid(1000))
                 .outputItems(AEROGRAPHENE)
                 .outputFluids(CarbonDioxide.getFluid(1000))
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(210).EUt(30720)
+        ASSEMBLER_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(210).EUt(30720)
                 .inputItems(rod, Polyurethane)
                 .inputItems(rod, ReinforcedEpoxyResin)
                 .inputItems(MEMORY_FOAM_BLOCK)

@@ -142,6 +142,7 @@ public class REEChain {
                 .inputFluids(Water.getFluid(3000))
                 .outputFluids(RareEarthHydroxidesSolution.getFluid(1000))
                 .outputFluids(Hydrogen.getFluid(3000))
+                .circuitMeta(3)
                 .EUt(480)
                 .duration(200)
                 .save(provider);

@@ -40,7 +40,7 @@ public class CombinedChains {
         // Fullerenes ================================================================================================
 
         // 10C10H8 + 10C8H10 -> 3C60H30 + 90H (H voided)
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(40).EUt(31457280) // UIV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(40).EUt(31457280) // UIV
                 .inputFluids(Naphthalene.getFluid(10000))
                 .inputFluids(Ethylbenzene.getFluid(10000))
                 .outputItems(UnfoldedFullerene,3)
@@ -50,7 +50,7 @@ public class CombinedChains {
         // Naquadah ==================================================================================================
 
         // Naquadric Compound [Nq] + KHSO5 + 2H -> Nq + KOH + H2SO4
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(491520) // UV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(50).EUt(491520) // UV
                 .inputItems(dust, NaquadricCompound)
                 .inputItems(PotassiumPeroxymonosulfate,8)
                 .inputFluids(Hydrogen.getFluid(2000))
@@ -60,7 +60,7 @@ public class CombinedChains {
                 .save(provider);
 
         // Enriched Naquadric Compound [Nq+] + Au2Cl6 + Xe + 3O -> Nq+ + 2Au + 6Cl + XeO3
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(491520) // UV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(50).EUt(491520) // UV
                 .inputItems(dust, EnrichedNaquadricCompound)
                 .inputFluids(AuricChloride.getFluid(1000))
                 .inputFluids(Xenon.getFluid(1000))
@@ -72,7 +72,7 @@ public class CombinedChains {
                 .save(provider);
 
         // Naquadriatic Compound [*Nq*] + Rn + Xe + 6O -> *Nq* + RnO3 + XeO3
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(491520) // UV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(50).EUt(491520) // UV
                 .inputItems(dust, NaquadriaticCompound)
                 .inputFluids(Radon.getFluid(1000))
                 .inputFluids(Xenon.getFluid(1000))
@@ -100,7 +100,7 @@ public class CombinedChains {
 
         // Epoxy
         // 2C6H6 + 8O + 2C2H4 + C3H6 -> C2H4O + CO2 + 3H2O (gtce epoxy is not balanced)
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(30720) // LuV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(60).EUt(30720) // LuV
                 .inputFluids(Benzene.getFluid(2000))
                 .inputFluids(Oxygen.getFluid(8000))
                 .inputFluids(Ethylene.getFluid(2000))
@@ -113,7 +113,7 @@ public class CombinedChains {
 
         // 4,4'-Oxydianiline-Pyromellitimide
         // C6H4(CH3)2 + 2CH3Cl + 12O + 2C6H5NH2 + C2H5OH -> C22H14N2O7 + 2CH4 + 6H2O + 2HCl
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(491520) // UV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(80).EUt(491520) // UV
                 .notConsumable(dust, Tin)
                 .inputFluids(OrthoXylene.getFluid(1000))
                 .inputFluids(Chloromethane.getFluid(2000))
@@ -130,7 +130,7 @@ public class CombinedChains {
 
         // Polybenzimidazole
         // 2NH3 + 2HNO3 + 3C6H6 + 3O + C2H4 -> C20H12N4 + 9H2O
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(70).EUt(1966080) // UHV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(70).EUt(1966080) // UHV
                 .notConsumable(dust, Zinc)
                 .inputFluids(Oxygen.getFluid(3000))
                 .inputFluids(Ethylene.getFluid(1000))
@@ -143,7 +143,7 @@ public class CombinedChains {
 
         // PolyEtherEtherKetone
         // C6H6O2 + 2C6H5F + Na2CO3 -> [(OC6H4)3C]n + 2NaF + 2H2O
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(120).EUt(31457280) // UIV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(120).EUt(31457280) // UIV
                 .inputItems(dust, SodaAsh, 6)
                 .inputFluids(Hydroquinone.getFluid(1000))
                 .inputFluids(FluoroBenzene.getFluid(2000))
@@ -156,7 +156,7 @@ public class CombinedChains {
 
         // Zylon
         // C6H6O2 + 2HNO3 + C8H10 -> C14H6N2O2 + 6H2O
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(30).EUt(31457280) // UIV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(30).EUt(31457280) // UIV
                 .notConsumable(dust, AuPdCCatalyst)
                 .inputFluids(Resorcinol.getFluid(1000))
                 .inputFluids(NitricAcid.getFluid(2000))
@@ -167,7 +167,7 @@ public class CombinedChains {
 
         // Fullerene Polymer Matrix
         // Pd + C10H10Fe + C60 + C3H7NO2 -> PdC73H15NFe + H2O + O (voided water)
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(31457280 * 2) // UXV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(60).EUt(31457280 * 2) // UXV
                 .inputItems(Fullerene,1)
                 .inputItems(Sarcosine,13)
                 .inputItems(dust, Palladium, 1)
@@ -183,7 +183,7 @@ public class CombinedChains {
 
 
         // 7C8H8 + 8CH2Cl2 + 8C60 + 8C11H14O2 + 8C2H6S + 8C6H5Cl -> 8C7H8 + 8H2S + 8C80H21O2 + 24HCl
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(60).EUt(31457280 * 4) // UXV
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).duration(60).EUt(31457280 * 4) // UXV
                 .notConsumable(dust, Dimethylaminopyridine)
                 .inputItems(Fullerene,8)
                 .inputFluids(Styrene.getFluid(7000))
@@ -198,7 +198,7 @@ public class CombinedChains {
                 .save(provider);
 
         // Combined Process - Uraninite
-        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(864)
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("combined_chains_" + chainNumber++).EUt(7680).duration(864)
                 .inputItems(dust, Uraninite, 3)
                 .inputFluids(NitrationMixture.getFluid(4000))
                 .outputItems(dioxide, GTMaterials.Uranium238, 3)

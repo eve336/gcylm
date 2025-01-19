@@ -27,6 +27,10 @@ public class EVConfig {
 
     @Configurable
     @Configurable.Comment({"Default = true"})
+    public boolean yellowRutherfordium = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
     public boolean harderGold = true;
 
     @Configurable
@@ -36,6 +40,26 @@ public class EVConfig {
     @Configurable
     @Configurable.Comment({"Default = true"})
     public boolean harderTungsten = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean harderIndium = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean harderNaquadah = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean harderYCBO = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean removeCircuitAssemblerRecipes = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean removeLargeCircuitAssembler = true;
 
     @Configurable
     @Configurable.Comment({"Default = 20 seconds"})

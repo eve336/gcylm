@@ -469,11 +469,13 @@ public class VariousChains {
                 .outputItems(BCEPellet) //Todo make BCE pellet equivalent to coal as furnace fuel
                 .save(provider);
 
+        // GRAPHENE
         // Graphene ====================================================================================================
+
         // FeCl3 + C6H12O6 = [FeCl3 + C6H12O6]
         MIXER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(30)
                 .inputFluids(IronChloride.getFluid(1000))
-                .inputItems(Glucose,24)
+                .inputItems(dust, Glucose,24)
                 .outputFluids(GlucoseIronSolution.getFluid(1000))
                 .save(provider);
 
@@ -487,7 +489,7 @@ public class VariousChains {
 
         // KMnO4 + NaNO3 + H2SO4 = Graphene Oxidation Solution
         MIXER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(260).EUt(120)
-                .inputItems(PotassiumPermanganate,6)
+                .inputItems(dust, PotassiumPermanganate,6)
                 .inputItems(dust, SodiumNitrate, 5)
                 .inputFluids(SulfuricAcid.getFluid(1000))
                 .outputFluids(GrapheneOxidationSolution.getFluid(1000))
@@ -497,7 +499,7 @@ public class VariousChains {
         CHEMICAL_BATH_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(480)
                 .inputItems(dust, Graphite, 3)
                 .inputFluids(GrapheneOxidationSolution.getFluid(100))
-                .outputItems(GraphiteOxide)
+                .outputItems(dust, GraphiteOxide)
                 .chancedOutput(dust, GrapheneOxidationResidue, 8000, 1000)
                 .save(provider);
 
@@ -505,33 +507,33 @@ public class VariousChains {
         CHEMICAL_BATH_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(20).EUt(24)
                 .inputItems(dust, Graphene)
                 .inputFluids(GrapheneOxidationSolution.getFluid(100))
-                .outputItems(GrapheneOxide,3)
+                .outputItems(dust, GrapheneOxide,3)
                 .chancedOutput(dust, GrapheneOxidationResidue, 8000, 1000)
                 .save(provider);
 
         // Graphene Oxidation Residue -> Graphene Oxidation Solution
         EXTRACTOR_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(65).EUt(24)
-                .inputItems(GrapheneOxidationResidue)
+                .inputItems(dust, GrapheneOxidationResidue)
                 .outputFluids(GrapheneOxidationSolution.getFluid(100))
                 .save(provider);
 
         CHEMICAL_BATH_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(24)
-                .inputItems(GraphiteOxide)
+                .inputItems(dust, GraphiteOxide)
                 .inputFluids(Water.getFluid(100))
-                .outputItems(GrapheneOxide,3)
+                .outputItems(dust, GrapheneOxide,3)
                 .save(provider);
 
         CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(30).EUt(480)
-                .inputItems(GrapheneOxide,3)
+                .inputItems(dust, GrapheneOxide,3)
                 .notConsumable(WHITE_HALIDE_LAMP)
-                .notConsumableFluid(Hydrazine.getFluid(0))
+                .notConsumableFluid(Hydrazine.getFluid(1))
                 .outputItems(dust, Graphene)
                 .save(provider);
 
         // [6CO + Fe] -> C6O + Fe
         ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(120).EUt(30)
                 .inputItems(GRAPHENE_IRON_PLATE)
-                .outputItems(GrapheneOxide,3)
+                .outputItems(dust, GrapheneOxide,3)
                 .outputItems(dust, Iron)
                 .save(provider);
 

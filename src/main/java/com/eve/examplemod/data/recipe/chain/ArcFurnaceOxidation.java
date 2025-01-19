@@ -21,6 +21,12 @@ public class ArcFurnaceOxidation {
                 .outputItems(ChemicalHelper.get(dust, AntimonyTrioxide, 5))
                 .save(provider);
 
+        ARC_FURNACE_RECIPES.recipeBuilder("osmium_tetroxide_oxidation").EUt(30).duration(60)
+                .inputItems(dust, Osmium)
+                .inputFluids(Oxygen.getFluid(4000))
+                .outputItems(ChemicalHelper.get(dust, OsmiumTetroxide, 5))
+                .save(provider);
+
         // NiZnFe4 + 8O = NiZnFe4O8
         ARC_FURNACE_RECIPES.recipeBuilder("nickel_zinc_ferrite_arc_furnace").EUt(120).duration(600)
                 .inputItems(dust, FerriteMixture, 6)
@@ -31,7 +37,7 @@ public class ArcFurnaceOxidation {
 
         // YBa2Cu3O6 + O -> YBa2Cu3O7
         ARC_FURNACE_RECIPES.recipeBuilder("ycbo_arc_furnace").duration(2509).EUt(7680)
-                .inputItems(dust,WellMixedYBCOxides, 12)
+                .inputItems(dust, WellMixedYBCOxides, 12)
                 .inputFluids(Oxygen.getFluid(1000))
                 .outputItems(ingotHot, YttriumBariumCuprate, 13)
                 .save(provider);

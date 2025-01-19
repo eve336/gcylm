@@ -42,15 +42,16 @@ public class ZincChain {
                 .inputItems(dust, Sphalerite)
                 .inputItems(dust, Coke)
                 .inputFluids(DistilledWater.getFluid(1000))
-                .outputItems(ZincCokePellets,3)
+                .outputItems(dust, ZincCokePellets,3)
                 .save(provider);
 
         // 2[ZnS + C + H2O] + 6O = 2ZnO + Zinc Residual Slag + Zinc Exhaust [Contains: Dark Ash + CO2 + SO2]
         BLAST_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(120).EUt(120).blastFurnaceTemp(1500)
-                .inputItems(ZincCokePellets,6)
+                .inputItems(dust, ZincCokePellets,6)
                 .inputFluids(Oxygen.getFluid(6000))
                 .outputItems(dust, Zincite, 4)
-                .outputItems(ZincResidualSlag)
+                .outputItems(dust, ZincResidualSlag)
+                .circuitMeta(1)
                 .outputFluids(ZincExhaustMixture.getFluid(1000))
                 .save(provider);
 
@@ -59,7 +60,7 @@ public class ZincChain {
                 .inputItems(dust, Zincite, 2)
                 .inputFluids(SulfuricAcid.getFluid(2000))
                 .outputItems(dust, ZincSulfate, 6)
-                .outputItems(ZincLeachingResidue)
+                .outputItems(dust, ZincLeachingResidue)
                 .save(provider);
 
         // Zinc Exhaust = Dark Ash + Zinc Flue Dust + CO2 + SO2
@@ -73,13 +74,13 @@ public class ZincChain {
 
         // Zinc Residual Slag = Fine Zinc Slag Dust
         MACERATOR_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(80).EUt(120)
-                .inputItems(ZincResidualSlag)
-                .outputItems(FineZincSlagDust)
+                .inputItems(dust, ZincResidualSlag)
+                .outputItems(dust, FineZincSlagDust)
                 .save(provider);
 
         // Fine Zinc Slag Dust + H2O = Zinc Slag Slurry [Contains: Fine Zinc Slag Dust + H2O]
         MIXER_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(80).EUt(30)
-                .inputItems(FineZincSlagDust)
+                .inputItems(dust, FineZincSlagDust)
                 .inputFluids(DistilledWater.getFluid(1000))
                 .outputFluids(ZincSlagSlurry.getFluid(1000))
                 .save(provider);
@@ -155,13 +156,13 @@ public class ZincChain {
         // Indium Hydroxide Concentrate [Contains: In(OH)3] = In(OH)3
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(230).EUt(120)
                 .inputFluids(IndiumHydroxideConcentrate.getFluid(1000))
-                .outputItems(IndiumHydroxide,7)
+                .outputItems(dust, IndiumHydroxide,7)
                 .save(provider);
 
         // In(OH)3 + 3H = In + 3H2O
         BLAST_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(240).EUt(120)
                 .blastFurnaceTemp(4500)
-                .inputItems(IndiumHydroxide,7)
+                .inputItems(dust, IndiumHydroxide,7)
                 .inputFluids(Hydrogen.getFluid(3000))
                 .outputItems(dust, Indium)
                 .outputFluids(Steam.getFluid(3000))
@@ -169,14 +170,14 @@ public class ZincChain {
 
         // Zinc Flue Dust + H2SO4 = Cadmium Zinc Dust [Contains: Cd + Zn + H2SO4]
         CHEMICAL_BATH_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(180).EUt(960)
-                .inputItems(ZincFlueDust)
+                .inputItems(dust, ZincFlueDust)
                 .inputFluids(SulfuricAcid.getFluid(1000))
-                .outputItems(CadmiumZincDust,3)
+                .outputItems(dust, CadmiumZincDust,3)
                 .save(provider);
 
         // Cadmium Zinc Dust [Contains: Cd + Zn + H2SO4] + Hg = Cadmium Thallium Liquor [Contains: Cd + Tl + H2SO4] + Zinc Amalgam [Contains: Zn + Hg]
         CHEMICAL_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(140).EUt(120)
-                .inputItems(CadmiumZincDust,3)
+                .inputItems(dust, CadmiumZincDust,3)
                 .inputFluids(Mercury.getFluid(1000))
                 .outputFluids(CadmiumThalliumLiquor.getFluid(1000))
                 .outputFluids(ZincAmalgam.getFluid(1000))
@@ -192,7 +193,7 @@ public class ZincChain {
         // 9 Cadmium Thallium Liquor [Contains: Cd + Tl + H2SO4] = Thallium Residue [Contains: 2 Tl] + 9 Cadmium Sulfate Solution [Contains: CdSO4]
         CENTRIFUGE_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(110).EUt(1920)
                 .inputFluids(CadmiumThalliumLiquor.getFluid(9000))
-                .outputItems(ThalliumResidue)
+                .outputItems(dust, ThalliumResidue)
                 .outputFluids(CadmiumSulfateSolution.getFluid(9000))
                 .save(provider);
 
@@ -205,7 +206,7 @@ public class ZincChain {
 
         // Thallium Residue [Contains: 2 Tl] + H2SO4 = Thallium Sulfate Solution [Contains: Tl2SO4]
         CHEMICAL_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(120).EUt(120)
-                .inputItems(ThalliumResidue)
+                .inputItems(dust, ThalliumResidue)
                 .inputFluids(SulfuricAcid.getFluid(1000))
                 .inputFluids(Water.getFluid(1000))
                 .outputFluids(ThalliumSulfateSolution.getFluid(1000))
@@ -215,7 +216,7 @@ public class ZincChain {
         CHEMICAL_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(230).EUt(120)
                 .inputFluids(ThalliumSulfateSolution.getFluid(1000))
                 .inputFluids(HydrochloricAcid.getFluid(2000))
-                .outputItems(ThalliumChloride,4)
+                .outputItems(dust, ThalliumChloride,4)
                 .outputFluids(SulfuricAcid.getFluid(1000))
                 .outputFluids(Water.getFluid(1000))
                 .save(provider);
@@ -225,12 +226,12 @@ public class ZincChain {
                 .inputItems(ThalliumChloride,4)
                 .inputItems(dust, Zinc)
                 .outputItems(dust, Thallium, 2)
-                .outputItems(ZincChloride,3)
+                .outputItems(dust, ZincChloride,3)
                 .save(provider);
 
         // ZnCl2 = Zn + 2Cl
         ELECTROLYZER_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(150).EUt(120)
-                .inputItems(ZincChloride,3)
+                .inputItems(dust, ZincChloride,3)
                 .outputItems(dust, Zinc)
                 .outputFluids(Chlorine.getFluid(2000))
                 .save(provider);
@@ -239,7 +240,7 @@ public class ZincChain {
         CHEMICAL_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(70).EUt(30)
                 .inputItems(dust, SodaAsh, 6)
                 .inputFluids(SulfurDioxide.getFluid(1000))
-                .outputItems(SodiumSulfite,6)
+                .outputItems(dust, SodiumSulfite,6)
                 .outputFluids(CarbonDioxide.getFluid(1000))
                 .save(provider);
 
@@ -247,10 +248,10 @@ public class ZincChain {
         // This recipe is close enough
         CHEMICAL_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(90).EUt(30)
                 .inputItems(dust, Wood, 2)
-                .inputItems(SodiumSulfite,6)
+                .inputItems(dust, SodiumSulfite,6)
                 .inputFluids(HydrogenPeroxide.getFluid(1000))
                 .inputFluids(SodiumHydroxideSolution.getFluid(1000))
-                .outputItems(Cellulose,42)
+                .outputItems(dust, Cellulose,42)
                 .outputFluids(PolyphenolMix.getFluid(1000))
                 .save(provider);
 
@@ -285,7 +286,7 @@ public class ZincChain {
 
         // ZincLeachingResidue [Contains: (H2O)(H2SO4)] -> FeSO4 + 0.5H4GeO4
         CHEMICAL_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(100).EUt(480)
-                .inputItems(ZincLeachingResidue)
+                .inputItems(dust, ZincLeachingResidue)
                 .notConsumableFluid(TannicAcid.getFluid(1))
                 .outputItems(IronSulfateDust,6)
                 .outputFluids(GermanicAcidSolution.getFluid(500))
@@ -302,12 +303,12 @@ public class ZincChain {
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(60).EUt(1920)
                 .inputFluids(GermaniumChloride.getFluid(1000))
                 .outputFluids(HydrochloricAcid.getFluid(4000))
-                .outputItems(GermaniumOxide,3)
+                .outputItems(dust, GermaniumOxide,3)
                 .save(provider);
 
         // GeO2 + 4H = Ge + 2H2O
         BLAST_RECIPES.recipeBuilder("zinc_chain_" + chainNumber++).duration(220).EUt(120).blastFurnaceTemp(1300)
-                .inputItems(GermaniumOxide,3)
+                .inputItems(dust, GermaniumOxide,3)
                 .inputFluids(Hydrogen.getFluid(4000))
                 .outputItems(dust, Germanium)
                 .outputFluids(Water.getFluid(2000))

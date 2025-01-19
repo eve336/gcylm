@@ -1,9 +1,12 @@
 package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.config.EVConfig;
+import com.gregtechceu.gtceu.api.GTValues;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class Removal {
@@ -11,6 +14,11 @@ public class Removal {
         if (EVConfig.INSTANCE.harderPlatline) platline(registry);
         if (EVConfig.INSTANCE.harderTungsten) tungsten(registry);
         if (EVConfig.INSTANCE.harderGold) gold(registry);
+        if (EVConfig.INSTANCE.harderIndium) indium(registry);
+        if (EVConfig.INSTANCE.harderNaquadah) naquadah(registry);
+        if (EVConfig.INSTANCE.harderYCBO) YCBO(registry);
+        if (EVConfig.INSTANCE.removeCircuitAssemblerRecipes) CircuitAssemblers(registry);
+        if (EVConfig.INSTANCE.removeLargeCircuitAssembler) LargeCircuitAssembler(registry);
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -56,6 +64,9 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:assembly_line/wetware_super_computer_uv"));
         registry.accept(new ResourceLocation("gtceu:assembly_line/wetware_mainframe_uhv"));
 
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/qubit_cpu_wafer_radon"));
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/qubit_cpu_wafer_radon"));
+
 
         //misc
         registry.accept(new ResourceLocation("gtceu:vacuum_freezer/cool_hot_silicon_ingot"));
@@ -86,14 +97,90 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barium_sulfide"));
         registry.accept(new ResourceLocation("gtceu:electrolyzer/decomposition_electrolyzing_barite"));
         registry.accept(new ResourceLocation("gtceu:shaped/emitter_ev"));
+        registry.accept(new ResourceLocation("gtceu:assembly_line/robot_arm_luv"));
 
 
+        // raw carbon fibers
+        registry.accept(new ResourceLocation("gtceu:autoclave/carbon_fibers_ptfe"));
+        registry.accept(new ResourceLocation("gtceu:autoclave/carbon_fibers_polyethylene"));
+        registry.accept(new ResourceLocation("gtceu:autoclave/carbon_fibers_epoxy"));
+        registry.accept(new ResourceLocation("gtceu:autoclave/carbon_fibers_pbi"));
+
+
+        registry.accept(new ResourceLocation("gtceu:assembler/electric_motor_iv"));
+        registry.accept(new ResourceLocation("gtceu:shaped/electric_motor_iv"));
+
+        List<String> removal = List.of("gtceu:autoclave/raw_crystal_chip_from_part_bacterial_sludge", "gtceu:autoclave/raw_crystal_chip_from_part_europium",
+                "gtceu:autoclave/raw_crystal_chip_olivine", "gtceu:autoclave/raw_crystal_chip_from_part_mutagen", "gtceu:autoclave/raw_crystal_chip_emerald",
+                "gtceu:electric_blast_furnace/engraved_crystal_chip_from_olivine", "gtceu:electric_blast_furnace/engraved_crystal_chip_from_emerald",
+                "gtceu:assembler/superconducting_coil_luv", "gtceu:assembler/superconducting_coil_zpm", "gtceu:assembler/superconducting_coil_uv", "gtceu:mixer/naquadah_alloy");
+        removal.forEach(c -> registry.accept(new ResourceLocation(c)));
 
 
     }
     public static void platline(Consumer<ResourceLocation> registry) {
+
+        registry.accept(new ResourceLocation("gtceu:centrifuge/pgs_separation"));
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/rarest_metal_mixture_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/rarest_metal_mixture_separation"));
+
+
+        // why do each of these have like 2 steps in base gt lmao???
+
+        // platinum
         registry.accept(new ResourceLocation("gtceu:electrolyzer/raw_platinum_separation"));
+        registry.accept(new ResourceLocation("gtceu:centrifuge/endstone_separation"));
+
+        // palladium
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/raw_palladium_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/raw_palladium_separation"));
+
+
+        // osmium
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/osmium_tetroxide_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/osmium_tetroxide_separation"));
+        registry.accept(new ResourceLocation("gtceu:distillery/acidic_osmium_solution_separation_to_water"));
+        registry.accept(new ResourceLocation("gtceu:distillery/acidic_osmium_solution_separation_to_hydrochloric_acid"));
+        registry.accept(new ResourceLocation("gtceu:distillation_tower/acidic_osmium_solution_separation"));
+
+        // iridium
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/iridium_chloride_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/iridium_chloride_separation"));
+        registry.accept(new ResourceLocation("gtceu:centrifuge/iridium_metal_residue_separation"));
+
+        // ruthenium
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/ruthenium_tetroxide_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/ruthenium_tetroxide_separation"));
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/inert_metal_mixture_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/inert_metal_mixture_separation"));
+
+        // rhodium
+        registry.accept(new ResourceLocation("gtceu:electrolyzer/rhodium_sulfate_separation"));
     }
+    public static void indium(Consumer<ResourceLocation> registry) {
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/indium_concentrate_separation"));
+        registry.accept(new ResourceLocation("gtceu:chemical_reactor/indium_concentrate_separation_4x"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/indium_concentrate_separation"));
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/indium_concentrate_separation_4x"));
+        registry.accept(new ResourceLocation("gtceu:mixer/indium_concentrate"));
+    }
+
+    public static void naquadah(Consumer<ResourceLocation> registry) {
+        List<String> removalList = List.of("gtceu:centrifuge/impure_enriched_naquadah_solution_separation", "gtceu:electric_blast_furnace/trinium_sulfide_separation",
+                "gtceu:distillation_tower/enriched_naquadah_waste_separation", "gtceu:distillery/enriched_naquadah_waste_separation_to_sulfuric_acid", "gtceu:distillery/enriched_naquadah_waste_separation_to_naquadria_solution",
+                "gtceu:distillery/enriched_naquadah_waste_separation_to_enriched_naquadah_solution", "gtceu:mixer/naquadria_solution_separation", "gtceu:centrifuge/impure_naquadria_solution_separation", "gtceu:distillery/naquadria_waste_separation_to_naquadria_solution",
+                "gtceu:distillery/enriched_naquadah_waste_separation_to_naquadria_solution", "gtceu:distillation_tower/naquadria_waste_separation", "gtceu:distillation_tower/enriched_naquadah_waste_separation");
+        removalList.forEach(c -> registry.accept(new ResourceLocation(c)));
+
+        registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/naquadah_separation"));
+        registry.accept(new ResourceLocation("gtceu:electric_blast_furnace/titanium_trifluoride_separation"));
+
+        // enriched naquadah
+        registry.accept(new ResourceLocation("gtceu:mixer/enriched_naquadah_solution_separation"));
+        registry.accept(new ResourceLocation("gtceu:centrifuge/acidic_enriched_naquadah_separation"));
+//
+    }
+
     public static void tungsten(Consumer<ResourceLocation> registry) {
         registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_scheelite"));
         registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_tungstate"));
@@ -102,6 +189,21 @@ public class Removal {
     }
     public static void gold(Consumer<ResourceLocation> registry) {
 
+    }
+    public static void YCBO(Consumer<ResourceLocation> registry) {
+        List<String> removalList = List.of("gtceu:alloy_blast_smelter/yttrium_barium_cuprate_gas", "gtceu:alloy_blast_smelter/yttrium_barium_cuprate", "gtceu:vacuum_freezer/yttrium_barium_cuprate",
+                "gtceu:mixer/yttrium_barium_cuprate", "gtceu:centrifuge/rare_earth_separation");
+        removalList.forEach(c -> registry.accept(new ResourceLocation(c)));
+
+    }
+
+    public static void CircuitAssemblers(Consumer<ResourceLocation> registry){
+        for (int i = 5; i < 13; i++) {
+            registry.accept(new ResourceLocation( "gtceu:shaped/" + GTValues.VN[i].toLowerCase() + "_circuit_assembler"));
+        }
+    }
+    public static void LargeCircuitAssembler(Consumer<ResourceLocation> registry) {
+        registry.accept(new ResourceLocation("gtceu:shaped/large_circuit_assembler"));
     }
 
 }

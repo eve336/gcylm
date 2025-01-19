@@ -6,6 +6,8 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -14,8 +16,9 @@ import java.util.function.Consumer;
 import static com.eve.examplemod.EVMain.id;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.gregtechceu.gtceu.api.GTValues.V;
+import static com.eve.examplemod.common.data.EVMaterials2.BrightSteel;
+import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.GTValues.EV;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
@@ -50,6 +53,60 @@ public class MiscRecipes {
                 'R', ChemicalHelper.get(rod, Platinum),
                 'W', ChemicalHelper.get(cableGtSingle, Aluminium),
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.EV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("iv_electric_motor"),
+                ELECTRIC_MOTOR_IV.asStack(),
+                "TWR",
+                "WMW",
+                "RWT",
+                'W', ChemicalHelper.get(wireGtQuadruple, BrightSteel),
+                'T', ChemicalHelper.get(cableGtSingle, Tungsten),
+                'R', ChemicalHelper.get(rod, TungstenSteel),
+                'M', ChemicalHelper.get(rod, NeodymiumMagnetic));
+
+        ASSEMBLER_RECIPES.recipeBuilder("iv_electric_motor").EUt(7680).duration(100)
+                .inputItems(ChemicalHelper.get(wireGtQuadruple, BrightSteel), 4)
+                .inputItems(ChemicalHelper.get(rod, TungstenSteel), 2)
+                .inputItems( ChemicalHelper.get(cableGtSingle, Tungsten), 2)
+                .inputItems(ChemicalHelper.get(rod, NeodymiumMagnetic))
+                .outputItems(ELECTRIC_MOTOR_IV.asStack())
+                .save(provider);
+
+        ASSEMBLER_RECIPES.recipeBuilder("evsuperconducting_coil").EUt(VA[LuV])
+                .inputItems(wireGtDouble, IndiumTinBariumTitaniumCuprate, 32)
+                .inputItems(foil, NiobiumTitanium, 32)
+                .inputFluids(Trinium.getFluid(GTValues.L * 24))
+                .outputItems(GTBlocks.SUPERCONDUCTING_COIL.asStack())
+                .duration(100).save(provider);
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("circuit_assembly_line"),
+                EVMachines.CIRCUIT_ASSEMBLY_LINE.asStack(),
+                "ARA",
+                "CHC",
+                "ARA",
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.LuV),
+                'H', EVCraftingComponent.HULL.getIngredient(GTValues.LuV),
+                'A', CASING_ASSEMBLY_CONTROL,
+                'R', EVCraftingComponent.ROBOT_ARM.getIngredient(GTValues.LuV));
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("evrobot_arm_luv")
+                .inputItems(rodLong, HSSS, 4)
+                .inputItems(gear, HSSS)
+                .inputItems(gearSmall, HSSS, 3)
+                .inputItems(ELECTRIC_MOTOR_LuV, 2)
+                .inputItems(ELECTRIC_PISTON_LuV)
+                .inputItems(CustomTags.LuV_CIRCUITS)
+                .inputItems(CustomTags.IV_CIRCUITS, 2)
+                .inputItems(CustomTags.EV_CIRCUITS, 4)
+                .inputItems(cableGtDouble, YttriumBariumCuprate, 16)
+                .inputFluids(SolderingAlloy.getFluid(L * 4))
+                .inputFluids(Lubricant.getFluid(250))
+                .outputItems(ROBOT_ARM_LuV)
+//                .scannerResearch(b -> b
+//                        .researchStack(ROBOT_ARM_IV.asStack())
+//                        .duration(900)
+//                        .EUt(VA[EV]))
+                .duration(600).EUt(6000).save(provider);
 
         CHEMICAL_RECIPES.recipeBuilder("biodiesel_creosote_oil_methanol")
                 .inputItems(dustTiny, SodiumHydroxide)

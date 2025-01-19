@@ -7,12 +7,56 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.DISABLE_DECOMPOSITION;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.DULL;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.SHINY;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class EVMaterials2 {
     public static void init() {
 
     }
+
+    public static final Material MercuryNitrate = new Material.Builder(EVMain.id("mercury_nitrate"))
+            .color(0xd6b8ad)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("Hg(NO3)2", true);
+
+    public static final Material BismuthVanadateSolution = new Material.Builder(EVMain.id("bismuth_vanadate_solution"))
+            .color(0xffff00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(H2O)BiVO4", true);
+
+    public static final Material Nitrotoluene = new Material.Builder(EVMain.id("nitrotoluene"))
+            .color(0xfcca00)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C7H7NO2", true);
+
+    public static final Material Naphthylamine = new Material.Builder(EVMain.id("naphthylamine"))
+            .color(0xe3e81c)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H9N", true);
+
+    public static final Material Acetoacetanilide = new Material.Builder(EVMain.id("acetoacetanilide"))
+            .color(0xffffc2)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C10H11NO2", true);
+
+    public static final Material Quinizarin = new Material.Builder(EVMain.id("quinizarin"))
+            .color(0x3c5a2c0)
+            .iconSet(DULL)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("C14H8O4", true);
+
     public static final Material ENaquadahSolution = new Material.Builder(EVMain.id("e_naquadah_solution"))
             .color(0x523b3a)
             .fluid()
@@ -665,4 +709,16 @@ public class EVMaterials2 {
             .fluid()
             .buildAndRegister()
             .setFormula("C6H3Cl2Br");
+
+    // todo colour
+
+    public static final Material BrightSteel = new Material.Builder(EVMain.id("bright_steel"))
+            .ingot(7)
+            .color(0xAA0d0d)
+            .iconSet(SHINY)
+            .components(Iron, 4, Bismuth, 2, Caesium, 2, Europium, 1)
+            .appendFlags(CORE_METAL)
+            .cableProperties(8192, 3, 1)
+            .blastTemp(2900)
+            .buildAndRegister();
 }

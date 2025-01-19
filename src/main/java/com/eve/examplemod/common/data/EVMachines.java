@@ -25,8 +25,6 @@ import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
 
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.event.level.PistonEvent;
 
 
 import java.util.ArrayList;
@@ -300,7 +298,7 @@ public class EVMachines{
             .rotationState(RotationState.ALL)
             .recipeType(EVRecipeTypes.NUCLEAR_REACTOR_RECIPES)
             .alwaysTryModifyRecipe(true)
-            .appearanceBlock(CASING_STEEL_SOLID)
+            .appearanceBlock(CASING_TITANIUM_STABLE)
             .pattern((definition) -> FactoryBlockPattern.start()
                     .aisle("XXXXX", "XXXXX", "XXXXX", "XXXXX", "XXXXX")
                     .aisle("XXXXX", "X   X", "X   X", "X   X", "XFFFX")
@@ -321,6 +319,30 @@ public class EVMachines{
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_stable_titanium"),
                     GTCEu.id("block/multiblock/cleanroom"))
             .register();
+
+    public static final MultiblockMachineDefinition CIRCUIT_ASSEMBLY_LINE = REGISTRATE
+            .multiblock("circuit_assembly_line", CircuitAssemblyLine::new)
+            .rotationState(RotationState.ALL)
+            .recipeType(GTRecipeTypes.CIRCUIT_ASSEMBLER_RECIPES)
+            .appearanceBlock(CASING_STEEL_SOLID)
+            .recipeModifier(GTRecipeModifiers.OC_PERFECT_SUBTICK)
+            .pattern((definition) -> FactoryBlockPattern.start(LEFT, DOWN, FRONT)
+                    .aisle("GAG", "RTR", "FOF")
+                    .aisle("GAG", "RTR", "FIF").setRepeatable(5)
+                    .aisle("GSG", "RTR", "FIF")
+                    .where('S', controller(blocks(definition.getBlock())))
+                    .where('F', blocks(CASING_STEEL_SOLID.get()).or(abilities(PartAbility.IMPORT_FLUIDS).or(abilities(PartAbility.INPUT_ENERGY))))
+                    .where('G', blocks(CASING_GRATE.get()))
+                    .where('R', blocks(CASING_LAMINATED_GLASS.get()))
+                    .where('A', blocks(CASING_ASSEMBLY_CONTROL.get()))
+                    .where('O', abilities(PartAbility.EXPORT_ITEMS))
+                    .where('I', blocks(ITEM_IMPORT_BUS[0].getBlock()))
+                    .where('T', abilities(EVPartAbility.INTEGRAL_FRAMEWORK))
+                    .build())
+            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                    GTCEu.id("block/multiblock/assembly_line"))
+            .register();
+
 
 
 

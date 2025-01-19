@@ -383,10 +383,10 @@ public class SuperconductorsSMDChain {
         // Y2O3 + Eu2O3 + V2O5 + 6H -> 2YEuVO4 + 3H2O
         BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(340).EUt(120).blastFurnaceTemp(1200)
                 .inputItems(dust, YttriumOxide, 5)
-                .inputItems(EuropiumOxide,5)
-                .inputItems(VanadiumOxide,7)
+                .inputItems(dust, EuropiumOxide,5)
+                .inputItems(dust, VanadiumOxide,7)
                 .inputFluids(Hydrogen.getFluid(6000))
-                .outputItems(YttriumEuropiumVanadate,14)
+                .outputItems(dust, YttriumEuropiumVanadate,14)
                 .outputFluids(Steam.getFluid(3000))
                 .save(provider);
 
@@ -414,14 +414,14 @@ public class SuperconductorsSMDChain {
         List<ItemEntry<Item>> halide_lamp = List.of(GREEN_HALIDE_LAMP, RED_HALIDE_LAMP, BLUE_HALIDE_LAMP, WHITE_HALIDE_LAMP, UVA_HALIDE_LAMP);
 
         for (int i = 0; i < 5; i++) {
-            MIXER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(320).EUt(30)
-                    .inputItems(halides.get(i))
-                    .inputItems(PotassiumIodide,2)
+            MIXER_RECIPES.recipeBuilder("halide_mixture_" + i).duration(320).EUt(30)
+                    .inputItems(dust, halides.get(i))
+                    .inputItems(dust, PotassiumIodide,2)
                     .inputFluids(Mercury.getFluid(1000))
                     .outputItems(dust, mixtures.get(i),2)
                     .save(provider);
 
-            ASSEMBLER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(240).EUt(1920)
+            ASSEMBLER_RECIPES.recipeBuilder("halide_lamp_cores_" + i).duration(240).EUt(1920)
                     .inputItems(dust, mixtures.get(i))
                     .inputItems(foil, Molybdenum, 2)
                     .inputItems(wireFine, ThoriumDopedTungsten, 4)
@@ -432,29 +432,29 @@ public class SuperconductorsSMDChain {
                     .save(provider);
 
             if (i == 4) {
-                ASSEMBLER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(290).EUt(1920)
+                ASSEMBLER_RECIPES.recipeBuilder("uva_halide_lamp").duration(290).EUt(1920)
                         .inputItems(lamp_cores.get(i))
                         .inputItems(rod, MaragingSteel250, 4)
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, WoodsGlass, 2)
-                        .inputItems(YttriumEuropiumVanadate,7)
+                        .inputItems(dust, YttriumEuropiumVanadate,7)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i))
                         .save(provider);
 
-                ASSEMBLER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(290).EUt(1920)
+                ASSEMBLER_RECIPES.recipeBuilder("uva_halide_lamp_2").duration(290).EUt(1920)
                         .inputItems(lamp_cores.get(i))
                         .inputItems(rod, MaragingSteel250, 4)
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, WoodsGlass, 2)
-                        .inputItems(StrontiumEuropiumAluminate,4)
+                        .inputItems(dust, StrontiumEuropiumAluminate,4)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i))
                         .save(provider);
 
-                ASSEMBLY_LINE_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(210).EUt(7680)
+                ASSEMBLY_LINE_RECIPES.recipeBuilder("uva_halide_lamp_3").duration(210).EUt(7680)
                         .inputItems(dust, mixtures.get(i))
                         .inputItems(foil, Molybdenum, 2)
                         .inputItems(wireFine, ThoriumDopedTungsten, 4)
@@ -466,12 +466,12 @@ public class SuperconductorsSMDChain {
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, WoodsGlass, 2)
-                        .inputItems(YttriumEuropiumVanadate,7)
+                        .inputItems(dust, YttriumEuropiumVanadate,7)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i),2)
                         .save(provider);
 
-                ASSEMBLY_LINE_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(210).EUt(7680)
+                ASSEMBLY_LINE_RECIPES.recipeBuilder("uva_halide_lamp_4").duration(210).EUt(7680)
                         .inputItems(dust, mixtures.get(i))
                         .inputItems(foil, Molybdenum, 2)
                         .inputItems(wireFine, ThoriumDopedTungsten, 4)
@@ -483,35 +483,35 @@ public class SuperconductorsSMDChain {
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, WoodsGlass, 2)
-                        .inputItems(StrontiumEuropiumAluminate,4)
+                        .inputItems(dust, StrontiumEuropiumAluminate,4)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i),2)
                         .save(provider);
 
             } else {
-                ASSEMBLER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(290).EUt(1920)
+                ASSEMBLER_RECIPES.recipeBuilder("halide_lamp_europium_" + i).duration(290).EUt(1920)
                         .inputItems(lamp_cores.get(i))
                         .inputItems(rod, MaragingSteel250, 4)
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, BorosilicateGlass, 2)
-                        .inputItems(YttriumEuropiumVanadate,7)
+                        .inputItems(dust, YttriumEuropiumVanadate,7)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i))
                         .save(provider);
 
-                ASSEMBLER_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(290).EUt(1920)
+                ASSEMBLER_RECIPES.recipeBuilder("halide_lamp_strontium_" + i).duration(290).EUt(1920)
                         .inputItems(lamp_cores.get(i))
                         .inputItems(rod, MaragingSteel250, 4)
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, BorosilicateGlass, 2)
-                        .inputItems(StrontiumEuropiumAluminate,4)
+                        .inputItems(dust, StrontiumEuropiumAluminate,4)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i))
                         .save(provider);
 
-                ASSEMBLY_LINE_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(210).EUt(7680)
+                ASSEMBLY_LINE_RECIPES.recipeBuilder("halide_lamp_europium_assline_" + i).duration(210).EUt(7680)
                         .inputItems(dust, mixtures.get(i))
                         .inputItems(foil, Molybdenum, 2)
                         .inputItems(wireFine, ThoriumDopedTungsten, 4)
@@ -523,12 +523,12 @@ public class SuperconductorsSMDChain {
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, BorosilicateGlass, 2)
-                        .inputItems(YttriumEuropiumVanadate,7)
+                        .inputItems(dust, YttriumEuropiumVanadate,7)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i),2)
                         .save(provider);
 
-                ASSEMBLY_LINE_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(210).EUt(7680)
+                ASSEMBLY_LINE_RECIPES.recipeBuilder("halide_lamp_strontium_assline_" + i).duration(210).EUt(7680)
                         .inputItems(dust, mixtures.get(i))
                         .inputItems(foil, Molybdenum, 2)
                         .inputItems(wireFine, ThoriumDopedTungsten, 4)
@@ -540,7 +540,7 @@ public class SuperconductorsSMDChain {
                         .inputItems(BALLAST)
                         .inputItems(foil, Electrum, 2)
                         .inputItems(plate, BorosilicateGlass, 2)
-                        .inputItems(StrontiumEuropiumAluminate,4)
+                        .inputItems(dust, StrontiumEuropiumAluminate,4)
                         .inputFluids(Nitrogen.getFluid(1000))
                         .outputItems(halide_lamp.get(i),2)
                         .save(provider);
@@ -588,9 +588,9 @@ public class SuperconductorsSMDChain {
         // 2HNO3 + BaS -> H2S + Ba(NO3)2
         CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(240).EUt(120)
                 .inputFluids(NitricAcid.getFluid(2000))
-                .inputItems(BariumSulfide,2)
+                .inputItems(dust, BariumSulfide,2)
                 .outputFluids(HydrogenSulfide.getFluid(1000))
-                .outputItems(BariumNitrate,9)
+                .outputItems(dust, BariumNitrate,9)
                 .save(provider);
 
         // 2HNO3 + Cu -> 2H + Cu(NO3)2
@@ -599,7 +599,7 @@ public class SuperconductorsSMDChain {
                 .inputItems(dust, Copper)
                 .outputFluids(NitrogenDioxide.getFluid(1000))
                 .outputFluids(Hydrogen.getFluid(2000))
-                .outputItems(CopperNitrate,9)
+                .outputItems(dust, CopperNitrate,9)
                 .save(provider);
 
         // 6HNO3 + Y2O3 -> 3H2O + 2Y(NO3)3
@@ -608,7 +608,7 @@ public class SuperconductorsSMDChain {
                 .inputItems(dust, YttriumOxide, 5)
                 .circuitMeta(0)
                 .outputFluids(Water.getFluid(3000))
-                .outputItems(YttriumNitrate,26)
+                .outputItems(dust, YttriumNitrate,26)
                 .save(provider);
 
         // C3H5ClO + 2H2O + Na2CO3 -> C3H8O3 + NaCl + NaHCO3
@@ -636,12 +636,12 @@ public class SuperconductorsSMDChain {
 
         // 3Cu(NO3)2 + 2Ba(NO3)2 + Y(NO3)3 + 2NH3 + C6H8O7 -> YBa2Cu3O6 + 15NO2 + 6CO + 4H2O + 6H
         LARGE_CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(260).EUt(7680)
-                .inputItems(CopperNitrate,27)
-                .inputItems(BariumNitrate,18)
-                .inputItems(YttriumNitrate,13)
+                .inputItems(dust, CopperNitrate,27)
+                .inputItems(dust, BariumNitrate,18)
+                .inputItems(dust, YttriumNitrate,13)
                 .inputFluids(Ammonia.getFluid(2000))
                 .inputFluids(CitricAcid.getFluid(1000))
-                .outputItems(WellMixedYBCOxides,12)
+                .outputItems(dust, WellMixedYBCOxides,12)
                 .outputFluids(NitrogenDioxide.getFluid(15000))
                 .outputFluids(CarbonMonoxide.getFluid(6000))
                 .outputFluids(Water.getFluid(4000))

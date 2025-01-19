@@ -3,15 +3,10 @@ package com.eve.examplemod.data.recipe.chain;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
-import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
-import net.minecraft.data.recipes.FinishedRecipe;
 
-import java.util.function.Consumer;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
@@ -22,10 +17,23 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 public class Platline {
     public static void init(Consumer<FinishedRecipe> provider) {
         palladium(provider);
-        platinum(provider);
+        platinumIridium(provider);
+        rhodium(provider);
+        ruthenium(provider);
+        osmium(provider);
     }
 
-    public static void platinum(Consumer<FinishedRecipe> provider) {
+    public static void platinumIridium(Consumer<FinishedRecipe> provider) {
+        CENTRIFUGE_RECIPES.recipeBuilder("pgs_centrifuging")
+                .inputItems(dust, PlatinumGroupSludge)
+                .outputItems(dust, SiliconDioxide)
+                .outputItems(dust, PreciousMetal)
+                .outputItems(dust, PlatinumMetallicPowder, 2)
+                .chancedOutput(dust, RarestMetalResidue, 30, 0)
+                .chancedOutput(dust, IridiumMetalResidue, 30, 0)
+                .chancedOutput(dust, PalladiumMetallicPowder, 33, 0)
+                .save(provider);
+
         BLAST_RECIPES.recipeBuilder("iridium_gold_blast_recipe_001")
                 .blastFurnaceTemp(775)
                 .inputItems(dust, IridiumMetalResidue)
@@ -120,7 +128,7 @@ public class Platline {
                 .inputItems(dust, PotassiumDisulfate, 11)
                 .inputFluids(Oxygen.getFluid(1000))
                 .outputItems(dust, LeachResidue, 4)
-                .outputItems(PotassiumSulfate, 7)
+                .outputItems(dust, PotassiumSulfate, 7)
                 .outputFluids(RhodiumSulfate.getFluid(1000))
                 .blastFurnaceTemp(775)
                 .EUt(120)
@@ -128,13 +136,14 @@ public class Platline {
                 .save(provider);
 
 // 3Na2CO3 + 10Ir2[REE]2 + 3O -> 6Ir2O2(SiO2)2Au3[REE] + 3Na2O4Ru + 3CO
-        BLAST_RECIPES.recipeBuilder("iridium_leach_blast_011")
+        BLAST_RECIPES.recipeBuilder("iridium_leach_blast_0111111")
                 .inputItems(dust, SodaAsh, 18)
                 .inputItems(dust, LeachResidue, 40)
                 .inputFluids(Oxygen.getFluid(3000))
                 .outputItems(dust, RarestMetalResidue, 6)
                 .outputItems(dust, SodiumRuthenate, 21)
                 .outputFluids(CarbonMonoxide.getFluid(3000))
+                .circuitMeta(1)
                 .blastFurnaceTemp(775)
                 .EUt(120)
                 .duration(200)
@@ -164,7 +173,7 @@ public class Platline {
         LARGE_CHEMICAL_RECIPES.recipeBuilder("platinum_concentrate_ammonium_chloride_014")
                 .inputFluids(PlatinumConcentrate.getFluid(2000))
                 .inputFluids(AmmoniumChloride.getFluid(200))
-                .outputItems(dustSmall, PlatinumSalt, 10)
+                .chancedOutput(dust, PlatinumSalt, 10, "1/4", 0)
                 .outputItems(dust, PlatinumRawPowder, 2)
                 .outputFluids(PalladiumAmmonia.getFluid(200))
                 .outputFluids(NitricAcid.getFluid(1000))
@@ -234,8 +243,8 @@ public class Platline {
                 .circuitMeta(0)
                 .inputFluids(PalladiumAmmonia.getFluid(1000))
                 .inputItems(dust, PalladiumMetallicPowder, 2)
-                .outputItems(dustSmall, PalladiumSalt, 10)
-                .outputItems(dustTiny, PalladiumRawPowder, 12)
+                .chancedOutput(dust, PalladiumSalt, 10, "1/4", 0)
+                .chancedOutput(dust, PalladiumRawPowder,12, "1/9", 0)
                 .EUt(30)
                 .duration(250)
                 .save(provider);
@@ -257,7 +266,7 @@ public class Platline {
                 .inputFluids(RhodiumSulfate.getFluid(3000))
                 .inputFluids(Water.getFluid(1000))
                 .outputFluids(RhodiumSulfateSolution.getFluid(3000))
-                .outputItems(dustTiny, LeachResidue, 4)
+                .chancedOutput(dust, LeachResidue, 4, "1/9", 0)
                 .EUt(30)
                 .duration(400)
                 .save(provider);

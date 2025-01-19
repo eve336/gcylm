@@ -54,22 +54,29 @@ public class EVItems {
 
 
     public static ItemEntry<Item> ARAM = EVRegistries.REGISTRATE.item("aram", Item::new).register();
-    public static ItemEntry<Item> ARAM_WAFER = EVRegistries.REGISTRATE.item("aram_wafer".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> ARAM_WAFER = EVRegistries.REGISTRATE.item("aram_wafer", Item::new).register();
 
     public static ItemEntry<Item> KAPTON_BOARD = EVRegistries.REGISTRATE.item("kapton_board", Item::new).register();
-    public static ItemEntry<Item> KAPTON_CIRCUIT_BOARD = EVRegistries.REGISTRATE.item("kapton_board".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> KAPTON_CIRCUIT_BOARD = EVRegistries.REGISTRATE.item("kapton_circuit_board", Item::new).register();
 
     public static ItemEntry<Item> COSMIC_MESH = EVRegistries.REGISTRATE.item("cosmic_mesh", Item::new).register();
-    public static ItemEntry<Item> COSMIC_FABRIC = EVRegistries.REGISTRATE.item("cosmic_fabric".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> COSMIC_FABRIC = EVRegistries.REGISTRATE.item("cosmic_fabric", Item::new).register();
 
     public static ItemEntry<Item> UHPIC = EVRegistries.REGISTRATE.item("uhpic", Item::new).register();
-    public static ItemEntry<Item> UHPIC_WAFER = EVRegistries.REGISTRATE.item("uhpic_wafer".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> UHPIC_WAFER = EVRegistries.REGISTRATE.item("uhpic_wafer", Item::new).register();
 
     public static ItemEntry<Item> HASOC = EVRegistries.REGISTRATE.item("hasoc", Item::new).register();
-    public static ItemEntry<Item> HASOC_WAFER = EVRegistries.REGISTRATE.item("hasoc_wafer".toLowerCase(), Item::new).register();
+    public static ItemEntry<Item> HASOC_WAFER = EVRegistries.REGISTRATE.item("hasoc_wafer", Item::new).register();
 
     public static ItemEntry<Item> UHASOC = EVRegistries.REGISTRATE.item("uhasoc", Item::new).register();
     public static ItemEntry<Item> UHASOC_WAFER = EVRegistries.REGISTRATE.item("uhasoc_wafer".toLowerCase(), Item::new).register();
+
+    public static ItemEntry<Item> WAFER_RUTHERFORDIUM = EVRegistries.REGISTRATE.item("rutherfordium_wafer", Item::new).register();
+    public static ItemEntry<Item> WAFER_DUBNIUM = EVRegistries.REGISTRATE.item("dubnium_wafer", Item::new).register();
+
+    public static ItemEntry<Item> BOULE_RUTHERFORDIUM = EVRegistries.REGISTRATE.item("rutherfordium_boule", Item::new).register();
+    public static ItemEntry<Item> BOULE_DUBNIUM = EVRegistries.REGISTRATE.item("dubnium_boule", Item::new).register();
+
 
     public static ItemEntry<Item> BATTERY_NIMH_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_NIMH_EMPTY".toLowerCase(), Item::new).register();
 

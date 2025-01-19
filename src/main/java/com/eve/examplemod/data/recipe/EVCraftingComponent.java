@@ -1,7 +1,10 @@
 package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.common.data.EVItems;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
@@ -16,6 +19,7 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 public class EVCraftingComponent extends CraftingComponent {
 
     public static Component BATTERY;
+    public static Component GEAR;
 
     public static void initialiseComponents() {
 
@@ -37,6 +41,22 @@ public class EVCraftingComponent extends CraftingComponent {
 //                { 12, CustomTags.UXV_CIRCUITS },
 //                { 13, CustomTags.OpV_CIRCUITS },
 //                { 14, CustomTags.MAX_BATTERIES },
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
+
+        GEAR = new Component(Stream.of(new Object[][] {
+
+                { 0, new UnificationEntry(TagPrefix.gear, GTMaterials.WroughtIron) },
+                { 1, new UnificationEntry(TagPrefix.gear, GTMaterials.Steel) },
+                { 2, new UnificationEntry(TagPrefix.gear, GTMaterials.Aluminium) },
+                { 3, new UnificationEntry(TagPrefix.gear, GTMaterials.StainlessSteel) },
+                { 4, new UnificationEntry(TagPrefix.gear, GTMaterials.Titanium) },
+                { 5, new UnificationEntry(TagPrefix.gear, GTMaterials.TungstenSteel) },
+                { 6, new UnificationEntry(TagPrefix.gear, GTMaterials.RhodiumPlatedPalladium) },
+                { 7, new UnificationEntry(TagPrefix.gear, GTMaterials.NaquadahAlloy) },
+                { 8, new UnificationEntry(TagPrefix.gear, GTMaterials.Darmstadtium) },
+                { 9, new UnificationEntry(TagPrefix.gear, GTMaterials.Neutronium) },
+                { FALLBACK, new UnificationEntry(TagPrefix.gear, GTMaterials.Neutronium) },
+
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
         PUMP = new Component(Stream.of(new Object[][]{

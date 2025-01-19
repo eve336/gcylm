@@ -68,9 +68,8 @@ public class PassiveCooler extends MultiblockPartMachine {
             }
     }
 
-
     @Override
-    public void notifyBlockUpdate() {
-        super.notifyBlockUpdate();
+    public boolean replacePartModelWhenFormed() {
+        return false;
     }
 }

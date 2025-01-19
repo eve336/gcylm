@@ -51,26 +51,26 @@ public class VanadiumChain {
 
         // (VO)C(TiO2) = Dark Ash + TiO2 + VO
         MACERATOR_RECIPES.recipeBuilder("vanadium_chain_" + chainNumber++).duration(80).EUt(24)
-                .inputItems(VanadiumSlag,5)
+                .inputItems(dust, VanadiumSlag,5)
                 .outputItems(dust, DarkAsh)
                 .outputItems(dustSmall, Rutile)
-                .outputItems(VanadiumSlagDust,2)
+                .outputItems(dust, VanadiumSlagDust,2)
                 .save(provider);
 
         // 2VO + 3Na2CO3 = 2Na3VO4 + 3CO
         BLAST_RECIPES.recipeBuilder("vanadium_chain_" + chainNumber++).duration(150).EUt(120).blastFurnaceTemp(700)
-                .inputItems(VanadiumSlagDust,4)
+                .inputItems(dust, VanadiumSlagDust,4)
                 .inputItems(dust, SodaAsh, 18)
-                .outputItems(SodiumVanadate,16)
+                .outputItems(dust, SodiumVanadate,16)
                 .outputFluids(CarbonMonoxide.getFluid(3000))
                 .save(provider);
 
         // H2SO4 + NH4Cl + Na3VO4 = NH4VO3 + [Cl + 3Na + O + H2SO4]
         CHEMICAL_RECIPES.recipeBuilder("vanadium_chain_" + chainNumber++).duration(120).EUt(120)
                 .inputFluids(SulfuricAcid.getFluid(1000))
-                .inputItems(SodiumVanadate,8)
+                .inputItems(dust, SodiumVanadate,8)
                 .inputFluids(AmmoniumChloride.getFluid(1000))
-                .outputItems(AmmoniumVanadate,9)
+                .outputItems(dust, AmmoniumVanadate,9)
                 .outputFluids(VanadiumWasteSolution.getFluid(1000))
                 .save(provider);
 
@@ -93,17 +93,17 @@ public class VanadiumChain {
 
         // 2NH4VO3 = V2O5 + 2NH3 + H2O (H2O lost to dehydrator)
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("vanadium_chain_" + chainNumber++).duration(240).EUt(120)
-                .inputItems(AmmoniumVanadate,18)
-                .outputItems(VanadiumOxide,7)
+                .inputItems(dust, AmmoniumVanadate,18)
+                .outputItems(dust, VanadiumOxide,7)
                 .outputFluids(Ammonia.getFluid(2000))
                 .save(provider);
 
         // V2O5 + 2Al + C = Al2O3 + 2V + CO2
         BLAST_RECIPES.recipeBuilder("vanadium_chain_" + chainNumber++).duration(200).EUt(120).blastFurnaceTemp(1200)
-                .inputItems(VanadiumOxide,7)
+                .inputItems(dust, VanadiumOxide,7)
                 .inputItems(dust, Aluminium, 2)
                 .inputItems(dust, Carbon)
-                .outputItems(Alumina,5)
+                .outputItems(dust, Alumina,5)
                 .outputItems(dust, Vanadium, 2)
                 .outputFluids(CarbonDioxide.getFluid(1000))
                 .save(provider);

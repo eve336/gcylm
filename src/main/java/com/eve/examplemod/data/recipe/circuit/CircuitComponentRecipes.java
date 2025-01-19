@@ -204,6 +204,47 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_DIODE_CRYSTAL,32)
                 .save(provider);
 
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .duration(12000).EUt(480)
+                .inputItems(gemExquisite, Olivine)
+                .inputFluids(Rutherfordium.getFluid(L / 2))
+                .chancedOutput(RAW_CRYSTAL_CHIP.asStack(), "1/2", 1000)
+                .save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .duration(12000).EUt(480)
+                .inputItems(gemExquisite, Emerald)
+                .inputFluids(Rutherfordium.getFluid(L / 2))
+                .chancedOutput(RAW_CRYSTAL_CHIP.asStack(), "1/2", 1000)
+                .save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .duration(12000).EUt(480)
+                .inputItems(gemFlawless, Olivine)
+                .inputFluids(Rutherfordium.getFluid(L / 2))
+                .chancedOutput(RAW_CRYSTAL_CHIP.asStack(), "1/4", 750)
+                .save(provider);
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .duration(12000).EUt(480)
+                .inputItems(gemFlawless, Emerald)
+                .inputFluids(Rutherfordium.getFluid(L / 2))
+                .chancedOutput(RAW_CRYSTAL_CHIP.asStack(), "1/4", 750)
+                .save(provider);
+
+        // Engraved Crystal CPU
+
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .duration(450).EUt(480).blastFurnaceTemp(5000)
+                .inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Emerald)
+                .inputFluids(Rutherfordium.getFluid(L / 2))
+                .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .duration(450).EUt(480).blastFurnaceTemp(5000)
+                .inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Olivine)
+                .inputFluids(Rutherfordium.getFluid(L / 2))
+                .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+
+
+
+
 
 
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(30720)
@@ -1192,6 +1233,18 @@ public class CircuitComponentRecipes {
                 .inputItems(dust, Carbon)
                 .inputFluids(Cerium.getFluid(1))
                 .chancedOutput(CARBON_FIBERS.get(),2, "1/8", 250)
+                .save(provider);
+
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
+                .inputItems(dust, Carbon)
+                .inputFluids(Palladium.getFluid(1))
+                .chancedOutput(CARBON_FIBERS.get(),2, "3/4", 250)
+                .save(provider);
+
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
+                .inputItems(dust, Carbon)
+                .inputFluids(Platinum.getFluid(1))
+                .chancedOutput(CARBON_FIBERS.get(),2, "7/10", 250)
                 .save(provider);
 
         LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(10000)

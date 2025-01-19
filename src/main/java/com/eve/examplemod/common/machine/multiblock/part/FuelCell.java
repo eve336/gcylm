@@ -18,9 +18,6 @@ public class FuelCell extends MultiblockPartMachine implements IFuelCell {
 
     //  (mnost playerrs just turn off explosions anyways)
 
-    // TODO make it so it doesnt just change to the textures of the rhuhe j the uhhhh you know the nuclear reacotr overlay thing where it changes the hull mayybe yuse overlay texture but that might make it so the uh it has pixels on top so its actually slightly bigger than a full  cube so the edges are see through
-
-
     @Getter
     public int heat = 0;
 
@@ -41,5 +38,8 @@ public class FuelCell extends MultiblockPartMachine implements IFuelCell {
     }
 
 
-
+    @Override
+    public boolean replacePartModelWhenFormed() {
+        return false;
+    }
 }
