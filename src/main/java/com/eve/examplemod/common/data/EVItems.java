@@ -310,7 +310,7 @@ public class EVItems {
 
 
     public static ItemEntry<ComponentItem> ELECTRIC_PUMP_ULV = EVRegistries.REGISTRATE.item("ulv_electric_pump", ComponentItem::create)
-            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[0])))
+            .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[1])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.electric.pump.tooltip"));
                 lines.add(Component.translatable("gtceu.universal.tooltip.fluid_transfer_rate",

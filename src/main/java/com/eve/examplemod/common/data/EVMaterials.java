@@ -36,10 +36,8 @@ public class EVMaterials {
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
 
-        GTMaterials.Plutonium239.addFlags(GENERATE_FINE_WIRE);
-        Ruthenium.addFlags(GENERATE_FINE_WIRE);
-        Iron.addFlags(GENERATE_FINE_WIRE);
-        TinAlloy.addFlags(GENERATE_FINE_WIRE);
+        List<Material> FineWireList = List.of(NaquadahAlloy, GTMaterials.Plutonium239, Ruthenium, Iron, TinAlloy, Titanium);
+        FineWireList.forEach(m -> m.addFlags(GENERATE_FINE_WIRE));
 
         NaquadahAlloy.addFlags(AUTOGEN_MIXER_RECIPE);
 
@@ -1377,7 +1375,7 @@ public class EVMaterials {
             .buildAndRegister();
 
     public static final Material Polyimide = new Material.Builder(EVMain.id("polyimide"))
-            .color(0xFF7F50)
+            .color(0xFF7F50).polymer()
             .iconSet(DULL)
             .ingot(1).fluid()
             .components(Carbon, 22, Hydrogen, 12, Nitrogen, 2, Oxygen, 6)
@@ -4880,7 +4878,6 @@ public class EVMaterials {
     public static final Material Oxydianiline = new Material.Builder(EVMain.id("oxydianiline")).fluid()
             .color(0xF0E130)
             .iconSet(DULL)
-            .dust()
             .components()
             .buildAndRegister();
 
@@ -7270,12 +7267,14 @@ public class EVMaterials {
 
     public static final Material GrapheneGelSuspension = new Material.Builder(EVMain.id("graphene_gel_suspension"))
             .color(0xadadad)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("C", true);
 
     public static final Material DryGrapheneGel = new Material.Builder(EVMain.id("dry_graphene_gel"))
             .color(0x3a3ada)
+            .dust()
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("C", true);

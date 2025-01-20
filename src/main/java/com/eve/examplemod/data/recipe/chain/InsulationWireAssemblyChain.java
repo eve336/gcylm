@@ -159,14 +159,14 @@ public class InsulationWireAssemblyChain {
         MIXER_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(100).EUt(120)
                 .inputFluids(Resorcinol.getFluid(500))
                 .inputFluids(Formaldehyde.getFluid(1000))
-                .inputItems(GrapheneOxide, 3)
-                .outputItems(GrapheneGelSuspension)
+                .inputItems(dust, GrapheneOxide, 3)
+                .outputItems(dust, GrapheneGelSuspension)
                 .save(provider);
 
         AUTOCLAVE_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(260).EUt(480)
-                .inputItems(GrapheneGelSuspension)
+                .inputItems(dust, GrapheneGelSuspension)
                 .inputFluids(Acetone.getFluid(100))
-                .outputItems(DryGrapheneGel)
+                .outputItems(dust, DryGrapheneGel)
                 .save(provider);
 
         FLUID_HEATER_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(80).EUt(480)
@@ -176,7 +176,7 @@ public class InsulationWireAssemblyChain {
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(400).EUt(120).blastFurnaceTemp(5000)
-                .inputItems(DryGrapheneGel)
+                .inputItems(dust, DryGrapheneGel)
                 .inputFluids(SupercriticalCO2.getFluid(1000))
                 .outputItems(AEROGRAPHENE)
                 .outputFluids(CarbonDioxide.getFluid(1000))

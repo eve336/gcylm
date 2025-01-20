@@ -113,7 +113,12 @@ public class Removal {
         List<String> removal = List.of("gtceu:autoclave/raw_crystal_chip_from_part_bacterial_sludge", "gtceu:autoclave/raw_crystal_chip_from_part_europium",
                 "gtceu:autoclave/raw_crystal_chip_olivine", "gtceu:autoclave/raw_crystal_chip_from_part_mutagen", "gtceu:autoclave/raw_crystal_chip_emerald",
                 "gtceu:electric_blast_furnace/engraved_crystal_chip_from_olivine", "gtceu:electric_blast_furnace/engraved_crystal_chip_from_emerald",
-                "gtceu:assembler/superconducting_coil_luv", "gtceu:assembler/superconducting_coil_zpm", "gtceu:assembler/superconducting_coil_uv", "gtceu:mixer/naquadah_alloy");
+                "gtceu:assembler/superconducting_coil_luv", "gtceu:assembler/superconducting_coil_zpm", "gtceu:assembler/superconducting_coil_uv", "gtceu:mixer/naquadah_alloy",
+                "gtceu:mixer/graphene",
+        // wetware
+                "gtceu:fluid_heater/sterile_growth_medium", "gtceu:mixer/raw_growth_medium", "gtceu:autoclave/agar", "gtceu:distillery/mutagen",
+                "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
+                "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells");
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
 
 

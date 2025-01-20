@@ -47,7 +47,7 @@ public class WetwareChain {
                 .inputItems(dust, Quicklime, 4)
                 .inputItems(dust, Carbon, 5)
                 .outputFluids(CarbonMonoxide.getFluid(1000))
-                .outputItems(CalciumCarbide,6)
+                .outputItems(dust, CalciumCarbide,6)
                 .blastFurnaceTemp(2500)
                 .EUt(120)
                 .duration(300)
@@ -55,9 +55,9 @@ public class WetwareChain {
 
         // CaC2 + 2H2O -> Ca(OH)2 + C2H2
         BLAST_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(CalciumCarbide,3)
+                .inputItems(dust, CalciumCarbide,3)
                 .inputFluids(Steam.getFluid(2000))
-                .outputItems(CalciumHydroxide,5)
+                .outputItems(dust, CalciumHydroxide,5)
                 .outputFluids(Acetylene.getFluid(1000))
                 .blastFurnaceTemp(2300)
                 .EUt(120)
@@ -66,7 +66,7 @@ public class WetwareChain {
 
         // Ca(OH)2 + 2HCl -> 2H2O + CaCl2
         CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(CalciumHydroxide,5)
+                .inputItems(dust, CalciumHydroxide,5)
                 .inputFluids(HydrochloricAcid.getFluid(2000))
                 .outputFluids(Water.getFluid(2000))
                 .outputItems(dust, CalciumChloride, 3)
@@ -125,7 +125,7 @@ public class WetwareChain {
         CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(Turpentine.getFluid(1000))
                 .inputFluids(SulfuricAcid.getFluid(1000))
-                .outputItems(BetaPinene,26)
+                .outputItems(dust, BetaPinene,26)
                 .outputFluids(SulfuricAcid.getFluid(1000))
                 .EUt(480)
                 .duration(110)
@@ -133,7 +133,7 @@ public class WetwareChain {
 
         // C10H16 + 2C5H8 + 2O -> 2C10H16O
         CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(BetaPinene,26)
+                .inputItems(dust, BetaPinene,26)
                 .inputFluids(Isoprene.getFluid(2000))
                 .inputFluids(Oxygen.getFluid(2000))
                 .outputFluids(Citral.getFluid(2000))
@@ -172,7 +172,7 @@ public class WetwareChain {
 
         BIO_REACTOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(Biomass.getFluid(1000))
-                .inputItems(Yeast)
+                .inputItems(dust, Yeast)
                 .notConsumable(ULTRASONIC_HOMOGENIZER)
                 .outputFluids(LinoleicAcid.getFluid(1000))
                 .EUt(1920)
@@ -199,7 +199,7 @@ public class WetwareChain {
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(CupriavidusNecator)
+                .inputItems(dust, CupriavidusNecator)
                 .inputItems(dust, Sugar)
                 .inputFluids(Nitrogen.getFluid(1000))
                 .inputFluids(Hydrogen.getFluid(1000))
@@ -229,9 +229,9 @@ public class WetwareChain {
 
         BIO_REACTOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(CleanAmmoniaSolution.getFluid(1000))
-                .inputItems(BrevibacteriumFlavium)
+                .inputItems(dust, BrevibacteriumFlavium)
                 .inputItems(dust, Sugar)
-                .outputItems(Glutamine,40)
+                .outputItems(dust, Glutamine,40)
                 .EUt(30720)
                 .duration(500)
                 .save(provider);
@@ -263,7 +263,7 @@ public class WetwareChain {
         LARGE_MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(B27Supplement.getFluid(1000))
                 .inputFluids(AmmoniumNitrate.getFluid(1000))
-                .inputItems(Glutamine,20)
+                .inputItems(dust, Glutamine,20)
                 .inputFluids(BFGF.getFluid(1000))
                 .inputFluids(EGF.getFluid(1000))
                 .outputFluids(RawGrowthMedium.getFluid(4000))
@@ -294,40 +294,40 @@ public class WetwareChain {
 
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(SilicaGelBase.getFluid(1000))
-                .outputItems(SilicaGel,3)
+                .outputItems(dust, SilicaGel,3)
                 .outputItems(dust, Salt, 2)
                 .EUt(480)
                 .duration(125)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(SilicaGel,3)
-                .inputItems(Alumina,5)
-                .outputItems(SilicaAluminaGel,8)
+                .inputItems(dust, SilicaGel,3)
+                .inputItems(dust, Alumina,5)
+                .outputItems(dust, SilicaAluminaGel,8)
                 .EUt(30)
                 .duration(60)
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(SilicaAluminaGel)
-                .outputItems(ZeoliteSievingPellets)
+                .inputItems(dust, SilicaAluminaGel)
+                .outputItems(dust, ZeoliteSievingPellets)
                 .blastFurnaceTemp(4500)
                 .EUt(120)
                 .duration(400)
                 .save(provider);
 
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(WetZeoliteSievingPellets)
-                .outputItems(ZeoliteSievingPellets)
+                .inputItems(dust, WetZeoliteSievingPellets)
+                .outputItems(dust, ZeoliteSievingPellets)
                 .EUt(120)
                 .duration(50)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(ZeoliteSievingPellets)
+                .inputItems(dust, ZeoliteSievingPellets)
                 .inputFluids(Ethanol.getFluid(1000))
                 .outputFluids(Ethanol100.getFluid(1000))
-                .outputItems(WetZeoliteSievingPellets)
+                .outputItems(dust, WetZeoliteSievingPellets)
                 .EUt(120)
                 .duration(100)
                 .save(provider);
@@ -405,20 +405,20 @@ public class WetwareChain {
         LARGE_CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++).duration(140).EUt(30)
                 .inputFluids(Water.getFluid(1000))
                 .inputItems(dust, SodaAsh, 6)
-                .outputItems(SodiumBicarbonate,6)
+                .outputItems(dust, SodiumBicarbonate,6)
                 .outputItems(dust, SodiumHydroxide, 3)
                 .save(provider);
 
         // NaHCO3 -> NaOH + CO2
         ELECTROLYZER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++).duration(145).EUt(120)
-                .inputItems(SodiumBicarbonate,6)
+                .inputItems(dust, SodiumBicarbonate,6)
                 .outputItems(dust, SodiumHydroxide, 3)
                 .outputFluids(CarbonDioxide.getFluid(1000))
                 .save(provider);
 
         // NaHCO3 + C8H8ClNO3S + NH3 -> NaCl + C6H8N2O2S + CO2 + CH3COOH
         LARGE_CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputItems(SodiumBicarbonate,6)
+                .inputItems(dust, SodiumBicarbonate,6)
                 .inputFluids(AcetylsulfanilylChloride.getFluid(1000))
                 .inputFluids(Ammonia.getFluid(1000))
                 .outputItems(dust, Salt, 2)
@@ -514,7 +514,7 @@ public class WetwareChain {
 
         BIO_REACTOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .notConsumable(ULTRASONIC_HOMOGENIZER)
-                .inputItems(StreptococcusPyogenes)
+                .inputItems(dust, StreptococcusPyogenes)
                 .inputFluids(DistilledWater.getFluid(1000))
                 .outputFluids(Cas9.getFluid(1000))
                 .EUt(480)
@@ -527,12 +527,13 @@ public class WetwareChain {
                 .inputFluids(Oct4Gene.getFluid(1000))
                 .inputFluids(SOX2Gene.getFluid(1000))
                 .inputFluids(KFL4Gene.getFluid(1000))
-                .inputItems(EschericiaColi)
+                .inputItems(dust, EschericiaColi)
                 .outputFluids(GenePlasmids.getFluid(5000))
                 .EUt(1920)
                 .duration(50)
                 .save(provider);
 
+        // todo what the fuck is list all mushroom lol
         MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .notConsumable(ULTRASONIC_HOMOGENIZER)
                 .inputItems("listAllmushroom", 1)
@@ -559,7 +560,7 @@ public class WetwareChain {
 
         BIO_REACTOR_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(Chitin.getFluid(1000))
-                .inputItems(BifidobacteriumBreve)
+                .inputItems(dust, BifidobacteriumBreve)
                 .outputFluids(Chitosan.getFluid(1000))
                 .EUt(120)
                 .duration(100)

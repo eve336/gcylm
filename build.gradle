@@ -133,6 +133,9 @@ dependencies {
 
     modImplementation ("curse.maven:time-in-a-bottle-universal-895919:4744787")
 
+    // modImplementation ("curse.maven:applied-energistics-2-223794:6091401")
+    // modImplementation ("curse.maven:ae2-things-forge-609977:4613704")
+
     modImplementation ("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
 
     modImplementation("com.gregtechceu.gtceu:gtceu-$project.minecraft_version:$project.gtceu_version") { transitive = false }

@@ -72,12 +72,14 @@ public class MiscRecipes {
                 .outputItems(ELECTRIC_MOTOR_IV.asStack())
                 .save(provider);
 
+        // TODO probably add upgraded recipes for fusion coils
         ASSEMBLER_RECIPES.recipeBuilder("evsuperconducting_coil").EUt(VA[LuV])
                 .inputItems(wireGtDouble, IndiumTinBariumTitaniumCuprate, 32)
                 .inputItems(foil, NiobiumTitanium, 32)
-                .inputFluids(Trinium.getFluid(GTValues.L * 24))
+                .inputFluids(NaquadahAlloy.getFluid(GTValues.L * 24))
                 .outputItems(GTBlocks.SUPERCONDUCTING_COIL.asStack())
                 .duration(100).save(provider);
+
 
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("circuit_assembly_line"),
                 EVMachines.CIRCUIT_ASSEMBLY_LINE.asStack(),

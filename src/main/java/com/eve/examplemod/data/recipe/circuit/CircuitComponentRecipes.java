@@ -242,8 +242,99 @@ public class CircuitComponentRecipes {
                 .inputFluids(Rutherfordium.getFluid(L / 2))
                 .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
 
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputItems(foil, VanadiumGallium, 24)
+                .inputItems(KAPTON_BOARD)
+                .inputFluids(SodiumPersulfate.getFluid(6000))
+                .outputItems(KAPTON_CIRCUIT_BOARD)
+                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputItems(foil, VanadiumGallium, 24)
+                .inputItems(KAPTON_BOARD)
+                .inputFluids(Iron3Chloride.getFluid(3000))
+                .outputItems(KAPTON_CIRCUIT_BOARD)
+                .save(provider);
+
+      // polyamic acid and stuff
+
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputFluids(OrthoXylene.getFluid(1000))
+                .inputFluids(Chloromethane.getFluid(2000))
+                .outputItems(dust, Durene,24)
+                .outputFluids(HydrochloricAcid.getFluid(2000))
+                .EUt(30)
+                .duration(100)
+                .save(provider);
+
+        // C6H2(CH3)4 + 12O -> C6H2(C2O3)2 + 6H2O
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputItems(dust, Durene,24)
+                .inputFluids(Oxygen.getFluid(12000))
+                .outputItems(dust, PyromelliticDianhydride,18)
+                .outputFluids(Water.getFluid(6000))
+                .EUt(120)
+                .duration(150)
+                .save(provider);
+
+        // 2C6H5NH2 + C2H5OH -> C12H12N2O + 2CH4
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .notConsumable(dust, Tin)
+                .notConsumableFluid(HydrochloricAcid.getFluid(1))
+                .inputFluids(Aniline.getFluid(2000))
+                .inputFluids(Phenol.getFluid(1000))
+                .outputFluids(Oxydianiline.getFluid(1000))
+                .outputFluids(Methane.getFluid(2000))
+                .EUt(120)
+                .duration(150)
+                .save(provider);
+
+        // C6H2(C2O3)2 + C12H12N2O -> C22H14N2O7
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputItems(dust, PyromelliticDianhydride,18)
+                .inputFluids(Oxydianiline.getFluid(1000))
+                .outputFluids(PolyamicAcid.getFluid(1000))
+                .EUt(7680)
+                .duration(400)
+                .save(provider);
+
+        // Lose water
+        // This should not gain water output ever, due to
+        // the 1B -> 144mb recipe change with the above recipe.
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputFluids(PolyamicAcid.getFluid(144))
+                .outputFluids(Polyimide.getFluid(144))
+                .EUt(30)
+                .duration(270)
+                .save(provider);
+
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(300).EUt(240)
+                .inputItems(plate, Polyimide)
+                .inputFluids(FluorinatedEthylenePropylene.getFluid(L / 2))
+                .outputItems(KAPTON_BOARD)
+                .save(provider);
+
+        // no more polyimide
 
 
+        // 3C2F4 -> 2C3F6
+        PYROLYSE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .circuitMeta(1)
+                .notConsumable(rod, Steel)
+                .inputFluids(Tetrafluoroethylene.getFluid(3000))
+                .outputFluids(Hexafluoropropylene.getFluid(2000))
+                .EUt(96)
+                .duration(460)
+                .save(provider);
+
+        // C2F4 + C3F6 -> C5F10
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputFluids(Tetrafluoroethylene.getFluid(1000))
+                .inputFluids(Hexafluoropropylene.getFluid(1000))
+                .outputFluids(FluorinatedEthylenePropylene.getFluid(1000))
+                .EUt(1920)
+                .duration(125)
+                .save(provider);
 
 
 
@@ -920,23 +1011,23 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         LARGE_MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(3000)
-                .inputItems(ZirconiumTetrafluoride,90)
-                .inputItems(BariumDifluoride,21)
-                .inputItems(LanthanumTrifluoride,8)
-                .inputItems(AluminiumTrifluoride,4)
+                .inputItems(dust, ZirconiumTetrafluoride,90)
+                .inputItems(dust, BariumDifluoride,21)
+                .inputItems(dust, LanthanumTrifluoride,8)
+                .inputItems(dust, AluminiumTrifluoride,4)
                 .inputItems(dust, SodiumFluoride, 14)
-                .outputItems(ZBLANDust,35)
+                .outputItems(dust, ZBLANDust,35)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(3000)
-                .inputItems(ZBLANDust)
+                .inputItems(dust, ZBLANDust)
                 .inputItems(ErbiumTrifluoride,4)
                 .outputItems(ErbiumDopedZBLANDust,2)
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
                 .inputFluids(Argon.getFluid(1000))
-                .inputItems(ZBLANDust)
+                .inputItems(dust, ZBLANDust)
                 .outputItems(ZBLAN)
                 .blastFurnaceTemp(2500)
                 .save(provider);
@@ -985,7 +1076,7 @@ public class CircuitComponentRecipes {
                 .inputItems(plate, Tritanium, 2)
                 .inputItems(ELECTRIC_PUMP_LuV)
                 .inputItems(pipeSmallFluid, Polybenzimidazole, 2)
-                .inputItems(Shewanella,2)
+                .inputItems(dust, Shewanella,2)
                 .inputFluids(Polybenzimidazole.getFluid(L * 8))
                 .outputItems(NEURO_SUPPORT_UNIT)
                 .EUt(30720)
@@ -1036,46 +1127,46 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(200)
                 .inputFluids(Biomass.getFluid(1000))
                 .inputFluids(SaltWater.getFluid(1000))
-                .outputItems(GreenAlgae)
-                .outputItems(RedAlgae)
-                .outputItems(BrownAlgae)
+                .outputItems(dust, GreenAlgae)
+                .outputItems(dust, RedAlgae)
+                .outputItems(dust, BrownAlgae)
                 .save(provider);
 
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(150)
-                .inputItems(RedAlgae)
-                .outputItems(DryRedAlgae)
+                .inputItems(dust, RedAlgae)
+                .outputItems(dust, DryRedAlgae)
                 .save(provider);
 
         MACERATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(75)
-                .inputItems(DryRedAlgae)
-                .outputItems(RedAlgaePowder)
+                .inputItems(dust, DryRedAlgae)
+                .outputItems(dust, RedAlgaePowder)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(150)
-                .inputItems(RedAlgaePowder)
+                .inputItems(dust, RedAlgaePowder)
                 .inputItems(dustSmall, SodaAsh)
-                .outputItems(PreFreezeAgar)
+                .outputItems(dust, PreFreezeAgar)
                 .save(provider);
 
         VACUUM_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(PreFreezeAgar)
-                .outputItems(FrozenAgarCrystals)
+                .inputItems(dust, PreFreezeAgar)
+                .outputItems(dust, FrozenAgarCrystals)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(200)
-                .inputItems(FrozenAgarCrystals)
+                .inputItems(dust, FrozenAgarCrystals)
                 .inputFluids(DistilledWater.getFluid(1000))
                 .outputFluids(WaterAgarMix.getFluid(1000))
                 .save(provider);
 
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30).duration(50)
                 .inputFluids(WaterAgarMix.getFluid(1000))
-                .outputItems(Agar)
+                .outputItems(dust, Agar)
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(480).duration(100)
                 .inputItems(STERILIZED_PETRI_DISH)
-                .inputItems(Agar)
+                .inputItems(dust, Agar)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(CLEAN_CULTURE)
                 .save(provider);
@@ -1087,7 +1178,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(2400)
-                .inputItems(GreenAlgae)
+                .inputItems(dust, GreenAlgae)
                 .inputItems(CLEAN_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
                 .outputItems(SHEWANELLA_CULTURE)
@@ -1131,7 +1222,7 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(SHEWANELLA_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
-                .outputItems(Shewanella)
+                .outputItems(dust, Shewanella)
                 .outputFluids(DepletedGrowthMedium.getFluid(1000))
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
@@ -1139,7 +1230,7 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(STREPTOCOCCUS_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
-                .outputItems(StreptococcusPyogenes)
+                .outputItems(dust, StreptococcusPyogenes)
                 .outputFluids(DepletedGrowthMedium.getFluid(1000))
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
@@ -1147,7 +1238,7 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(BIFIDOBACTERIUM_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
-                .outputItems(BifidobacteriumBreve)
+                .outputItems(dust, BifidobacteriumBreve)
                 .outputFluids(DepletedGrowthMedium.getFluid(1000))
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
@@ -1155,7 +1246,7 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(ESCHERICHIA_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
-                .outputItems(EschericiaColi)
+                .outputItems(dust, EschericiaColi)
                 .outputFluids(DepletedGrowthMedium.getFluid(1000))
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
@@ -1163,7 +1254,7 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(BREVIBACTERIUM_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
-                .outputItems(BrevibacteriumFlavium)
+                .outputItems(dust, BrevibacteriumFlavium)
                 .outputFluids(DepletedGrowthMedium.getFluid(1000))
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
@@ -1171,49 +1262,49 @@ public class CircuitComponentRecipes {
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(200)
                 .inputItems(CUPRIVADUS_CULTURE)
                 .inputFluids(BacterialGrowthMedium.getFluid(1000))
-                .outputItems(CupriavidusNecator)
+                .outputItems(dust, CupriavidusNecator)
                 .outputFluids(DepletedGrowthMedium.getFluid(1000))
                 .outputItems(CONTAMINATED_PETRI_DISH)
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(Shewanella)
-                .outputItems(Shewanella,2)
+                .inputItems(dust, Shewanella)
+                .outputItems(dust, Shewanella,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(BrevibacteriumFlavium)
-                .outputItems(BrevibacteriumFlavium,2)
+                .inputItems(dust, BrevibacteriumFlavium)
+                .outputItems(dust, BrevibacteriumFlavium,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(EschericiaColi)
-                .outputItems(EschericiaColi,2)
+                .inputItems(dust, EschericiaColi)
+                .outputItems(dust, EschericiaColi,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(StreptococcusPyogenes)
-                .outputItems(StreptococcusPyogenes,2)
+                .inputItems(dust, StreptococcusPyogenes)
+                .outputItems(dust, StreptococcusPyogenes,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(BifidobacteriumBreve)
-                .outputItems(BifidobacteriumBreve,2)
+                .inputItems(dust, BifidobacteriumBreve)
+                .outputItems(dust, BifidobacteriumBreve,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
 
         BIO_REACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(100)
-                .inputItems(CupriavidusNecator)
-                .outputItems(CupriavidusNecator,2)
+                .inputItems(dust, CupriavidusNecator)
+                .outputItems(dust, CupriavidusNecator,2)
                 .inputFluids(BacterialGrowthMedium.getFluid(250))
                 .outputFluids(DepletedGrowthMedium.getFluid(250))
                 .save(provider);
@@ -1225,9 +1316,7 @@ public class CircuitComponentRecipes {
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12000).EUt(480).inputItems(gemFlawless, Emerald) .inputFluids(Rutherfordium.getFluid(L / 2)).chancedOutput(RAW_CRYSTAL_CHIP.asItem(), "1/4", 750).save(provider);
 
         BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Emerald).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
-        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Olivine).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
-        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(900).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(block, Emerald).inputFluids(Helium.getFluid(1000))        .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
-        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(900).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(block, Olivine).inputFluids(Helium.getFluid(1000))        .outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(450).EUt(480).blastFurnaceTemp(5000).inputItems(RAW_CRYSTAL_CHIP).inputItems(plate, Olivine).inputFluids(Rutherfordium.getFluid(L / 2)).outputItems(ENGRAVED_CRYSTAL_CHIP).save(provider);;
 
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
                 .inputItems(dust, Carbon)

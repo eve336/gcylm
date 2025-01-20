@@ -504,12 +504,13 @@ public class VariousChains {
                 .save(provider);
 
         // Graphene + Oxidation Solution = Graphene Oxide + Residue
-        CHEMICAL_BATH_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(20).EUt(24)
-                .inputItems(dust, Graphene)
-                .inputFluids(GrapheneOxidationSolution.getFluid(100))
-                .outputItems(dust, GrapheneOxide,3)
-                .chancedOutput(dust, GrapheneOxidationResidue, 8000, 1000)
-                .save(provider);
+        // wtf why does this even exist it just looks like a waste of power and does nothing??
+//        CHEMICAL_BATH_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(20).EUt(24)
+//                .inputItems(dust, Graphene)
+//                .inputFluids(GrapheneOxidationSolution.getFluid(100))
+//                .outputItems(dust, GrapheneOxide,3)
+//                .chancedOutput(dust, GrapheneOxidationResidue, 8000, 1000)
+//                .save(provider);
 
         // Graphene Oxidation Residue -> Graphene Oxidation Solution
         EXTRACTOR_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(65).EUt(24)
