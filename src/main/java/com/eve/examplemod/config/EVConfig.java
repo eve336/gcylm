@@ -27,6 +27,14 @@ public class EVConfig {
 
     @Configurable
     @Configurable.Comment({"Default = true"})
+    public boolean configEnergyDrainDrive = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = 0.25f"})
+    public float driveEnergyDrainBase = 0.25f;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
     public boolean yellowRutherfordium = true;
 
     @Configurable

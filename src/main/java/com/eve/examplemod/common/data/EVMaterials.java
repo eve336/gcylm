@@ -10,6 +10,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
@@ -39,8 +40,11 @@ public class EVMaterials {
         List<Material> FineWireList = List.of(NaquadahAlloy, GTMaterials.Plutonium239, Ruthenium, Iron, TinAlloy, Titanium);
         FineWireList.forEach(m -> m.addFlags(GENERATE_FINE_WIRE));
 
-        NaquadahAlloy.addFlags(AUTOGEN_MIXER_RECIPE);
 
+        NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium , 1));
+        NaquadahAlloy.setFormula("Nq2(Ir3Os)");
+
+        NaquadahAlloy.addFlags(AUTOGEN_MIXER_RECIPE);
 
         Bohrium.setProperty(PropertyKey.INGOT, new IngotProperty());
         Bohrium.addFlags(GENERATE_PLATE);
