@@ -5,22 +5,29 @@ import com.eve.examplemod.data.recipe.EVCraftingComponent;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import dev.latvian.mods.kubejs.integration.forge.jei.JEIEvents;
 import dev.latvian.mods.kubejs.integration.forge.jei.RemoveJEIRecipesEvent;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.level.block.GlassBlock;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.EVMain.id;
 import static com.gregtechceu.gtceu.api.GTValues.VA;
+import static com.gregtechceu.gtceu.api.GTValues.VN;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GTMachines.ENERGY_INPUT_HATCH;
-import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
+import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
+import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.CRATE;
+import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.DRUM;
 import static com.gregtechceu.gtceu.data.recipe.misc.MetaTileEntityLoader.registerMachineRecipe;
 
 public class Machines {
@@ -29,6 +36,96 @@ public class Machines {
         EVCraftingComponent.initialiseComponents();
 
         // TODO machine recipes like input hatches and component blocks
+
+        for (var machine : GTMachines.FLUID_IMPORT_HATCH) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+
+                GTRecipeTypes.ASSEMBLER_RECIPES
+                        .recipeBuilder("fluid_hatch_" + VN[tier].toLowerCase())
+                        .inputItems(CraftingComponent.HULL.getIngredient(tier))
+                        .inputItems(ChemicalHelper.get(block, Glass))
+                        .circuitMeta(1)
+                        .outputItems(machine)
+                        .duration(300)
+                        .EUt(VA[tier])
+                        .save(provider);
+
+                VanillaRecipeHelper.addShapedRecipe(provider, true, "fluid_hatch_crafting_" + VN[tier].toLowerCase(),
+                        FLUID_IMPORT_HATCH[tier].asStack(),
+                        "G",
+                        "H",
+                        'G', ChemicalHelper.get(block, Glass),
+                        'H', HULL[tier].asStack()
+                );
+        }
+
+        for (var machine : GTMachines.FLUID_EXPORT_HATCH) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+                GTRecipeTypes.ASSEMBLER_RECIPES
+                        .recipeBuilder("fluid_export_hatch_" + VN[tier].toLowerCase())
+                        .inputItems(CraftingComponent.HULL.getIngredient(tier))
+                        .inputItems(ChemicalHelper.get(block, Glass))
+                        .circuitMeta(2)
+                        .outputItems(machine)
+                        .duration(300)
+                        .EUt(VA[tier])
+                        .save(provider);
+
+            VanillaRecipeHelper.addShapedRecipe(provider, true, "fluid_export_hatch_crafting_" + VN[tier].toLowerCase(),
+                    FLUID_EXPORT_HATCH[tier].asStack(),
+                    "H",
+                    "G",
+                    'G', ChemicalHelper.get(block, Glass),
+                    'H', HULL[tier].asStack()
+            );
+        }
+
+        for (var machine : GTMachines.ITEM_IMPORT_BUS) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+                GTRecipeTypes.ASSEMBLER_RECIPES
+                        .recipeBuilder("evitem_import_bus_" + VN[tier].toLowerCase())
+                        .inputItems(Tags.Items.CHESTS_WOODEN)
+                        .inputItems(CraftingComponent.HULL.getIngredient(tier))
+                        .circuitMeta(1)
+                        .outputItems(machine)
+                        .duration(300)
+                        .EUt(VA[tier])
+                        .save(provider);
+
+            VanillaRecipeHelper.addShapedRecipe(provider, true, "item_import_bus_crafting_" + VN[tier].toLowerCase(),
+                    ITEM_IMPORT_BUS[tier].asStack(),
+                    "G",
+                    "H",
+                    'G', Tags.Items.CHESTS_WOODEN,
+                    'H', HULL[tier].asStack()
+            );
+
+        }
+
+        for (var machine : GTMachines.ITEM_EXPORT_BUS) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+                GTRecipeTypes.ASSEMBLER_RECIPES
+                        .recipeBuilder("evitem_export_bus_" + VN[tier].toLowerCase())
+                        .inputItems(CraftingComponent.HULL.getIngredient(tier))
+                        .inputItems(Tags.Items.CHESTS_WOODEN)
+                        .circuitMeta(2)
+                        .outputItems(machine)
+                        .duration(300)
+                        .EUt(VA[tier])
+                        .save(provider);
+
+            VanillaRecipeHelper.addShapedRecipe(provider, true, "item_export_bus_crafting_" + VN[tier].toLowerCase(),
+                    ITEM_EXPORT_BUS[tier].asStack(),
+                    "H",
+                    "G",
+                    'G', Tags.Items.CHESTS_WOODEN,
+                    'H', HULL[tier].asStack()
+            );
+        }
 
         for (int tier = 0; tier < ENERGY_INPUT_HATCH.length; tier++){
 

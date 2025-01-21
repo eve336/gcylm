@@ -2,12 +2,24 @@ package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.common.data.GTMachines;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
+import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.common.Tags;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import static com.gregtechceu.gtceu.api.GTValues.VA;
+import static com.gregtechceu.gtceu.api.GTValues.VN;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.Glass;
+import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.CRATE;
 
 public class Removal {
     public static void init(Consumer<ResourceLocation> registry) {
@@ -19,6 +31,7 @@ public class Removal {
         if (EVConfig.INSTANCE.harderYCBO) YCBO(registry);
         if (EVConfig.INSTANCE.removeCircuitAssemblerRecipes) CircuitAssemblers(registry);
         if (EVConfig.INSTANCE.removeLargeCircuitAssembler) LargeCircuitAssembler(registry);
+        Hatches(registry);
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -118,7 +131,8 @@ public class Removal {
         // wetware
                 "gtceu:fluid_heater/sterile_growth_medium", "gtceu:mixer/raw_growth_medium", "gtceu:autoclave/agar", "gtceu:distillery/mutagen",
                 "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
-                "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells");
+                "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells"
+                );
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
 
 
@@ -209,6 +223,37 @@ public class Removal {
     }
     public static void LargeCircuitAssembler(Consumer<ResourceLocation> registry) {
         registry.accept(new ResourceLocation("gtceu:shaped/large_circuit_assembler"));
+    }
+    public static void Hatches(Consumer<ResourceLocation> registry){
+        List<String> list = List.of("polytetrafluoroethylene", "polyethylene", "glue", "polybenzimidazole");
+        for (var machine : GTMachines.FLUID_IMPORT_HATCH) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+            for (String s : list) {
+                registry.accept(new ResourceLocation("gtceu:assembler/fluid_hatch_" + VN[tier].toLowerCase() + "_" + s));
+            }
+        }
+        for (var machine : GTMachines.FLUID_EXPORT_HATCH) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+            for (String s : list) {
+                registry.accept(new ResourceLocation("gtceu:assembler/fluid_export_hatch_" + VN[tier].toLowerCase() + "_" + s));
+            }
+        }
+        for (var machine : GTMachines.ITEM_IMPORT_BUS) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+            for (String s : list) {
+                registry.accept(new ResourceLocation("gtceu:assembler/item_import_bus_" + VN[tier].toLowerCase() + "_" + s));
+            }
+        }
+        for (var machine : GTMachines.ITEM_EXPORT_BUS) {
+            if (machine == null) continue;
+            int tier = machine.getTier();
+            for (String s : list) {
+                registry.accept(new ResourceLocation("gtceu:assembler/item_export_bus_" + VN[tier].toLowerCase() + "_" + s));
+            }
+        }
     }
 
 }
