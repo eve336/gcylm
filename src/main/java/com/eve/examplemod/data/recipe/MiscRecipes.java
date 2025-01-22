@@ -54,6 +54,19 @@ public class MiscRecipes {
                 'W', ChemicalHelper.get(cableGtSingle, Aluminium),
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.EV));
 
+        VanillaRecipeHelper.addShapelessRecipe(provider, id("lv_superconductor_dust"),
+                ChemicalHelper.get(dust, LVSuperconductor, 9),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Tin),
+                ChemicalHelper.get(dust, Antimony)
+        );
+
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("iv_electric_motor"),
                 ELECTRIC_MOTOR_IV.asStack(),
                 "TWR",

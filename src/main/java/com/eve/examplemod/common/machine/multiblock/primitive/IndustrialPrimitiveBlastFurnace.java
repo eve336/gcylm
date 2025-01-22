@@ -87,14 +87,14 @@ public class IndustrialPrimitiveBlastFurnace extends WorkableElectricMultiblockM
                 }
             }
             if(getRecipeLogic().coke) {
-                if (fuel <= 0) {
+                if (fuel == 0) {
                     if (!consumeFuelCoke()) {
                         recipeLogic.interruptRecipe();
                     }
                 }
             }
             if (!getRecipeLogic().coke){
-                if (fuel <= 0) {
+                if (fuel == 0) {
                     if (!consumeFuel()) {
                         recipeLogic.interruptRecipe();
                     }

@@ -42,6 +42,19 @@ public class EVOres {
                     .surfaceRock(PreciousMetal)
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)));
 
+    public static final GTOreDefinition NETHER_SULFUR = create(EVMain.id("nether_sulfur"), vein -> vein
+            .clusterSize(UniformInt.of(25, 35))
+            .density(0.4F).weight(160)
+            .layer(WorldGenLayers.NETHERRACK)
+            .heightRangeUniform(40, 120)
+            .biomes(BiomeTags.IS_NETHER)
+            .layeredVeinGenerator(generator -> generator.withLayerPattern(() -> GTLayerPattern.builder(NETHER_RULES)
+                    .layer(l -> l.weight(5).mat(Sulfur).size(1, 4))
+                    .layer(l -> l.weight(3).mat(Iron).size(1, 4))
+                    .build()))
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(PreciousMetal)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)));
 
     // find out a way to kill ore veins from gt...,,,, you should mixin and kill all of them hehehehehhehe
     // kubejs works fine but pack creators need to do that manually :sob:
@@ -64,9 +77,9 @@ public class EVOres {
 
     // the most used material in all of gt is just insanely hard to find??? buff copper vein
     public static final GTOreDefinition COPPER_VEIN = create(EVMain.id("copper_vein"), vein -> vein
-            .clusterSize(UniformInt.of(30, 50)).density(0.5f).weight(140)
+            .clusterSize(UniformInt.of(30, 45)).density(0.5f).weight(140)
             .layer(WorldGenLayers.STONE)
-            .heightRangeUniform(50, 80)
+            .heightRangeUniform(55, 75)
             .biomes(BiomeTags.IS_OVERWORLD)
             .layeredVeinGenerator(generator -> generator
                     .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
@@ -80,15 +93,31 @@ public class EVOres {
             ));
 
     public static final GTOreDefinition CHALCOCITE_VEIN = create(EVMain.id("chalcocite_vein"), vein -> vein
-            .clusterSize(UniformInt.of(32, 50)).density(0.3f).weight(120)
+            .clusterSize(UniformInt.of(32, 45)).density(0.53f).weight(120)
             .layer(WorldGenLayers.STONE)
-            .heightRangeUniform(10, 80)
+            .heightRangeUniform(45, 80)
             .biomes(BiomeTags.IS_OVERWORLD)
             .layeredVeinGenerator(generator -> generator
                     .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
                             .layer(l -> l.weight(6).mat(Copper).size(1, 3))
                             .layer(l -> l.weight(6).mat(Chalcocite).size(1, 3))
                             .layer(l -> l.weight(4).mat(Iron).size(1, 3))
+                            .build())
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Copper)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
+    public static final GTOreDefinition IRON_VEIN = create(EVMain.id("iron_vein"), vein -> vein
+            .clusterSize(UniformInt.of(32, 47)).density(0.53f).weight(120)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(60, 80)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(6).mat(Iron).size(1, 3))
+                            .layer(l -> l.weight(4).mat(Tin).size(1, 3))
                             .build())
             )
             .surfaceIndicatorGenerator(indicator -> indicator

@@ -5,6 +5,7 @@ import com.eve.examplemod.api.data.material.properties.*;
 import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
@@ -37,12 +38,16 @@ public class EVMaterials {
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
 
+        Iron.setProperty(PropertyKey.FLUID_PIPE, new FluidPipeProperties(1811, 55, true, false, false, false));
+
         List<Material> FineWireList = List.of(NaquadahAlloy, GTMaterials.Plutonium239, Ruthenium, Iron, TinAlloy, Titanium);
         FineWireList.forEach(m -> m.addFlags(GENERATE_FINE_WIRE));
 
 
         NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium , 1));
         NaquadahAlloy.setFormula("Nq2(Ir3Os)");
+        GTMaterials.Plutonium239.setFormula("Pu", true);
+        GTMaterials.Uranium238.setFormula("U", true);
 
         NaquadahAlloy.addFlags(AUTOGEN_MIXER_RECIPE);
 
@@ -66,26 +71,11 @@ public class EVMaterials {
 
         // mixer duration + eut override
         HastelloyX78.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, -1));
+        LVSuperconductor.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, GTValues.VA[GTValues.LV]));
 
-        // dusts
-        Hafnium.setProperty(PropertyKey.DUST, new DustProperty());
-        Thallium.setProperty(PropertyKey.DUST, new DustProperty());
-        Radium.setProperty(PropertyKey.DUST, new DustProperty());
-        Scandium.setProperty(PropertyKey.DUST, new DustProperty());
-        Terbium.setProperty(PropertyKey.DUST, new DustProperty());
-        Thulium.setProperty(PropertyKey.DUST, new DustProperty());
-        Holmium.setProperty(PropertyKey.DUST, new DustProperty());
-        Erbium.setProperty(PropertyKey.DUST, new DustProperty());
-        Dysprosium.setProperty(PropertyKey.DUST, new DustProperty());
-        Actinium.setProperty(PropertyKey.DUST, new DustProperty());
-        Selenium.setProperty(PropertyKey.DUST, new DustProperty());
-        Tellurium.setProperty(PropertyKey.DUST, new DustProperty());
-        Astatine.setProperty(PropertyKey.DUST, new DustProperty());
-        Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
-        IridiumDioxide.setProperty(PropertyKey.DUST, new DustProperty());
-        Rubidium.setProperty(PropertyKey.DUST, new DustProperty());
-        Francium.setProperty(PropertyKey.DUST, new DustProperty());
-        Praseodymium.setProperty(PropertyKey.DUST, new DustProperty());
+        List<Material> dustList = List.of(Hafnium, Thallium, Radium, Scandium, Terbium, Thulium, Holmium, Erbium, Dysprosium, Actinium, Selenium, Tellurium, Astatine, Dubnium,
+        IridiumDioxide, Rubidium, Francium, Praseodymium);
+        dustList.forEach(m -> m.setProperty(PropertyKey.DUST, new DustProperty()));
 
 
         //Nuclear Properties
@@ -191,21 +181,9 @@ public class EVMaterials {
         )));
 
 
-        Uranium235.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
-        Thorium.addFlags(GENERATE_NUCLEAR);
-        Plutonium241.addFlags(GENERATE_NUCLEAR, FISSILE_OXIDE);
-        GTMaterials.Uranium238.addFlags(GENERATE_NUCLEAR);
-        GTMaterials.Plutonium239.addFlags(GENERATE_NUCLEAR);
-
-        Mendelevium.addFlags(GENERATE_NUCLEAR);
-        Fermium.addFlags(GENERATE_NUCLEAR);
-        Einsteinium.addFlags(GENERATE_NUCLEAR);
-        Californium.addFlags(GENERATE_NUCLEAR);
-        Berkelium.addFlags(GENERATE_NUCLEAR);
-        Protactinium.addFlags(GENERATE_NUCLEAR);
-        Curium.addFlags(GENERATE_NUCLEAR);
-        Americium.addFlags(GENERATE_NUCLEAR);
-        Neptunium.addFlags(GENERATE_NUCLEAR);
+        List<Material> generateNuclearList = List.of(Uranium235, Thorium, Plutonium241, GTMaterials.Uranium238, GTMaterials.Plutonium239, Mendelevium, Fermium,
+                Einsteinium, Californium, Berkelium, Protactinium, Curium, Americium, Neptunium);
+        generateNuclearList.forEach(m -> m.addFlags(GENERATE_NUCLEAR));
 
         if (EVConfig.INSTANCE.programmerArtEpoxy) {
             ReinforcedEpoxyResin.setMaterialARGB(7491595);
@@ -289,36 +267,37 @@ public class EVMaterials {
             }
         }
 
-        List<Material> fluidList = List.of();
-        List<String> nonFluidList = new ArrayList<>();
-        fluidList.forEach((material -> {
-                    if (!material.hasProperty(PropertyKey.FLUID) && !material.hasFluid()) {
-                        nonFluidList.add(material.getName());
-                    }
-                })
-        );
-        System.out.println("non Fluid List: " + nonFluidList);
-
-        List<Material> ingotList = List.of();
-        List<String> nonIngotList = new ArrayList<>();
-        ingotList.forEach((material -> {
-                    if (!material.hasProperty(PropertyKey.INGOT)) {
-                        nonIngotList.add(material.getName());
-                    }
-                })
-        );
-        System.out.println("non ingot List: " + nonIngotList);
-
-
-        List<Material> dustList = List.of();
-        List<String> nonDustList = new ArrayList<>();
-        dustList.forEach((material -> {
-                    if (!material.hasProperty(PropertyKey.DUST)) {
-                        nonDustList.add(material.getName());
-                    }
-                })
-        );
-        System.out.println("non dust List: " + nonDustList);
+        // cursed
+//        List<Material> fluidList = List.of();
+//        List<String> nonFluidList = new ArrayList<>();
+//        fluidList.forEach((material -> {
+//                    if (!material.hasProperty(PropertyKey.FLUID) && !material.hasFluid()) {
+//                        nonFluidList.add(material.getName());
+//                    }
+//                })
+//        );
+//        System.out.println("non Fluid List: " + nonFluidList);
+//
+//        List<Material> ingotList = List.of();
+//        List<String> nonIngotList = new ArrayList<>();
+//        ingotList.forEach((material -> {
+//                    if (!material.hasProperty(PropertyKey.INGOT)) {
+//                        nonIngotList.add(material.getName());
+//                    }
+//                })
+//        );
+//        System.out.println("non ingot List: " + nonIngotList);
+//
+//
+//        List<Material> dustList = List.of();
+//        List<String> nonDustList = new ArrayList<>();
+//        dustList.forEach((material -> {
+//                    if (!material.hasProperty(PropertyKey.DUST)) {
+//                        nonDustList.add(material.getName());
+//                    }
+//                })
+//        );
+//        System.out.println("non dust List: " + nonDustList);
 
     }
 
@@ -791,13 +770,13 @@ public class EVMaterials {
             .blastTemp(3454)
             .buildAndRegister();
 
-    public static final Material LVSuperconductorBase = new Material.Builder(EVMain.id("lv_superconductor_base"))
+    public static final Material LVSuperconductor = new Material.Builder(EVMain.id("lv_superconductor"))
             .color(0x535353)
             .iconSet(SHINY)
-            .ingot(1)
-            .components(Tin, 9, Antimony, 1, Gallium, 2)
-            .flags(AUTOGEN_MIXER_RECIPE)
-            .blastTemp(1000)
+            .ingot().dust()
+            .components(Tin, 8, Antimony, 1)
+            .flags(AUTOGEN_MIXER_RECIPE, GENERATE_PLATE)
+            .cableProperties(32, 4, 0, true)
             .buildAndRegister();
 
     public static final Material MVSuperconductorBase = new Material.Builder(EVMain.id("mv_superconductor_base"))
@@ -6919,131 +6898,7 @@ public class EVMaterials {
             .blastTemp(11400)
             .buildAndRegister();
 
-    public static final Material ChromeOrange = new Material.Builder(EVMain.id("chrome_orange"))
-            .color(0xff6600)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("Pb2CrO5", true);
 
-    public static final Material DiaminostilbenedisulfonicAcid = new Material.Builder(EVMain.id("diaminostilbenedisulfonic_acid"))
-            .color(0xffffff)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C14H14N2O6S2");
-
-    public static final Material Nigrosin = new Material.Builder(EVMain.id("nigrosin"))
-            .color(0x000000)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C36H26N5ClNa2S2O6");
-
-    public static final Material DirectBrown = new Material.Builder(EVMain.id("direct_brown"))
-            .color(0x663300)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C26H19N6NaO3S");
-
-    public static final Material DianilineterephthalicAcid = new Material.Builder(EVMain.id("dianilineterephthalic_acid"))
-            .color(0xff0000)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C20H16N2O4");
-
-    public static final Material Quinacridone = new Material.Builder(EVMain.id("quinacridone"))
-            .color(0xff0000)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C20H12N2O2");
-
-    public static final Material DiarylideYellow = new Material.Builder(EVMain.id("diarylide_yellow"))
-            .color(0xffff00)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C32H26Cl2N6O4");
-
-    public static final Material AlizarineCyanineGreen = new Material.Builder(EVMain.id("alizarine_cyanine_green"))
-            .color(0x00ff00)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C28H20N2Na2O8S2");
-
-    public static final Material Aminoanthraquinone = new Material.Builder(EVMain.id("aminoanthraquinone"))
-            .color(0x0000ff)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C14H9NO2");
-
-    public static final Material IndanthroneBlue = new Material.Builder(EVMain.id("indanthrone_blue"))
-            .color(0x0000ff)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C28H14N2O2");
-
-    public static final Material Diketopyrrolopyrrole = new Material.Builder(EVMain.id("diketopyrrolopyrrole"))
-            .color(0xff6600)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C18H12N2O2");
-
-    public static final Material Mauveine = new Material.Builder(EVMain.id("mauveine"))
-            .color(0x660066)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C26H23N4");
-
-    public static final Material Indigo = new Material.Builder(EVMain.id("indigo"))
-            .color(0x0000ff)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C16H10N2O2");
-
-    public static final Material Tetrabromoindigo = new Material.Builder(EVMain.id("tetrabromoindigo"))
-            .color(0x00ff00)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C16H6Br2N2O2");
-
-    public static final Material CyanIndigoDye = new Material.Builder(EVMain.id("cyan_indigo_dye"))
-            .color(0x009999)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("(C16H10N2O2)2Br2");
-
-    public static final Material Fluorescein = new Material.Builder(EVMain.id("fluorescein"))
-            .color(0x990000)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C20H12O5");
-
-    public static final Material Erythrosine = new Material.Builder(EVMain.id("erythrosine"))
-            .color(0xff00ff)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C20H6I4Na2O5");
-
-    public static final Material ManganeseIIIOxide = new Material.Builder(EVMain.id("manganese_iii_oxide"))
-            .color(Pyrolusite.getMaterialRGB())
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("Mn2O3");
-
-    public static final Material MercuryChloride = new Material.Builder(EVMain.id("mercury_chloride"))
-            .color(0xd6b8ad)
-            .iconSet(MaterialIconSet.ROUGH)
-            .buildAndRegister()
-            .setFormula("HgCl2");
-
-    public static final Material SodiumSulfanilate = new Material.Builder(EVMain.id("sodium_sulfanilate"))
-            .color(0xe49879)
-            .iconSet(MaterialIconSet.SHINY)
-            .buildAndRegister()
-            .setFormula("C6H6NNaO3S");
-
-    public static final Material Anthraquinone = new Material.Builder(EVMain.id("anthraquinone"))
-            .color(0xfff782)
-            .iconSet(MaterialIconSet.ROUGH)
-            .buildAndRegister()
-            .setFormula("C14H8O2");
 
     public static final Material LithiumHydride = new Material.Builder(EVMain.id("lithium_hydride"))
             .color((Lithium.getMaterialRGB() + Hydrogen.getMaterialRGB()) / 2)

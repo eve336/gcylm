@@ -1,0 +1,186 @@
+[22Jan2025 14:43:08.005] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\luka\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, examplemod, --all, --output, C:\Users\luka\Documents\GitHub\what-the-sigma\src\generated\resources, --existing, C:\Users\luka\Documents\GitHub\what-the-sigma\src\main\resources, --mixin.config, examplemod.mixins.json]
+[22Jan2025 14:43:08.008] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.11 by Azul Systems, Inc.; OS Windows 10 arch amd64 version 10.0
+[22Jan2025 14:43:08.092] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[22Jan2025 14:43:08.134] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/luka/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23129!/ Service=ModLauncher Env=CLIENT
+[22Jan2025 14:43:08.328] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\luka\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[22Jan2025 14:43:08.331] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\luka\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[22Jan2025 14:43:08.333] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\luka\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[22Jan2025 14:43:08.336] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\luka\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[22Jan2025 14:43:08.533] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras. Using Mod File: C:\Users\luka\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-forge\0.4.1\5c35573a7b76103724799ca1174a69699b8a9aec\mixinextras-forge-0.4.1.jar
+[22Jan2025 14:43:08.533] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[22Jan2025 14:43:10.373] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[22Jan2025 14:43:10.392] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\luka\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, examplemod, --all, --output, C:\Users\luka\Documents\GitHub\what-the-sigma\src\generated\resources, --existing, C:\Users\luka\Documents\GitHub\what-the-sigma\src\main\resources]
+[22Jan2025 14:43:10.442] [main/WARN] [mixin/]: Reference map 'examplemod.refmap.json' for examplemod.mixins.json could not be read. If this is a development environment you can ignore this message
+[22Jan2025 14:43:10.599] [main/INFO] [mixin/]: Remapping refMap emi-xplat-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.600] [main/WARN] [mixin/]: Reference map 'emi-forge-refmap.json' for emi-forge.mixins.json could not be read. If this is a development environment you can ignore this message
+[22Jan2025 14:43:10.643] [main/INFO] [mixin/]: Remapping refMap rhino-common-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.644] [main/INFO] [mixin/]: Remapping refMap configuration.refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.644] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.646] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.647] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.648] [main/INFO] [mixin/]: Remapping refMap ldlib-common-1.20.1-ldlib-common-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.649] [main/INFO] [mixin/]: Remapping refMap ldlib-forge-1.20.1-ldlib-forge-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.650] [main/INFO] [mixin/]: Remapping refMap kubejs-forge-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.651] [main/INFO] [mixin/]: Remapping refMap kubejs-common-refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:10.653] [main/WARN] [mixin/]: Reference map 'gtceu.refmap.json' for gtceu.mixins.json could not be read. If this is a development environment you can ignore this message
+[22Jan2025 14:43:10.654] [main/INFO] [mixin/]: Remapping refMap ae2.mixins.refmap.json using C:\Users\luka\Documents\GitHub\what-the-sigma\build/createSrgToMcp/output.srg
+[22Jan2025 14:43:11.088] [main/WARN] [mixin/]: Error loading class: mezz/modnametooltip/TooltipEventHandler (java.lang.ClassNotFoundException: mezz.modnametooltip.TooltipEventHandler)
+[22Jan2025 14:43:11.091] [main/WARN] [mixin/]: Error loading class: me/shedaniel/rei/impl/client/ClientHelperImpl (java.lang.ClassNotFoundException: me.shedaniel.rei.impl.client.ClientHelperImpl)
+[22Jan2025 14:43:11.130] [main/WARN] [mixin/]: Error loading class: dev/ftb/mods/ftbchunks/client/gui/LargeMapScreen (java.lang.ClassNotFoundException: dev.ftb.mods.ftbchunks.client.gui.LargeMapScreen)
+[22Jan2025 14:43:11.130] [main/WARN] [mixin/]: @Mixin target dev.ftb.mods.ftbchunks.client.gui.LargeMapScreen was not found gtceu.mixins.json:ftbchunks.LargeMapScreenMixin
+[22Jan2025 14:43:11.131] [main/WARN] [mixin/]: Error loading class: dev/ftb/mods/ftbchunks/client/gui/RegionMapPanel (java.lang.ClassNotFoundException: dev.ftb.mods.ftbchunks.client.gui.RegionMapPanel)
+[22Jan2025 14:43:11.131] [main/WARN] [mixin/]: @Mixin target dev.ftb.mods.ftbchunks.client.gui.RegionMapPanel was not found gtceu.mixins.json:ftbchunks.RegionMapPanelMixin
+[22Jan2025 14:43:11.132] [main/WARN] [mixin/]: Error loading class: dev/ftb/mods/ftbchunks/client/FTBChunksClient (java.lang.ClassNotFoundException: dev.ftb.mods.ftbchunks.client.FTBChunksClient)
+[22Jan2025 14:43:11.132] [main/WARN] [mixin/]: @Mixin target dev.ftb.mods.ftbchunks.client.FTBChunksClient was not found gtceu.mixins.json:ftbchunks.FTBChunksClientMixin
+[22Jan2025 14:43:11.133] [main/WARN] [mixin/]: Error loading class: journeymap/client/ui/fullscreen/Fullscreen (java.lang.ClassNotFoundException: journeymap.client.ui.fullscreen.Fullscreen)
+[22Jan2025 14:43:11.133] [main/WARN] [mixin/]: @Mixin target journeymap.client.ui.fullscreen.Fullscreen was not found gtceu.mixins.json:journeymap.FullscreenMixin
+[22Jan2025 14:43:11.134] [main/WARN] [mixin/]: Error loading class: xaero/common/minimap/highlight/HighlighterRegistry (java.lang.ClassNotFoundException: xaero.common.minimap.highlight.HighlighterRegistry)
+[22Jan2025 14:43:11.134] [main/WARN] [mixin/]: @Mixin target xaero.common.minimap.highlight.HighlighterRegistry was not found gtceu.mixins.json:xaerominimap.HighlighterRegistryMixin
+[22Jan2025 14:43:11.135] [main/WARN] [mixin/]: Error loading class: xaero/common/minimap/render/MinimapFBORenderer (java.lang.ClassNotFoundException: xaero.common.minimap.render.MinimapFBORenderer)
+[22Jan2025 14:43:11.135] [main/WARN] [mixin/]: @Mixin target xaero.common.minimap.render.MinimapFBORenderer was not found gtceu.mixins.json:xaerominimap.MinimapFBORendererMixin
+[22Jan2025 14:43:11.136] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
+[22Jan2025 14:43:11.136] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found gtceu.mixins.json:xaeroworldmap.GuiMapMixin
+[22Jan2025 14:43:11.137] [main/WARN] [mixin/]: Error loading class: xaero/map/element/MapElementRenderHandler$Builder (java.lang.ClassNotFoundException: xaero.map.element.MapElementRenderHandler$Builder)
+[22Jan2025 14:43:11.137] [main/WARN] [mixin/]: @Mixin target xaero.map.element.MapElementRenderHandler$Builder was not found gtceu.mixins.json:xaeroworldmap.MapElementRenderHandlerBuilderMixin
+[22Jan2025 14:43:11.138] [main/WARN] [mixin/]: Error loading class: xaero/map/WorldMapSession (java.lang.ClassNotFoundException: xaero.map.WorldMapSession)
+[22Jan2025 14:43:11.138] [main/WARN] [mixin/]: @Mixin target xaero.map.WorldMapSession was not found gtceu.mixins.json:xaeroworldmap.WorldMapSessionMixin
+[22Jan2025 14:43:11.395] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[22Jan2025 14:43:11.494] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [examplemod]
+[22Jan2025 14:43:14.541] [main/WARN] [AE2:C/]: Unable to find class com.simibubi.create.foundation.ponder.PonderWorld. Integration with PonderJS disabled.
+[22Jan2025 14:43:14.818] [modloading-worker-0/INFO] [GregTechCEu/]: GregTechCEu is initializing...
+[22Jan2025 14:43:14.871] [modloading-worker-0/INFO] [LowDragLib/]: LowDragLib is initializing on platform: Forge
+[22Jan2025 14:43:14.894] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[22Jan2025 14:43:14.895] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[22Jan2025 14:43:15.066] [modloading-worker-0/INFO] [KubeJS/]: Loaded common.properties
+[22Jan2025 14:43:15.067] [modloading-worker-0/INFO] [KubeJS/]: Loaded dev.properties
+[22Jan2025 14:43:15.148] [modloading-worker-0/INFO] [KubeJS Startup/]: Capturing errors for startup scripts enabled
+[22Jan2025 14:43:15.148] [modloading-worker-0/INFO] [KubeJS/]: Looking for KubeJS plugins...
+[22Jan2025 14:43:15.181] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source kubejs
+[22Jan2025 14:43:15.219] [modloading-worker-0/WARN] [KubeJS/]: Plugin dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration does not have required mod gamestages loaded, skipping
+[22Jan2025 14:43:15.219] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source gtceu
+[22Jan2025 14:43:15.258] [modloading-worker-0/INFO] [Configuration/FileWatching]: Registered gtceu config for auto-sync function
+[22Jan2025 14:43:15.258] [modloading-worker-0/INFO] [Configuration/FileWatching]: Registered configuration config for auto-sync function
+[22Jan2025 14:43:15.267] [modloading-worker-0/INFO] [GregTechCEu/]: High-Tier is Enabled.
+[22Jan2025 14:43:15.332] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source ldlib
+[22Jan2025 14:43:15.335] [modloading-worker-0/INFO] [KubeJS/]: Done in 185.9 ms
+[22Jan2025 14:43:15.447] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
+[22Jan2025 14:43:15.448] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[22Jan2025 14:43:15.489] [modloading-worker-0/INFO] [Configuration/FileWatching]: Registered examplemod config for auto-sync function
+[22Jan2025 14:43:15.569] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[22Jan2025 14:43:15.572] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 2.438 ms
+[22Jan2025 14:43:15.599] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading Rhino Minecraft remapper...
+[22Jan2025 14:43:15.601] [modloading-worker-0/INFO] [dev.latvian.mods.rhino.mod.util.RhinoProperties/]: Rhino properties loaded.
+[22Jan2025 14:43:15.602] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading mappings for 1.20.1
+[22Jan2025 14:43:15.660] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Done in 0.060 s
+[22Jan2025 14:43:16.000] [modloading-worker-0/INFO] [KubeJS Startup/]: example.js#5: Hello, World! (Loaded startup scripts)
+[22Jan2025 14:43:16.001] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded script startup_scripts:example.js in 0.027 s
+[22Jan2025 14:43:16.003] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded 1/1 KubeJS startup scripts in 0.341 s with 0 errors and 0 warnings
+[22Jan2025 14:43:16.037] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:send_data_from_client
+[22Jan2025 14:43:16.038] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:send_data_from_server
+[22Jan2025 14:43:16.038] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:paint
+[22Jan2025 14:43:16.038] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:add_stage
+[22Jan2025 14:43:16.039] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:remove_stage
+[22Jan2025 14:43:16.039] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:sync_stages
+[22Jan2025 14:43:16.039] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:first_click
+[22Jan2025 14:43:16.040] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:toast
+[22Jan2025 14:43:16.040] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:reload_startup_scripts
+[22Jan2025 14:43:16.040] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_server_errors
+[22Jan2025 14:43:16.041] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_client_errors
+[22Jan2025 14:43:16.049] [main/INFO] [GregTechCEu/]: GTCEu common proxy init!
+[22Jan2025 14:43:16.084] [main/INFO] [GregTechCEu/]: Registering material registries
+[22Jan2025 14:43:16.085] [main/INFO] [GregTechCEu/]: Registering GTCEu Materials
+[22Jan2025 14:43:16.187] [main/INFO] [GregTechCEu/]: Registering addon Materials
+[22Jan2025 14:43:16.200] [main/WARN] [GregTechCEu/]: Material material.examplemod.iridium_dioxide does not have required property dust for flag exclude_block_crafting_recipes!
+[22Jan2025 14:43:16.200] [main/WARN] [GregTechCEu/]: Material material.examplemod.magneto_resonatic does not have required property ore for flag high_sifter_output!
+[22Jan2025 14:43:16.300] [main/WARN] [GregTechCEu/]: FluidStorageKey{gtceu:liquid} already has an associated fluid for material gtceu:water
+[22Jan2025 14:43:16.345] [main/WARN] [GregTechCEu/]: FluidStorageKey{gtceu:liquid} already has an associated fluid for material gtceu:lava
+[22Jan2025 14:43:16.346] [main/WARN] [GregTechCEu/]: FluidStorageKey{gtceu:liquid} already has an associated fluid for material gtceu:milk
+[22Jan2025 14:43:17.889] [main/INFO] [GregTechCEu/]: Registering KeyBinds
+[22Jan2025 14:43:17.890] [main/WARN] [net.minecraftforge.fml.DeferredWorkQueue/LOADING]: Mod 'gtceu' took 1.841 s to run a deferred task.
+[22Jan2025 14:43:17.925] [main/INFO] [KubeJS/]: Skipping minecraft:sound_event registry
+[22Jan2025 14:43:17.934] [main/INFO] [KubeJS/]: Skipping minecraft:fluid registry
+[22Jan2025 14:43:18.182] [main/INFO] [KubeJS/]: Skipping minecraft:block registry
+[22Jan2025 14:43:18.621] [main/INFO] [KubeJS/]: Skipping minecraft:attribute registry
+[22Jan2025 14:43:18.625] [main/INFO] [KubeJS/]: Skipping minecraft:mob_effect registry
+[22Jan2025 14:43:18.627] [main/INFO] [KubeJS/]: Skipping minecraft:particle_type registry
+[22Jan2025 14:43:18.631] [main/INFO] [KubeJS/]: Skipping minecraft:item registry
+[22Jan2025 14:43:18.994] [main/INFO] [KubeJS/]: Skipping minecraft:entity_type registry
+[22Jan2025 14:43:18.998] [main/INFO] [KubeJS/]: Skipping minecraft:sensor_type registry
+[22Jan2025 14:43:19.000] [main/INFO] [KubeJS/]: Skipping minecraft:memory_module_type registry
+[22Jan2025 14:43:19.001] [main/INFO] [KubeJS/]: Skipping minecraft:potion registry
+[22Jan2025 14:43:19.003] [main/INFO] [KubeJS/]: Skipping minecraft:game_event registry
+[22Jan2025 14:43:19.003] [main/INFO] [KubeJS/]: Skipping minecraft:enchantment registry
+[22Jan2025 14:43:19.005] [main/INFO] [KubeJS/]: Skipping minecraft:block_entity_type registry
+[22Jan2025 14:43:19.032] [main/INFO] [KubeJS/]: Skipping minecraft:painting_variant registry
+[22Jan2025 14:43:19.034] [main/INFO] [KubeJS/]: Skipping minecraft:stat_type registry
+[22Jan2025 14:43:19.037] [main/INFO] [KubeJS/]: Skipping minecraft:custom_stat registry
+[22Jan2025 14:43:19.040] [main/INFO] [KubeJS/]: Skipping minecraft:chunk_status registry
+[22Jan2025 14:43:19.043] [main/INFO] [KubeJS/]: Skipping minecraft:rule_test registry
+[22Jan2025 14:43:19.046] [main/INFO] [KubeJS/]: Skipping minecraft:rule_block_entity_modifier registry
+[22Jan2025 14:43:19.048] [main/INFO] [KubeJS/]: Skipping minecraft:pos_rule_test registry
+[22Jan2025 14:43:19.050] [main/INFO] [KubeJS/]: Skipping minecraft:menu registry
+[22Jan2025 14:43:19.052] [main/INFO] [KubeJS/]: Skipping minecraft:recipe_type registry
+[22Jan2025 14:43:19.054] [main/INFO] [KubeJS/]: Skipping minecraft:recipe_serializer registry
+[22Jan2025 14:43:19.066] [main/INFO] [KubeJS/]: Skipping minecraft:position_source_type registry
+[22Jan2025 14:43:19.069] [main/INFO] [KubeJS/]: Skipping minecraft:command_argument_type registry
+[22Jan2025 14:43:19.075] [main/INFO] [KubeJS/]: Skipping minecraft:villager_type registry
+[22Jan2025 14:43:19.077] [main/INFO] [KubeJS/]: Skipping minecraft:villager_profession registry
+[22Jan2025 14:43:19.079] [main/INFO] [KubeJS/]: Skipping minecraft:point_of_interest_type registry
+[22Jan2025 14:43:19.080] [main/INFO] [KubeJS/]: Skipping minecraft:schedule registry
+[22Jan2025 14:43:19.081] [main/INFO] [KubeJS/]: Skipping minecraft:activity registry
+[22Jan2025 14:43:19.082] [main/INFO] [KubeJS/]: Skipping minecraft:loot_pool_entry_type registry
+[22Jan2025 14:43:19.083] [main/INFO] [KubeJS/]: Skipping minecraft:loot_function_type registry
+[22Jan2025 14:43:19.086] [main/INFO] [KubeJS/]: Skipping minecraft:loot_condition_type registry
+[22Jan2025 14:43:19.088] [main/INFO] [KubeJS/]: Skipping minecraft:loot_number_provider_type registry
+[22Jan2025 14:43:19.089] [main/INFO] [KubeJS/]: Skipping minecraft:loot_nbt_provider_type registry
+[22Jan2025 14:43:19.090] [main/INFO] [KubeJS/]: Skipping minecraft:loot_score_provider_type registry
+[22Jan2025 14:43:19.091] [main/INFO] [KubeJS/]: Skipping minecraft:float_provider_type registry
+[22Jan2025 14:43:19.093] [main/INFO] [KubeJS/]: Skipping minecraft:int_provider_type registry
+[22Jan2025 14:43:19.094] [main/INFO] [KubeJS/]: Skipping minecraft:height_provider_type registry
+[22Jan2025 14:43:19.095] [main/INFO] [KubeJS/]: Skipping minecraft:block_predicate_type registry
+[22Jan2025 14:43:19.096] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/carver registry
+[22Jan2025 14:43:19.097] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/feature registry
+[22Jan2025 14:43:19.100] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_processor registry
+[22Jan2025 14:43:19.101] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_placement registry
+[22Jan2025 14:43:19.102] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_piece registry
+[22Jan2025 14:43:19.103] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_type registry
+[22Jan2025 14:43:19.104] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/placement_modifier_type registry
+[22Jan2025 14:43:19.105] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/block_state_provider_type registry
+[22Jan2025 14:43:19.107] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/foliage_placer_type registry
+[22Jan2025 14:43:19.108] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/trunk_placer_type registry
+[22Jan2025 14:43:19.109] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/root_placer_type registry
+[22Jan2025 14:43:19.110] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/tree_decorator_type registry
+[22Jan2025 14:43:19.111] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/feature_size_type registry
+[22Jan2025 14:43:19.112] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/biome_source registry
+[22Jan2025 14:43:19.113] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/chunk_generator registry
+[22Jan2025 14:43:19.114] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/material_condition registry
+[22Jan2025 14:43:19.115] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/material_rule registry
+[22Jan2025 14:43:19.116] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/density_function_type registry
+[22Jan2025 14:43:19.118] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/structure_pool_element registry
+[22Jan2025 14:43:19.119] [main/INFO] [KubeJS/]: Skipping minecraft:cat_variant registry
+[22Jan2025 14:43:19.120] [main/INFO] [KubeJS/]: Skipping minecraft:frog_variant registry
+[22Jan2025 14:43:19.121] [main/INFO] [KubeJS/]: Skipping minecraft:banner_pattern registry
+[22Jan2025 14:43:19.122] [main/INFO] [KubeJS/]: Skipping minecraft:instrument registry
+[22Jan2025 14:43:19.124] [main/INFO] [KubeJS/]: Skipping minecraft:decorated_pot_patterns registry
+[22Jan2025 14:43:19.125] [main/INFO] [KubeJS/]: Skipping minecraft:creative_mode_tab registry
+[22Jan2025 14:43:19.129] [main/INFO] [KubeJS/]: Skipping ae2:keytypes registry
+[22Jan2025 14:43:19.130] [main/INFO] [KubeJS/]: Skipping forge:biome_modifier_serializers registry
+[22Jan2025 14:43:19.135] [main/INFO] [KubeJS/]: Skipping forge:display_contexts registry
+[22Jan2025 14:43:19.136] [main/INFO] [KubeJS/]: Skipping forge:entity_data_serializers registry
+[22Jan2025 14:43:19.137] [main/INFO] [KubeJS/]: Skipping forge:fluid_type registry
+[22Jan2025 14:43:19.161] [main/INFO] [KubeJS/]: Skipping forge:global_loot_modifier_serializers registry
+[22Jan2025 14:43:19.164] [main/INFO] [KubeJS/]: Skipping forge:holder_set_type registry
+[22Jan2025 14:43:19.170] [main/INFO] [KubeJS/]: Skipping forge:structure_modifier_serializers registry
+[22Jan2025 14:43:19.174] [main/INFO] [KubeJS/]: Skipping minecraft:worldgen/biome registry
+[22Jan2025 14:43:19.251] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/luka/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[22Jan2025 14:43:19.251] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/luka/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[22Jan2025 14:43:19.387] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+[22Jan2025 14:43:20.520] [main/INFO] [net.minecraft.data.DataGenerator/]: Registrate Provider for examplemod [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider] finished after 1133 ms
+[22Jan2025 14:43:20.520] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: examplemod's Custom Sounds
+[22Jan2025 14:43:20.520] [main/INFO] [net.minecraft.data.DataGenerator/]: examplemod's Custom Sounds finished after 0 ms
+[22Jan2025 14:43:20.520] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:worldgen/biome mod id gtceu
+[22Jan2025 14:43:20.521] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:worldgen/biome mod id gtceu finished after 0 ms
+[22Jan2025 14:43:20.521] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[22Jan2025 14:43:20.528] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 6 ms
+[22Jan2025 14:43:20.528] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 1141 ms
+[22Jan2025 14:43:20.559] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 397, old count: 397, new count: 398, removed stale: 0, written: 2

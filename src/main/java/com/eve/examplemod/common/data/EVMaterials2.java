@@ -15,6 +15,132 @@ public class EVMaterials2 {
 
     }
 
+    public static final Material ChromeOrange = new Material.Builder(EVMain.id("chrome_orange"))
+            .color(0xff6600)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("Pb2CrO5", true);
+
+    public static final Material DiaminostilbenedisulfonicAcid = new Material.Builder(EVMain.id("diaminostilbenedisulfonic_acid"))
+            .color(0xffffff)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C14H14N2O6S2");
+
+    public static final Material Nigrosin = new Material.Builder(EVMain.id("nigrosin"))
+            .color(0x000000)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C36H26N5ClNa2S2O6");
+
+    public static final Material DirectBrown = new Material.Builder(EVMain.id("direct_brown"))
+            .color(0x663300)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C26H19N6NaO3S");
+
+    public static final Material DianilineterephthalicAcid = new Material.Builder(EVMain.id("dianilineterephthalic_acid"))
+            .color(0xff0000)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C20H16N2O4");
+
+    public static final Material Quinacridone = new Material.Builder(EVMain.id("quinacridone"))
+            .color(0xff0000)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C20H12N2O2");
+
+    public static final Material DiarylideYellow = new Material.Builder(EVMain.id("diarylide_yellow"))
+            .color(0xffff00)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C32H26Cl2N6O4");
+
+    public static final Material AlizarineCyanineGreen = new Material.Builder(EVMain.id("alizarine_cyanine_green"))
+            .color(0x00ff00)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C28H20N2Na2O8S2");
+
+    public static final Material Aminoanthraquinone = new Material.Builder(EVMain.id("aminoanthraquinone"))
+            .color(0x0000ff)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C14H9NO2");
+
+    public static final Material IndanthroneBlue = new Material.Builder(EVMain.id("indanthrone_blue"))
+            .color(0x0000ff)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C28H14N2O2");
+
+    public static final Material Diketopyrrolopyrrole = new Material.Builder(EVMain.id("diketopyrrolopyrrole"))
+            .color(0xff6600)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C18H12N2O2");
+
+    public static final Material Mauveine = new Material.Builder(EVMain.id("mauveine"))
+            .color(0x660066)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C26H23N4");
+
+    public static final Material Indigo = new Material.Builder(EVMain.id("indigo"))
+            .color(0x0000ff)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C16H10N2O2");
+
+    public static final Material Tetrabromoindigo = new Material.Builder(EVMain.id("tetrabromoindigo"))
+            .color(0x00ff00)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C16H6Br2N2O2");
+
+    public static final Material CyanIndigoDye = new Material.Builder(EVMain.id("cyan_indigo_dye"))
+            .color(0x009999)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("(C16H10N2O2)2Br2");
+
+    public static final Material Fluorescein = new Material.Builder(EVMain.id("fluorescein"))
+            .color(0x990000)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C20H12O5");
+
+    public static final Material Erythrosine = new Material.Builder(EVMain.id("erythrosine"))
+            .color(0xff00ff)
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("C20H6I4Na2O5");
+
+    public static final Material ManganeseIIIOxide = new Material.Builder(EVMain.id("manganese_iii_oxide"))
+            .color(Pyrolusite.getMaterialRGB())
+            .iconSet(MaterialIconSet.DULL)
+            .buildAndRegister()
+            .setFormula("Mn2O3");
+
+    public static final Material MercuryChloride = new Material.Builder(EVMain.id("mercury_chloride"))
+            .color(0xd6b8ad)
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("HgCl2");
+
+    public static final Material SodiumSulfanilate = new Material.Builder(EVMain.id("sodium_sulfanilate"))
+            .color(0xe49879)
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("C6H6NNaO3S");
+
+    public static final Material Anthraquinone = new Material.Builder(EVMain.id("anthraquinone"))
+            .color(0xfff782)
+            .iconSet(MaterialIconSet.ROUGH)
+            .buildAndRegister()
+            .setFormula("C14H8O2");
+
     public static final Material MercuryNitrate = new Material.Builder(EVMain.id("mercury_nitrate"))
             .color(0xd6b8ad)
             .iconSet(DULL)
