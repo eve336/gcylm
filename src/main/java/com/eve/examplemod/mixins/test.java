@@ -5,10 +5,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(SecondDegreeMaterials.class)
-public class test {
-    @Redirect(
-            method = "register"
-            at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;components([Ljava/lang/Object;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;")
-    )
-}
+//@Mixin(SecondDegreeMaterials.class)
+//public class test {
+//    @Redirect(
+//            method = "register"
+//            at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;components([Ljava/lang/Object;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;")
+//    )
+//}

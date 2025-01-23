@@ -3,10 +3,12 @@ package com.eve.examplemod.mixins;
 import appeng.blockentity.storage.DriveBlockEntity;
 import com.eve.examplemod.config.EVConfig;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 
+@Pseudo
 @Mixin(DriveBlockEntity.class)
 public abstract class DrivePowerMixin {
     @ModifyVariable(

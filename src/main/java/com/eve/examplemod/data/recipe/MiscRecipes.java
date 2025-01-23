@@ -85,6 +85,11 @@ public class MiscRecipes {
                 .outputItems(ELECTRIC_MOTOR_IV.asStack())
                 .save(provider);
 
+        MACERATOR_RECIPES.recipeBuilder("sugarcane_to_chad_macerator").EUt(20).duration(30)
+                .inputItems(SUGAR_CANE)
+                .outputItems(dust, Paper)
+                .save(provider);
+
         // TODO probably add upgraded recipes for fusion coils
         ASSEMBLER_RECIPES.recipeBuilder("evsuperconducting_coil").EUt(VA[LuV])
                 .inputItems(wireGtDouble, IndiumTinBariumTitaniumCuprate, 32)
