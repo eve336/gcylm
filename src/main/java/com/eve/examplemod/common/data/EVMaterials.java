@@ -15,6 +15,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import dev.latvian.mods.kubejs.server.tag.TagEventFilter;
 
 import java.util.*;
 
@@ -38,7 +39,7 @@ public class EVMaterials {
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
 
-        Iron.setProperty(PropertyKey.FLUID_PIPE, new FluidPipeProperties(1811, 55, true, false, false, false));
+        Iron.setProperty(PropertyKey.FLUID_PIPE, new FluidPipeProperties(1811, 58, true, false, false, false));
 
         List<Material> FineWireList = List.of(NaquadahAlloy, GTMaterials.Plutonium239, Ruthenium, Iron, TinAlloy, Titanium);
         FineWireList.forEach(m -> m.addFlags(GENERATE_FINE_WIRE));
@@ -298,6 +299,18 @@ public class EVMaterials {
 //                })
 //        );
 //        System.out.println("non dust List: " + nonDustList);
+
+        List<Material> addRemoveOreProperty = List.of(Iron, Copper, Chalcopyrite, Magnetite, GraniticMineralSand, BasalticMineralSand);
+        
+        Copper.getProperties().removeProperty(PropertyKey.ORE);
+        Copper.setProperty(PropertyKey.ORE, new OreProperty());
+        OreProperty oreProp = Copper.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Cobalt, Iron, Nickel, Copper);
+        oreProp.setWashedIn(Mercury);
+
+        oreProp = Iron.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Nickel, Tin, Tin, Copper);
+        oreProp.setWashedIn(SodiumPersulfate);
 
     }
 
@@ -975,6 +988,7 @@ public class EVMaterials {
             .color(0xB99023)
             .iconSet(SHINY)
             .ingot(2).ore()
+            .flags(DISABLE_DECOMPOSITION)
             .components(Gold, 1, RareEarth, 1)
             .buildAndRegister();
 
@@ -2590,11 +2604,11 @@ public class EVMaterials {
             .buildAndRegister()
             .setFormula("C257H381N73O83S7", true);
 
-    public static final Material NitroBenzene = new Material.Builder(EVMain.id("nitro_benzene"))
-            .color(0x81c951)
-            .fluid()
-            .buildAndRegister()
-            .setFormula("C6H5NO2", true);
+//    public static final Material NitroBenzene = new Material.Builder(EVMain.id("nitro_benzene"))
+//            .color(0x81c951)
+//            .fluid()
+//            .buildAndRegister()
+//            .setFormula("C6H5NO2", true);
 
     public static final Material Aniline = new Material.Builder(EVMain.id("aniline"))
             .color(0x4c911d)
@@ -7120,6 +7134,7 @@ public class EVMaterials {
 
     public static final Material ChromiumIIIOxide = new Material.Builder(EVMain.id("chromium_iii_oxide"))
             .color(0x4bf25f)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("Cr2O3", true);

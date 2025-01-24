@@ -1,5 +1,7 @@
 package com.eve.examplemod.common.cover;
 
+import com.eve.examplemod.EVUtils;
+import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.ICoverable;
 import com.gregtechceu.gtceu.api.capability.IEnergyContainer;
@@ -23,25 +25,30 @@ import static com.eve.examplemod.EVMain.isTiabLoaded;
 
 public class EVSolarPanel extends CoverSolarPanel {
     private final long EUt;
+
     public EVSolarPanel(CoverDefinition definition, ICoverable coverHolder, Direction attachedSide, int tier) {
         super(definition, coverHolder, attachedSide, tier);
         this.EUt = GTValues.V[tier];
 
     }
+
     @Override
     public void onLoad() {
         super.onLoad();
     }
 
+    // this is the worst code if ever written
+
     @Override
     protected void update() {
-        if(isTiabLoaded()) {
-            Level level = coverHolder.getLevel();
+        Level level = coverHolder.getLevel();
+        BlockPos blockPos = coverHolder.getPos();
+        if (isTiabLoaded()) {
             List<TimeAcceleratorEntity> entities = level.getEntitiesOfClass(TimeAcceleratorEntity.class, new AABB(coverHolder.getPos(), (coverHolder.getPos().offset(1, 1, 1))));
             if (!entities.isEmpty()) {
                 int max = entities.stream().mapToInt(TimeAcceleratorEntity::getTimeRate).max().orElseThrow();
-                    BlockPos blockPos = coverHolder.getPos();
-                    if (GTUtil.canSeeSunClearly(level, blockPos)) {
+                if (EVConfig.INSTANCE.solarsWorkInNether) {
+                    if (EVUtils.canSeeSunClearly(level, blockPos)) {
                         IEnergyContainer energyContainer = getEnergyContainer();
                         if (energyContainer != null) {
                             for (int i = 0; i < max; i++) {
@@ -50,10 +57,35 @@ public class EVSolarPanel extends CoverSolarPanel {
                         }
                     }
                     return;
+                }
+                if (GTUtil.canSeeSunClearly(level, blockPos)) {
+                    IEnergyContainer energyContainer = getEnergyContainer();
+                    if (energyContainer != null) {
+                        for (int i = 0; i < max; i++) {
+                            energyContainer.addEnergy(EUt);
+                        }
+                    }
+                }
+                return;
             }
-            super.update();
+            if (EVConfig.INSTANCE.solarsWorkInNether) {
+                updateNether(level, blockPos);
+            }
+            else super.update();
             return;
         }
-        super.update();
+        if (EVConfig.INSTANCE.solarsWorkInNether) {
+            updateNether(level, blockPos);
+        }
+        else super.update();
+    }
+
+    void updateNether(Level level, BlockPos blockPos) {
+        if (EVUtils.canSeeSunClearly(level, blockPos)) {
+            IEnergyContainer energyContainer = getEnergyContainer();
+            if (energyContainer != null) {
+                energyContainer.acceptEnergyFromNetwork(null, EUt, 1);
+            }
+        }
     }
 }

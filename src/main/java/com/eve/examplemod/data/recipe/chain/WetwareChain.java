@@ -357,19 +357,19 @@ public class WetwareChain {
                 .save(provider);
 
         // [H2SO4 + HNO3] + C6H6 -> C6H5NO2 + H2O + H2SO4
-        CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .inputFluids(NitrationMixture.getFluid(2000))
-                .inputFluids(Benzene.getFluid(1000))
-                .outputFluids(NitroBenzene.getFluid(1000))
-                .outputFluids(DilutedSulfuricAcid.getFluid(2000))
-                .EUt(30)
-                .duration(100)
-                .save(provider);
+//        CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
+//                .inputFluids(NitrationMixture.getFluid(2000))
+//                .inputFluids(Benzene.getFluid(1000))
+//                .outputFluids(Nitrobenzene.getFluid(1000))
+//                .outputFluids(DilutedSulfuricAcid.getFluid(2000))
+//                .EUt(30)
+//                .duration(100)
+//                .save(provider);
 
         // 6H + C6H5NO2 -> C6H5NH2 + 2H2O
         CHEMICAL_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .inputFluids(Hydrogen.getFluid(6000))
-                .inputFluids(NitroBenzene.getFluid(1000))
+                .inputFluids(Nitrobenzene.getFluid(1000))
                 .notConsumable(dust, Zinc)
                 .outputFluids(Aniline.getFluid(1000))
                 .outputFluids(Water.getFluid(2000))

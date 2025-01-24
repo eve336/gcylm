@@ -32,6 +32,7 @@ public class Removal {
         if (EVConfig.INSTANCE.removeCircuitAssemblerRecipes) CircuitAssemblers(registry);
         if (EVConfig.INSTANCE.removeLargeCircuitAssembler) LargeCircuitAssembler(registry);
         Hatches(registry);
+        if (EVConfig.INSTANCE.evEndAccess) end(registry);
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -134,8 +135,6 @@ public class Removal {
                 "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells"
                 );
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
-
-
     }
     public static void platline(Consumer<ResourceLocation> registry) {
 
@@ -255,5 +254,11 @@ public class Removal {
             }
         }
     }
+
+    public static void end(Consumer<ResourceLocation> registry){
+        registry.accept(new ResourceLocation("minecraft:ender_eye"));
+        registry.accept(new ResourceLocation("gtceu:chemical_bath/eye_of_ender"));
+    }
+
 
 }

@@ -56,6 +56,20 @@ public class EVOres {
                     .surfaceRock(PreciousMetal)
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)));
 
+    public static final GTOreDefinition NETHER_SPHALERITE = create(EVMain.id("nether_sphalerite"), vein -> vein
+            .clusterSize(UniformInt.of(25, 35))
+            .density(0.4F).weight(160)
+            .layer(WorldGenLayers.NETHERRACK)
+            .heightRangeUniform(40, 120)
+            .biomes(BiomeTags.IS_NETHER)
+            .layeredVeinGenerator(generator -> generator.withLayerPattern(() -> GTLayerPattern.builder(NETHER_RULES)
+                    .layer(l -> l.weight(3).mat(Sphalerite).size(1, 4))
+                    .layer(l -> l.weight(1).mat(Iron).size(1, 2))
+                    .build()))
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(PreciousMetal)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)));
+
     // find out a way to kill ore veins from gt...,,,, you should mixin and kill all of them hehehehehhehe
     // kubejs works fine but pack creators need to do that manually :sob:
     public static final GTOreDefinition TUNGSTATE_VEIN_MARS = create(EVMain.id("tungstate_vein_mars"), vein -> vein
@@ -118,6 +132,22 @@ public class EVOres {
                     .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
                             .layer(l -> l.weight(6).mat(Iron).size(1, 3))
                             .layer(l -> l.weight(4).mat(Tin).size(1, 3))
+                            .build())
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Copper)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
+    public static final GTOreDefinition REALGAR_VEIN = create(EVMain.id("realgar_vein"), vein -> vein
+            .clusterSize(UniformInt.of(32, 40)).density(0.53f).weight(70)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(10, 40)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(3).mat(Realgar).size(1, 3))
+                            .layer(l -> l.weight(4).mat(Iron).size(1, 3))
                             .build())
             )
             .surfaceIndicatorGenerator(indicator -> indicator

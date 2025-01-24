@@ -98,7 +98,7 @@ public class SuperconductorsSMDChain {
                 .inputFluids(AminoPhenol.getFluid(1000))
                 .inputFluids(Glycerol.getFluid(1000))
                 .inputFluids(Oxygen.getFluid(1000))
-                .notConsumableFluid(NitroBenzene.getFluid(1))
+                .notConsumableFluid(Nitrobenzene.getFluid(1))
                 .outputFluids(Hydroxyquinoline.getFluid(1000))
                 .outputFluids(Water.getFluid(4000))
                 .save(provider);

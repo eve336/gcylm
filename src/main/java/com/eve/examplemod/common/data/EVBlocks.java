@@ -31,7 +31,6 @@ public class EVBlocks {
             .block("leptonic_charge", LeptonicBlock::new)
             .lang("Leptonic Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
-            .tag(BlockTags.MINEABLE_WITH_AXE)
             .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models().cubeTop(ctx.getName(),
                     EVMain.id("block/misc/leptonic_charge_side"),
                     EVMain.id("block/misc/leptonic_charge_top_bottom"))))
@@ -42,7 +41,6 @@ public class EVBlocks {
             .block("naquadria_charge", LeptonicBlock::new)
             .lang("Naquadria Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
-            .tag(BlockTags.MINEABLE_WITH_AXE)
             .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models().cubeTop(ctx.getName(),
                     EVMain.id("block/misc/naquadria_charge_side"),
                     EVMain.id("block/misc/naquadria_charge_top_bottom"))))
@@ -53,7 +51,6 @@ public class EVBlocks {
             .block("taranium_charge", LeptonicBlock::new)
             .lang("Taranium Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
-            .tag(BlockTags.MINEABLE_WITH_AXE)
             .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models().cubeTop(ctx.getName(),
                     EVMain.id("block/misc/taranium_charge_side"),
                     EVMain.id("block/misc/taranium_charge_top_bottom"))))
@@ -66,7 +63,6 @@ public class EVBlocks {
             .block("qcd_charge", QCDBlock::new)
             .lang("Quantum Chromodynamically Charged Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
-            .tag(BlockTags.MINEABLE_WITH_AXE)
             .blockstate((ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models().cubeTop(ctx.getName(),
                     EVMain.id("block/misc/qcd_charge_side"),
                     EVMain.id("block/misc/qcd_charge_top_bottom"))))

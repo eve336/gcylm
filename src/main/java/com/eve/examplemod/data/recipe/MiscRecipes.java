@@ -2,8 +2,10 @@ package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.common.data.EVBlocks;
 import com.eve.examplemod.common.data.EVMachines;
+import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
@@ -29,6 +31,8 @@ import static net.minecraft.world.item.Items.*;
 
 public class MiscRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
+
+        if (EVConfig.INSTANCE.evEndAccess) end(provider);
 
 
         VanillaRecipeHelper.addSmeltingRecipe(provider, "wrought_iron", ChemicalHelper.get(ingot, Iron),ChemicalHelper.get(ingot, WroughtIron));
@@ -90,6 +94,18 @@ public class MiscRecipes {
                 .outputItems(dust, Paper)
                 .save(provider);
 
+        MIXER_RECIPES.recipeBuilder("sand_to_clay").EUt(10).duration(10)
+                .inputItems(SAND)
+                .outputItems(CLAY)
+                .inputFluids(Water.getFluid(125))
+                .save(provider);
+
+        GAS_TURBINE_FUELS.recipeBuilder("nitro_benzene_fuel")
+                .EUt(-32)
+                .duration(30)
+                .inputFluids(Nitrobenzene.getFluid(1))
+                .save(provider);
+
         // TODO probably add upgraded recipes for fusion coils
         ASSEMBLER_RECIPES.recipeBuilder("evsuperconducting_coil").EUt(VA[LuV])
                 .inputItems(wireGtDouble, IndiumTinBariumTitaniumCuprate, 32)
@@ -108,6 +124,14 @@ public class MiscRecipes {
                 'H', EVCraftingComponent.HULL.getIngredient(GTValues.LuV),
                 'A', CASING_ASSEMBLY_CONTROL,
                 'R', EVCraftingComponent.ROBOT_ARM.getIngredient(GTValues.LuV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evfluid_filter"),
+                FLUID_FILTER.asStack(),
+                "ZZZ",
+                "ZLZ",
+                "ZZZ",
+                'L', ChemicalHelper.get(gem, Lapis),
+                'H', ChemicalHelper.get(foil, Zinc));
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder("evrobot_arm_luv")
                 .inputItems(rodLong, HSSS, 4)
@@ -300,4 +324,13 @@ public class MiscRecipes {
                 .duration(20*20)
                 .save(provider);
     }
+    public static void end(Consumer<FinishedRecipe> provider) {
+        CHEMICAL_RECIPES.recipeBuilder("eye_of_ender")
+                .EUt(VA[EV])
+                .inputItems(ENDER_PEARL)
+                .inputItems(BLAZE_ROD)
+                .outputItems(ENDER_EYE)
+                .save(provider);
+    }
+
 }

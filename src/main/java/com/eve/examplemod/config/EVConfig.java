@@ -70,6 +70,14 @@ public class EVConfig {
     public boolean removeLargeCircuitAssembler = true;
 
     @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean evEndAccess = true;
+
+    @Configurable
+    @Configurable.Comment({"Default = true"})
+    public boolean solarsWorkInNether = true;
+
+    @Configurable
     @Configurable.Comment({"Default = 20 seconds"})
     public int reactorMeltdownTime = 20;
 

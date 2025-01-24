@@ -84,16 +84,16 @@ public class ChromiumChain {
                 .inputItems(dust, Carbon, 2)
                 .inputFluids(SodiumDichromateSolution.getFluid(1000))
                 .outputItems(dust, SodaAsh, 6)
-                .outputItems(ChromiumIIIOxide,5)
+                .outputItems(dust, ChromiumIIIOxide,5)
                 .outputFluids(CarbonMonoxide.getFluid(1000))
                 .save(provider);
 
         // Cr2O3 + 2Al -> 2 Cr + Al2O3
         BLAST_RECIPES.recipeBuilder("chromium_chain_" + chainNumber++).duration(200).EUt(120).blastFurnaceTemp(1200)
-                .inputItems(ChromiumIIIOxide,5)
+                .inputItems(dust, ChromiumIIIOxide,5)
                 .inputItems(dust, Aluminium, 2)
                 .outputItems(dust, Chromium, 2)
-                .outputItems(Alumina,5)
+                .outputItems(dust, Alumina,5)
                 .save(provider);
 
         // Combined Step - Chromite
