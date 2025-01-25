@@ -1,9 +1,0 @@
-[14:43:15] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
-[14:43:15] [INIT] Loaded plugins:
-[14:43:15] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[14:43:15] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[14:43:15] [INIT] - com.gregtechceu.gtceu.integration.kjs.GregTechKubeJSPlugin
-[14:43:15] [INIT] - com.lowdragmc.lowdraglib.kjs.LDLibKubeJSPlugin
-[14:43:15] [INFO] example.js#5: Hello, World! (Loaded startup scripts)
-[14:43:16] [INFO] Loaded script startup_scripts:example.js in 0.027 s
-[14:43:16] [INFO] Loaded 1/1 KubeJS startup scripts in 0.341 s with 0 errors and 0 warnings
