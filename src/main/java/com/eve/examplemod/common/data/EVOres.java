@@ -58,7 +58,7 @@ public class EVOres {
 
     public static final GTOreDefinition NETHER_SPHALERITE = create(EVMain.id("nether_sphalerite"), vein -> vein
             .clusterSize(UniformInt.of(25, 35))
-            .density(0.4F).weight(160)
+            .density(0.32F).weight(100)
             .layer(WorldGenLayers.NETHERRACK)
             .heightRangeUniform(40, 120)
             .biomes(BiomeTags.IS_NETHER)
@@ -140,13 +140,13 @@ public class EVOres {
             ));
 
     public static final GTOreDefinition REALGAR_VEIN = create(EVMain.id("realgar_vein"), vein -> vein
-            .clusterSize(UniformInt.of(32, 40)).density(0.53f).weight(70)
+            .clusterSize(UniformInt.of(32, 36)).density(0.23f).weight(70)
             .layer(WorldGenLayers.STONE)
             .heightRangeUniform(10, 40)
             .biomes(BiomeTags.IS_OVERWORLD)
             .layeredVeinGenerator(generator -> generator
                     .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
-                            .layer(l -> l.weight(3).mat(Realgar).size(1, 3))
+                            .layer(l -> l.weight(2).mat(Realgar).size(1, 3))
                             .layer(l -> l.weight(4).mat(Iron).size(1, 3))
                             .build())
             )

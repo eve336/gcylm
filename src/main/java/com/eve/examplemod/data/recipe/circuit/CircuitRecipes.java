@@ -33,8 +33,8 @@ public class CircuitRecipes {
                 .inputItems(CAPACITOR, 8)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
                 .inputItems(CENTRAL_PROCESSING_UNIT, 1)
-                .inputItems(wireFine, TinAlloy, 2)
-                .outputItems(REFINED_PROCESSOR, 4)
+                .inputItems(wireFine, Tin, 2)
+                .outputItems(REFINED_PROCESSOR, 6)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_processor_smd").duration(200).EUt(60)
@@ -43,15 +43,15 @@ public class CircuitRecipes {
                 .inputItems(SMD_CAPACITOR_REFINED, 4)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
                 .inputItems(CENTRAL_PROCESSING_UNIT, 1)
-                .inputItems(wireFine, TinAlloy, 2)
-                .outputItems(REFINED_PROCESSOR, 4)
+                .inputItems(wireFine, Tin, 2)
+                .outputItems(REFINED_PROCESSOR, 6)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_processor_soc").duration(50).EUt(600)
                 .inputItems(PLASTIC_CIRCUIT_BOARD, 1)
                 .inputItems(SYSTEM_ON_CHIP, 1)
-                .inputItems(wireFine, TinAlloy, 8)
-                .outputItems(REFINED_PROCESSOR, 4)
+                .inputItems(wireFine, Tin, 8)
+                .outputItems(REFINED_PROCESSOR, 6)
                 .save(provider);
 
 // Refined Assembly

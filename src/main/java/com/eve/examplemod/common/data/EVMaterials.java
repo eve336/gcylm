@@ -300,17 +300,45 @@ public class EVMaterials {
 //        );
 //        System.out.println("non dust List: " + nonDustList);
 
-        List<Material> addRemoveOreProperty = List.of(Iron, Copper, Chalcopyrite, Magnetite, GraniticMineralSand, BasalticMineralSand);
-        
-        Copper.getProperties().removeProperty(PropertyKey.ORE);
-        Copper.setProperty(PropertyKey.ORE, new OreProperty());
-        OreProperty oreProp = Copper.getProperty(PropertyKey.ORE);
-        oreProp.setOreByProducts(Cobalt, Iron, Nickel, Copper);
-        oreProp.setWashedIn(Mercury);
+        MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1900);
 
-        oreProp = Iron.getProperty(PropertyKey.ORE);
-        oreProp.setOreByProducts(Nickel, Tin, Tin, Copper);
-        oreProp.setWashedIn(SodiumPersulfate);
+        if (EVConfig.INSTANCE.harderGold) {
+            List<Material> addRemoveOreProperty = List.of(Iron, Copper, Chalcopyrite, Magnetite, GraniticMineralSand, BasalticMineralSand);
+            addRemoveOreProperty.forEach(m -> {
+                        m.getProperties().removeProperty(PropertyKey.ORE);
+                        m.setProperty(PropertyKey.ORE, new OreProperty());
+                    }
+            );
+
+            OreProperty oreProp = Copper.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Cobalt, Iron, Nickel, Copper);
+            oreProp.setWashedIn(Mercury);
+
+            oreProp = Iron.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Nickel, Tin, Tin, Copper);
+            oreProp.setWashedIn(SodiumPersulfate);
+
+            oreProp = Chalcopyrite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Pyrite, Cobalt, Cadmium, Zinc);
+            oreProp.setWashedIn(Mercury);
+            oreProp.setDirectSmeltResult(Copper);
+
+            oreProp = Magnetite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Iron, Silver);
+            oreProp.setSeparatedInto(Sulfur);
+            oreProp.setWashedIn(Mercury);
+            oreProp.setDirectSmeltResult(Iron);
+
+            oreProp = GraniticMineralSand.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Deepslate, Magnetite);
+            oreProp.setSeparatedInto(Zinc);
+            oreProp.setDirectSmeltResult(Iron);
+
+            oreProp = BasalticMineralSand.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Basalt, Magnetite);
+            oreProp.setSeparatedInto(Copper);
+            oreProp.setDirectSmeltResult(Iron);
+        }
 
     }
 
@@ -1100,6 +1128,7 @@ public class EVMaterials {
             .fluid()
             .ingot(7)
             .components(Titanium, 26, Lanthanum, 6, Tungsten, 4, Cobalt, 3, Manganese, 2, Phosphorus, 2, Palladium, 2, Niobium, 1, Argon, 5)
+            .cableProperties(V[UIV], 4, 8)
             .flags(DISABLE_DECOMPOSITION)
             .appendFlags(CORE_METAL)
             .buildAndRegister();
@@ -1134,6 +1163,7 @@ public class EVMaterials {
             .iconSet(SHINY)
             .ingot(7)
             .components(Inconel792, 8, EglinSteel, 5, NaquadahEnriched, 4, Cerium, 3, Antimony, 2, Platinum, 2, Ytterbium, 1, TungstenSteel, 4)
+            .cableProperties(V[UEV], 6, 2)
             .flags(DISABLE_DECOMPOSITION)
             .appendFlags(CORE_METAL)
             .buildAndRegister();
@@ -1356,6 +1386,7 @@ public class EVMaterials {
             .color(0x323232)
             .iconSet(SHINY)
             .ingot(7)
+            .fluid()
             .components(Neutronium, 1)
             .cableProperties(VA[MAX], 32, 32)
             .flags(DISABLE_DECOMPOSITION, DISABLE_AUTOGEN_MIXER)
@@ -7687,6 +7718,7 @@ public class EVMaterials {
             .color(0xAA0d0d)
             .iconSet(SHINY)
             .components(TungstenTitaniumCarbide, 3, Jasper, 3)
+            .cableProperties(V[UEV], 8, 6)
             .appendFlags(CORE_METAL)
             .blastTemp(9200)
             .buildAndRegister();

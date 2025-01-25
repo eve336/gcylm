@@ -2,14 +2,19 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.registries.EVRegistries;
+import com.eve.examplemod.common.EVCoilBlock;
 import com.eve.examplemod.common.block.Spikes;
 import com.eve.examplemod.common.block.explosive.LeptonicBlock;
 import com.eve.examplemod.common.block.explosive.QCDBlock;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.block.ICoilType;
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.block.CoilBlock;
 import com.gregtechceu.gtceu.common.data.GTModels;
+import com.gregtechceu.gtceu.common.registry.GTRegistration;
+import com.lowdragmc.lowdraglib.client.renderer.IRenderer;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
@@ -25,9 +30,11 @@ import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
+
 public class EVBlocks {
 
-    public static final BlockEntry<LeptonicBlock> LEPTONIC_CHARGE = EVRegistries.REGISTRATE
+    public static final BlockEntry<LeptonicBlock> LEPTONIC_CHARGE = REGISTRATE
             .block("leptonic_charge", LeptonicBlock::new)
             .lang("Leptonic Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
@@ -37,7 +44,7 @@ public class EVBlocks {
             .simpleItem()
             .register();
 
-    public static final BlockEntry<LeptonicBlock> NAQUADRIA_CHARGE = EVRegistries.REGISTRATE
+    public static final BlockEntry<LeptonicBlock> NAQUADRIA_CHARGE = REGISTRATE
             .block("naquadria_charge", LeptonicBlock::new)
             .lang("Naquadria Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
@@ -47,7 +54,7 @@ public class EVBlocks {
             .simpleItem()
             .register();
 
-    public static final BlockEntry<LeptonicBlock> TARANIUM_CHARGE = EVRegistries.REGISTRATE
+    public static final BlockEntry<LeptonicBlock> TARANIUM_CHARGE = REGISTRATE
             .block("taranium_charge", LeptonicBlock::new)
             .lang("Taranium Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
@@ -59,7 +66,7 @@ public class EVBlocks {
 
 
 
-    public static final BlockEntry<QCDBlock> QCD_CHARGE = EVRegistries.REGISTRATE
+    public static final BlockEntry<QCDBlock> QCD_CHARGE = REGISTRATE
             .block("qcd_charge", QCDBlock::new)
             .lang("Quantum Chromodynamically Charged Charge")
             .properties(p -> p.mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava())
@@ -69,7 +76,7 @@ public class EVBlocks {
             .simpleItem()
             .register();
 
-    public static final BlockEntry<SaplingBlock> STRAIGHT_RUBBER_SAPLING = EVRegistries.REGISTRATE
+    public static final BlockEntry<SaplingBlock> STRAIGHT_RUBBER_SAPLING = REGISTRATE
             .block("straight_rubber_sapling", properties -> new SaplingBlock(new StraightRubberTreeGrower(), properties.noCollission()))
             .initialProperties(() -> Blocks.OAK_SAPLING)
             .lang("Straight Rubber Sapling")
@@ -81,7 +88,7 @@ public class EVBlocks {
             .build()
             .register();
 
-    public static final BlockEntry<Block> SUPERHEAVY_BLOCK = EVRegistries.REGISTRATE
+    public static final BlockEntry<Block> SUPERHEAVY_BLOCK = REGISTRATE
             .block("superheavy_block", Block::new)
             .lang("Super Heavy Block")
             .simpleItem()
@@ -96,19 +103,61 @@ public class EVBlocks {
 //            .lang("Spikes")
 //            .register();
 
+//    public static final BlockEntry<CoilBlock> COIL_TITAN_STEEL = createCoilBlock(EVCoilBlock.CoilType.TITAN_STEEL);
+//    public static final BlockEntry<CoilBlock> COIL_PIKYONIUM = createCoilBlock(EVCoilBlock.CoilType.PIKYONIUM);
+//    public static final BlockEntry<CoilBlock> COIL_BLACK_TITANIUM = createCoilBlock(EVCoilBlock.CoilType.BLACK_TITANIUM);
+//    public static final BlockEntry<CoilBlock> COIL_NEUTRONIUM = createCoilBlock(EVCoilBlock.CoilType.NEUTRONIUM);
+//    public static final BlockEntry<CoilBlock> COIL_COSMIC_NEUTRONIUM = createCoilBlock(EVCoilBlock.CoilType.COSMIC_NEUTRONIUM);
+//    public static final BlockEntry<CoilBlock> COIL_INFINITY = createCoilBlock(EVCoilBlock.CoilType.INFINITY);
+//    public static final BlockEntry<CoilBlock> COIL_ETERNITY = createCoilBlock(EVCoilBlock.CoilType.ETERNITY);
+
+
+
+
 
     private static BlockEntry<CoilBlock> createCoilBlock(ICoilType coilType) {
         BlockEntry<CoilBlock> coilBlock = EVRegistries.REGISTRATE
                 .block("%s_coil_block".formatted(coilType.getName()), p -> new CoilBlock(p, coilType))
                 .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.isValidSpawn((state, level, pos, ent) -> false))
                 .addLayer(() -> RenderType::cutoutMipped)
                 .blockstate(GTModels.createCoilModel("%s_coil_block".formatted(coilType.getName()), coilType))
+                .tag(
+                        //GTToolType.WRENCH.harvestTags.get(0),
+                        BlockTags.MINEABLE_WITH_PICKAXE)
                 .item(BlockItem::new)
                 .build()
                 .register();
         GTCEuAPI.HEATING_COILS.put(coilType, coilBlock);
         return coilBlock;
     }
+
+
+//    private static BlockEntry<CoilBlock> createCoilBlock(ICoilType coilType) {
+//        BlockEntry<CoilBlock> coilBlock = REGISTRATE.block("%s_coil_block".formatted(coilType.getName()), p -> new CoilBlock(p, coilType))
+//                .initialProperties(() -> Blocks.IRON_BLOCK)
+//                .addLayer(() -> RenderType::cutoutMipped)
+//                .blockstate(GTModels.createCoilModel("%s_coil_block".formatted(coilType.getName()), coilType))
+//                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
+//                .item(BlockItem::new)
+//                .build()
+//                .register();
+//        GTCEuAPI.HEATING_COILS.put(coilType, coilBlock);
+//        return coilBlock;
+//    }
+//    private static BlockEntry<CoilBlock> createCoilBlock(ICoilType coilType, IRenderer renderer, IRenderer activeRenderer) {
+//        BlockEntry<CoilBlock> coilBlock = REGISTRATE.block("%s_coil_block".formatted(coilType.getName()), p -> (CoilBlock) new CosmicCoilBlock(p, coilType, renderer, activeRenderer))
+//                .initialProperties(() -> Blocks.IRON_BLOCK)
+//                .addLayer(() -> RenderType::translucent)
+//                .blockstate(NonNullBiConsumer.noop())
+//                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
+//                .item(BlockItem::new)
+//                .model(NonNullBiConsumer.noop())
+//                .build()
+//                .register();
+//        GTCEuAPI.HEATING_COILS.put(coilType, coilBlock);
+//        return coilBlock;
+//    }
 
     public static void init(){
 

@@ -250,7 +250,7 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_cupronickel")
+        ASSEMBLER_RECIPES.recipeBuilder("coil_cupronickel_mica")
                 .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Cupronickel, 6)
                 .inputFluids(Tin.getFluid(144))
@@ -259,7 +259,7 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal")
+        ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal_mica")
                 .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Kanthal, 6)
                 .inputFluids(Copper.getFluid(144))
@@ -268,16 +268,16 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal")
-                .inputItems(MICA_INSULATOR_FOIL, 8)
-                .inputItems(wireGtDouble, Nichrome, 6)
-                .inputFluids(Aluminium.getFluid(144))
-                .outputItems(COIL_KANTHAL.asItem())
-                .EUt(V[GTValues.HV])
-                .duration(5*20)
-                .save(provider);
+//        ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal")
+//                .inputItems(MICA_INSULATOR_FOIL, 8)
+//                .inputItems(wireGtDouble, Nichrome, 6)
+//                .inputFluids(Aluminium.getFluid(144))
+//                .outputItems(COIL_KANTHAL.asItem())
+//                .EUt(V[GTValues.HV])
+//                .duration(5*20)
+//                .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_rtm_alloy")
+        ASSEMBLER_RECIPES.recipeBuilder("coil_rtm_alloy_mica")
                 .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, RTMAlloy, 6)
                 .inputFluids(Nichrome.getFluid(144))
@@ -286,7 +286,7 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_hssg")
+        ASSEMBLER_RECIPES.recipeBuilder("coil_hssg_mica")
                 .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, HSSG, 6)
                 .inputFluids(Tungsten.getFluid(144))
@@ -295,7 +295,7 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_naquadah")
+        ASSEMBLER_RECIPES.recipeBuilder("coil_naquadah_mica")
                 .inputItems(MICA_INSULATOR_FOIL, 8)
                 .inputItems(wireGtDouble, Naquadah, 6)
                 .inputFluids(HSSG.getFluid(144))

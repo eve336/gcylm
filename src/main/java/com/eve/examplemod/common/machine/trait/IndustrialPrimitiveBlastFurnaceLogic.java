@@ -61,6 +61,7 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
             }
         }
     }
+
     public GTRecipe getIronRecipe() {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Iron), 1)
