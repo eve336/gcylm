@@ -12,6 +12,7 @@ import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.tags.BlockTags;
 
 import java.util.function.Consumer;
 
@@ -231,6 +232,14 @@ public class MiscRecipes {
                 .inputItems(gem, Charcoal)
                 .outputItems(gem, Coke)
                 .outputFluids(Creosote.getFluid(1750))
+//                .duration(150)
+                .save(provider);
+
+        COKE_OVEN_RECIPES.recipeBuilder("charcoal_from_log_coke_oven")
+                .inputItems(BlockTags.LOGS_THAT_BURN)
+                .outputItems(CHARCOAL)
+                .outputFluids(Creosote.getFluid(500))
+                .duration(45*20)
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("blast_silicon_1")
@@ -307,7 +316,7 @@ public class MiscRecipes {
 
 
         CHEMICAL_RECIPES.recipeBuilder("sodium_hydroxide")
-                .EUt(32)
+                .EUt(VA[LV])
                 .inputItems(dust, Sodium, 2)
                 .inputFluids(Water.getFluid(2000))
                 .outputItems(dust, SodiumHydroxide, 2)

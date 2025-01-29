@@ -29,7 +29,7 @@ public class EVOres {
 
     public static final GTOreDefinition NETHER_PRECIOUS_METAL = create(EVMain.id("nether_gold_vein"), vein -> vein
             .clusterSize(UniformInt.of(25, 29))
-            .density(0.2F).weight(160)
+            .density(0.2F).weight(120)
             .layer(WorldGenLayers.NETHERRACK)
             .heightRangeUniform(10, 120)
             .biomes(BiomeTags.IS_NETHER)

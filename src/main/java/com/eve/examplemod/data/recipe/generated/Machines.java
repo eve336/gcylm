@@ -32,10 +32,10 @@ import static com.gregtechceu.gtceu.api.GTValues.VN;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.COIL_CUPRONICKEL;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
+import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
-import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.CRATE;
-import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.DRUM;
+import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.*;
 import static com.gregtechceu.gtceu.data.recipe.misc.MetaTileEntityLoader.registerMachineRecipe;
 
 public class Machines {
@@ -44,6 +44,22 @@ public class Machines {
         EVCraftingComponent.initialiseComponents();
 
         // TODO machine recipes like input hatches and component blocks
+
+        for (var machine : SUPER_TANK){
+            if (machine == null) continue;
+            int tier = machine.getTier();
+
+            VanillaRecipeHelper.addShapedRecipe(provider, true, "tank_super_" + VN[tier].toLowerCase(),
+                    machine.asStack(),
+                    "CPC",
+                    "IHI",
+                    "CIC",
+                    'H', HULL[tier].asStack(),
+                    'I', PLATE.getIngredient(tier),
+                    'C', CIRCUIT.getIngredient(tier),
+                    'P', EVCraftingComponent.PUMP.getIngredient(tier)
+                    );
+        }
 
         for (var machine : GTMachines.FLUID_IMPORT_HATCH) {
             if (machine == null) continue;

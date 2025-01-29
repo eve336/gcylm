@@ -132,7 +132,8 @@ public class Removal {
                 "gtceu:autoclave/raw_crystal_chip_olivine", "gtceu:autoclave/raw_crystal_chip_from_part_mutagen", "gtceu:autoclave/raw_crystal_chip_emerald",
                 "gtceu:electric_blast_furnace/engraved_crystal_chip_from_olivine", "gtceu:electric_blast_furnace/engraved_crystal_chip_from_emerald",
                 "gtceu:assembler/superconducting_coil_luv", "gtceu:assembler/superconducting_coil_zpm", "gtceu:assembler/superconducting_coil_uv", "gtceu:mixer/naquadah_alloy",
-                "gtceu:mixer/graphene",
+                "gtceu:mixer/graphene", "gtceu:shaped/super_tank_lv", "gtceu:shaped/super_tank_mv", "gtceu:shaped/super_tank_hv", "gtceu:shaped/super_tank_ev",
+                "gtceu:coke_oven/log_to_charcoal",
         // wetware
                 "gtceu:fluid_heater/sterile_growth_medium", "gtceu:mixer/raw_growth_medium", "gtceu:autoclave/agar", "gtceu:distillery/mutagen",
                 "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
@@ -210,7 +211,7 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:mixer/tungstencarbide"));
     }
     public static void gold(Consumer<ResourceLocation> registry) {
-
+        registry.accept(new ResourceLocation("gtceu:glowstone_separation"));
     }
     public static void YCBO(Consumer<ResourceLocation> registry) {
         List<String> removalList = List.of("gtceu:alloy_blast_smelter/yttrium_barium_cuprate_gas", "gtceu:alloy_blast_smelter/yttrium_barium_cuprate", "gtceu:vacuum_freezer/yttrium_barium_cuprate",

@@ -122,12 +122,12 @@ public class CoolerRecipes {
 
         // PhenylBoronic Acid
         //C6H5B(OCH3)2 + H2O -> C6H5B(OH)2 + CH3OH
-        CHEMICAL_RECIPES.recipeBuilder("phenylboronic_acid")
-
-                .inputFluids(Water.getFluid(1000))
-                .outputItems(dust, PhenylboronicAcid)
-                .outputFluids(Methanol.getFluid(1000))
-                        .save(provider);
+//        CHEMICAL_RECIPES.recipeBuilder("phenylboronic_acid")
+//
+//                .inputFluids(Water.getFluid(1000))
+//                .outputItems(dust, PhenylboronicAcid)
+//                .outputFluids(Methanol.getFluid(1000))
+//                        .save(provider);
 
         // dichlorophenylboronic acid
         // C6H3Cl2Br + C6H5B(OH)2 -> C6H3Cl2B(OH)2 + C6H5Br

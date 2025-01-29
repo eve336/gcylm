@@ -15,7 +15,6 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
-import dev.latvian.mods.kubejs.server.tag.TagEventFilter;
 
 import java.util.*;
 
@@ -300,7 +299,11 @@ public class EVMaterials {
 //        );
 //        System.out.println("non dust List: " + nonDustList);
 
-        MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1900);
+        MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1800);
+
+        OreProperty oreProp2 = PreciousMetal.getProperty(PropertyKey.ORE);
+        oreProp2.setOreByProducts(Cadmium, Iron, Cadmium, Antimony);
+        oreProp2.setWashedIn(Mercury);
 
         if (EVConfig.INSTANCE.harderGold) {
             List<Material> addRemoveOreProperty = List.of(Iron, Copper, Chalcopyrite, Magnetite, GraniticMineralSand, BasalticMineralSand);
@@ -820,11 +823,12 @@ public class EVMaterials {
             .cableProperties(32, 4, 0, true)
             .buildAndRegister();
 
-    public static final Material MVSuperconductorBase = new Material.Builder(EVMain.id("mv_superconductor_base"))
+    public static final Material MVSuperconductor = new Material.Builder(EVMain.id("mv_superconductor"))
             .color(0x535353)
             .iconSet(SHINY)
             .ingot(1)
             .components(Cadmium, 5, Magnesium, 1, Oxygen, 6)
+            .cableProperties(128, 4, 0, true)
             .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(1200)
             .buildAndRegister();
@@ -856,15 +860,6 @@ public class EVMaterials {
             .components(Naquadah, 4, Indium, 2, Palladium, 6, Osmium, 1)
             .flags(AUTOGEN_MIXER_RECIPE)
             .blastTemp(8100)
-            .buildAndRegister();
-
-    public static final Material MVSuperconductor = new Material.Builder(EVMain.id("mv_superconductor"))
-            .color(0x535353)
-            .iconSet(SHINY)
-            .ingot(1)
-            .cableProperties(128, 1, 0, true)
-            .components(MVSuperconductorBase, 1)
-            .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
     public static final Material HVSuperconductor = new Material.Builder(EVMain.id("hv_superconductor"))
