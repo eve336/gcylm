@@ -16,7 +16,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
+import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.DISABLE_AUTOGEN_MIXER;
 import static com.eve.examplemod.common.data.EVRecipeTypes.LARGE_MIXER_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MIXER_RECIPES;

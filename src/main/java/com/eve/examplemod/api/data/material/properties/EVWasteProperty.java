@@ -4,7 +4,6 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Map;
 import java.util.Set;

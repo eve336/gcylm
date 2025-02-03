@@ -6,16 +6,15 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
-import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
 import static com.eve.examplemod.common.data.EVBlocks.*;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.PLASMA_CONDENSER_RECIPES;
+import static com.eve.examplemod.common.data.EVRecipeTypes.STELLAR_FORGE_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GCYMRecipeTypes.ALLOY_BLAST_RECIPES;
-import static com.gregtechceu.gtceu.common.data.GTItems.*;
+import static com.gregtechceu.gtceu.common.data.GTItems.GELLED_TOLUENE;
+import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BLOCK;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 

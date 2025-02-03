@@ -8,10 +8,8 @@ import com.gregtechceu.gtceu.api.data.worldgen.generator.indicators.SurfaceIndic
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.valueproviders.UniformInt;
 
-import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials.PreciousMetal;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-
-
 import static com.gregtechceu.gtceu.common.data.GTOres.*;
 
 public class EVOres {

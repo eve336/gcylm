@@ -17,9 +17,8 @@ import java.util.function.Predicate;
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
 import static com.eve.examplemod.api.data.material.info.EVMaterialIconType.*;
 import static com.eve.examplemod.api.data.tag.EVTagPrefix.Conditions.*;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType.dust;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.PREFIXES;
-import static com.gregtechceu.gtceu.common.data.GTElements.*;
 
 public class EVTagPrefix{
 

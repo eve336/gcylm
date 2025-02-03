@@ -5,14 +5,14 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.item.IComponentItem;
+import com.gregtechceu.gtceu.api.item.component.IItemComponent;
 import com.gregtechceu.gtceu.common.item.CoverPlaceBehavior;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
-import com.gregtechceu.gtceu.api.item.component.IItemComponent;
-import com.tterrag.registrate.util.nullness.NonNullConsumer;
 
 import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
 

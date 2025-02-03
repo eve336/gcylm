@@ -1,9 +1,6 @@
 package com.eve.examplemod.data.recipe.serialized.chemistry;
 
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;

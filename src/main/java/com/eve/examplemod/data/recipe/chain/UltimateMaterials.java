@@ -1,35 +1,20 @@
 package com.eve.examplemod.data.recipe.chain;
 
-import com.eve.examplemod.api.data.material.properties.EVComponentProperty;
-import com.eve.examplemod.api.data.material.properties.EVNuclearProperty;
-import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
-import com.eve.examplemod.api.data.material.properties.EVWasteProperty;
-import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
-import com.eve.examplemod.common.data.EVBlocks;
-import com.eve.examplemod.common.data.EVItems;
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
-import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 
-import java.util.*;
+import java.util.List;
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
-import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
 import static com.eve.examplemod.common.data.EVBlocks.QCD_CHARGE;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.NUCLEAR_REACTOR_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;

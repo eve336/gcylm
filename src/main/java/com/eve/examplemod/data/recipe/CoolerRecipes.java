@@ -12,10 +12,10 @@ import java.util.function.Consumer;
 import static com.eve.examplemod.EVMain.id;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVMaterials2.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.ACTIVE_COOLER_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CHEMICAL_RECIPES;
 
 
 public class CoolerRecipes {

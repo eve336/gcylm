@@ -1,10 +1,5 @@
 package com.eve.examplemod.data.recipe.generated;
 
-import java.util.function.Consumer;
-
-import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
-import com.eve.examplemod.api.fluids.store.EVFluidStorageKeys;
-import com.eve.examplemod.common.data.EVRecipeTypes;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
@@ -12,9 +7,10 @@ import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistr
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import net.minecraft.data.recipes.FinishedRecipe;
 
+import java.util.function.Consumer;
+
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.DISABLE_REPLICATION;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.AUTOCLAVE_RECIPES;
+import static com.eve.examplemod.common.data.EVRecipeTypes.RECPLICATION_RECIPES;
 
 public class Replication {
 

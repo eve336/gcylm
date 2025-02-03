@@ -1,14 +1,15 @@
 package com.eve.examplemod.common.data;
 
-import com.eve.examplemod.common.cover.EVSolarPanel;
 import com.eve.examplemod.common.cover.ConverterCover;
+import com.eve.examplemod.common.cover.EVSolarPanel;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.cover.CoverDefinition;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import com.gregtechceu.gtceu.common.cover.*;
 import com.gregtechceu.gtceu.client.renderer.cover.*;
-
+import com.gregtechceu.gtceu.common.cover.ConveyorCover;
+import com.gregtechceu.gtceu.common.cover.PumpCover;
+import com.gregtechceu.gtceu.common.cover.RobotArmCover;
 import it.unimi.dsi.fastutil.ints.Int2ObjectFunction;
 
 import java.util.Arrays;

@@ -7,8 +7,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.AirBlock;
-import net.minecraft.world.level.block.Blocks;
 
 public class EVUtils {
     public static boolean canSeeSunClearly(Level world, BlockPos blockPos) {

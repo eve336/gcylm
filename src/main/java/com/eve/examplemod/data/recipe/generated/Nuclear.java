@@ -12,15 +12,17 @@ import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistr
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import net.minecraft.data.recipes.FinishedRecipe;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
 import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.NUCLEAR_REACTOR_RECIPES;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.ingot;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BALL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;

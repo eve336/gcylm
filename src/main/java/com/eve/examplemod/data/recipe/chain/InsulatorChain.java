@@ -6,7 +6,8 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVItems.*;
-import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials.AluminoSilicateWool;
+import static com.eve.examplemod.common.data.EVMaterials.MicaPulp;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
 import static com.gregtechceu.gtceu.common.data.GTItems.STICKY_RESIN;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;

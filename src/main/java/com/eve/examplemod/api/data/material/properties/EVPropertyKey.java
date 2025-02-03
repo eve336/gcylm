@@ -1,6 +1,5 @@
 package com.eve.examplemod.api.data.material.properties;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 
 public class EVPropertyKey extends PropertyKey {
