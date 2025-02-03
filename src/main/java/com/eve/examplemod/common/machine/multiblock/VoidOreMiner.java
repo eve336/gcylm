@@ -1,7 +1,7 @@
 package com.eve.examplemod.common.machine.multiblock;
 
 import com.eve.examplemod.common.data.EVMaterials;
-import com.eve.examplemod.common.machine.trait.VOMLogic;
+import com.eve.examplemod.common.machine.logic.VOMLogic;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.feature.IFancyUIMachine;

@@ -155,6 +155,21 @@ public class EVOres {
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 
+    public static final GTOreDefinition MAGNETITE_VEIN_END = create(EVMain.id("chromite_vein_overworld"), vein -> vein
+            .clusterSize(UniformInt.of(38, 44)).density(0.19F).weight(45)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(20, 80)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(1).mat(Magnetite).size(1, 3))
+                            .layer(l -> l.weight(1).mat(VanadiumMagnetite).size(1, 2))
+                            .layer(l -> l.weight(2).mat(Chromite).size(1, 1))
+                            .build())).surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Magnetite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
+
     public static void init(){
 
     }

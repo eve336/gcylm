@@ -79,17 +79,20 @@ public class GoldChain {
                 .outputItems(dust, PotassiumMetabisulfite, 9)
                 .save(provider);
 
+        // H(AuCl4) -> Au + H + Cl4
         CHEMICAL_RECIPES.recipeBuilder("goldline4").duration(100).EUt(30)
                 .inputFluids(ChloroauricAcid.getFluid(1000))
                 .notConsumable(dust, PotassiumMetabisulfite)
-                .outputItems(dust, Gold, 2)
-                .outputFluids(Water.getFluid(1000))
-                .outputFluids(Chlorine.getFluid(1000))
+                .outputItems(dust, Gold, 1)
+                .outputFluids(Hydrogen.getFluid(1000))
+                .outputFluids(Chlorine.getFluid(4000))
                 .save(provider);
 
+        // Cu3Au? + HCl + 3 Cl -> H(AuCl4) + Cu3?
         CHEMICAL_RECIPES.recipeBuilder("goldline2").duration(80).EUt(30)
                 .inputItems(dust, GoldLeach, 4)
                 .inputFluids(HydrochloricAcid.getFluid(1000))
+                .inputFluids(Chlorine.getFluid(3000))
                 .outputItems(dust, CopperLeach, 4)
                 .outputFluids(ChloroauricAcid.getFluid(1000))
                 .save(provider);

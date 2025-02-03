@@ -1,6 +1,6 @@
 package com.eve.examplemod.common.machine.multiblock;
 
-import com.eve.examplemod.common.machine.trait.EfficiencyLogic;
+import com.eve.examplemod.common.machine.logic.EfficiencyLogic;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;

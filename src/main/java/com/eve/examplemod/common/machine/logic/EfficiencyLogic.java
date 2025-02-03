@@ -1,4 +1,4 @@
-package com.eve.examplemod.common.machine.trait;
+package com.eve.examplemod.common.machine.logic;
 
 import com.eve.examplemod.common.machine.multiblock.EfficiencyMachine;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;

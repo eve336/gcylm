@@ -4870,7 +4870,8 @@ public class EVMaterials {
             .fluid()
             .components()
             .buildAndRegister()
-            .setFormula("HAuCl?", true);
+//            .setFormula("HAuCl?", true);
+            .setFormula("H(AuCl4)", true);
 
     public static final Material Helium4 = new Material.Builder(EVMain.id("helium4")).fluid()
             .color(Helium.getMaterialRGB() - 10)

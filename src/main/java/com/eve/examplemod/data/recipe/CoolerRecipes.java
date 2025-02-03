@@ -1,6 +1,6 @@
 package com.eve.examplemod.data.recipe;
 
-import com.eve.examplemod.common.data.EVMachines;
+import com.eve.examplemod.common.data.machines.EVMachines;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
@@ -16,8 +16,6 @@ import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
-import static net.minecraft.world.item.Items.QUARTZ;
-import static net.minecraft.world.item.Items.QUARTZ_BLOCK;
 
 
 public class CoolerRecipes {

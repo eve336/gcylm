@@ -1,13 +1,10 @@
-package com.eve.examplemod.common.machine.trait;
+package com.eve.examplemod.common.machine.logic;
 
 import com.eve.examplemod.common.data.EVMaterials;
 import com.eve.examplemod.common.machine.multiblock.CosmicRayDetector;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import net.minecraft.server.level.ServerLevel;
 

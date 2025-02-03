@@ -16,6 +16,7 @@ import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
 import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
 import net.minecraft.data.recipes.FinishedRecipe;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipes.RECIPE_FILTERS;
@@ -77,5 +78,6 @@ public class EVRecipes {
         WormholeGeneratorChain.init(consumer);
         CoolerRecipes.init(consumer);
         SolarPanelRecipes.init(consumer);
+        com.eve.examplemod.data.recipe.Machines.init(consumer);
     }
 }

@@ -1,12 +1,12 @@
 package com.eve.examplemod;
 
 import com.eve.examplemod.api.data.material.info.EVMaterialIconType;
-import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.*;
+import com.eve.examplemod.common.data.machines.EVMachines;
+import com.eve.examplemod.common.data.machines.EVMultiMachines;
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.cover.CoverDefinition;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
@@ -14,15 +14,11 @@ import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistr
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
-import com.gregtechceu.gtceu.client.renderer.entity.GTExplosiveRenderer;
 import com.gregtechceu.gtceu.common.block.CoilBlock;
-import com.gregtechceu.gtceu.common.data.GTEntityTypes;
 import com.lowdragmc.lowdraglib.LDLib;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -128,5 +124,6 @@ public class EVMain {
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
         //CustomMachines.init();
         EVMachines.init();
+        EVMultiMachines.init();
     }
 }

@@ -1,14 +1,12 @@
 package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.common.data.EVBlocks;
-import com.eve.examplemod.common.data.EVMachines;
+import com.eve.examplemod.common.data.machines.EVMachines;
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -231,24 +229,35 @@ public class MiscRecipes {
         COKE_OVEN_RECIPES.recipeBuilder("charcoal_coke_oven")
                 .inputItems(gem, Charcoal)
                 .outputItems(gem, Coke)
-                .outputFluids(Creosote.getFluid(1750))
-//                .duration(150)
+                .outputFluids(Creosote.getFluid(80 * 12))
+                .duration(20 * 12)
                 .save(provider);
 
         COKE_OVEN_RECIPES.recipeBuilder("charcoal_from_log_coke_oven")
                 .inputItems(BlockTags.LOGS_THAT_BURN)
                 .outputItems(CHARCOAL)
-                .outputFluids(Creosote.getFluid(500))
-                .duration(45*20)
+                .outputFluids(Creosote.getFluid(300 * 12))
+                .duration(20 * 4 * 12)
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("blast_silicon_1")
                 .blastFurnaceTemp(1700)
                 .inputItems(dust, Silicon)
                 .outputItems(ingot, Silicon)
+                .circuitMeta(1)
                 .EUt(128)
                 .duration(50*20)
                 .save(provider);
+
+//        BLAST_RECIPES.recipeBuilder("blast_silicon_2")
+////                .blastFurnaceTemp(1700)
+////                .inputItems(dust, Silicon)
+////                .outputItems(ingot, Silicon)
+////                .inputFluids(Nitrogen.getFluid(1000))
+////                .circuitMeta(2)
+////                .EUt(128)
+////                .duration(27*20)
+////                .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("coil_cupronickel_alumino_silicate")
                 .inputItems(dust, AluminoSilicateWool, 12)
@@ -313,10 +322,8 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-
-
         CHEMICAL_RECIPES.recipeBuilder("sodium_hydroxide")
-                .EUt(VA[LV])
+                .EUt(30)
                 .inputItems(dust, Sodium, 2)
                 .inputFluids(Water.getFluid(2000))
                 .outputItems(dust, SodiumHydroxide, 2)

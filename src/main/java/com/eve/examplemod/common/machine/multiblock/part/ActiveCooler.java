@@ -1,23 +1,15 @@
 package com.eve.examplemod.common.machine.multiblock.part;
 
 import com.eve.examplemod.api.capability.IFuelCell;
-import com.eve.examplemod.common.machine.trait.ActiveCoolerLogic;
-import com.eve.examplemod.common.machine.trait.VOMLogic;
-import com.gregtechceu.gtceu.api.blockentity.MetaMachineBlockEntity;
+import com.eve.examplemod.common.machine.logic.ActiveCoolerLogic;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.TickableSubscription;
 import com.gregtechceu.gtceu.api.machine.WorkableTieredMachine;
-import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
-import com.gregtechceu.gtceu.api.recipe.GTRecipe;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
-import it.unimi.dsi.fastutil.ints.Int2LongFunction;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;

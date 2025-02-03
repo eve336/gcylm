@@ -1,7 +1,6 @@
 package com.eve.examplemod.common.machine.multiblock;
 
-import com.eve.examplemod.common.machine.trait.CosmicRayDetectorLogic;
-import com.eve.examplemod.common.machine.trait.VOMLogic;
+import com.eve.examplemod.common.machine.logic.CosmicRayDetectorLogic;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;

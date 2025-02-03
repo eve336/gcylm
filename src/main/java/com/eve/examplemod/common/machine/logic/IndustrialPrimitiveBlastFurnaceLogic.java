@@ -1,4 +1,4 @@
-package com.eve.examplemod.common.machine.trait;
+package com.eve.examplemod.common.machine.logic;
 
 import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -93,7 +93,7 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Iron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(1500/getMachine().size);
+                .duration(3000/getMachine().size);
 
 
         return recipe.buildRawRecipe();
@@ -102,7 +102,7 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.WroughtIron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(1000/getMachine().size);
+                .duration(2250/getMachine().size);
 
 
         return recipe.buildRawRecipe();
@@ -111,7 +111,7 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Iron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(750/getMachine().size);
+                    .duration(1800/getMachine().size);
 
 
         return recipe.buildRawRecipe();
@@ -120,7 +120,7 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.WroughtIron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(500/getMachine().size);
+                .duration(1350/getMachine().size);
 
 
         return recipe.buildRawRecipe();

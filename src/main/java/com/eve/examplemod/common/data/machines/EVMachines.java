@@ -1,7 +1,8 @@
-package com.eve.examplemod.common.data;
+package com.eve.examplemod.common.data.machines;
 
 
 import com.eve.examplemod.EVMain;
+import com.eve.examplemod.common.data.EVRecipeTypes;
 import com.eve.examplemod.common.machine.multiblock.*;
 import com.eve.examplemod.common.machine.multiblock.part.*;
 import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
@@ -21,8 +22,10 @@ import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
+import com.gregtechceu.gtceu.common.machine.multiblock.electric.FluidDrillMachine;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
 
+import com.gregtechceu.gtceu.utils.FormattingUtil;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 
@@ -38,6 +41,7 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
 
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
@@ -224,6 +228,8 @@ public class EVMachines{
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
                     GTCEu.id("block/multiblock/large_chemical_reactor"))
             .register();
+
+
 
 
     public static final MultiblockMachineDefinition INDUSTRIAL_PRIMITIVE_BLAST_FURNACE = REGISTRATE

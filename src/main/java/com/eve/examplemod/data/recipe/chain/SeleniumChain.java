@@ -70,7 +70,7 @@ public class SeleniumChain {
 
         // TeSe + 2Na2CO3 + 4O -> TeO2SeO2(Na2CO3)2
         BLAST_RECIPES.recipeBuilder("selenium_chain_" + chainNumber++).duration(320).EUt(120).blastFurnaceTemp(2100)
-                .inputItems(AnodicSlime)
+                .inputItems(dust, AnodicSlime)
                 .inputItems(dust, SodaAsh, 12)
                 .inputFluids(Oxygen.getFluid(4000))
                 .outputItems(dustTiny, PreciousMetal, 5)
@@ -81,7 +81,7 @@ public class SeleniumChain {
         LARGE_CHEMICAL_RECIPES.recipeBuilder("selenium_chain_" + chainNumber++).duration(270).EUt(1920)
                 .inputFluids(SeleniteTelluriteMix.getFluid(1000))
                 .inputFluids(SulfuricAcid.getFluid(1000))
-                .outputItems(TelluriumOxide,3)
+                .outputItems(dust, TelluriumOxide,3)
                 .outputItems(dust, Sodium, 4)
                 .outputFluids(Water.getFluid(2000))
                 .outputFluids(SulfurDioxide.getFluid(1000))
@@ -94,12 +94,12 @@ public class SeleniumChain {
                 .inputFluids(SeleniteSolution.getFluid(1000))
                 .inputFluids(HydrochloricAcid.getFluid(2000))
                 .outputItems(dust, Salt, 4)
-                .outputItems(SeleniumOxide,3)
+                .outputItems(dust, SeleniumOxide,3)
                 .save(provider);
 
         // SeO2 + 2SO2 -> Se + 2SO3
         CHEMICAL_RECIPES.recipeBuilder("selenium_chain_" + chainNumber++).duration(260).EUt(120)
-                .inputItems(SeleniumOxide,3)
+                .inputItems(dust, SeleniumOxide,3)
                 .inputFluids(SulfurDioxide.getFluid(2000))
                 .outputItems(dust, Selenium)
                 .outputFluids(SulfurTrioxide.getFluid(2000))
@@ -107,7 +107,7 @@ public class SeleniumChain {
 
         // TeO2 + 2SO2 -> Te + 2SO3
         CHEMICAL_RECIPES.recipeBuilder("selenium_chain_" + chainNumber++).duration(260).EUt(120)
-                .inputItems(TelluriumOxide,3)
+                .inputItems(dust, TelluriumOxide,3)
                 .inputFluids(SulfurDioxide.getFluid(2000))
                 .outputItems(dust, Tellurium)
                 .outputFluids(SulfurTrioxide.getFluid(2000))

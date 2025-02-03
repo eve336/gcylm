@@ -1,4 +1,4 @@
-package com.eve.examplemod.common.machine.trait;
+package com.eve.examplemod.common.machine.logic;
 
 import com.eve.examplemod.api.capability.IFuelCell;
 import com.eve.examplemod.common.machine.multiblock.part.ActiveCooler;

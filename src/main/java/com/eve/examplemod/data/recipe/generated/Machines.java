@@ -1,36 +1,22 @@
 package com.eve.examplemod.data.recipe.generated;
 
-import com.eve.examplemod.common.data.EVMachines;
+import com.eve.examplemod.common.data.machines.EVMachines;
 import com.eve.examplemod.data.recipe.EVCraftingComponent;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.common.block.CoilBlock;
-import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
-import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import com.tterrag.registrate.util.entry.BlockEntry;
-import dev.latvian.mods.kubejs.integration.forge.jei.JEIEvents;
-import dev.latvian.mods.kubejs.integration.forge.jei.RemoveJEIRecipesEvent;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraftforge.common.Tags;
 
-import java.util.List;
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.EVMain.id;
-import static com.eve.examplemod.common.data.EVBlocks.*;
-import static com.eve.examplemod.common.data.EVItems.MICA_INSULATOR_FOIL;
-import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.GTValues.VN;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GTBlocks.COIL_CUPRONICKEL;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
