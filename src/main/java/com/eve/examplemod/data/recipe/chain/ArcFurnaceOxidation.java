@@ -6,10 +6,10 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials.WellMixedYBCOxides;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ARC_FURNACE_RECIPES;
 
 
 public class ArcFurnaceOxidation {

@@ -4,15 +4,11 @@ import com.eve.examplemod.api.data.tag.EVTagPrefix;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.*;
 import com.eve.examplemod.data.recipe.Removal;
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
-import com.gregtechceu.gtceu.api.cover.CoverDefinition;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.function.Consumer;
 

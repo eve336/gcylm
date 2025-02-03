@@ -4,17 +4,12 @@ import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
-import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
-import net.minecraft.data.recipes.FinishedRecipe;
 
-import java.util.function.Consumer;
-
+import static com.eve.examplemod.common.data.EVItems.UVA_HALIDE_LAMP;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVItems.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.BIO_REACTOR_RECIPES;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.lens;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 

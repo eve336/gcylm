@@ -2,33 +2,21 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.registries.EVRegistries;
-import com.eve.examplemod.common.EVCoilBlock;
-import com.eve.examplemod.common.block.Spikes;
 import com.eve.examplemod.common.block.explosive.LeptonicBlock;
 import com.eve.examplemod.common.block.explosive.QCDBlock;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.block.ICoilType;
-import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.block.CoilBlock;
 import com.gregtechceu.gtceu.common.data.GTModels;
-import com.gregtechceu.gtceu.common.registry.GTRegistration;
-import com.lowdragmc.lowdraglib.client.renderer.IRenderer;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
-import net.minecraft.world.level.block.grower.OakTreeGrower;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 

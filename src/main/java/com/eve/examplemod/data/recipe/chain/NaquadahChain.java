@@ -5,11 +5,12 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.common.data.EVMaterials2.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
+import static com.eve.examplemod.common.data.EVMaterials2.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.LARGE_CENTRIFUGE_RECIPES;
+import static com.eve.examplemod.common.data.EVRecipeTypes.LARGE_MIXER_RECIPES;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dustTiny;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
