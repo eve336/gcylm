@@ -830,7 +830,7 @@ public class EVMaterials {
             .components(Cadmium, 5, Magnesium, 1, Oxygen, 6)
             .cableProperties(128, 4, 0, true)
             .flags(AUTOGEN_MIXER_RECIPE)
-            .blastTemp(1200)
+            .blastTemp(1200, BlastProperty.GasTier.LOW)
             .buildAndRegister();
 
     public static final Material HVSuperconductorBase = new Material.Builder(EVMain.id("hv_superconductor_base"))
