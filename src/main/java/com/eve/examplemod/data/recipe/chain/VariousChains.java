@@ -1,39 +1,21 @@
 package com.eve.examplemod.data.recipe.chain;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
-
-import java.util.List;
-import java.util.function.Consumer;
-
-import static com.eve.examplemod.common.data.EVMaterials2.*;
-import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Magenta;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-
-import com.eve.examplemod.common.data.EVMaterials;
-import com.gregtechceu.gtceu.api.GTValues;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
-import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
-import static com.eve.examplemod.common.data.EVBlocks.*;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES;
+import static com.eve.examplemod.common.data.EVRecipeTypes.LARGE_MIXER_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GCYMRecipeTypes.*;
-import static com.gregtechceu.gtceu.common.data.GTItems.*;
+import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BLOCK;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
-import static net.minecraft.world.item.Items.APPLE;
-import static net.minecraft.world.level.block.Blocks.*;
+import static net.minecraft.world.level.block.Blocks.GRAVEL;
+import static net.minecraft.world.level.block.Blocks.WHITE_BED;
 
 public class VariousChains {
     public static void init(Consumer<FinishedRecipe> provider) {
@@ -474,7 +456,7 @@ public class VariousChains {
 
         // FeCl3 + C6H12O6 = [FeCl3 + C6H12O6]
         MIXER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(30)
-                .inputFluids(IronChloride.getFluid(1000))
+                .inputFluids(Iron3Chloride.getFluid(1000))
                 .inputItems(dust, Glucose,24)
                 .outputFluids(GlucoseIronSolution.getFluid(1000))
                 .save(provider);
@@ -729,12 +711,12 @@ public class VariousChains {
                 .save(provider);
 
         // Fe + 3HCl -> FeCl3 + 3H
-        CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(30)
+        /*CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(30)
                 .inputItems(dust, Iron)
                 .inputFluids(HydrochloricAcid.getFluid(3000))
-                .outputFluids(IronChloride.getFluid(1000))
+                .outputFluids(Iron3Chloride.getFluid(1000))
                 .outputFluids(Hydrogen.getFluid(3000))
-                .save(provider);
+                .save(provider);*/
 
         // LiCl -> Li + Cl
         ELECTROLYZER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(110).EUt(120)

@@ -3,10 +3,6 @@ package com.eve.examplemod.data.recipe.circuit;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
-
-import java.util.function.Consumer;
-
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -15,8 +11,8 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVBlocks.LEPTONIC_CHARGE;
 import static com.eve.examplemod.common.data.EVBlocks.QCD_CHARGE;
-import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVItems.*;
+import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.GTValues.L;
 import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Lime;

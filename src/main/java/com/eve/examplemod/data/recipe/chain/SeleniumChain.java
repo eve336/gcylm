@@ -1,32 +1,12 @@
 package com.eve.examplemod.data.recipe.chain;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
-
-import java.util.List;
-import java.util.function.Consumer;
-
-import static com.eve.examplemod.common.data.EVMaterials2.*;
-import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Magenta;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import com.eve.examplemod.common.data.EVMaterials;
-import com.gregtechceu.gtceu.api.GTValues;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
-import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
-import static com.eve.examplemod.common.data.EVBlocks.*;
-import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
+import static com.eve.examplemod.common.data.EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GCYMRecipeTypes.*;
-import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 

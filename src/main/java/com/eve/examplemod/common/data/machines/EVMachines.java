@@ -14,21 +14,18 @@ import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
-import com.gregtechceu.gtceu.api.machine.multiblock.*;
+import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
-import com.gregtechceu.gtceu.common.data.*;
+import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
-import com.gregtechceu.gtceu.common.machine.multiblock.electric.FluidDrillMachine;
-import com.gregtechceu.gtceu.common.machine.multiblock.part.*;
-
-import com.gregtechceu.gtceu.utils.FormattingUtil;
+import com.gregtechceu.gtceu.common.machine.multiblock.part.EnergyHatchPartMachine;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -36,18 +33,14 @@ import java.util.function.BiFunction;
 
 import static com.eve.examplemod.api.EVValues.CLR;
 import static com.eve.examplemod.api.EVValues.ROMAN;
+import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 import static com.eve.examplemod.common.data.EVRecipeTypes.ACTIVE_COOLER_RECIPES;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
-import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
-
-import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
-
-
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
+import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
 
 
 

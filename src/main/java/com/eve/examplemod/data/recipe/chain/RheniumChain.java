@@ -1,32 +1,14 @@
 package com.eve.examplemod.data.recipe.chain;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
-
-import java.util.List;
-import java.util.function.Consumer;
-
-import static com.eve.examplemod.common.data.EVMaterials2.*;
-import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Magenta;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
-import com.eve.examplemod.common.data.EVMaterials;
-import com.gregtechceu.gtceu.api.GTValues;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
-import static com.eve.examplemod.api.data.tag.EVTagPrefix.*;
-import static com.eve.examplemod.common.data.EVBlocks.*;
-import static com.eve.examplemod.common.data.EVItems.*;
+import static com.eve.examplemod.common.data.EVItems.UVA_HALIDE_LAMP;
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.eve.examplemod.common.data.EVRecipeTypes.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GCYMRecipeTypes.*;
-import static com.gregtechceu.gtceu.common.data.GTItems.*;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
@@ -99,7 +81,7 @@ public class RheniumChain {
         // MoS2 + FeCl3 ->
         CHEMICAL_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
                 .inputItems(GoldDepleteMolybdenite, 3)
-                .inputFluids(IronChloride.getFluid(500))
+                .inputFluids(Iron3Chloride.getFluid(500))
                 .outputItems(MolybdenumConcentrate, 4)
                 .outputFluids(ChlorideLeachedSolution.getFluid(500))
                 .EUt(1920)
@@ -122,7 +104,7 @@ public class RheniumChain {
         CHEMICAL_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
                 .inputFluids(Iron2Chloride.getFluid(1000))
                 .inputFluids(Chlorine.getFluid(1000))
-                .outputFluids(IronChloride.getFluid(1000))
+                .outputFluids(Iron3Chloride.getFluid(1000))
                 .EUt(30)
                 .duration(150)
                 .save(provider);

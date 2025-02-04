@@ -2,24 +2,13 @@ package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTMachines;
-import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
-import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.Tags;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.GTValues.VN;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
-import static com.gregtechceu.gtceu.common.data.GTMaterials.Glass;
-import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.CRATE;
 
 public class Removal {
     public static void init(Consumer<ResourceLocation> registry) {

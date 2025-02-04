@@ -1,6 +1,5 @@
 package com.eve.examplemod.common.data.machines;
 
-import com.eve.examplemod.api.EVValues;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.machine.multiblock.InfiniteFluidDrillMachine;
 import com.gregtechceu.gtceu.GTCEu;
@@ -22,8 +21,6 @@ import java.util.function.BiFunction;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
-import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.registerTieredMultis;
-import static com.gregtechceu.gtceu.common.registry.GTRegistration.REGISTRATE;
 
 public class EVMultiMachines {
 

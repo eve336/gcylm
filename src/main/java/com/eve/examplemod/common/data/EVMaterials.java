@@ -1421,14 +1421,6 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material IronChloride = new Material.Builder(EVMain.id("iron_chloride"))
-            .color(0x060b0b)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Iron, 1, Chlorine, 3)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
-
     public static final Material HighPressureSteam = new Material.Builder(EVMain.id("high_pressure_steam"))
             .color(0xFFFFFF)
             .iconSet(FLUID)

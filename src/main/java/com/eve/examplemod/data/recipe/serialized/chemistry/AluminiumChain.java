@@ -101,7 +101,7 @@ public class AluminiumChain {
             CENTRIFUGE_RECIPES.recipeBuilder("aluminium_chain_12").duration(320).EUt(480)
                     .inputFluids(FerricREEChloride.getFluid(2000))
                     .outputFluids(RareEarthChloridesSolution.getFluid(1000))
-                    .outputFluids(IronChloride.getFluid(1000))
+                    .outputFluids(Iron3Chloride.getFluid(1000))
                     .outputFluids(Water.getFluid(3000))
                     .save(provider);
 
