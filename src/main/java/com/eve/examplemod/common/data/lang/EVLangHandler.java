@@ -21,7 +21,6 @@ public class EVLangHandler extends LangHandler {
         provider.add("examplemod.recipe.temperature", "Temperature: %s");
         provider.add("examplemod.recipe.cooling", "Cooling: %s");
 
-        provider.add("item.examplemod.bioware_processor.tooltip", "§4ZPM-Tier Circuit");
-
+        provider.add("item.examplemod.refined_processor.tooltip", "LV-Tier Circuit");
     }
 }

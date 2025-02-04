@@ -57,7 +57,7 @@ public class CircuitRecipes {
 
 // Refined Assembly
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_assembly").duration(100).EUt(60)
-                .inputItems(REFINED_PROCESSOR, 3)
+                .inputItems(REFINED_PROCESSOR, 2)
                 .inputItems(RESISTOR, 8)
                 .inputItems(TRANSISTOR, 8)
                 .inputItems(CAPACITOR, 8)
@@ -66,7 +66,7 @@ public class CircuitRecipes {
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("refined_assembly_smd").duration(100).EUt(60)
-                .inputItems(REFINED_PROCESSOR, 3)
+                .inputItems(REFINED_PROCESSOR, 2)
                 .inputItems(SMD_RESISTOR_REFINED, 2)
                 .inputItems(SMD_TRANSISTOR_REFINED, 2)
                 .inputItems(SMD_CAPACITOR_REFINED, 2)

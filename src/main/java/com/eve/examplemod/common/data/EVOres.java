@@ -94,7 +94,7 @@ public class EVOres {
             ));
 
     public static final GTOreDefinition CHALCOCITE_VEIN = create(EVMain.id("chalcocite_vein"), vein -> vein
-            .clusterSize(UniformInt.of(32, 45)).density(0.53f).weight(120)
+            .clusterSize(UniformInt.of(32, 45)).density(0.4f).weight(120)
             .layer(WorldGenLayers.STONE)
             .heightRangeUniform(45, 80)
             .biomes(BiomeTags.IS_OVERWORLD)

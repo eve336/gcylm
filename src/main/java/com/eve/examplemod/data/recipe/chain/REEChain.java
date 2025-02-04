@@ -136,7 +136,7 @@ public class REEChain {
                 .inputFluids(RareEarthHydroxidesSolution.getFluid(1000))
                 .outputFluids(RareEarthChloridesSolution.getFluid(3000))
                 .outputFluids(SodiumHydroxideSolution.getFluid(3000))
-                .outputItems(ThUSludge, 2)
+                .outputItems(dust, ThUSludge, 2)
                 .EUt(480)
                 .duration(200)
                 .save(provider);
@@ -384,7 +384,7 @@ public class REEChain {
         // 2ThU + O -> 0.5ThO + Th(20%) + U(20%)
         // hhaaha buffed bc tiny dusts are a nuisance
         CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputItems(ThUSludge, 4)
+                .inputItems(dust, ThUSludge, 4)
                 .inputFluids(Oxygen.getFluid(500))
                 .chancedOutput(dust, Thorium, 2000, 150)
                 .chancedOutput(dust, GTMaterials.Uranium238, 2000, 150)
