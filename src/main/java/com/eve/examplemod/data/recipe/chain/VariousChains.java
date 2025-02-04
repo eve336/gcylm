@@ -456,7 +456,7 @@ public class VariousChains {
 
         // FeCl3 + C6H12O6 = [FeCl3 + C6H12O6]
         MIXER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(30)
-                .inputFluids(IronChloride.getFluid(1000))
+                .inputFluids(Iron3Chloride.getFluid(1000))
                 .inputItems(dust, Glucose,24)
                 .outputFluids(GlucoseIronSolution.getFluid(1000))
                 .save(provider);
@@ -711,12 +711,12 @@ public class VariousChains {
                 .save(provider);
 
         // Fe + 3HCl -> FeCl3 + 3H
-        CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(30)
+        /*CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(30)
                 .inputItems(dust, Iron)
                 .inputFluids(HydrochloricAcid.getFluid(3000))
-                .outputFluids(IronChloride.getFluid(1000))
+                .outputFluids(Iron3Chloride.getFluid(1000))
                 .outputFluids(Hydrogen.getFluid(3000))
-                .save(provider);
+                .save(provider);*/
 
         // LiCl -> Li + Cl
         ELECTROLYZER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(110).EUt(120)

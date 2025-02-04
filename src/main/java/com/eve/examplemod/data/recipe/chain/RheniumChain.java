@@ -81,7 +81,7 @@ public class RheniumChain {
         // MoS2 + FeCl3 ->
         CHEMICAL_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
                 .inputItems(GoldDepleteMolybdenite, 3)
-                .inputFluids(IronChloride.getFluid(500))
+                .inputFluids(Iron3Chloride.getFluid(500))
                 .outputItems(MolybdenumConcentrate, 4)
                 .outputFluids(ChlorideLeachedSolution.getFluid(500))
                 .EUt(1920)
@@ -104,7 +104,7 @@ public class RheniumChain {
         CHEMICAL_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
                 .inputFluids(Iron2Chloride.getFluid(1000))
                 .inputFluids(Chlorine.getFluid(1000))
-                .outputFluids(IronChloride.getFluid(1000))
+                .outputFluids(Iron3Chloride.getFluid(1000))
                 .EUt(30)
                 .duration(150)
                 .save(provider);
