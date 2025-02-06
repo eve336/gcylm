@@ -36,7 +36,7 @@ public class EfficiencyLogic extends RecipeLogic {
                 lastRecipe = recipe;
                 setStatus(Status.WORKING);
                 progress = 0;
-                duration = recipe.duration * getMachine().getSpeed();
+                duration = (int) (recipe.duration / getMachine().Speed);
                 isActive = true;
             }
         }

@@ -2,6 +2,7 @@ package com.eve.examplemod.common.data;
 
 import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.registries.EVRegistries;
+import com.eve.examplemod.common.block.Spikes;
 import com.eve.examplemod.common.block.explosive.LeptonicBlock;
 import com.eve.examplemod.common.block.explosive.QCDBlock;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
@@ -85,11 +86,12 @@ public class EVBlocks {
             )))
             .register();
 
-    // wetware farming :3
+//     wetware farming :3
 //    public static final BlockEntry<Spikes> SPIKES = EVRegistries.REGISTRATE
-//            .block("spikes", Spikes::new)
-//            .lang("Spikes")
-//            .register();
+//        .block("spikes", Spikes::new)
+//        .lang("Spikes")
+//        .blockstate()
+//        .register();
 
 //    public static final BlockEntry<CoilBlock> COIL_TITAN_STEEL = createCoilBlock(EVCoilBlock.CoilType.TITAN_STEEL);
 //    public static final BlockEntry<CoilBlock> COIL_PIKYONIUM = createCoilBlock(EVCoilBlock.CoilType.PIKYONIUM);

@@ -93,7 +93,8 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Iron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(3000/getMachine().size);
+//                .duration(3000/getMachine().size);
+                .duration(6000/getMachine().size);
 
 
         return recipe.buildRawRecipe();
@@ -102,7 +103,8 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.WroughtIron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(2250/getMachine().size);
+//                .duration(2250/getMachine().size);
+                .duration(4500/getMachine().size);
 
 
         return recipe.buildRawRecipe();
@@ -111,7 +113,8 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Iron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                    .duration(1800/getMachine().size);
+//                    .duration(1800/getMachine().size);
+                .duration(3600/getMachine().size);
 
 
         return recipe.buildRawRecipe();
@@ -120,7 +123,8 @@ public class IndustrialPrimitiveBlastFurnaceLogic extends RecipeLogic {
         var recipe = GTRecipeBuilder.ofRaw()
                 .inputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.WroughtIron), 1)
                 .outputItems(ChemicalHelper.get(TagPrefix.ingot, GTMaterials.Steel), 1)
-                .duration(1350/getMachine().size);
+//                .duration(1350/getMachine().size);
+                .duration(2700/getMachine().size);
 
 
         return recipe.buildRawRecipe();

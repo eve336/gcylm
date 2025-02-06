@@ -342,6 +342,12 @@ public class EVMaterials {
             oreProp.setSeparatedInto(Copper);
             oreProp.setDirectSmeltResult(Iron);
         }
+        if (EVConfig.INSTANCE.harderPlatline){
+            oreProp2 = Nickel.getProperty(PropertyKey.ORE);
+            oreProp2.setOreByProducts(Cobalt, Iron, Iron);
+            oreProp2.setSeparatedInto(Iron);
+            oreProp2.setWashedIn(Mercury);
+        }
 
     }
 

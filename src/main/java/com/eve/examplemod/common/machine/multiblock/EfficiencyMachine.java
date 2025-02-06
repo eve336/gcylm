@@ -14,29 +14,31 @@ import java.util.List;
 
 public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
 
+    private final int startingSpeedPercent = 5;
+
+    @Getter
+    private final int rampUpTime;
+
+    @Getter
+    @Persisted
+    public float Speed = (float) startingSpeedPercent / 100;
+
+    @Persisted
+    @Setter
+    private int ticks;
+
     @Override
     public void addDisplayText(List<Component> textList) {
         super.addDisplayText(textList);
-        textList.add(Component.translatable("Speed: " + ticks / rampUpTime));
+        textList.add(Component.translatable("Speed: %.2f%%".formatted(Speed * 100)));
     }
 
     public EfficiencyMachine(IMachineBlockEntity holder, int rampUpTime) {
         super(holder);
         this.rampUpTime = rampUpTime;
-        ticks = this.rampUpTime / 5;
+        ticks = rampUpTime / startingSpeedPercent;
     }
 
-    @Getter
-    @Persisted
-    public int Speed;
-
-    // in ticks probably
-    @Getter
-    private final int rampUpTime;
-
-    @Persisted
-    @Setter
-    private int ticks;
 
 
     @Override
@@ -54,7 +56,7 @@ public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
     public boolean onWorking() {
         if (ticks < rampUpTime) {
             ticks++;
-            Speed = rampUpTime / ticks;
+            Speed = (float) ticks / rampUpTime;
         }
         return super.onWorking();
     }
