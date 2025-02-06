@@ -106,8 +106,7 @@ public class EVMain {
 
     @SubscribeEvent
     public void onLoadComplete(FMLLoadCompleteEvent event) {
-        GTCEuAPI.HEATING_COILS.remove(CoilBlock.CoilType.TRITANIUM);
-//        GCyMMachines.PARALLEL_HATCH = (MachineDefinition[]) Arrays.stream(GCyMMachines.PARALLEL_HATCH).filter(p -> p.getTier() < GTValues.ZPM).toArray();
+        GTCEuAPI.HEATING_COILS.remove(CoilBlock.CoilType.KANTHAL);
     }
 
     public static boolean isTiabLoaded(){

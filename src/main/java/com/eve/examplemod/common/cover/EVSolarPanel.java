@@ -39,45 +39,82 @@ public class EVSolarPanel extends CoverSolarPanel {
 
     // this is the worst code if ever written
 
+    void ohio(){
+        Level level = coverHolder.getLevel();
+        BlockPos blockPos = coverHolder.getPos();
+        if (EVConfig.INSTANCE.solarsWorkInNether && EVUtils.canSeeSunClearly(level, blockPos) || GTUtil.canSeeSunClearly(level, blockPos)){
+            IEnergyContainer energyContainer = getEnergyContainer();
+            if (energyContainer == null) return;
+            if (isTiabLoaded()){
+                List<TimeAcceleratorEntity> entities = level.getEntitiesOfClass(TimeAcceleratorEntity.class, new AABB(coverHolder.getPos(), (coverHolder.getPos().offset(1, 1, 1))));
+                if (!entities.isEmpty()) {
+                    int max = entities.stream().mapToInt(TimeAcceleratorEntity::getTimeRate).max().orElseThrow();
+                    for (int i = 0; i < max; i++) {
+                        energyContainer.addEnergy(EUt);
+                    }
+                    return;
+                }
+            }
+            energyContainer.acceptEnergyFromNetwork(null, EUt, 1);
+        }
+    }
+
     @Override
     protected void update() {
         Level level = coverHolder.getLevel();
         BlockPos blockPos = coverHolder.getPos();
-        if (isTiabLoaded()) {
-            List<TimeAcceleratorEntity> entities = level.getEntitiesOfClass(TimeAcceleratorEntity.class, new AABB(coverHolder.getPos(), (coverHolder.getPos().offset(1, 1, 1))));
-            if (!entities.isEmpty()) {
-                int max = entities.stream().mapToInt(TimeAcceleratorEntity::getTimeRate).max().orElseThrow();
-                if (EVConfig.INSTANCE.solarsWorkInNether) {
-                    if (EVUtils.canSeeSunClearly(level, blockPos)) {
-                        IEnergyContainer energyContainer = getEnergyContainer();
-                        if (energyContainer != null) {
-                            for (int i = 0; i < max; i++) {
-                                energyContainer.addEnergy(EUt);
-                            }
-                        }
+        if (EVConfig.INSTANCE.solarsWorkInNether && EVUtils.canSeeSunClearly(level, blockPos) || GTUtil.canSeeSunClearly(level, blockPos)){
+            IEnergyContainer energyContainer = getEnergyContainer();
+            if (energyContainer == null) return;
+            if (isTiabLoaded()){
+                List<TimeAcceleratorEntity> entities = level.getEntitiesOfClass(TimeAcceleratorEntity.class, new AABB(coverHolder.getPos(), (coverHolder.getPos().offset(1, 1, 1))));
+                if (!entities.isEmpty()) {
+                    int max = entities.stream().mapToInt(TimeAcceleratorEntity::getTimeRate).max().orElseThrow();
+                    for (int i = 0; i < max; i++) {
+                        energyContainer.addEnergy(EUt);
                     }
                     return;
                 }
-                if (GTUtil.canSeeSunClearly(level, blockPos)) {
-                    IEnergyContainer energyContainer = getEnergyContainer();
-                    if (energyContainer != null) {
-                        for (int i = 0; i < max; i++) {
-                            energyContainer.addEnergy(EUt);
-                        }
-                    }
-                }
-                return;
             }
-            if (EVConfig.INSTANCE.solarsWorkInNether) {
-                updateNether(level, blockPos);
-            }
-            else super.update();
-            return;
+            energyContainer.acceptEnergyFromNetwork(null, EUt, 1);
         }
-        if (EVConfig.INSTANCE.solarsWorkInNether) {
-            updateNether(level, blockPos);
-        }
-        else super.update();
+//        Level level = coverHolder.getLevel();
+//        BlockPos blockPos = coverHolder.getPos();
+//        if (isTiabLoaded()) {
+//            List<TimeAcceleratorEntity> entities = level.getEntitiesOfClass(TimeAcceleratorEntity.class, new AABB(coverHolder.getPos(), (coverHolder.getPos().offset(1, 1, 1))));
+//            if (!entities.isEmpty()) {
+//                int max = entities.stream().mapToInt(TimeAcceleratorEntity::getTimeRate).max().orElseThrow();
+//                if (EVConfig.INSTANCE.solarsWorkInNether) {
+//                    if (EVUtils.canSeeSunClearly(level, blockPos)) {
+//                        IEnergyContainer energyContainer = getEnergyContainer();
+//                        if (energyContainer != null) {
+//                            for (int i = 0; i < max; i++) {
+//                                energyContainer.addEnergy(EUt);
+//                            }
+//                        }
+//                    }
+//                    return;
+//                }
+//                if (GTUtil.canSeeSunClearly(level, blockPos)) {
+//                    IEnergyContainer energyContainer = getEnergyContainer();
+//                    if (energyContainer != null) {
+//                        for (int i = 0; i < max; i++) {
+//                            energyContainer.addEnergy(EUt);
+//                        }
+//                    }
+//                }
+//                return;
+//            }
+//            if (EVConfig.INSTANCE.solarsWorkInNether) {
+//                updateNether(level, blockPos);
+//            }
+//            else super.update();
+//            return;
+//        }
+//        if (EVConfig.INSTANCE.solarsWorkInNether) {
+//            updateNether(level, blockPos);
+//        }
+//        else super.update();
     }
 
     void updateNether(Level level, BlockPos blockPos) {

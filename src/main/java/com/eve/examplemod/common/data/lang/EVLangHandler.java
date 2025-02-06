@@ -7,7 +7,7 @@ import com.tterrag.registrate.providers.RegistrateLangProvider;
 public class EVLangHandler extends LangHandler {
     public static void init(RegistrateLangProvider provider){
 
-
+        EVMachineLang.init(provider);
 
 
         for (TagPrefix tagPrefix : TagPrefix.values()) {
@@ -22,5 +22,6 @@ public class EVLangHandler extends LangHandler {
         provider.add("examplemod.recipe.cooling", "Cooling: %s");
 
         provider.add("item.examplemod.refined_processor.tooltip", "LV-Tier Circuit");
+
     }
 }

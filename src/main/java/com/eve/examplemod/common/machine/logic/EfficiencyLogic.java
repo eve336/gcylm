@@ -5,8 +5,11 @@ import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
 import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
 import com.gregtechceu.gtceu.api.recipe.GTRecipe;
+import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 
 public class EfficiencyLogic extends RecipeLogic {
+    @Persisted
+    GTRecipe cacheRecipe;
     public EfficiencyLogic(IRecipeLogicMachine machine) {
         super(machine);
     }
@@ -28,9 +31,10 @@ public class EfficiencyLogic extends RecipeLogic {
             }
             recipe.preWorking(this.machine);
             if (handleRecipeIO(recipe, IO.IN)) {
-                if (lastRecipe != null && !recipe.equals(lastRecipe)) {
+                // idk how to check the last recipe ran (lastRecipe appears to get cleared when the machine isnt running or something)
+                if (lastRecipe != null && !recipe.equals(lastRecipe) || cacheRecipe != null && !recipe.equals(cacheRecipe)) {
                     chanceCaches.clear();
-                    getMachine().setTicks(getMachine().getRampUpTime() / 10);
+                    getMachine().setTicks((int) (getMachine().rampUpTime * (getMachine().restartSpeedPercent/100)));
                 }
                 recipeDirty = false;
                 lastRecipe = recipe;
@@ -38,6 +42,8 @@ public class EfficiencyLogic extends RecipeLogic {
                 progress = 0;
                 duration = (int) (recipe.duration / getMachine().Speed);
                 isActive = true;
+
+                cacheRecipe = recipe;
             }
         }
     }

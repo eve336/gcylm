@@ -8,8 +8,8 @@ import com.eve.examplemod.data.recipe.chain.*;
 import com.eve.examplemod.data.recipe.circuit.CircuitComponentRecipes;
 import com.eve.examplemod.data.recipe.circuit.CircuitRecipes;
 import com.eve.examplemod.data.recipe.generated.*;
-import com.eve.examplemod.data.recipe.serialized.chemistry.AluminiumChain;
-import com.eve.examplemod.data.recipe.serialized.chemistry.GoldChain;
+import com.eve.examplemod.data.recipe.chain.AluminiumChain;
+import com.eve.examplemod.data.recipe.chain.GoldChain;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;

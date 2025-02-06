@@ -1,4 +1,4 @@
-package com.eve.examplemod.data.recipe.serialized.chemistry;
+package com.eve.examplemod.data.recipe.chain;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 

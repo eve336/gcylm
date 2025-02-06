@@ -5,7 +5,6 @@ import com.eve.examplemod.EVMain;
 import com.eve.examplemod.common.data.EVRecipeTypes;
 import com.eve.examplemod.common.machine.multiblock.*;
 import com.eve.examplemod.common.machine.multiblock.part.*;
-import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
@@ -223,54 +222,28 @@ public class EVMachines{
             .register();
 
 
-
-
-    public static final MultiblockMachineDefinition INDUSTRIAL_PRIMITIVE_BLAST_FURNACE = REGISTRATE
-            .multiblock("industrial_primitive_blast_furnace", IndustrialPrimitiveBlastFurnace::new)
-            .langValue("Industrial Primitive Blast Furnace")
-            .rotationState(RotationState.ALL)
-            .recipeType(GTRecipeTypes.DUMMY_RECIPES)
-            .alwaysTryModifyRecipe(true)
-            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
-                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK_SUBTICK))
-            .appearanceBlock(CASING_PRIMITIVE_BRICKS)
-            .pattern(definition -> FactoryBlockPattern.start(RIGHT, UP, BACK)
-                    .aisle("FFF", "FSF", "FFF", "FFF")
-                    .aisle("FFF", "I#I", "F#F", "F#F").setRepeatable(1, 64)
-                    .aisle("FFF", "FOF", "FFF", "FFF")
-                    .where('S', Predicates.controller(blocks(definition.getBlock())))
-                    .where('F', blocks(CASING_PRIMITIVE_BRICKS.get()))
-                    .where('O',blocks(ITEM_EXPORT_BUS[1].getBlock()))
-                    .where('I', blocks(ITEM_IMPORT_BUS[1].getBlock()).setMaxLayerLimited(1).setMinLayerLimited(1).or(blocks(CASING_PRIMITIVE_BRICKS.get())))
-                    .where('#', Predicates.air())
-                    .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_primitive_bricks"),
-                    GTCEu.id("block/multiblock/primitive_blast_furnace"))
-            .register();
-
-
-    public static final MultiblockMachineDefinition GECKO_MULTIBLOCK = REGISTRATE
-            .multiblock("gecko_multiblock", GeckoMultiblock::new)
-            .langValue("Gecko")
-            .rotationState(RotationState.ALL)
-            .recipeType(GTRecipeTypes.DUMMY_RECIPES)
-            .alwaysTryModifyRecipe(true)
-            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
-                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK_SUBTICK))
-            .appearanceBlock(CASING_PRIMITIVE_BRICKS)
-            .pattern(definition -> FactoryBlockPattern.start(RIGHT, UP, BACK)
-                    .aisle("FFF", "FSF", "FFF", "FFF")
-                    .aisle("FFF", "I#I", "F#F", "F#F")
-                    .aisle("FFF", "FOF", "FFF", "FFF")
-                    .where('S', Predicates.controller(blocks(definition.getBlock())))
-                    .where('F', ability(EVPartAbility.GECKO_CASING))
-                    .where('O',blocks(ITEM_EXPORT_BUS[1].getBlock()))
-                    .where('I', blocks(ITEM_IMPORT_BUS[1].getBlock()).setMaxLayerLimited(1).setMinLayerLimited(1).or(blocks(CASING_PRIMITIVE_BRICKS.get())))
-                    .where('#', Predicates.air())
-                    .build())
-            .workableCasingRenderer(EVMain.id("block/casings/gecko"),
-                    GTCEu.id("block/multiblock/primitive_blast_furnace"))
-            .register();
+    //    public static final MultiblockMachineDefinition GECKO_MULTIBLOCK = REGISTRATE
+//            .multiblock("gecko_multiblock", GeckoMultiblock::new)
+//            .langValue("Gecko")
+//            .rotationState(RotationState.ALL)
+//            .recipeType(GTRecipeTypes.DUMMY_RECIPES)
+//            .alwaysTryModifyRecipe(true)
+//            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
+//                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK_SUBTICK))
+//            .appearanceBlock(CASING_PRIMITIVE_BRICKS)
+//            .pattern(definition -> FactoryBlockPattern.start(RIGHT, UP, BACK)
+//                    .aisle("FFF", "FSF", "FFF", "FFF")
+//                    .aisle("FFF", "I#I", "F#F", "F#F")
+//                    .aisle("FFF", "FOF", "FFF", "FFF")
+//                    .where('S', Predicates.controller(blocks(definition.getBlock())))
+//                    .where('F', ability(EVPartAbility.GECKO_CASING))
+//                    .where('O',blocks(ITEM_EXPORT_BUS[1].getBlock()))
+//                    .where('I', blocks(ITEM_IMPORT_BUS[1].getBlock()).setMaxLayerLimited(1).setMinLayerLimited(1).or(blocks(CASING_PRIMITIVE_BRICKS.get())))
+//                    .where('#', Predicates.air())
+//                    .build())
+//            .workableCasingRenderer(EVMain.id("block/casings/gecko"),
+//                    GTCEu.id("block/multiblock/primitive_blast_furnace"))
+//            .register();
 
 
     public static final MultiblockMachineDefinition COSMIC_GAY_DETECTOR = REGISTRATE
@@ -341,82 +314,6 @@ public class EVMachines{
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
                     GTCEu.id("block/multiblock/assembly_line"))
             .register();
-
-
-
-
-    public static final MultiblockMachineDefinition EV_CHEMICAL_REACTOR = REGISTRATE
-            .multiblock("ev_chemical_reactor", holder -> new EfficiencyMachine(holder, 3000))
-            .tooltips(defaultEnvironmentRequirement())
-            .rotationState(RotationState.ALL)
-            .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
-            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
-                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK_SUBTICK))
-            .appearanceBlock(CASING_PTFE_INERT)
-            .pattern(definition -> {
-                var casing = blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
-                var abilities = Predicates.autoAbilities(definition.getRecipeTypes())
-                        .or(Predicates.autoAbilities(true, false, false));
-                return FactoryBlockPattern.start()
-                        .aisle("XXX", "XCX", "XXX")
-                        .aisle("XCX", "CPC", "XCX")
-                        .aisle("XXX", "XSX", "XXX")
-                        .where('S', Predicates.controller(blocks(definition.getBlock())))
-                        .where('X', casing.or(abilities))
-                        .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
-                        .where('C', blocks(COIL_CUPRONICKEL.get()).setExactLimit(1)
-                                .or(abilities)
-                                .or(casing))
-                        .build();
-            })
-            .shapeInfos(definition -> {
-                ArrayList<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
-                var baseBuilder = MultiblockShapeInfo.builder()
-                        .where('S', definition, Direction.NORTH)
-                        .where('X', CASING_PTFE_INERT.getDefaultState())
-                        .where('P', CASING_POLYTETRAFLUOROETHYLENE_PIPE.getDefaultState())
-                        .where('C', COIL_CUPRONICKEL.getDefaultState())
-                        .where('I', ITEM_IMPORT_BUS[3], Direction.NORTH)
-                        .where('E', ENERGY_INPUT_HATCH[3], Direction.NORTH)
-                        .where('O', ITEM_EXPORT_BUS[3], Direction.NORTH)
-                        .where('F', FLUID_IMPORT_HATCH[3], Direction.NORTH)
-                        .where('M', MAINTENANCE_HATCH, Direction.NORTH)
-                        .where('H', FLUID_EXPORT_HATCH[3], Direction.NORTH);
-                shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
-                        .aisle("XXX", "XPX", "XXX")
-                        .aisle("XEX", "XCX", "XXX")
-                        .build());
-                shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
-                        .aisle("XXX", "XPX", "XCX")
-                        .aisle("XEX", "XXX", "XXX")
-                        .build());
-                shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
-                        .aisle("XCX", "XPX", "XXX")
-                        .aisle("XEX", "XXX", "XXX")
-                        .build());
-                shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
-                        .aisle("XXX", "CPX", "XXX")
-                        .aisle("XEX", "XXX", "XXX")
-                        .build());
-                shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
-                        .aisle("XXX", "XPC", "XXX")
-                        .aisle("XEX", "XXX", "XXX")
-                        .build());
-                return shapeInfo;
-            })
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
-                    GTCEu.id("block/multiblock/large_chemical_reactor"))
-            .register();
-
-
-
-
-
 
 
     public static MachineDefinition[] registerTieredMachines(String name,

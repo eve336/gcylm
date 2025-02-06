@@ -2,6 +2,7 @@ package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.common.data.EVBlocks;
 import com.eve.examplemod.common.data.machines.EVMachines;
+import com.eve.examplemod.common.data.machines.EVMultiMachines;
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -37,7 +38,7 @@ public class MiscRecipes {
 
 
             VanillaRecipeHelper.addShapedRecipe(provider, true, id("industrial_primitive_blast_furnace"),
-                    EVMachines.INDUSTRIAL_PRIMITIVE_BLAST_FURNACE.asStack(1),
+                    EVMultiMachines.INDUSTRIAL_PRIMITIVE_BLAST_FURNACE.asStack(1),
                     "PFP",
                     "FTF",
                     "PFP",

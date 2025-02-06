@@ -14,17 +14,19 @@ import java.util.List;
 
 public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
 
-    private final float startingSpeedPercent = 5;
+    public final float startingSpeedPercent;
+
+    public final float restartSpeedPercent;
 
     @Getter
-    private final int rampUpTime;
+    public final int rampUpTime;
 
     @Getter
     @Persisted
-    public float Speed = startingSpeedPercent / 100;
+    public float Speed;
 
-    @Persisted
     @Setter
+    @Persisted
     private int ticks;
 
     @Override
@@ -33,13 +35,14 @@ public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
         textList.add(Component.translatable("Speed: %.2f%%".formatted(Speed * 100)));
     }
 
-    public EfficiencyMachine(IMachineBlockEntity holder, int rampUpTime) {
+    public EfficiencyMachine(IMachineBlockEntity holder, int rampUpTime, float startingSpeedPercent1, float restartSpeedPercent1) {
         super(holder);
         this.rampUpTime = rampUpTime;
+        this.startingSpeedPercent = startingSpeedPercent1;
+        this.restartSpeedPercent = restartSpeedPercent1;
         ticks = (int) (rampUpTime * (startingSpeedPercent/100));
+        this.Speed = startingSpeedPercent /100;
     }
-
-
 
     @Override
     protected RecipeLogic createRecipeLogic(Object... args) {

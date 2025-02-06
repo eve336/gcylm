@@ -122,7 +122,7 @@ public class Removal {
                 "gtceu:electric_blast_furnace/engraved_crystal_chip_from_olivine", "gtceu:electric_blast_furnace/engraved_crystal_chip_from_emerald",
                 "gtceu:assembler/superconducting_coil_luv", "gtceu:assembler/superconducting_coil_zpm", "gtceu:assembler/superconducting_coil_uv", "gtceu:mixer/naquadah_alloy",
                 "gtceu:mixer/graphene", "gtceu:shaped/super_tank_lv", "gtceu:shaped/super_tank_mv", "gtceu:shaped/super_tank_hv", "gtceu:shaped/super_tank_ev",
-                "gtceu:coke_oven/log_to_charcoal",
+                "gtceu:coke_oven/log_to_charcoal", "gtceu:shaped/large_chemical_reactor",
         // wetware
                 "gtceu:fluid_heater/sterile_growth_medium", "gtceu:mixer/raw_growth_medium", "gtceu:autoclave/agar", "gtceu:distillery/mutagen",
                 "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
