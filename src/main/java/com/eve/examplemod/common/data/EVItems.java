@@ -62,11 +62,13 @@ public class EVItems {
     public static ItemEntry<Item> COSMIC_MESH = EVRegistries.REGISTRATE.item("cosmic_mesh", Item::new).register();
     public static ItemEntry<Item> COSMIC_FABRIC = EVRegistries.REGISTRATE.item("cosmic_fabric", Item::new).register();
 
-    public static ItemEntry<Item> UHPIC = EVRegistries.REGISTRATE.item("uhpic", Item::new).register();
-    public static ItemEntry<Item> UHPIC_WAFER = EVRegistries.REGISTRATE.item("uhpic_wafer", Item::new).register();
+    // Already exist in Gt
+    // public static ItemEntry<Item> UHPIC = EVRegistries.REGISTRATE.item("uhpic", Item::new).register();
+    // public static ItemEntry<Item> UHPIC_WAFER = EVRegistries.REGISTRATE.item("uhpic_wafer", Item::new).register();
 
-    public static ItemEntry<Item> HASOC = EVRegistries.REGISTRATE.item("hasoc", Item::new).register();
-    public static ItemEntry<Item> HASOC_WAFER = EVRegistries.REGISTRATE.item("hasoc_wafer", Item::new).register();
+
+    // public static ItemEntry<Item> HASOC = EVRegistries.REGISTRATE.item("hasoc", Item::new).register();
+    // public static ItemEntry<Item> HASOC_WAFER = EVRegistries.REGISTRATE.item("hasoc_wafer", Item::new).register();
 
     public static ItemEntry<Item> UHASOC = EVRegistries.REGISTRATE.item("uhasoc", Item::new).register();
     public static ItemEntry<Item> UHASOC_WAFER = EVRegistries.REGISTRATE.item("uhasoc_wafer".toLowerCase(), Item::new).register();
