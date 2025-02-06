@@ -14,14 +14,14 @@ import java.util.List;
 
 public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
 
-    private final int startingSpeedPercent = 5;
+    private final float startingSpeedPercent = 5;
 
     @Getter
     private final int rampUpTime;
 
     @Getter
     @Persisted
-    public float Speed = (float) startingSpeedPercent / 100;
+    public float Speed = startingSpeedPercent / 100;
 
     @Persisted
     @Setter
@@ -36,7 +36,7 @@ public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
     public EfficiencyMachine(IMachineBlockEntity holder, int rampUpTime) {
         super(holder);
         this.rampUpTime = rampUpTime;
-        ticks = rampUpTime / startingSpeedPercent;
+        ticks = (int) (rampUpTime * (startingSpeedPercent/100));
     }
 
 
