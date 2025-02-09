@@ -209,9 +209,9 @@ public class RheniumChain {
 
         // CaC2 + N2 -> CaCN2 + C
         BLAST_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
-                .inputItems(CalciumCarbide, 3)
+                .inputItems(dust, CalciumCarbide, 3)
                 .inputFluids(Nitrogen.getFluid(2000))
-                .outputItems(CalciumCyanamide, 4)
+                .outputItems(dust, CalciumCyanamide, 4)
                 .outputItems(dust, Carbon)
                 .blastFurnaceTemp(2000)
                 .EUt(120)

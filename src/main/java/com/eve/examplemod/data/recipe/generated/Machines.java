@@ -18,10 +18,10 @@ import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.GTValues.VN;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
+import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.Glass;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
-import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.CIRCUIT;
-import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.PLATE;
+import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.*;
 import static com.gregtechceu.gtceu.data.recipe.misc.MetaTileEntityLoader.registerMachineRecipe;
 
 public class Machines {
@@ -195,6 +195,29 @@ public class Machines {
                 'C', EVCraftingComponent.CIRCUIT,
                 'R', EVCraftingComponent.PUMP
                 );
+
+        registerMachineRecipe(provider, EVMachines.HARVESTER,
+                "PGP",
+                "CHC",
+                "DDD",
+                'H', CraftingComponent.HULL,
+                'P', EVCraftingComponent.PISTON,
+                'C', EVCraftingComponent.CIRCUIT,
+                'G', GRINDER,
+                'D', PLATE
+        );
+
+        registerMachineRecipe(provider, EVMachines.SPAWNER,
+                "SPE",
+                "CHC",
+                "DDD",
+                'H', CraftingComponent.HULL,
+                'P', EVCraftingComponent.PUMP,
+                'C', EVCraftingComponent.CIRCUIT,
+                'E', EMITTER,
+                'S', EVCraftingComponent.SENSOR,
+                'D', PLATE
+        );
 
         for (int tier = 0; tier < EVMachines.CONVEYOR_COMPONENT.length; tier++){
 

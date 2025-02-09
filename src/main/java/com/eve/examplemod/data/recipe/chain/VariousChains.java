@@ -10,6 +10,8 @@ import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES;
 import static com.eve.examplemod.common.data.EVRecipeTypes.LARGE_MIXER_RECIPES;
+import static com.gregtechceu.gtceu.api.GTValues.MV;
+import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_MOLD_BLOCK;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -536,17 +538,15 @@ public class VariousChains {
                 .save(provider);
 
         // Pyrotheum ===================================================================================================
-        CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(480)
+        CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(VA[MV])
                 .inputItems(dust, Coal)
                 .inputItems(dust, Sulfur)
-                .notConsumableFluid(Lava.getFluid(0))
                 .outputItems(dust, Blaze, 2)
                 .save(provider);
 
-        CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(480)
+        CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(80).EUt(VA[MV])
                 .inputItems(dust, Charcoal)
                 .inputItems(dust, Sulfur)
-                .notConsumableFluid(Lava.getFluid(0))
                 .outputItems(dust, Blaze, 2)
                 .save(provider);
 
@@ -663,12 +663,12 @@ public class VariousChains {
         CHEMICAL_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(120)
                 .inputItems(dust, Zirconium)
                 .inputFluids(Chlorine.getFluid(4000))
-                .outputItems(ZirconiumTetrachloride,5)
+                .outputItems(dust, ZirconiumTetrachloride,5)
                 .save(provider);
 
         // ZrCl4 -> Zr + 4Cl
         ELECTROLYZER_RECIPES.recipeBuilder("misc_recipes_" + chainNumber++).duration(100).EUt(120)
-                .inputItems(ZirconiumTetrachloride,5)
+                .inputItems(dust, ZirconiumTetrachloride,5)
                 .outputItems(dust, Zirconium)
                 .outputFluids(Chlorine.getFluid(4000))
                 .save(provider);

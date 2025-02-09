@@ -15,6 +15,8 @@ public class GoldChain {
 
     public static void init(Consumer<FinishedRecipe> provider) {
 
+        // negative on fucking water and oxygen for some reason
+
         CENTRIFUGE_RECIPES.recipeBuilder("ohio")
                 .inputItems(dust, GoldAlloy, 4)
                 .outputItems(ChemicalHelper.get(dust, Copper))
@@ -40,35 +42,36 @@ public class GoldChain {
                 .chancedOutput(dust, Iron, 1200, 400)
                 .chancedOutput(dust, Nickel, 1000, 300)
                 .chancedOutput(dust, Silver, 800, 200)
+                .chancedOutput(dust, Manganese, 800, 100)
                 .save(provider);
 
 
         
-        ALLOY_SMELTER_RECIPES.recipeBuilder("goldline").EUt(30).duration(100)
+        ALLOY_SMELTER_RECIPES.recipeBuilder("gold_alloy").EUt(30).duration(100)
                 .inputItems(dust, PreciousMetal)
                 .inputItems(dust, Copper, 3)
                 .outputItems(ingot, GoldAlloy, 4)
                 .save(provider);
 
-        ALLOY_SMELTER_RECIPES.recipeBuilder("goldline").EUt(30).duration(100)
+        ALLOY_SMELTER_RECIPES.recipeBuilder("gold_alloy_2").EUt(30).duration(100)
                 .inputItems(ingot, PreciousMetal)
                 .inputItems(dust, Copper, 3)
                 .outputItems(ingot, GoldAlloy, 4)
                 .save(provider);
 
-        ALLOY_SMELTER_RECIPES.recipeBuilder("goldline").EUt(30).duration(100)
+        ALLOY_SMELTER_RECIPES.recipeBuilder("gold_alloy_3").EUt(30).duration(100)
                 .inputItems(dust, PreciousMetal)
                 .inputItems(ingot, Copper, 3)
                 .outputItems(ingot, GoldAlloy, 4)
                 .save(provider);
 
-        ALLOY_SMELTER_RECIPES.recipeBuilder("goldline").EUt(30).duration(100)
+        ALLOY_SMELTER_RECIPES.recipeBuilder("gold_alloy_4").EUt(30).duration(100)
                 .inputItems(ingot, PreciousMetal)
                 .inputItems(ingot, Copper, 3)
                 .outputItems(ingot, GoldAlloy, 4)
                 .save(provider);
 
-        MIXER_RECIPES.recipeBuilder("goldline").duration(100).EUt(30)
+        MIXER_RECIPES.recipeBuilder("potassium_metabisulfate").duration(100).EUt(30)
                 .circuitMeta(1)
                 .inputItems(dust, Potassium, 2)
                 .inputItems(dust, Sulfur, 2)

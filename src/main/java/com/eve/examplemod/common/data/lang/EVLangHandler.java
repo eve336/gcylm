@@ -23,5 +23,34 @@ public class EVLangHandler extends LangHandler {
 
         provider.add("item.examplemod.refined_processor.tooltip", "LV-Tier Circuit");
 
+        provider.add("gtceu.chemical_dehydrator", "Chemical Dehydrator");
+        provider.add("gtceu.stellar_forge", "Stellar Forge");
+        provider.add("gtceu.chemplant", "Chemical Plant");
+        // bio_reactor
+        provider.add("gtceu.bio_reactor", "Bio Reactor");
+        // active_cooler
+        provider.add("gtceu.active_cooler", "Active cooler");
+        // nuclear_reactor
+        provider.add("gtceu.nuclear_reactor", "Nuclear Reactor");
+        // large_mixer
+        provider.add("gtceu.large_mixer", "Large Mixer");
+        // gas_centrifuge
+        provider.add("gtceu.gas_centrifuge", "Gas Centrifuge");
+        // plasma_condenser
+        provider.add("gtceu.plasma_condenser", "Plasma Condenser");
+        // replication
+        provider.add("gtceu.replication", "Replication");
+        // large_centrifuge
+        provider.add("gtceu.large_centrifuge", "Large Centrifuge");
+        // large_engraver
+        provider.add("gtceu.large_engraver", "Large Engraver");
+        // adv_fusion
+        provider.add("gtceu.adv_fusion", "Adv Fusion");
+        // spawner
+        provider.add("gtceu.spawner", "Mob Spawner");
+        // harvester
+        provider.add("gtceu.harvester", "Mob Harvester");
+
+
     }
 }

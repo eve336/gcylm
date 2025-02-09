@@ -118,9 +118,9 @@ public class CircuitRecipes {
     public static void micro(Consumer<FinishedRecipe> provider) {
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("micro_processor_standard").duration(100).EUt(400)
-                .inputItems(SMD_RESISTOR_MICRO, 4)
-                .inputItems(SMD_TRANSISTOR_MICRO, 4)
-                .inputItems(SMD_CAPACITOR_MICRO, 4)
+                .inputItems(SMD_RESISTOR_MICRO, 5)
+                .inputItems(SMD_TRANSISTOR_MICRO, 5)
+                .inputItems(SMD_CAPACITOR_MICRO, 5)
                 .inputItems(ADVANCED_CIRCUIT_BOARD, 1)
                 .inputItems(CENTRAL_PROCESSING_UNIT, 2)
                 .inputItems(wireFine, RedAlloy, 2)
@@ -137,10 +137,10 @@ public class CircuitRecipes {
 
 // Micro Assembly
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("processor_assembly_hv_standard").duration(100).EUt(350)
-                .inputItems(PROCESSOR_MV, 3)
-                .inputItems(SMD_CAPACITOR_MICRO, 2)
-                .inputItems(SMD_RESISTOR_MICRO, 4)
-                .inputItems(RANDOM_ACCESS_MEMORY, 2)
+                .inputItems(PROCESSOR_MV, 1)
+                .inputItems(SMD_CAPACITOR_MICRO, 3)
+                .inputItems(SMD_RESISTOR_MICRO, 5)
+                .inputItems(RANDOM_ACCESS_MEMORY, 3)
                 .inputItems(ADVANCED_CIRCUIT_BOARD, 1)
                 .inputItems(plate, Titanium, 1)
                 .outputItems(PROCESSOR_ASSEMBLY_HV, 1)
@@ -153,7 +153,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_TRANSISTOR_MICRO, 4)
                 .inputItems(RANDOM_ACCESS_MEMORY, 8)
                 .inputItems(ADVANCED_CIRCUIT_BOARD, 1)
-                .inputItems(wireGtSingle, HVSuperconductor, 1)
+                .inputItems(wireGtSingle, MercuryBariumCalciumCuprate, 1)
                 .outputItems(WORKSTATION_EV, 1)
                 .save(provider);
 

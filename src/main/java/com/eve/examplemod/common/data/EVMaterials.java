@@ -43,6 +43,8 @@ public class EVMaterials {
         List<Material> FineWireList = List.of(NaquadahAlloy, GTMaterials.Plutonium239, Ruthenium, Iron, TinAlloy, Titanium);
         FineWireList.forEach(m -> m.addFlags(GENERATE_FINE_WIRE));
 
+        Rutile.setProperty(PropertyKey.ORE, new OreProperty());
+
 
         NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium , 1));
         NaquadahAlloy.setFormula("Nq2(Ir3Os)");
@@ -56,6 +58,8 @@ public class EVMaterials {
 
         Seaborgium.setProperty(PropertyKey.INGOT, new IngotProperty());
         Seaborgium.addFlags(GENERATE_PLATE);
+
+        Rhenium.addFlags(GENERATE_DENSE);
 
         List<Material> IngotList = List.of(Barium, Rutherfordium, Zirconium, Ytterbium, Germanium, Mendelevium, Californium, Berkelium, Curium, Neptunium, Fermium, Technetium, Promethium, Ferrosilite, Gadolinium,
                 Protactinium, Rhenium, Strontium, Einsteinium, Polonium, Copernicium);
@@ -302,8 +306,11 @@ public class EVMaterials {
         MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1800);
 
         OreProperty oreProp2 = PreciousMetal.getProperty(PropertyKey.ORE);
-        oreProp2.setOreByProducts(Cadmium, Iron, Cadmium, Antimony);
+        oreProp2.setOreByProducts(Cadmium, Iron, PreciousMetal, Antimony);
         oreProp2.setWashedIn(Mercury);
+
+        Nichrome.getProperties().removeProperty(PropertyKey.BLAST);
+        Nichrome.setProperty(PropertyKey.BLAST, new BlastProperty(1900, BlastProperty.GasTier.LOW));
 
         if (EVConfig.INSTANCE.harderGold) {
             List<Material> addRemoveOreProperty = List.of(Iron, Copper, Chalcopyrite, Magnetite, GraniticMineralSand, BasalticMineralSand);
@@ -7241,6 +7248,7 @@ public class EVMaterials {
             .setFormula("Hg(CH3COO)2", true);
 
     public static final Material CalciumCyanamide = new Material.Builder(EVMain.id("calcium_cyanamide"))
+            .dust()
             .color(CalciumCarbide.getMaterialRGB())
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()

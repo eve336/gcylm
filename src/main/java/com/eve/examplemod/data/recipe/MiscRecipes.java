@@ -80,6 +80,14 @@ public class MiscRecipes {
                 'R', ChemicalHelper.get(rod, TungstenSteel),
                 'M', ChemicalHelper.get(rod, NeodymiumMagnetic));
 
+        // i dont like how you have to centrifuge it to get rid of the () around the SiO2 lol
+        // yeah yeah balance but i think it used to be this way in old gt as well
+        ELECTROLYZER_RECIPES.recipeBuilder("glass_dust_electrolysis").EUt(30).duration(60)
+                .inputItems(dust, Glass, 3)
+                .outputItems(dust, Silicon)
+                .outputFluids(Oxygen.getFluid(2000))
+                .save(provider);
+
         ASSEMBLER_RECIPES.recipeBuilder("iv_electric_motor").EUt(7680).duration(100)
                 .inputItems(ChemicalHelper.get(wireGtQuadruple, BrightSteel), 4)
                 .inputItems(ChemicalHelper.get(rod, TungstenSteel), 2)
@@ -277,12 +285,21 @@ public class MiscRecipes {
                 .duration(5*20)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal_mica")
+//        ASSEMBLER_RECIPES.recipeBuilder("coil_kanthal_mica")
+//                .inputItems(MICA_INSULATOR_FOIL, 8)
+//                .inputItems(wireGtDouble, Kanthal, 6)
+//                .inputFluids(Copper.getFluid(144))
+//                .outputItems(COIL_KANTHAL.asItem())
+//                .EUt(V[GTValues.MV])
+//                .duration(5*20)
+//                .save(provider);
+
+                ASSEMBLER_RECIPES.recipeBuilder("coil_nichrome_mica")
                 .inputItems(MICA_INSULATOR_FOIL, 8)
-                .inputItems(wireGtDouble, Kanthal, 6)
-                .inputFluids(Copper.getFluid(144))
-                .outputItems(COIL_KANTHAL.asItem())
-                .EUt(V[GTValues.MV])
+                .inputItems(wireGtDouble, Nichrome, 6)
+                .inputFluids(Aluminium.getFluid(144))
+                .outputItems(COIL_NICHROME.asItem())
+                .EUt(VA[GTValues.MV])
                 .duration(5*20)
                 .save(provider);
 
@@ -339,6 +356,13 @@ public class MiscRecipes {
                 .EUt(120)
                 .duration(20*20)
                 .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("nitrogen_dioxide").EUt(30).duration(30*20)
+                .inputFluids(Nitrogen.getFluid(1000))
+                .inputFluids(Oxygen.getFluid(2000))
+                .outputFluids(NitrogenDioxide.getFluid(1000))
+                .circuitMeta(3)
+                .save(provider);
     }
     public static void end(Consumer<FinishedRecipe> provider) {
         CHEMICAL_RECIPES.recipeBuilder("eye_of_ender")
@@ -347,6 +371,26 @@ public class MiscRecipes {
                 .inputItems(BLAZE_ROD)
                 .outputItems(ENDER_EYE)
                 .save(provider);
+
+        ASSEMBLER_RECIPES.recipeBuilder("hv_emitter_ruby").EUt(30)
+                .inputItems(ChemicalHelper.get(rod, Chromium), 4)
+                .inputItems(ChemicalHelper.get(cableGtSingle, Gold))
+                .inputItems(EVCraftingComponent.CIRCUIT.getIngredient(HV), 2)
+                .inputItems(ChemicalHelper.get(gemFlawless, Ruby))
+                .circuitMeta(1)
+                .outputItems(EMITTER_HV.get())
+                .save(provider);
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("hv_emitter_ruby"),
+                EMITTER_HV.asStack(),
+                "GRC",
+                "RFR",
+                "CRG",
+                'G', ChemicalHelper.get(cableGtSingle, Gold),
+                'R', ChemicalHelper.get(rod, Chromium),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(HV),
+                'F', ChemicalHelper.get(gemFlawless, Ruby)
+                );
     }
 
 }

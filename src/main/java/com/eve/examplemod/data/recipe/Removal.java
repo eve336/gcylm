@@ -1,14 +1,25 @@
 package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.config.EVConfig;
+import com.eve.examplemod.data.recipe.generated.Cables;
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.WireProperties;
+import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMachines;
+import com.gregtechceu.gtceu.utils.GTUtil;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.GTValues.VN;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 
 public class Removal {
     public static void init(Consumer<ResourceLocation> registry) {
@@ -22,6 +33,7 @@ public class Removal {
         if (EVConfig.INSTANCE.removeLargeCircuitAssembler) LargeCircuitAssembler(registry);
         Hatches(registry);
         if (EVConfig.INSTANCE.evEndAccess) end(registry);
+        cables(registry);
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -252,7 +264,32 @@ public class Removal {
     public static void end(Consumer<ResourceLocation> registry){
         registry.accept(new ResourceLocation("minecraft:ender_eye"));
         registry.accept(new ResourceLocation("gtceu:chemical_bath/eye_of_ender"));
+        registry.accept(new ResourceLocation("gtceu:shaped/emitter_hv"));
+        registry.accept(new ResourceLocation("gtceu:assembler/emitter_hv"));
     }
+    public static void cables(Consumer<ResourceLocation> registry){
+        for (MaterialRegistry materialRegistry : GTCEuAPI.materialManager.getRegistries()) {
+            for (Material material : materialRegistry.getAllMaterials()) {
+                if (material.hasProperty(PropertyKey.WIRE)){
+                    var property = material.getProperty(PropertyKey.WIRE);
+                    if (property.isSuperconductor()) return;
+                    var tier = GTUtil.getTierByVoltage(property.getVoltage());
+                    if (tier > GTValues.LuV){
+                        List<TagPrefix> wirePrefix = List.of(wireGtSingle, wireGtDouble, wireGtQuadruple, wireGtOctal, wireGtHex);
+                        Map<TagPrefix, String> map = Map.of(wireGtSingle, "wire_gt_single", wireGtDouble, "wire_gt_double", wireGtQuadruple, "wire_gt_quadruple", wireGtOctal, "wire_gt_octal", wireGtHex, "wire_gt_hex");
+                        wirePrefix.forEach(p -> {
+                            // todo fix this
+                            registry.accept(new ResourceLocation("gtceu:assembler/cover_" + material.getName() + "_" + map.get(p) + "_styrene_butadiene"));
+                            registry.accept(new ResourceLocation("gtceu:assembler/cover_" + material.getName() + "_" + map.get(p) + "_silicone"));
+//                            System.out.println("gtceu:assembler/cover_" + material.getName() + "_" + p.name.toLowerCase() + "_silicone");
+                        });
+                    }
+                }
+            }
+        }
+
+    }
+
 
 
 }

@@ -113,7 +113,7 @@ public class ZirconChain {
 
         // ZrCl4 + 2Mg = Zr + 2MgCl2
         BLAST_RECIPES.recipeBuilder("zircon_chain_" + chainNumber++).duration(300).EUt(120).blastFurnaceTemp(2500)
-                .inputItems(ZirconiumTetrachloride,5)
+                .inputItems(dust, ZirconiumTetrachloride,5)
                 .inputItems(dust, Magnesium, 2)
                 .outputItems(dust, Zirconium)
                 .outputItems(dust, MagnesiumChloride, 6)
@@ -123,14 +123,14 @@ public class ZirconChain {
         CHEMICAL_RECIPES.recipeBuilder("zircon_chain_" + chainNumber++).duration(150).EUt(120)
                 .inputItems(dust, Carbon)
                 .inputFluids(Chlorine.getFluid(4000))
-                .inputItems(HafniumOxide,3)
+                .inputItems(dust, HafniumOxide,3)
                 .outputFluids(CarbonDioxide.getFluid(1000))
-                .outputItems(HafniumChloride,5)
+                .outputItems(dust, HafniumChloride,5)
                 .save(provider);
 
         // HfCl4 + 2Mg = Hf + 2MgCl2
         BLAST_RECIPES.recipeBuilder("zircon_chain_" + chainNumber++).duration(300).EUt(120).blastFurnaceTemp(2500)
-                .inputItems(HafniumChloride,5)
+                .inputItems(dust, HafniumChloride,5)
                 .inputItems(dust, Magnesium, 2)
                 .outputItems(dust, Hafnium)
                 .outputItems(dust, MagnesiumChloride, 6)

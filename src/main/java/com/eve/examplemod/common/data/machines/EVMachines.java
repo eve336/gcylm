@@ -2,6 +2,7 @@ package com.eve.examplemod.common.data.machines;
 
 
 import com.eve.examplemod.EVMain;
+import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.EVRecipeTypes;
 import com.eve.examplemod.common.machine.multiblock.*;
 import com.eve.examplemod.common.machine.multiblock.part.*;
@@ -9,20 +10,21 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.data.RotationState;
-import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
-import com.gregtechceu.gtceu.api.machine.MachineDefinition;
-import com.gregtechceu.gtceu.api.machine.MetaMachine;
-import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
+import com.gregtechceu.gtceu.api.machine.*;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
+import com.gregtechceu.gtceu.common.data.GTMedicalConditions;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.EnergyHatchPartMachine;
+import com.gregtechceu.gtceu.config.ConfigHolder;
+import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 
@@ -40,7 +42,7 @@ import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
-
+import static com.gregtechceu.gtceu.utils.FormattingUtil.toEnglishName;
 
 
 public class EVMachines{
@@ -79,6 +81,11 @@ public class EVMachines{
 
     // TODO machine texture
     public static final MachineDefinition[] CHEMICAL_DEHYDRATOR = registerSimpleMachines("chemical_dehydrator", EVRecipeTypes.CHEMICAL_DEHYDRATOR_RECIPES);
+
+    public static final MachineDefinition[] SPAWNER = registerSimpleMachines("spawner", EVRecipeTypes.SPAWNER_RECIPES);
+
+    public static final MachineDefinition[] HARVESTER = registerSimpleMachines("harvester", EVRecipeTypes.HARVESTER_RECIPES);
+
 
     public static final MachineDefinition[] ROBOT_ARM_COMPONENT = registerTieredMachines("robot_arm_component",
             ComponentPartBlock::new,
@@ -315,6 +322,49 @@ public class EVMachines{
                     GTCEu.id("block/multiblock/assembly_line"))
             .register();
 
+    public static MachineDefinition[] registerSimpleMachines(String name, GTRecipeType recipeType,
+                                                             Int2IntFunction tankScalingFunction,
+                                                             boolean hasPollutionDebuff) {
+        return registerSimpleMachines(name, recipeType, tankScalingFunction, hasPollutionDebuff, ELECTRIC_TIERS);
+    }
+
+    public static MachineDefinition[] registerSimpleMachines(String name, GTRecipeType recipeType,
+                                                             Int2IntFunction tankScalingFunction) {
+        return registerSimpleMachines(name, recipeType, tankScalingFunction, false);
+    }
+
+    public static MachineDefinition[] registerSimpleMachines(String name, GTRecipeType recipeType) {
+        return registerSimpleMachines(name, recipeType, defaultTankSizeFunction);
+    }
+
+    public static MachineDefinition[] registerSimpleMachines(String name,
+                                                             GTRecipeType recipeType,
+                                                             Int2IntFunction tankScalingFunction,
+                                                             boolean hasPollutionDebuff,
+                                                             int... tiers) {
+        return registerTieredMachines(name,
+                (holder, tier) -> new SimpleTieredMachine(holder, tier, tankScalingFunction), (tier, builder) -> {
+                    if (hasPollutionDebuff) {
+                        builder.recipeModifiers(GTRecipeModifiers.ENVIRONMENT_REQUIREMENT
+                                                .apply(GTMedicalConditions.CARBON_MONOXIDE_POISONING, 100 * tier),
+                                        GTRecipeModifiers.OC_NON_PERFECT)
+                                .conditionalTooltip(defaultEnvironmentRequirement(),
+                                        ConfigHolder.INSTANCE.gameplay.environmentalHazards);
+                    } else {
+                        builder.recipeModifier(GTRecipeModifiers.OC_NON_PERFECT);
+                    }
+                    return builder
+                            .langValue("%s %s %s".formatted(VLVH[tier], toEnglishName(name), VLVT[tier]))
+                            .editableUI(SimpleTieredMachine.EDITABLE_UI_CREATOR.apply(GTCEu.id(name), recipeType))
+                            .rotationState(RotationState.NON_Y_AXIS)
+                            .recipeType(recipeType)
+                            .workableTieredHullRenderer(GTCEu.id("block/machines/" + name))
+                            .tooltips(workableTiered(tier, GTValues.V[tier], GTValues.V[tier] * 64, recipeType,
+                                    tankScalingFunction.apply(tier), true))
+                            .register();
+                },
+                tiers);
+    }
 
     public static MachineDefinition[] registerTieredMachines(String name,
                                                              BiFunction<IMachineBlockEntity, Integer, MetaMachine> factory,
@@ -322,7 +372,7 @@ public class EVMachines{
                                                              int... tiers) {
         MachineDefinition[] definitions = new MachineDefinition[GTValues.TIER_COUNT];
         for (int tier : tiers) {
-            var register = REGISTRATE
+            var register = EVRegistries.REGISTRATE
                     .machine(GTValues.VN[tier].toLowerCase(Locale.ROOT) + "_" + name,
                             holder -> factory.apply(holder, tier))
                     .tier(tier);

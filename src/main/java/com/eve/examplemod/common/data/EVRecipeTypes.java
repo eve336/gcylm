@@ -1,8 +1,13 @@
 package com.eve.examplemod.common.data;
 
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.crafting.RecipeType;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
@@ -46,13 +51,27 @@ public class EVRecipeTypes {
             .setMaxIOSize(0,0,3,1);
 
     public static final GTRecipeType LARGE_CENTRIFUGE_RECIPES = GTRecipeTypes.register("large_centrifuge", MULTIBLOCK)
-            .setMaxIOSize(0,0,3,1);
+            .setMaxIOSize(2,3,2,3);
 
     public static final GTRecipeType LARGE_ENGRAVER_RECIPES = GTRecipeTypes.register("large_engraver", MULTIBLOCK)
             .setMaxIOSize(5,5,3,1);
 
     public static final GTRecipeType ADV_FUSION_RECIPES = GTRecipeTypes.register("adv_fusion", MULTIBLOCK)
             .setMaxIOSize(0,0,3,1);
+
+    public static final GTRecipeType SPAWNER_RECIPES = GTRecipeTypes.register("spawner", ELECTRIC)
+            .setMaxIOSize(4,1, 2,0);
+
+    public static final GTRecipeType HARVESTER_RECIPES = GTRecipeTypes.register("harvester", ELECTRIC)
+            .setMaxIOSize(1,4,0,0);
+
+//    public static GTRecipeType register(String name, String group, RecipeType<?>... proxyRecipes) {
+//        var recipeType = new GTRecipeType(GTCEu.id(name), group, proxyRecipes);
+//        GTRegistries.register(BuiltInRegistries.RECIPE_TYPE, recipeType.registryName, recipeType);
+//        GTRegistries.register(BuiltInRegistries.RECIPE_SERIALIZER, recipeType.registryName, new GTRecipeSerializer());
+//        GTRegistries.RECIPE_TYPES.register(recipeType.registryName, recipeType);
+//        return recipeType;
+//    }
 
 
     public static void init(){

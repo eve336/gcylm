@@ -3,6 +3,7 @@ package com.eve.examplemod.common.data;
 import com.eve.examplemod.config.EVConfig;
 import com.eve.examplemod.data.recipe.CoolerRecipes;
 import com.eve.examplemod.data.recipe.MiscRecipes;
+import com.eve.examplemod.data.recipe.MobFarmRecipes;
 import com.eve.examplemod.data.recipe.SuperconductorRecipes;
 import com.eve.examplemod.data.recipe.chain.*;
 import com.eve.examplemod.data.recipe.circuit.CircuitComponentRecipes;
@@ -74,5 +75,7 @@ public class EVRecipes {
         CoolerRecipes.init(consumer);
         SolarPanelRecipes.init(consumer);
         com.eve.examplemod.data.recipe.Machines.init(consumer);
+        Cables.init(consumer);
+        MobFarmRecipes.init(consumer);
     }
 }

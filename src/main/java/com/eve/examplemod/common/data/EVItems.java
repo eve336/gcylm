@@ -12,9 +12,11 @@ import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 
 import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
+import static net.minecraft.world.food.Foods.BREAD;
 
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
@@ -23,6 +25,9 @@ public class EVItems {
     public static ItemEntry<Item> SMD_CAPACITOR_REFINED = EVRegistries.REGISTRATE.item("smd_capacitor_refined", Item::new)
             .register();
 
+    public static ItemEntry<Item> BLAZE_BOTTLE = EVRegistries.REGISTRATE.item("blaze_bottle", Item::new)
+            .properties(p -> p.stacksTo(16).food(BREAD))
+            .register();
 
     public static ItemEntry<Item> MICA_SHEET = EVRegistries.REGISTRATE.item("mica_sheet", Item::new)
             .register();
