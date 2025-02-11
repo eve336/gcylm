@@ -305,12 +305,14 @@ public class EVMaterials {
 
         MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1800);
 
-        OreProperty oreProp2 = PreciousMetal.getProperty(PropertyKey.ORE);
-        oreProp2.setOreByProducts(Cadmium, Iron, PreciousMetal, Antimony);
-        oreProp2.setWashedIn(Mercury);
+        OreProperty oreProp = PreciousMetal.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Cadmium, Iron, PreciousMetal, Antimony);
+        oreProp.setWashedIn(Mercury);
 
         Nichrome.getProperties().removeProperty(PropertyKey.BLAST);
         Nichrome.setProperty(PropertyKey.BLAST, new BlastProperty(1900, BlastProperty.GasTier.LOW));
+
+        // Nichrome.getProperties().getProperty(PropertyKey.BLAST).getVacuumEUtOverride()
 
         if (EVConfig.INSTANCE.harderGold) {
             List<Material> addRemoveOreProperty = List.of(Iron, Copper, Chalcopyrite, Magnetite, GraniticMineralSand, BasalticMineralSand);
@@ -320,7 +322,7 @@ public class EVMaterials {
                     }
             );
 
-            OreProperty oreProp = Copper.getProperty(PropertyKey.ORE);
+            oreProp = Copper.getProperty(PropertyKey.ORE);
             oreProp.setOreByProducts(Cobalt, Iron, Nickel, Copper);
             oreProp.setWashedIn(Mercury);
 
@@ -350,10 +352,40 @@ public class EVMaterials {
             oreProp.setDirectSmeltResult(Iron);
         }
         if (EVConfig.INSTANCE.harderPlatline){
-            oreProp2 = Nickel.getProperty(PropertyKey.ORE);
-            oreProp2.setOreByProducts(Cobalt, Iron, Iron);
-            oreProp2.setSeparatedInto(Iron);
-            oreProp2.setWashedIn(Mercury);
+            List<Material> addRemoveOreProperty = List.of(Nickel, Pentlandite, Bornite, Chalcocite, Chalcopyrite, Tetrahedrite);
+            addRemoveOreProperty.forEach(m -> {
+                        m.getProperties().removeProperty(PropertyKey.ORE);
+                        m.setProperty(PropertyKey.ORE, new OreProperty());
+                    });
+            oreProp = Nickel.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Cobalt, PlatinumMetallicPowder, PlatinumMetallicPowder, Nickel);
+            oreProp.setSeparatedInto(PlatinumMetallicPowder);
+            oreProp.setWashedIn(Mercury);
+
+            oreProp = Pentlandite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(PlatinumMetallicPowder, Sulfur, Cobalt);
+            oreProp.setSeparatedInto(Iron);
+            oreProp.setWashedIn(SodiumPersulfate);
+            oreProp.setDirectSmeltResult(Nickel);
+
+            oreProp = Bornite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Pyrite, PlatinumMetallicPowder, Cadmium, Gold);
+            oreProp.setWashedIn(Mercury);
+            oreProp.setDirectSmeltResult(Copper);
+
+            oreProp = Chalcocite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Sulfur, Massicot, Silver, PlatinumMetallicPowder);
+            oreProp.setDirectSmeltResult(Copper);
+
+            oreProp = Chalcopyrite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(PlatinumMetallicPowder, PlatinumMetallicPowder, Cadmium, Gold);
+            oreProp.setWashedIn(Mercury);
+            oreProp.setDirectSmeltResult(Copper);
+
+            oreProp = Tetrahedrite.getProperty(PropertyKey.ORE);
+            oreProp.setOreByProducts(Antimony, Zinc, Cadmium, PlatinumMetallicPowder);
+            oreProp.setWashedIn(SodiumPersulfate);
+            oreProp.setDirectSmeltResult(Copper);
         }
 
     }
@@ -7102,6 +7134,7 @@ public class EVMaterials {
             .setFormula("(C8H20N)(ReH9)(TcH9)", true);
 
     public static final Material ManganeseFluoride = new Material.Builder(EVMain.id("manganese_fluoride"))
+            .dust()
             .color(Pyrolusite.getMaterialRGB())
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()

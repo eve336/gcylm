@@ -51,7 +51,7 @@ public class EVRecipeTypes {
             .setMaxIOSize(0,0,3,1);
 
     public static final GTRecipeType LARGE_CENTRIFUGE_RECIPES = GTRecipeTypes.register("large_centrifuge", MULTIBLOCK)
-            .setMaxIOSize(2,3,2,3);
+            .setMaxIOSize(2,6,2,6);
 
     public static final GTRecipeType LARGE_ENGRAVER_RECIPES = GTRecipeTypes.register("large_engraver", MULTIBLOCK)
             .setMaxIOSize(5,5,3,1);

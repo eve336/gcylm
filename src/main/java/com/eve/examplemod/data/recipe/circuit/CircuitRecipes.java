@@ -136,7 +136,7 @@ public class CircuitRecipes {
                 .save(provider);
 
 // Micro Assembly
-        CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("processor_assembly_hv_standard").duration(100).EUt(350)
+        CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("processor_assembly_hv_standard").duration(120).EUt(350)
                 .inputItems(PROCESSOR_MV, 1)
                 .inputItems(SMD_CAPACITOR_MICRO, 3)
                 .inputItems(SMD_RESISTOR_MICRO, 5)
@@ -179,13 +179,13 @@ public class CircuitRecipes {
                 .inputItems(SMD_RESISTOR_NANO, 4)
                 .inputItems(SMD_TRANSISTOR_NANO, 4)
                 .inputItems(SMD_CAPACITOR_NANO, 4)
-                .inputItems(MULTILAYER_FIBER_BOARD, 1)
+                .inputItems(EXTREME_CIRCUIT_BOARD, 1)
                 .inputItems(NANO_CENTRAL_PROCESSING_UNIT, 12)
                 .inputItems(wireFine, Aluminium, 2)
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("evnano_processor_hv_soc_stuff").duration(50).EUt(9600)
-                .inputItems(MULTILAYER_FIBER_BOARD, 1)
+                .inputItems(EXTREME_CIRCUIT_BOARD, 1)
                 .inputItems(SYSTEM_ON_CHIP, 1)
                 .inputItems(wireFine, Aluminium, 8)
                 .outputItems(NANO_PROCESSOR_HV, 4)
@@ -196,7 +196,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_CAPACITOR_NANO, 4)
                 .inputItems(SMD_RESISTOR_NANO, 4)
                 .inputItems(NANO_CENTRAL_PROCESSING_UNIT, 2)
-                .inputItems(MULTILAYER_FIBER_BOARD, 1)
+                .inputItems(EXTREME_CIRCUIT_BOARD, 1)
                 .inputItems(plate, TungstenSteel, 1)
                 .outputItems(NANO_PROCESSOR_ASSEMBLY_EV, 1)
                 .save(provider);

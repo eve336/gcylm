@@ -8,7 +8,7 @@ import com.gregtechceu.gtceu.api.data.worldgen.generator.indicators.SurfaceIndic
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.valueproviders.UniformInt;
 
-import static com.eve.examplemod.common.data.EVMaterials.PreciousMetal;
+import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTOres.*;
 
@@ -153,7 +153,21 @@ public class EVOres {
                             .layer(l -> l.weight(1).mat(VanadiumMagnetite).size(1, 2))
                             .layer(l -> l.weight(2).mat(Chromite).size(1, 1))
                             .build())).surfaceIndicatorGenerator(indicator -> indicator
-                    .surfaceRock(Magnetite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+                    .surfaceRock(Chromite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
+    public static final GTOreDefinition BARIUM_VEIN_OVERWORLD = create(EVMain.id("barium_overworld"), vein -> vein
+            .clusterSize(UniformInt.of(38, 44)).density(0.21F).weight(40)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(30, 60)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(1).mat(Barytocalcite).size(1, 3))
+                            .layer(l -> l.weight(1).mat(Barite).size(1, 2))
+                            .layer(l -> l.weight(2).mat(Witherite).size(1, 1))
+                            .build())).surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Barite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 
 

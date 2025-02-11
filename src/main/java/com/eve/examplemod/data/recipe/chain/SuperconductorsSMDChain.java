@@ -1010,13 +1010,13 @@ public class SuperconductorsSMDChain {
         CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(170).EUt(480)
                 .inputItems(dust, Manganese)
                 .inputFluids(KryptonDifluoride.getFluid(1000))
-                .outputItems(ManganeseFluoride,3)
+                .outputItems(dust, ManganeseFluoride,3)
                 .outputFluids(Krypton.getFluid(1000))
                 .save(provider);
 
         // MnF2 + O + H2O -> MnO2 + 2HF
         CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(160).EUt(120)
-                .inputItems(ManganeseFluoride,3)
+                .inputItems(dust, ManganeseFluoride,3)
                 .inputFluids(Water.getFluid(1000))
                 .inputFluids(Oxygen.getFluid(1000))
                 .outputItems(dust, Pyrolusite, 3)

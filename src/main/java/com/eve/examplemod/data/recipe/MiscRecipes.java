@@ -237,15 +237,15 @@ public class MiscRecipes {
         COKE_OVEN_RECIPES.recipeBuilder("charcoal_coke_oven")
                 .inputItems(gem, Charcoal)
                 .outputItems(gem, Coke)
-                .outputFluids(Creosote.getFluid(80 * 12))
-                .duration(20 * 12)
+                .outputFluids(Creosote.getFluid(80 * 8))
+                .duration(20 * 8)
                 .save(provider);
 
         COKE_OVEN_RECIPES.recipeBuilder("charcoal_from_log_coke_oven")
                 .inputItems(BlockTags.LOGS_THAT_BURN)
                 .outputItems(CHARCOAL)
-                .outputFluids(Creosote.getFluid(300 * 12))
-                .duration(20 * 4 * 12)
+                .outputFluids(Creosote.getFluid(300 * 8))
+                .duration(20 * 4 * 8)
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("blast_silicon_1")

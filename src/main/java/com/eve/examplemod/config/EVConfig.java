@@ -85,6 +85,11 @@ public class EVConfig {
     @Configurable.Comment({"Default = true"})
     public boolean darkerSteel = true;
 
+    // wip
+    @Configurable
+    @Configurable.Comment({"Default = true, wip"})
+    public boolean reworkGTCableCovering = true;
+
     // eventually change these, especially nuclear materials bc nuclear rework
 
     @Configurable

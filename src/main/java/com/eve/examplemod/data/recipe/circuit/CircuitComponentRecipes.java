@@ -63,10 +63,9 @@ public class CircuitComponentRecipes {
 
 
 
-
-
+        // fix this to just use SMD diodes? can you change the lang value lmao?
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(30)
-                .inputItems(wireFine, Platinum, 8)
+                .inputItems(wireFine, Titanium, 8)
                 .inputItems(dust, GalliumArsenide)
                 .inputFluids(Polyethylene.getFluid(L))
                 .outputItems(SMD_DIODE_MICRO,32)
