@@ -121,6 +121,7 @@ public class Platline {
                 .duration(42)
                 .save(provider);
 
+        /// todo oxygen ebf recipe
         BLAST_RECIPES.recipeBuilder("platline_932893").duration(200).EUt(120).blastFurnaceTemp(1100)
                 .inputItems(dust, PlatinumResidue, 5)
                 .inputItems(dust, PotassiumDisulfate,5)
