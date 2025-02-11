@@ -383,7 +383,7 @@ public class EVMaterials {
             oreProp.setDirectSmeltResult(Copper);
 
             oreProp = Tetrahedrite.getProperty(PropertyKey.ORE);
-            oreProp.setOreByProducts(Antimony, Zinc, Cadmium, PlatinumMetallicPowder);
+            oreProp.setOreByProducts(PlatinumMetallicPowder, Zinc, Cadmium, Antimony);
             oreProp.setWashedIn(SodiumPersulfate);
             oreProp.setDirectSmeltResult(Copper);
         }
