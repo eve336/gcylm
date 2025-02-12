@@ -202,9 +202,9 @@ public class CosmicChain {
 
         // GeS2 + 6O -> GeO2 + 2SO2
         BLAST_RECIPES.recipeBuilder("cosmic_chain_" + chainNumber++).duration(240).EUt(120).blastFurnaceTemp(2500)
-                .inputItems(GermaniumSulfide,3)
+                .inputItems(dust, GermaniumSulfide,3)
                 .inputFluids(Oxygen.getFluid(6000))
-                .outputItems(GermaniumOxide,3)
+                .outputItems(dust, GermaniumOxide,3)
                 .outputFluids(SulfurDioxide.getFluid(2000))
                 .save(provider);
 
@@ -218,19 +218,19 @@ public class CosmicChain {
 
         // CdS + WO3 + 3O -> CdWO4 + SO2
         BLAST_RECIPES.recipeBuilder("cosmic_chain_" + chainNumber++).duration(320).EUt(120).blastFurnaceTemp(2800)
-                .inputItems(CadmiumSulfide,2)
+                .inputItems(dust, CadmiumSulfide,2)
                 .inputItems(dust, TungstenTrioxide, 4)
                 .inputFluids(Oxygen.getFluid(3000))
-                .outputItems(CadmiumTungstate,6)
+                .outputItems(dust, CadmiumTungstate,6)
                 .outputFluids(SulfurDioxide.getFluid(1000))
                 .save(provider);
 
         // CsI + Tm + Tl -> CsITmTl
         BLAST_RECIPES.recipeBuilder("cosmic_chain_" + chainNumber++).duration(260).EUt(120).blastFurnaceTemp(2853)
-                .inputItems(CesiumIodide)
+                .inputItems(dust, CesiumIodide)
                 .inputItems(dustSmall, Thulium, 2)
                 .inputItems(dustSmall, Thallium, 2)
-                .outputItems(TlTmCesiumIodide,2)
+                .outputItems(dust, TlTmCesiumIodide,2)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("cosmic_chain_" + chainNumber++).duration(240).EUt(7680)

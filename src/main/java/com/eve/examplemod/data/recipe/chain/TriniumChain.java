@@ -129,7 +129,7 @@ public class TriniumChain {
                 .save(provider);
 
         BLAST_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(210).EUt(125).blastFurnaceTemp(1100)
-                .inputItems(SilverIodide,4)
+                .inputItems(dust, SilverIodide,4)
                 .inputFluids(Oxygen.getFluid(1000))
                 .outputItems(dust, SilverOxide, 3)
                 .outputItems(dust, Iodine, 2)
@@ -146,17 +146,17 @@ public class TriniumChain {
 
         VACUUM_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(180).EUt(125)
                 .inputFluids(FumingNitricAcid.getFluid(1000))
-                .outputItems(PureCrystallineNitricAcid,5)
+                .outputItems(dust, PureCrystallineNitricAcid,5)
                 .save(provider);
 
         //2 Ke3Ac2Se4At4 + 8 HNO3 + 8 SO2 + NaClO4 ->  8 SeO2 + 8At + [NaCl + 4 H2O + 2 Ke3Ac2S4(NO3)4 + ?]
         BLAST_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(265).EUt(130500).blastFurnaceTemp(9400)
                 .inputItems(dust, Triniite, 16)
-                .inputItems(PureCrystallineNitricAcid,40)
-                .inputItems(SodiumPerchlorate,6)
+                .inputItems(dust, PureCrystallineNitricAcid,40)
+                .inputItems(dust, SodiumPerchlorate,6)
                 .inputFluids(SulfurDioxide.getFluid(8000))
                 .outputItems(dust, Astatine, 8)
-                .outputItems(SeleniumOxide,24)
+                .outputItems(dust, SeleniumOxide,24)
                 .outputFluids(NitratedTriniiteSolution.getFluid(4000))
                 .save(provider);
 

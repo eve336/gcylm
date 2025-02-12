@@ -104,10 +104,10 @@ public class OpticalChain {
 
         // NH4VO3 + NaCl + Na2O -> Na3VO4 + NH4Cl
         BLAST_RECIPES.recipeBuilder("optical_chain_" + chainNumber++).duration(280).EUt(120).blastFurnaceTemp(700)
-                .inputItems(AmmoniumVanadate, 9)
+                .inputItems(dust, AmmoniumVanadate, 9)
                 .inputItems(dust, Salt, 2)
-                .inputItems(SodiumOxide, 3)
-                .outputItems(PureSodiumVanadate, 8)
+                .inputItems(dust, SodiumOxide, 3)
+                .outputItems(dust, PureSodiumVanadate, 8)
                 .outputFluids(AmmoniumChloride.getFluid(1000))
                 .save(provider);
 
@@ -152,19 +152,19 @@ public class OpticalChain {
                 .inputFluids(Ethanol100.getFluid(1000))
                 .outputItems(LuTmYVONanoparticles)
                 .outputItems(dust, Salt, 6)
-                .outputItems(AmmoniumCarbonate, 14)
+                .outputItems(dust, AmmoniumCarbonate, 14)
                 .outputFluids(Propene.getFluid(1000))
                 .save(provider);
 
         // (NH4)2CO3 + Ca + NaH + 2O -> 2NH3 + Ca(OH)2 + NaHCO3
         BLAST_RECIPES.recipeBuilder("optical_chain_" + chainNumber++).duration(270).EUt(120).blastFurnaceTemp(700)
-                .inputItems(AmmoniumCarbonate, 14)
-                .inputItems(SodiumHydride, 2)
+                .inputItems(dust, AmmoniumCarbonate, 14)
+                .inputItems(dust, SodiumHydride, 2)
                 .inputItems(dust, Calcium)
                 .inputFluids(Oxygen.getFluid(2000))
                 .outputFluids(Ammonia.getFluid(2000))
-                .outputItems(SodiumBicarbonate, 6)
-                .outputItems(CalciumHydroxide, 5)
+                .outputItems(dust, SodiumBicarbonate, 6)
+                .outputItems(dust, CalciumHydroxide, 5)
                 .save(provider);
 
         // NaH -> Na + H
@@ -195,7 +195,7 @@ public class OpticalChain {
 
         // LiAlH4 -> LiH + AlH3
         BLAST_RECIPES.recipeBuilder("optical_chain_" + chainNumber++).duration(260).EUt(120).blastFurnaceTemp(1600)
-                .inputItems(LithiumAluminiumHydride, 6)
+                .inputItems(dust, LithiumAluminiumHydride, 6)
                 .outputItems(LithiumHydride, 2)
                 .outputItems(AluminiumHydride, 4)
                 .save(provider);
@@ -446,7 +446,7 @@ public class OpticalChain {
                 .inputFluids(Ammonia.getFluid(5000))
                 .inputFluids(HydrogenCyanide.getFluid(5000))
                 .inputFluids(SulfuricAcid.getFluid(3000))
-                .inputItems(PotassiumPermanganate, 12)
+                .inputItems(dust, PotassiumPermanganate, 12)
                 .outputFluids(Water.getFluid(3000))
                 .outputItems(ManganeseSulfate, 12)
                 .outputItems(PotassiumSulfate, 7)
@@ -461,10 +461,10 @@ public class OpticalChain {
 
         // 3K2MnO4 + 2H2O -> MnO2 + 2KMnO4 + 4KOH
         BLAST_RECIPES.recipeBuilder("optical_chain_" + chainNumber++).duration(250).EUt(120).blastFurnaceTemp(720)
-                .inputItems(PotassiumManganate, 21)
+                .inputItems(dust, PotassiumManganate, 21)
                 .inputFluids(Water.getFluid(2000))
                 .outputItems(dust, Pyrolusite, 3)
-                .outputItems(PotassiumPermanganate, 12)
+                .outputItems(dust, PotassiumPermanganate, 12)
                 .outputFluids(PotassiumHydroxide.getFluid(4000))
                 .save(provider);
     }

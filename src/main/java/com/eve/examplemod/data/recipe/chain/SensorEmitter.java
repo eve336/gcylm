@@ -128,11 +128,11 @@ public class SensorEmitter {
 
         // [2Pb(NO3)2 + 9Ca] + Ta2O5 + Sc2O3 + 3O -> 2Pb(ScTa)O3 + 9CaO + 4NO2
         BLAST_RECIPES.recipeBuilder("sensor_emitter_" + chainNumber++).duration(350).EUt(120).blastFurnaceTemp(1350)
-                .inputItems(LeadNitrateCalciumMixture,18)
-                .inputItems(TantalumOxide,7)
-                .inputItems(ScandiumOxide,5)
+                .inputItems(dust, LeadNitrateCalciumMixture,18)
+                .inputItems(dust, TantalumOxide,7)
+                .inputItems(dust, ScandiumOxide,5)
                 .inputFluids(Oxygen.getFluid(3000))
-                .outputItems(LeadScandiumTantalate,12)
+                .outputItems(dust, LeadScandiumTantalate,12)
                 .outputItems(dust, Quicklime, 18)
                 .outputFluids(NitrogenDioxide.getFluid(4000))
                 .save(provider);
@@ -160,7 +160,7 @@ public class SensorEmitter {
         CHEMICAL_RECIPES.recipeBuilder("sensor_emitter_" + chainNumber++).duration(240).EUt(120)
                 .inputItems(dust, Zinc)
                 .inputItems(dust, Selenium)
-                .outputItems(ZincSelenide,2)
+                .outputItems(dust, ZincSelenide,2)
                 .save(provider);
 
         // Fr + Cs + 2Cd + 6Br -> FrCsCd2Br6
@@ -169,7 +169,7 @@ public class SensorEmitter {
                 .inputItems(dust, Caesium)
                 .inputItems(dust, Cadmium, 2)
                 .inputFluids(Bromine.getFluid(6000))
-                .outputItems(FranciumCaesiumCadmiumBromide,10)
+                .outputItems(dust, FranciumCaesiumCadmiumBromide,10)
                 .save(provider);
 
         // C6H5NH2 + NaNO2 + 2HCl + NaI -> 2NaCl + 2N + 2H2O + C6H5I
@@ -256,8 +256,8 @@ public class SensorEmitter {
         // K + NaTcO4 -> KTcO4 + Na
         BLAST_RECIPES.recipeBuilder("sensor_emitter_" + chainNumber++).duration(280).EUt(120).blastFurnaceTemp(6500)
                 .inputItems(dust, Potassium)
-                .inputItems(SodiumPertechnetate,6)
-                .outputItems(PotassiumPertechnate,6)
+                .inputItems(dust, SodiumPertechnetate,6)
+                .outputItems(dust, PotassiumPertechnate,6)
                 .outputItems(dust, Sodium)
                 .save(provider);
 

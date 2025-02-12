@@ -16,6 +16,7 @@ import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
+import java.lang.reflect.Field;
 import java.util.*;
 
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.*;
@@ -46,7 +47,7 @@ public class EVMaterials {
         Rutile.setProperty(PropertyKey.ORE, new OreProperty());
 
 
-        NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium , 1));
+        NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium, 1));
         NaquadahAlloy.setFormula("Nq2(Ir3Os)");
         GTMaterials.Plutonium239.setFormula("Pu", true);
         GTMaterials.Uranium238.setFormula("U", true);
@@ -78,7 +79,7 @@ public class EVMaterials {
         LVSuperconductor.setProperty(EVPropertyKey.MIXER, new EVMixerProperty(-1, GTValues.VA[GTValues.LV]));
 
         List<Material> dustList = List.of(Hafnium, Thallium, Radium, Scandium, Terbium, Thulium, Holmium, Erbium, Dysprosium, Actinium, Selenium, Tellurium, Astatine, Dubnium,
-        IridiumDioxide, Rubidium, Francium, Praseodymium);
+                IridiumDioxide, Rubidium, Francium, Praseodymium);
         dustList.forEach(m -> m.setProperty(PropertyKey.DUST, new DustProperty()));
 
 
@@ -303,6 +304,28 @@ public class EVMaterials {
 //        );
 //        System.out.println("non dust List: " + nonDustList);
 
+//        List<String> materialList = new ArrayList<>();
+//        for (Material material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
+//                if (Objects.equals(material.getModid(), EVMain.MOD_ID)){
+//                    if (material.hasProperty(PropertyKey.DUST)) {
+//                        materialList.add();
+//                    }
+//                }
+//            }
+
+//        List<String> materialList = Arrays.stream(EVMaterials2.class.getFields())
+//                .filter(field -> {
+//                    try {
+//                        return Material.class.isAssignableFrom(field.getType()) && ((Material) field.get(null)).hasProperty(PropertyKey.DUST);
+//                    } catch (IllegalAccessException e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                })
+//                .map(Field::getName)
+//                .toList();
+//
+//        System.out.println("hijk materiallist: " + materialList);
+
         MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1800);
 
         OreProperty oreProp = PreciousMetal.getProperty(PropertyKey.ORE);
@@ -351,12 +374,12 @@ public class EVMaterials {
             oreProp.setSeparatedInto(Copper);
             oreProp.setDirectSmeltResult(Iron);
         }
-        if (EVConfig.INSTANCE.harderPlatline){
+        if (EVConfig.INSTANCE.harderPlatline) {
             List<Material> addRemoveOreProperty = List.of(Nickel, Pentlandite, Bornite, Chalcocite, Chalcopyrite, Tetrahedrite);
             addRemoveOreProperty.forEach(m -> {
-                        m.getProperties().removeProperty(PropertyKey.ORE);
-                        m.setProperty(PropertyKey.ORE, new OreProperty());
-                    });
+                m.getProperties().removeProperty(PropertyKey.ORE);
+                m.setProperty(PropertyKey.ORE, new OreProperty());
+            });
             oreProp = Nickel.getProperty(PropertyKey.ORE);
             oreProp.setOreByProducts(Cobalt, PlatinumMetallicPowder, PlatinumMetallicPowder, Nickel);
             oreProp.setSeparatedInto(PlatinumMetallicPowder);
@@ -6778,6 +6801,7 @@ public class EVMaterials {
 
     public static final Material PotassiumManganate = new Material.Builder(EVMain.id("potassium_manganate"))
             .color(0xaf20af)
+            .dust()
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("K2MnO4", true);
@@ -6792,6 +6816,7 @@ public class EVMaterials {
     public static final Material TantalumOxide = new Material.Builder(EVMain.id("tantalum_oxide"))
             .color((Tantalum.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
             .iconSet(MaterialIconSet.SHINY)
+            .dust()
             .buildAndRegister()
             .setFormula("Ta2O5", true);
 
@@ -6811,6 +6836,7 @@ public class EVMaterials {
     public static final Material LeadScandiumTantalate = new Material.Builder(EVMain.id("lead_scandium_tantalate"))
             .color((Lead.getMaterialRGB() + Scandium.getMaterialRGB() + Tantalum.getMaterialRGB()) / 3)
             .iconSet(MaterialIconSet.SHINY)
+            .dust()
             .buildAndRegister()
             .setFormula("Pb(ScTa)O3", true);
 
@@ -6931,18 +6957,21 @@ public class EVMaterials {
 
     public static final Material PureSodiumVanadate = new Material.Builder(EVMain.id("pure_sodium_vanadate"))
             .color(SodiumVanadate.getMaterialRGB())
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("Na3VO4", true);
 
     public static final Material AmmoniumCarbonate = new Material.Builder(EVMain.id("ammonium_carbonate"))
             .color(AmmoniumSulfate.getMaterialRGB())
+            .dust()
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("(NH4)2CO3", true);
 
     public static final Material CadmiumSulfide = new Material.Builder(EVMain.id("cadmium_sulfide"))
             .color(0xffff00)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("CdS", true);
@@ -6975,7 +7004,6 @@ public class EVMaterials {
             .appendFlags(CORE_METAL)
             .blastTemp(11400)
             .buildAndRegister();
-
 
 
     public static final Material LithiumHydride = new Material.Builder(EVMain.id("lithium_hydride"))
@@ -7030,12 +7058,14 @@ public class EVMaterials {
 
     public static final Material FranciumCaesiumCadmiumBromide = new Material.Builder(EVMain.id("francium_caesium_cadmium_bromide"))
             .color((Francium.getMaterialRGB() + Caesium.getMaterialRGB() + Cadmium.getMaterialRGB() + Bromine.getMaterialRGB()) / 4)
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("FrCsCf2Br6");
 
     public static final Material ZincSelenide = new Material.Builder(EVMain.id("zinc_selenide"))
             .color(0xfcfc00)
+            .dust()
             .iconSet(MaterialIconSet.FINE)
             .buildAndRegister()
             .setFormula("ZnSe");
@@ -7083,6 +7113,7 @@ public class EVMaterials {
             .setFormula("C7H5IO4");
 
     public static final Material SodiumPertechnetate = new Material.Builder(EVMain.id("sodium_pertechnetate"))
+            .dust()
             .color(0x6162c4)
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
@@ -7090,6 +7121,7 @@ public class EVMaterials {
 
     public static final Material PotassiumPertechnate = new Material.Builder(EVMain.id("potassium_pertechnate"))
             .color(0xdec451)
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("KTcO4");
@@ -7142,6 +7174,7 @@ public class EVMaterials {
 
     public static final Material GermaniumSulfide = new Material.Builder(EVMain.id("germanium_sulfide"))
             .color(GermaniumOxide.getMaterialRGB())
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("GeS2", true);
@@ -7166,7 +7199,7 @@ public class EVMaterials {
 
     public static final Material CadmiumTungstate = new Material.Builder(EVMain.id("cadmium_tungstate"))
             .color(CalciumTungstate.getMaterialRGB())
-            .iconSet(MaterialIconSet.SHINY)
+            .iconSet(MaterialIconSet.SHINY).dust()
             .buildAndRegister()
             .setFormula("CdWO4", true);
 
@@ -7220,6 +7253,7 @@ public class EVMaterials {
 
     public static final Material SodiumPerchlorate = new Material.Builder(EVMain.id("sodium_perchlorate"))
             .color(Salt.getMaterialRGB())
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("NaClO4", true);
@@ -7603,6 +7637,7 @@ public class EVMaterials {
     public static final Material SilverIodide = new Material.Builder(EVMain.id("silver_iodide"))
             .color((SilverChloride.getMaterialRGB() * 2 + Iodine.getMaterialRGB()) / 3)
             .iconSet(MaterialIconSet.ROUGH).dust()
+            .dust()
             .buildAndRegister()
             .setFormula("AgI", true);
 
@@ -7638,6 +7673,7 @@ public class EVMaterials {
 
     public static final Material PureCrystallineNitricAcid = new Material.Builder(EVMain.id("pure_crystalline_nitric_acid"))
             .color(NitricAcid.getMaterialRGB())
+            .dust()
             .iconSet(MaterialIconSet.ROUGH).dust()
             .buildAndRegister()
             .setFormula("HNO3", true);

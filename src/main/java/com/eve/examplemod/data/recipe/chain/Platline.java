@@ -122,33 +122,32 @@ public class Platline {
                 .save(provider);
 
         /// todo oxygen ebf recipe
-        BLAST_RECIPES.recipeBuilder("platline_932893").duration(200).EUt(120).blastFurnaceTemp(1100)
-                .inputItems(dust, PlatinumResidue, 5)
-                .inputItems(dust, PotassiumDisulfate,5)
-                //.inputFluids(Oxygen.getFluid(1000))
-                //.inputFluids(Oxygen.getFluid(1000))
-
-                .outputItems(dust,LeachResidue, 4)
-                .outputFluids(RhodiumSulfate.getFluid(1000))
-                .circuitMeta(15)
-                .save(provider);
-
-// Ir2[REE]3 + K2S2O7 + O -> Ir2[REE]2 + K2SO4 + RhSO4
-//        BLAST_RECIPES.recipeBuilder("iridium_residue_disulfate_blast_0102983")
+//        BLAST_RECIPES.recipeBuilder("platline_test").duration(200).EUt(120).blastFurnaceTemp(1100)
 //                .inputItems(dust, PlatinumResidue, 5)
-//                .inputItems(dust, PotassiumDisulfate, 11)
-//                .inputFluids(Oxygen.getFluid(1000))
-//                .outputItems(dust, LeachResidue, 4)
-//                .outputItems(dust, PotassiumSulfate, 7)
+//                .inputItems(dust, PotassiumDisulfate,5)
+//                //.inputFluids(Oxygen.getFluid(1000))
+//                //.inputFluids(Oxygen.getFluid(1000))
+//                .outputItems(dust,LeachResidue, 4)
 //                .outputFluids(RhodiumSulfate.getFluid(1000))
-//                //.blastFurnaceTemp(775)
-//                .circuitMeta(2)
-//                .EUt(120)
-//                .duration(200)
+//                .circuitMeta(15)
 //                .save(provider);
 
+// Ir2[REE]3 + K2S2O7 + O -> Ir2[REE]2 + K2SO4 + RhSO4
+        BLAST_RECIPES.recipeBuilder("iridium_residue_disulfate_blast_0102983")
+                .inputItems(dust, PlatinumResidue, 5)
+                .inputItems(dust, PotassiumDisulfate, 11)
+                .inputFluids(Oxygen.getFluid(1000))
+                .outputItems(dust, LeachResidue, 4)
+                .outputItems(dust, PotassiumSulfate, 7)
+                .outputFluids(RhodiumSulfate.getFluid(1000))
+                //.blastFurnaceTemp(775)
+                .circuitMeta(2)
+                .EUt(120)
+                .duration(200)
+                .save(provider);
+
 // 3Na2CO3 + 10Ir2[REE]2 + 3O -> 6Ir2O2(SiO2)2Au3[REE] + 3Na2O4Ru + 3CO
-        BLAST_RECIPES.recipeBuilder("iridium_leach_blast_0111111")
+        BLAST_RECIPES.recipeBuilder("skibidtoilsdjahnkdasd")
                 .inputItems(dust, SodaAsh, 18)
                 .inputItems(dust, LeachResidue, 40)
                 .inputFluids(Oxygen.getFluid(3000))

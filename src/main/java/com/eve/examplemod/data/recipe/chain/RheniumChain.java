@@ -138,19 +138,19 @@ public class RheniumChain {
 
         // ? + ~7O -> 3? + MoO3
         BLAST_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
-                .inputItems(MolybdenumConcentrate, 4)
+                .inputItems(dust, MolybdenumConcentrate, 4)
                 .inputFluids(Oxygen.getFluid(7250))
                 .blastFurnaceTemp(8550)
                 .EUt(120)
                 .duration(340)
                 .outputFluids(MolybdenumFlue.getFluid(3000))
-                .outputItems(MolybdenumTrioxide, 4)
+                .outputItems(dust, MolybdenumTrioxide, 4)
                 .save(provider);
 
         // 6H + MoO3 -> Mo + 3H2O(steam)
         BLAST_RECIPES.recipeBuilder("rhenium_chain_" + chainNumber++)
                 .inputFluids(Hydrogen.getFluid(6000))
-                .inputItems(MolybdenumTrioxide, 4)
+                .inputItems(dust, MolybdenumTrioxide, 4)
                 .outputItems(dust, Molybdenum)
                 .outputFluids(Steam.getFluid(3000))
                 .blastFurnaceTemp(1000)
