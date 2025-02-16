@@ -9,7 +9,7 @@ plugins {
 def generatedResources = file("src/generated")
 
 mixin {
-    add sourceSets.main, 'create.refmap.json'
+    add sourceSets.main, 'examplemod.refmap.json'
 
     config 'examplemod.mixins.json'
 }
@@ -133,6 +133,9 @@ dependencies {
     runtimeOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
 
     implementation fg.deobf("curse.maven:ad-astra-635042:5914893")
+    implementation fg.deobf("curse.maven:resourceful-lib-570073:5659871")
+    implementation fg.deobf("curse.maven:resourceful-config-714059:5020441")
+    implementation fg.deobf("curse.maven:botarium-704113:5486070")
 
     implementation fg.deobf("curse.maven:time-in-a-bottle-universal-895919:4744787")
     implementation fg.deobf("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
