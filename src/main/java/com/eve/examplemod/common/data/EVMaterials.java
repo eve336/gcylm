@@ -6841,6 +6841,7 @@ public class EVMaterials {
             .setFormula("Pb(ScTa)O3", true);
 
     public static final Material BETS = new Material.Builder(EVMain.id("bets"))
+            .dust()
             .color(0x7ada00)
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
@@ -7038,6 +7039,7 @@ public class EVMaterials {
             .setFormula("LiNbO4");
 
     public static final Material LithiumHydroxide = new Material.Builder(EVMain.id("lithium_hydroxide"))
+            .dust()
             .color((Lithium.getMaterialRGB() + Oxygen.getMaterialRGB() + Hydrogen.getMaterialRGB()) / 3)
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()

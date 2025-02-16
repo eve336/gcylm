@@ -819,11 +819,11 @@ public class SuperconductorsSMDChain {
 
         // C2F4 + 2C4H4S2Li2Se2 -> C10H8S4Se4 + 4LiF
         BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(7920).EUt(120).blastFurnaceTemp(3500)
-                .inputItems(Lithiumthiinediselenide,28)
+                .inputItems(dust, Lithiumthiinediselenide,28)
                 .inputFluids(Tetrafluoroethylene.getFluid(1000))
                 .notConsumable(dust, TitaniumCyclopentadienyl)
                 .outputItems(dust, LithiumFluoride, 8)
-                .outputItems(BETS,26)
+                .outputItems(dust, BETS,26)
                 .save(provider);
 
         // This is correct

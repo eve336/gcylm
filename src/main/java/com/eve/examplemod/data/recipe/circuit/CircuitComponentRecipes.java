@@ -1316,19 +1316,19 @@ public class CircuitComponentRecipes {
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
                 .inputItems(dust, Carbon)
                 .inputFluids(Cerium.getFluid(1))
-                .chancedOutput(CARBON_FIBERS.get(),2, "1/8", 250)
+                .chancedOutput(CARBON_FIBERS.get(),4, "1/16", 125)
                 .save(provider);
 
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
                 .inputItems(dust, Carbon)
                 .inputFluids(Palladium.getFluid(1))
-                .chancedOutput(CARBON_FIBERS.get(),2, "3/4", 250)
+                .chancedOutput(CARBON_FIBERS.get(),4, "3/8", 125)
                 .save(provider);
 
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
                 .inputItems(dust, Carbon)
                 .inputFluids(Platinum.getFluid(1))
-                .chancedOutput(CARBON_FIBERS.get(),2, "7/10", 250)
+                .chancedOutput(CARBON_FIBERS.get(),4, "7/20", 125)
                 .save(provider);
 
         LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(10000)

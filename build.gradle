@@ -132,6 +132,8 @@ dependencies {
     runtimeOnly fg.deobf("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
     runtimeOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
 
+    implementation fg.deobf("curse.maven:ad-astra-635042:5914893")
+
     implementation fg.deobf("curse.maven:time-in-a-bottle-universal-895919:4744787")
     implementation fg.deobf("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
 

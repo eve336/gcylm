@@ -18,6 +18,7 @@ public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
 
     public final float restartSpeedPercent;
 
+    @Persisted
     @Getter
     public final int rampUpTime;
 
@@ -40,13 +41,25 @@ public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
         this.rampUpTime = rampUpTime;
         this.startingSpeedPercent = startingSpeedPercent1;
         this.restartSpeedPercent = restartSpeedPercent1;
-        ticks = (int) (rampUpTime * (startingSpeedPercent/100));
-        this.Speed = startingSpeedPercent /100;
     }
 
     @Override
     protected RecipeLogic createRecipeLogic(Object... args) {
         return new EfficiencyLogic(this);
+    }
+
+    @Override
+    public void onStructureFormed() {
+        ticks = (int) (rampUpTime * (startingSpeedPercent/100));
+        Speed = startingSpeedPercent/100;
+        super.onStructureFormed();
+    }
+
+    @Override
+    public void onStructureInvalid() {
+        ticks = (int) (rampUpTime * (startingSpeedPercent/100));
+        Speed = startingSpeedPercent/100;
+        super.onStructureInvalid();
     }
 
     @NotNull

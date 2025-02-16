@@ -179,6 +179,15 @@ public class Removal {
 
         // rhodium
         registry.accept(new ResourceLocation("gtceu:electrolyzer/rhodium_sulfate_separation"));
+
+        // pgs
+        List<String> list = List.of("pentlandite", "bornite", "cooperite", "chalcocite", "chalcopyrite", "tetrahedrite");
+        list.forEach(c -> {
+            registry.accept(new ResourceLocation("gtceu:chemical_reactor/pgs_from" + c));
+            registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/pgs_from" + c));
+        }
+
+);
     }
     public static void indium(Consumer<ResourceLocation> registry) {
         registry.accept(new ResourceLocation("gtceu:chemical_reactor/indium_concentrate_separation"));

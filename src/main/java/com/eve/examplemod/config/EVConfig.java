@@ -78,6 +78,10 @@ public class EVConfig {
     public boolean solarsWorkInNether = true;
 
     @Configurable
+    @Configurable.Comment("Whether or not blocks should break from a lack of oxygen if ad astra is installed.\nDefault = false")
+    public boolean adAstraBreaksBlocks = false;
+
+    @Configurable
     @Configurable.Comment({"Default = 20 seconds"})
     public int reactorMeltdownTime = 20;
 

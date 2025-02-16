@@ -121,17 +121,6 @@ public class Platline {
                 .duration(42)
                 .save(provider);
 
-        /// todo oxygen ebf recipe
-//        BLAST_RECIPES.recipeBuilder("platline_test").duration(200).EUt(120).blastFurnaceTemp(1100)
-//                .inputItems(dust, PlatinumResidue, 5)
-//                .inputItems(dust, PotassiumDisulfate,5)
-//                //.inputFluids(Oxygen.getFluid(1000))
-//                //.inputFluids(Oxygen.getFluid(1000))
-//                .outputItems(dust,LeachResidue, 4)
-//                .outputFluids(RhodiumSulfate.getFluid(1000))
-//                .circuitMeta(15)
-//                .save(provider);
-
 // Ir2[REE]3 + K2S2O7 + O -> Ir2[REE]2 + K2SO4 + RhSO4
         BLAST_RECIPES.recipeBuilder("iridium_residue_disulfate_blast_0102983")
                 .inputItems(dust, PlatinumResidue, 5)
