@@ -132,15 +132,15 @@ dependencies {
     runtimeOnly fg.deobf("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
     runtimeOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
 
-    implementation fg.deobf("curse.maven:ad-astra-635042:5914893")
-    implementation fg.deobf("curse.maven:resourceful-lib-570073:5659871")
-    implementation fg.deobf("curse.maven:resourceful-config-714059:5020441")
-    implementation fg.deobf("curse.maven:botarium-704113:5486070")
+    implementation fg.deobf("curse.maven:ad-astra-635042:${adastra_version}")
+    implementation fg.deobf("curse.maven:resourceful-lib-570073:${resourcefullib_version}")
+    implementation fg.deobf("curse.maven:resourceful-config-714059:${resourcefulconfig_version}")
+    implementation fg.deobf("curse.maven:botarium-704113:${botarium_version}")
 
-    implementation fg.deobf("curse.maven:time-in-a-bottle-universal-895919:4744787")
+    implementation fg.deobf("curse.maven:time-in-a-bottle-universal-895919:${tiab_version}")
     implementation fg.deobf("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
 
-    implementation fg.deobf("curse.maven:applied-energistics-2-223794:4997114")
+    implementation fg.deobf("curse.maven:applied-energistics-2-223794:${ae2_version}")
 
     // implementation fg.deobf("curse.maven:ae2-things-forge-609977:4616683")
 
