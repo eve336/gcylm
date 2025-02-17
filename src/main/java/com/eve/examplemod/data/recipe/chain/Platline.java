@@ -171,13 +171,13 @@ public class Platline {
 
 // PlatinumConcentrate + AmmoniumChloride -> PlatinumSalt
         LARGE_CHEMICAL_RECIPES.recipeBuilder("platinum_concentrate_ammonium_chloride_014")
-                .inputFluids(PlatinumConcentrate.getFluid(2000))
-                .inputFluids(AmmoniumChloride.getFluid(200))
-                .chancedOutput(dust, PlatinumSalt, 10, "1/4", 0)
-                .outputItems(dust, PlatinumRawPowder, 2)
-                .outputFluids(PalladiumAmmonia.getFluid(200))
-                .outputFluids(NitricAcid.getFluid(1000))
-                .outputFluids(Hydrogen.getFluid(1200))
+                .inputFluids(PlatinumConcentrate.getFluid(8000))
+                .inputFluids(AmmoniumChloride.getFluid(800))
+                .outputItems(dust, PlatinumSalt, 10)
+                .outputItems(dust, PlatinumRawPowder, 8)
+                .outputFluids(PalladiumAmmonia.getFluid(800))
+                .outputFluids(NitricAcid.getFluid(4000))
+                .outputFluids(Hydrogen.getFluid(4800))
                 .EUt(30)
                 .duration(1200)
                 .save(provider);
@@ -255,7 +255,7 @@ public class Platline {
                 .outputFluids(Ammonia.getFluid(3000))
                 .outputFluids(AceticAcid.getFluid(1000))
                 .outputItems(dust, Palladium, 2)
-                .EUt(1920)
+                .EUt(240)
                 .duration(300)
                 .save(provider);
     }

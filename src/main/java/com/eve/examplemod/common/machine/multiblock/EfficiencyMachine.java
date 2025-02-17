@@ -36,12 +36,12 @@ public class EfficiencyMachine extends WorkableElectricMultiblockMachine {
         throw new IllegalArgumentException("EfficiencyMachine need args [rampuptime, startspeedpercent, restartspeedpercent] for initialization");
     }
 
-//    @Override
-//    public void onStructureInvalid() {
-//        getRecipeLogic().ticks = (int) (rampUpTime * (startingSpeedPercent/100));
-//        getRecipeLogic().Speed = startingSpeedPercent/100;
-//        super.onStructureInvalid();
-//    }
+    @Override
+    public void onStructureInvalid() {
+        getRecipeLogic().ticks = (int) (getRecipeLogic().rampUpTime * (getRecipeLogic().startingSpeedPercent/100));
+        getRecipeLogic().Speed = getRecipeLogic().startingSpeedPercent/100;
+        super.onStructureInvalid();
+    }
 
     @Override
     public void addDisplayText(List<Component> textList) {

@@ -1,8 +1,9 @@
 package com.eve.examplemod.common.data.machines;
 
 import com.eve.examplemod.api.registries.EVRegistries;
-import com.eve.examplemod.common.machine.multiblock.EfficiencyMachine;
+import com.eve.examplemod.common.data.EVRecipeModifiers;
 import com.eve.examplemod.common.machine.multiblock.InfiniteFluidDrillMachine;
+import com.eve.examplemod.common.machine.multiblock.LargeChemicalReactor2;
 import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -74,13 +75,13 @@ public class EVMultiMachines {
             MV, HV, EV);
 
     public static final MultiblockMachineDefinition EV_CHEMICAL_REACTOR = REGISTRATE
-            .multiblock("ev_chemical_reactor", holder -> new EfficiencyMachine(holder, 4500, 10, 2))
+            .multiblock("ev_chemical_reactor", holder -> new LargeChemicalReactor2(holder, 4500, 10, 2))
             .rotationState(RotationState.ALL)
             .langValue("Large Chemical Reactor")
             .tooltips(Component.translatable("examplemod.chemical_reactor.tooltip"))
             .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
             .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
-                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK_SUBTICK))
+                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK_SUBTICK), EVRecipeModifiers::lcrOverclock)
             .appearanceBlock(CASING_PTFE_INERT)
             .pattern(definition -> {
                 var casing = blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
@@ -93,7 +94,7 @@ public class EVMultiMachines {
                         .where('S', Predicates.controller(blocks(definition.getBlock())))
                         .where('X', casing.or(abilities))
                         .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
-                        .where('C', blocks(COIL_CUPRONICKEL.get()).setExactLimit(1)
+                        .where('C', heatingCoils().setExactLimit(1)
                                 .or(abilities)
                                 .or(casing))
                         .build();
@@ -112,27 +113,27 @@ public class EVMultiMachines {
                         .where('M', MAINTENANCE_HATCH, Direction.NORTH)
                         .where('H', FLUID_EXPORT_HATCH[3], Direction.NORTH);
                 shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("IXO", "FSH", "XXX")
                         .aisle("XXX", "XPX", "XXX")
                         .aisle("XEX", "XCX", "XXX")
                         .build());
                 shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("IXO", "FSH", "XXX")
                         .aisle("XXX", "XPX", "XCX")
                         .aisle("XEX", "XXX", "XXX")
                         .build());
                 shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("IXO", "FSH", "XXX")
                         .aisle("XCX", "XPX", "XXX")
                         .aisle("XEX", "XXX", "XXX")
                         .build());
                 shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("IXO", "FSH", "XXX")
                         .aisle("XXX", "CPX", "XXX")
                         .aisle("XEX", "XXX", "XXX")
                         .build());
                 shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("IXO", "FSH", "XXX")
                         .aisle("XXX", "XPC", "XXX")
                         .aisle("XEX", "XXX", "XXX")
                         .build());
