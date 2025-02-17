@@ -13,30 +13,40 @@ import lombok.Setter;
 
 public class EfficiencyLogic extends RecipeLogic {
     public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(EfficiencyLogic.class, RecipeLogic.MANAGED_FIELD_HOLDER);
+
     @Persisted
     public float Speed;
     @Persisted
     public int ticks;
+
+    public final float startingSpeedPercent;
+
+    public final float restartSpeedPercent;
+
+    public final int rampUpTime;
+
     @Override
     public EfficiencyMachine getMachine() {
         return (EfficiencyMachine) super.getMachine();
     }
+
     @Persisted
     GTRecipe cacheRecipe;
 
 
-    public EfficiencyLogic(IRecipeLogicMachine machine) {
+    public EfficiencyLogic(IRecipeLogicMachine machine, int a, float b, float c) {
         super(machine);
-        Speed = getMachine().startingSpeedPercent/100;
-        ticks = (int) (getMachine().rampUpTime * (getMachine().startingSpeedPercent/100));
+        this.rampUpTime = a;
+        this.startingSpeedPercent = b;
+        this.restartSpeedPercent = c;
+        Speed = startingSpeedPercent/100;
+        ticks = (int) (rampUpTime * (startingSpeedPercent/100));
     }
 
     @Override
     public ManagedFieldHolder getFieldHolder() {
         return MANAGED_FIELD_HOLDER;
     }
-
-
 
     @Override
     public void setupRecipe(GTRecipe recipe) {
@@ -53,7 +63,7 @@ public class EfficiencyLogic extends RecipeLogic {
                 // idk how to check the last recipe ran (lastRecipe appears to get cleared when the machine isnt running or something)
                 if (lastRecipe != null && !recipe.equals(lastRecipe) || cacheRecipe != null && !recipe.equals(cacheRecipe)) {
                     chanceCaches.clear();
-                    ticks = ((int) (getMachine().rampUpTime * (getMachine().restartSpeedPercent/100)));
+                    ticks = ((int) (rampUpTime * (restartSpeedPercent/100)));
                 }
                 recipeDirty = false;
                 lastRecipe = recipe;
