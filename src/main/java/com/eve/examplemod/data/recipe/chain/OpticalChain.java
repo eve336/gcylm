@@ -239,8 +239,8 @@ public class OpticalChain {
         // MgO + NH4HF2 -> MgF2 + NH3 + H2O
         CHEMICAL_RECIPES.recipeBuilder("optical_chain_" + chainNumber++).duration(100).EUt(120)
                 .inputItems(dust, Magnesia, 2)
-                .inputItems(AmmoniumBifluoride, 8)
-                .outputItems(MagnesiumFluoride, 3)
+                .inputItems(dust, AmmoniumBifluoride, 8)
+                .outputItems(dust, MagnesiumFluoride, 3)
                 .outputFluids(Ammonia.getFluid(1000))
                 .outputFluids(Water.getFluid(1000))
                 .save(provider);

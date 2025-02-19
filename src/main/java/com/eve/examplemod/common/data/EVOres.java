@@ -16,13 +16,14 @@ public class EVOres {
 
     public static final GTOreDefinition NETHER_PRECIOUS_METAL = create(EVMain.id("nether_precious_metal"), vein -> vein
             .clusterSize(UniformInt.of(25, 29))
-            .density(0.2F).weight(120)
+            .density(0.3F).weight(120)
             .layer(WorldGenLayers.NETHERRACK)
             .heightRangeUniform(10, 120)
             .biomes(BiomeTags.IS_NETHER)
             .layeredVeinGenerator(generator -> generator.withLayerPattern(() -> GTLayerPattern.builder(NETHER_RULES)
                     .layer(l -> l.weight(15).mat(PreciousMetal).size(1, 4))
                     .layer(l -> l.weight(15).mat(Iron).size(1, 4))
+                    .layer(l -> l.weight(12).mat(Silver).size(1, 4))
                     .layer(l -> l.weight(1).mat(Gold).size(1, 1))
                     .build()))
             .surfaceIndicatorGenerator(indicator -> indicator

@@ -1,13 +1,8 @@
 package com.eve.examplemod.common.data;
 
-import com.gregtechceu.gtceu.GTCEu;
-import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.crafting.RecipeType;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 
@@ -64,6 +59,9 @@ public class EVRecipeTypes {
 
     public static final GTRecipeType HARVESTER_RECIPES = GTRecipeTypes.register("harvester", ELECTRIC)
             .setMaxIOSize(1,4,0,0);
+
+    public static final GTRecipeType DESULFURISER_RECIPES = GTRecipeTypes.register("desulfuriser", MULTIBLOCK)
+            .setMaxIOSize(0,0,2,2);
 
 //    public static GTRecipeType register(String name, String group, RecipeType<?>... proxyRecipes) {
 //        var recipeType = new GTRecipeType(GTCEu.id(name), group, proxyRecipes);

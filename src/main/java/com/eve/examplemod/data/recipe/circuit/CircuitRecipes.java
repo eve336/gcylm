@@ -258,7 +258,7 @@ public class CircuitRecipes {
                 .inputItems(QUANTUM_EYE)
                 .inputItems(POWER_INTEGRATED_CIRCUIT, 4)
                 .inputItems(MULTILAYER_FIBER_BOARD)
-                .inputItems(wireGtSingle, IVSuperconductor, 2)
+                .inputItems(wireGtSingle, IndiumTinBariumTitaniumCuprate, 2)
                 .outputItems(QUANTUM_COMPUTER_LuV, 1)
                 .save(provider);
 
@@ -271,7 +271,7 @@ public class CircuitRecipes {
                 .inputItems(POWER_INTEGRATED_CIRCUIT, 8)
                 .inputItems(QUANTUM_STAR)
                 .inputItems(frameGt, TungstenSteel, 4)
-                .inputItems(wireGtSingle, IVSuperconductor, 16)
+                .inputItems(wireGtSingle, IndiumTinBariumTitaniumCuprate, 16)
                 .outputItems(QUANTUM_MAINFRAME_ZPM, 1)
                 .save(provider);
     }

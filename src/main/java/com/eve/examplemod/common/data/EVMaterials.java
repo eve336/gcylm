@@ -6934,6 +6934,7 @@ public class EVMaterials {
 
     public static final Material AmmoniumBifluoride = new Material.Builder(EVMain.id("ammonium_bifluoride"))
             .color(0x20cfcf)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("NH4HF2", true);
@@ -7027,6 +7028,7 @@ public class EVMaterials {
 
     public static final Material MagnesiumFluoride = new Material.Builder(EVMain.id("magnesium_fluoride"))
             .color(0xcfcfcf)
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("MgF2");

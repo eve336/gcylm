@@ -2,16 +2,21 @@ package com.eve.examplemod.common.data.machines;
 
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.EVRecipeModifiers;
+import com.eve.examplemod.common.data.EVRecipeTypes;
 import com.eve.examplemod.common.machine.multiblock.InfiniteFluidDrillMachine;
 import com.eve.examplemod.common.machine.multiblock.LargeChemicalReactor2;
 import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
+import com.gregtechceu.gtceu.api.machine.multiblock.CoilWorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
+import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
@@ -35,6 +40,8 @@ import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.NaquadahAlloy;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.StainlessSteel;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
 
 public class EVMultiMachines {
@@ -99,6 +106,7 @@ public class EVMultiMachines {
                                 .or(casing))
                         .build();
             })
+
             .shapeInfos(definition -> {
                 ArrayList<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
                 var baseBuilder = MultiblockShapeInfo.builder()
@@ -165,6 +173,51 @@ public class EVMultiMachines {
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_primitive_bricks"),
                     GTCEu.id("block/multiblock/primitive_blast_furnace"))
+            .register();
+
+
+    // todo i dont know i kinda wanna change it bc its ugly as all hell
+    public static final MultiblockMachineDefinition DESULFURISER = REGISTRATE
+            .multiblock("desulfuriser", WorkableElectricMultiblockMachine::new)
+            .rotationState(RotationState.ALL)
+            .langValue("Desulfuriser")
+            .recipeType(EVRecipeTypes.DESULFURISER_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
+                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK_SUBTICK))
+            .appearanceBlock(CASING_STAINLESS_CLEAN)
+            .pattern(definition -> {
+                var casing = blocks(CASING_STAINLESS_CLEAN.get()).setMinGlobalLimited(10);
+                var abilities = Predicates.autoAbilities(definition.getRecipeTypes())
+                        .or(Predicates.autoAbilities(false, false, false));
+                return FactoryBlockPattern.start()
+                        .aisle("FF", "PP", "XX", "XX", "XX")
+                        .aisle("FF", "SP", "XX", "XX", "XX")
+                        .where('S', Predicates.controller(blocks(definition.getBlock())))
+                        .where('X', casing.or(abilities))
+                        .where('P', blocks(CASING_STEEL_PIPE.get()))
+                        .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, StainlessSteel)))
+//                        .where('C', heatingCoils().setExactLimit(1)
+//                                .or(abilities)
+//                                .or(casing))
+                        .build();
+            })
+            .shapeInfos(definition -> {
+                ArrayList<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
+                var baseBuilder = MultiblockShapeInfo.builder()
+                        .where('S', definition, Direction.NORTH)
+                        .where('X', CASING_STAINLESS_CLEAN.getDefaultState())
+                        .where('P', CASING_STEEL_PIPE.getDefaultState())
+                        .where('E', ENERGY_INPUT_HATCH[3], Direction.NORTH)
+                        .where('I', FLUID_IMPORT_HATCH[3], Direction.NORTH)
+                        .where('H', FLUID_EXPORT_HATCH[3], Direction.NORTH);
+                shapeInfo.add(baseBuilder.shallowCopy()
+                        .aisle("FF", "PP", "IX", "EX", "XX")
+                        .aisle("FF", "SP", "HX", "XX", "XX")
+                        .build());
+                return shapeInfo;
+            })
+            .workableCasingRenderer(GTCEu.id("block/casings/pipe/machine_casing_pipe_steel"),
+                    GTCEu.id("block/multiblock/distillation_tower"))
             .register();
 
     

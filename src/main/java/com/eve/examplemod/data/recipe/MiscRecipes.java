@@ -47,7 +47,7 @@ public class MiscRecipes {
                     'T', PRIMITIVE_BLAST_FURNACE.asStack());
 
 
-        VanillaRecipeHelper.addShapedRecipe(provider, true, id("emitter_ev"),
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("ev_emitter_ev"),
                 GTItems.EMITTER_EV.asStack(),
                 "WRC",
                 "RER",
@@ -75,7 +75,7 @@ public class MiscRecipes {
                 "TWR",
                 "WMW",
                 "RWT",
-                'W', ChemicalHelper.get(wireGtQuadruple, BrightSteel),
+                'W', ChemicalHelper.get(wireGtDouble, BrightSteel),
                 'T', ChemicalHelper.get(cableGtSingle, Tungsten),
                 'R', ChemicalHelper.get(rod, TungstenSteel),
                 'M', ChemicalHelper.get(rod, NeodymiumMagnetic));
@@ -89,7 +89,7 @@ public class MiscRecipes {
                 .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("iv_electric_motor").EUt(7680).duration(100)
-                .inputItems(ChemicalHelper.get(wireGtQuadruple, BrightSteel), 4)
+                .inputItems(ChemicalHelper.get(wireGtDouble, BrightSteel), 4)
                 .inputItems(ChemicalHelper.get(rod, TungstenSteel), 2)
                 .inputItems( ChemicalHelper.get(cableGtSingle, Tungsten), 2)
                 .inputItems(ChemicalHelper.get(rod, NeodymiumMagnetic))
