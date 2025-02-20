@@ -15,6 +15,7 @@ import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
+import static com.gregtechceu.gtceu.common.data.GTMachines.PUMP;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
 
@@ -34,7 +35,7 @@ public class Machines {
                 .outputItems(EVMultiMachines.INFINITE_FLUID_DRILLING_RIG[MV])
                 .duration(400).EUt(VA[MV]).save(provider);
 
-        VanillaRecipeHelper.addShapedRecipe(provider, true, id("emitter_ev"),
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("ev_large_chemical_reactor"),
                 EVMultiMachines.EV_CHEMICAL_REACTOR.asStack(),
                 "CRC",
                 "PMP",
@@ -42,6 +43,17 @@ public class Machines {
                 'M', CraftingComponent.MOTOR.getIngredient(HV),
                 'R', ChemicalHelper.get(rotor, StainlessSteel),
                 'P', ChemicalHelper.get(pipeLargeFluid, Polytetrafluoroethylene),
+                'H', HULL[HV].asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.HV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("desulfuriser"),
+                EVMultiMachines.DESULFURISER.asStack(),
+                "SPS",
+                "CHC",
+                "RPR",
+                'S', ChemicalHelper.get(plate, Steel),
+                'P', ChemicalHelper.get(pipeLargeFluid, StainlessSteel),
+                'R', EVCraftingComponent.PUMP.getIngredient(HV),
                 'H', HULL[HV].asStack(),
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.HV));
 
@@ -54,7 +66,7 @@ public class Machines {
         // s, sensor which needs platinum
         // d, diamond grinding head
         // c, ev circuit
-        // idk just make it somewhat cheap but require platinum from batching platline or just making it
+        // idk just make it somewhat cheap but require platinum from batching platline or just making platline outright
 
         // drill 2
         // sensor needs osmium rod

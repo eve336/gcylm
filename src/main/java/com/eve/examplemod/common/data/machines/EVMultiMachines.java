@@ -209,19 +209,17 @@ public class EVMultiMachines {
                         .where('P', CASING_STEEL_PIPE.getDefaultState())
                         .where('E', ENERGY_INPUT_HATCH[3], Direction.NORTH)
                         .where('I', FLUID_IMPORT_HATCH[3], Direction.NORTH)
+                        .where('F', ChemicalHelper.getBlock(TagPrefix.frameGt, StainlessSteel))
                         .where('H', FLUID_EXPORT_HATCH[3], Direction.NORTH);
                 shapeInfo.add(baseBuilder.shallowCopy()
-                        .aisle("FF", "PP", "IX", "EX", "XX")
-                        .aisle("FF", "SP", "HX", "XX", "XX")
+                        .aisle("FF", "SP", "IH", "EX", "XX")
+                        .aisle("FF", "PP", "XX", "XX", "XX")
                         .build());
                 return shapeInfo;
             })
             .workableCasingRenderer(GTCEu.id("block/casings/pipe/machine_casing_pipe_steel"),
                     GTCEu.id("block/multiblock/distillation_tower"))
             .register();
-
-    
-
 
     public static MultiblockMachineDefinition[] registerTieredMultis(String name,
                                                                      BiFunction<IMachineBlockEntity, Integer, MultiblockControllerMachine> factory,
