@@ -192,7 +192,7 @@ public class CircuitRecipes {
                 .save(provider);
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("evnano_processor_assembly_ev_variant").duration(100).EUt(2000)
-                .inputItems(NANO_PROCESSOR_HV, 3)
+                .inputItems(NANO_PROCESSOR_HV, 2)
                 .inputItems(SMD_CAPACITOR_NANO, 4)
                 .inputItems(SMD_RESISTOR_NANO, 4)
                 .inputItems(NANO_CENTRAL_PROCESSING_UNIT, 2)

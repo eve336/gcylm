@@ -69,11 +69,12 @@ public class Cables {
 
         // Polyethylene Recipe (ULV-EV cables)
         if (voltageTier <= EV) {
+            Map map = Map.of(0, "_pvc", 1, "_silicone");
             for (int i = 0; i < 2; i++) {
 
 
                 builder = ASSEMBLER_RECIPES
-                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_polyethylene")
+                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_polyethylene" + map.get(i))
                         .EUt(VA[ULV]).duration(100)
                         .inputItems(wirePrefix, material)
                         .outputItems(cablePrefix, material)
@@ -87,7 +88,7 @@ public class Cables {
 
 
                 builder = ASSEMBLER_RECIPES
-                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_rubber")
+                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_rubber"+ map.get(i))
                         .EUt(VA[ULV]).duration(100)
                         .inputItems(wirePrefix, material)
                         .outputItems(cablePrefix, material)

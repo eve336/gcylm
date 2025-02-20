@@ -97,9 +97,9 @@ public class TriniumChain {
                 .inputFluids(Fluorine.getFluid(44000))
                 .inputFluids(HydrochloricAcid.getFluid(1000))
                 .inputFluids(Trimethylsilane.getFluid(1000))
-                .outputItems(Fluorocarborane,50)
-                .outputItems(CaesiumNitrate,10)
-                .outputItems(SilverIodide,4)
+                .outputItems(dust, Fluorocarborane,50)
+                .outputItems(dust, CaesiumNitrate,10)
+                .outputItems(dust, SilverIodide,4)
                 .outputFluids(HydrofluoricAcid.getFluid(22000))
                 .outputFluids(Trimethylchlorosilane.getFluid(1000))
                 .save(provider);
@@ -108,7 +108,7 @@ public class TriniumChain {
         CHEMICAL_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(150).EUt(125)
                 .inputItems(dust, Silver)
                 .inputFluids(NitricAcid.getFluid(2000))
-                .outputItems(SilverNitrate,5)
+                .outputItems(dust, SilverNitrate,5)
                 .outputFluids(NitrogenDioxide.getFluid(1000))
                 .outputFluids(Water.getFluid(1000))
                 .save(provider);
@@ -117,12 +117,12 @@ public class TriniumChain {
         CHEMICAL_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(150).EUt(125)
                 .inputItems(dust, SilverOxide, 3)
                 .inputFluids(NitricAcid.getFluid(2000))
-                .outputItems(SilverNitrate,10)
+                .outputItems(dust, SilverNitrate,10)
                 .outputFluids(Water.getFluid(1000))
                 .save(provider);
 
         ELECTROLYZER_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(175).EUt(30)
-                .inputItems(CaesiumNitrate,5)
+                .inputItems(dust, CaesiumNitrate,5)
                 .outputItems(dust, Caesium)
                 .outputFluids(Nitrogen.getFluid(1000))
                 .outputFluids(Oxygen.getFluid(3000))
@@ -192,8 +192,8 @@ public class TriniumChain {
 
         ASSEMBLER_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(350).EUt(32750)
                 .inputItems(wireFine, CarbonNanotubes,6)
-                .inputItems(Fullerene)
-                .inputItems(Fluorocarborane,125)
+                .inputItems(dust, Fullerene)
+                .inputItems(dust, Fluorocarborane,125)
                 .inputFluids(Perfluorobenzene.getFluid(2000))
                 .outputItems(PROTONATED_FULLERENE_SIEVING_MATRIX)
                 .save(provider);
@@ -294,12 +294,12 @@ public class TriniumChain {
         BLAST_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(190).EUt(500).blastFurnaceTemp(900)
                 .inputItems(dust, Phosphorus, 4)
                 .inputItems(dust, Sulfur, 10)
-                .outputItems(PhosphorousPentasulfide,14)
+                .outputItems(dust, PhosphorousPentasulfide,14)
                 .save(provider);
 
         //P4S10 + 10 C4H6O2 + 10 C2H3OCl -> P4O10 + 10 C6H6SO + 10 [HCl + H2O]
         CHEMICAL_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(210).EUt(500)
-                .inputItems(PhosphorousPentasulfide,7)
+                .inputItems(dust, PhosphorousPentasulfide,7)
                 .inputFluids(Succinaldehyde.getFluid(5000))
                 .inputFluids(AcetylChloride.getFluid(5000))
                 .outputFluids(Acetothienone.getFluid(5000))
@@ -309,7 +309,7 @@ public class TriniumChain {
 
         //C2H5ONa + C6H6SO + C4H5F3O2 + HCl -> NaCl + 2 C2H5OH + C8H5F3O2S
         CHEMICAL_RECIPES.recipeBuilder("trinium_chain_" + chainNumber++).duration(220).EUt(1000)
-                .inputItems(SodiumEthoxide,9)
+                .inputItems(dust, SodiumEthoxide,9)
                 .inputFluids(EthylTrifluoroacetate.getFluid(1000))
                 .inputFluids(Acetothienone.getFluid(1000))
                 .inputFluids(HydrochloricAcid.getFluid(1000))
@@ -329,10 +329,10 @@ public class TriniumChain {
                 .notConsumableFluid(TheonylTrifluoroacetate.getFluid(500))
                 .outputItems(dust, ActiniumNitrate,26)
                 .outputItems(dust, RadiumNitrate,27)
-                .outputItems(dustSmall, Thorium)
-                .outputItems(dustSmall, Protactinium)
-                .outputItems(dustSmall, Francium)
-                .outputItems(dustSmall, Radium)
+                .chancedOutput(dust, Thorium, 2500, 0)
+                .chancedOutput(dust, Protactinium,2500, 0)
+                .chancedOutput(dust, Francium,2500, 0)
+                .chancedOutput(dust, Radium,2500, 0)
                 .outputFluids(Water.getFluid(13000))
                 .save(provider);
 

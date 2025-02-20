@@ -1322,7 +1322,7 @@ public class CircuitComponentRecipes {
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)
                 .inputItems(dust, Carbon)
                 .inputFluids(Palladium.getFluid(1))
-                .chancedOutput(CARBON_FIBERS.get(),4, "3/8", 125)
+                .chancedOutput(CARBON_FIBERS.get(),4, "1/2", 125)
                 .save(provider);
 
         AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(150).EUt(6)

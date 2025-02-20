@@ -46,6 +46,8 @@ public class EVMaterials {
 
         Rutile.setProperty(PropertyKey.ORE, new OreProperty());
 
+        Topaz.addFlags(GENERATE_LENS);
+
 
         NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium, 1));
         NaquadahAlloy.setFormula("Nq2(Ir3Os)");
@@ -6916,6 +6918,7 @@ public class EVMaterials {
 
     public static final Material Urea = new Material.Builder(EVMain.id("urea"))
             .color(0x30cf20)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("CH4N2O", true);
@@ -6986,6 +6989,7 @@ public class EVMaterials {
 
     public static final Material LuTmYVOPrecipitate = new Material.Builder(EVMain.id("lutm_yvo_precipitate"))
             .color(0xcf8acf)
+            .dust()
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("Lu/Tm:YVO?", true);
@@ -7036,6 +7040,7 @@ public class EVMaterials {
 
     public static final Material LithiumNiobateNanoparticles = new Material.Builder(EVMain.id("lithium_niobate_nanoparticles"))
             .color(LithiumNiobate.getMaterialRGB() - 10)
+            .dust()
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("LiNbO4");
