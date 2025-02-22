@@ -100,8 +100,9 @@ public class CircuitComponentRecipes {
                 .outputItems(SMD_TRANSISTOR_MICRO,32)
                 .save(provider);
 
+        // changed from pplaadaim to platinym because i already set my modpack questbook in stone and i dont wanto to put in the effort to change it and my quest book looks nice as is
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(494)
-                .inputItems(wireFine, Palladium, 12)
+                .inputItems(wireFine, Platinum, 16)
                 .inputItems(plate, Magnalium)
                 .inputFluids(Polyethylene.getFluid(L))
                 .outputItems(SMD_TRANSISTOR_NANO,32)
@@ -125,14 +126,11 @@ public class CircuitComponentRecipes {
 
         // Diode
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(120)
-                .inputItems(wireFine, ReinforcedEpoxyResin, 8)
+                .inputItems(wireFine, Titanium, 8)
                 .inputItems(dust, Caesium)
                 .inputFluids(Polyethylene.getFluid(L))
                 .outputItems(SMD_DIODE_NANO,32)
                 .save(provider);
-
-
-
 
 
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(80).EUt(1976)
@@ -194,7 +192,7 @@ public class CircuitComponentRecipes {
         // SMD Diode
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(600).EUt(1920)
                 .inputItems(wireFine, HSSS, 8)
-                .inputItems(GermaniumSulfide)
+                .inputItems(dust, GermaniumSulfide)
                 .inputFluids(Polyethylene.getFluid(L))
                 .outputItems(SMD_DIODE_CRYSTAL,32)
                 .save(provider);

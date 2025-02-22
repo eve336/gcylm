@@ -186,8 +186,8 @@ public class EVMultiMachines {
                     GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK_SUBTICK))
             .appearanceBlock(CASING_STAINLESS_CLEAN)
             .pattern(definition -> {
-                var casing = blocks(CASING_STAINLESS_CLEAN.get()).setMinGlobalLimited(10);
-                var abilities = Predicates.autoAbilities(definition.getRecipeTypes())
+                var casing = blocks(CASING_STAINLESS_CLEAN.get()).setMinGlobalLimited(4);
+                var abilities = Predicates.autoAbilities(definition.getRecipeTypes()).or(abilities(PartAbility.INPUT_ENERGY))
                         .or(Predicates.autoAbilities(false, false, false));
                 return FactoryBlockPattern.start()
                         .aisle("FF", "PP", "XX", "XX", "XX")

@@ -161,6 +161,11 @@ public class Machines {
             VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier] + "_energy_hatch", ENERGY_INPUT_HATCH[tier].asStack(), HULL[tier].asStack(), CraftingComponent.CABLE.getIngredient(tier));
         }
 
+//        for (int tier = 0; tier < ENERGY_OUTPUT_HATCH.length; tier++){
+//
+//            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier] + "_energy_hatch", ENERGY_INPUT_HATCH[tier].asStack(), HULL[tier].asStack(), CraftingComponent.CABLE.getIngredient(tier));
+//        }
+
         for (int tier = 0; tier < EVMachines.ROBOT_ARM_COMPONENT.length; tier++){
 
             ASSEMBLER_RECIPES.recipeBuilder(GTValues.VN[tier].toLowerCase() + "_robot_arm_component")

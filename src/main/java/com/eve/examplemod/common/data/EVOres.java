@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.data.worldgen.GTLayerPattern;
 import com.gregtechceu.gtceu.api.data.worldgen.GTOreDefinition;
 import com.gregtechceu.gtceu.api.data.worldgen.WorldGenLayers;
 import com.gregtechceu.gtceu.api.data.worldgen.generator.indicators.SurfaceIndicatorGenerator;
+import com.gregtechceu.gtceu.api.data.worldgen.generator.veins.DikeVeinGenerator;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.valueproviders.UniformInt;
 
@@ -123,7 +124,24 @@ public class EVOres {
                             .build())
             )
             .surfaceIndicatorGenerator(indicator -> indicator
-                    .surfaceRock(Copper)
+                    .surfaceRock(Iron)
+                    .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
+    public static final GTOreDefinition MAGNESITE_VEIN = create(EVMain.id("magnesite_vein"), vein -> vein
+            .clusterSize(UniformInt.of(32, 47)).density(0.53f).weight(70)
+            .layer(WorldGenLayers.STONE)
+            .heightRangeUniform(30, 50)
+            .biomes(BiomeTags.IS_OVERWORLD)
+            .layeredVeinGenerator(generator -> generator
+                    .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
+                            .layer(l -> l.weight(6).mat(Magnesite).size(1, 3))
+                            .layer(l -> l.weight(4).mat(Bentonite).size(1, 3))
+                            .layer(l -> l.weight(3).mat(Olivine).size(1, 3))
+                            .build())
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator
+                    .surfaceRock(Magnesite)
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 
@@ -170,6 +188,19 @@ public class EVOres {
                             .build())).surfaceIndicatorGenerator(indicator -> indicator
                     .surfaceRock(Barite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
+
+    public static final GTOreDefinition SCHEELITE_VEIN = create(EVMain.id("tungstate_vein"), vein -> vein
+            .clusterSize(UniformInt.of(60, 76)).density(0.8F).weight(20)
+            .layer(WorldGenLayers.ENDSTONE)
+            .heightRangeUniform(20, 60)
+            .biomes(BiomeTags.IS_END)
+            .dikeVeinGenerator(generator -> generator
+                    .withBlock(new DikeVeinGenerator.DikeBlockDefinition(Scheelite, 3, 20, 60))
+                    .withBlock(new DikeVeinGenerator.DikeBlockDefinition(Tungstate, 2, 30, 55))
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator.surfaceRock(Scheelite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
 
 
     public static void init(){

@@ -14,6 +14,7 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLY_LINE_RECI
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CIRCUIT_ASSEMBLER_RECIPES;
 
 public class CircuitRecipes {
+    // a few of these recipes are very slightly balanced to be a little cheaper and use different materials, kubejs to change them to your liking
     public static void init(Consumer<FinishedRecipe> provider) {
         refined(provider);
         micro(provider);
@@ -180,7 +181,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_TRANSISTOR_NANO, 4)
                 .inputItems(SMD_CAPACITOR_NANO, 4)
                 .inputItems(EXTREME_CIRCUIT_BOARD, 1)
-                .inputItems(NANO_CENTRAL_PROCESSING_UNIT, 12)
+                .inputItems(NANO_CENTRAL_PROCESSING_UNIT, 8)
                 .inputItems(wireFine, Aluminium, 2)
                 .save(provider);
 
@@ -197,7 +198,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_RESISTOR_NANO, 4)
                 .inputItems(NANO_CENTRAL_PROCESSING_UNIT, 2)
                 .inputItems(EXTREME_CIRCUIT_BOARD, 1)
-                .inputItems(plate, TungstenSteel, 1)
+                .inputItems(wireFine, TungstenSteel, 2)
                 .outputItems(NANO_PROCESSOR_ASSEMBLY_EV, 1)
                 .save(provider);
 
@@ -210,7 +211,7 @@ public class CircuitRecipes {
                 .inputItems(SMD_TRANSISTOR_NANO, 4)
                 .inputItems(RANDOM_ACCESS_MEMORY, 8)
                 .inputItems(MULTILAYER_FIBER_BOARD, 1)
-                .inputItems(wireGtSingle, EVSuperconductor, 1)
+                .inputItems(wireGtSingle, UraniumTriplatinum, 1)
                 .save(provider);
 
 
