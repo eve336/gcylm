@@ -491,7 +491,7 @@ public class SensorEmitter {
                 .inputFluids(Water.getFluid(1000))
                 .notConsumable(UVA_HALIDE_LAMP)
                 .outputFluids(LithiumChlorideSolution.getFluid(2000))
-                .outputItems(SuccinicAcid,14)
+                .outputItems(dust, SuccinicAcid,14)
                 .outputItems(PalladiumLoadedRutileNanoparticles,5)
                 .save(provider);
 

@@ -85,6 +85,10 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/qubit_cpu_wafer_radon"));
         registry.accept(new ResourceLocation("gtceu:chemical_reactor/qubit_cpu_wafer_radon"));
 
+        registry.accept(new ResourceLocation("gtceu:circuit_assembler/neuro_processor"));
+        registry.accept(new ResourceLocation("gtceu:laser_engraver/engrave_hasoc_neutronium"));
+
+
 
         //misc
         registry.accept(new ResourceLocation("gtceu:vacuum_freezer/cool_hot_silicon_ingot"));

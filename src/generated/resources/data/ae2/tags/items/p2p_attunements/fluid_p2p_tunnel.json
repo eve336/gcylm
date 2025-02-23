@@ -96,6 +96,7 @@
     "examplemod:polyetheretherketone_bucket",
     "examplemod:zylon_bucket",
     "examplemod:fullerene_polymer_matrix_bucket",
+    "examplemod:carbon_nanotubes_bucket",
     "examplemod:black_titanium_bucket",
     "examplemod:carbon_tetrafluoride_bucket",
     "examplemod:cinobite_bucket",
@@ -479,7 +480,6 @@
     "examplemod:fullerene_doped_nanotubes_bucket",
     "examplemod:ammonium_niobium_oxalate_solution_bucket",
     "examplemod:dielectric_mirror_formation_mix_bucket",
-    "examplemod:molten_zblan_bucket",
     "examplemod:iodobenzene_bucket",
     "examplemod:3_aminophenol_bucket",
     "examplemod:dimethylnaphthalene_bucket",
@@ -699,6 +699,8 @@
     "examplemod:para-dibromobenzene_bucket",
     "examplemod:2_6-dichlorophenylboronic_acid_bucket",
     "examplemod:bromobenzene_bucket",
-    "examplemod:dichlorobromobenzene_bucket"
+    "examplemod:dichlorobromobenzene_bucket",
+    "examplemod:zblan_bucket",
+    "examplemod:molten_zblan_bucket"
   ]
 }

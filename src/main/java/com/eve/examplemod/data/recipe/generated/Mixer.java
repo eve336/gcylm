@@ -75,7 +75,9 @@ public class Mixer {
                     if (EUt < 0) {
                         EUt = GTValues.VA[GTValues.MV];
                     }
-                    mixerRecipe.circuitMeta(input.getMaterialComponents().size());
+//                    if (itemInputs != 9) {
+                        mixerRecipe.circuitMeta(input.getMaterialComponents().size());
+//                    }
                     mixerRecipe.outputItems(dust, input, totalamount)
                             .EUt(EUt)
                             .duration(duration)

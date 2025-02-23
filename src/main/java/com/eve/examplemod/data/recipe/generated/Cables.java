@@ -68,41 +68,86 @@ public class Cables {
         GTRecipeBuilder builder;
 
         // Polyethylene Recipe (ULV-EV cables)
-        if (voltageTier <= EV) {
-            Map map = Map.of(0, "_pvc", 1, "_silicone");
-            for (int i = 0; i < 2; i++) {
 
+        if (voltageTier <= EV){
+            Map<Integer, String> map = Map.of(0, "_pvc", 1, "_silicone");
+            if (voltageTier > HV) {
+                for (int i = 0; i < 2; i++) {
+                    builder = ASSEMBLER_RECIPES.recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_polyethylene" + map.get(i))
+                            .EUt(VA[ULV]).duration(100)
+                            .inputItems(wirePrefix, material)
+                            .outputItems(cablePrefix, material)
+                            .inputFluids(Polyethylene.getFluid(72 * insulationAmount));
+                    if (i == 0) {
+                        builder.inputItems(foil, PolyvinylChloride, 2 * insulationAmount);
+                    } else builder.inputItems(foil, SiliconeRubber, 2 * insulationAmount);
+                    builder.save(provider);
 
-                builder = ASSEMBLER_RECIPES
-                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_polyethylene" + map.get(i))
+                    builder = ASSEMBLER_RECIPES.recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_rubber" + map.get(i))
+                            .EUt(VA[ULV]).duration(100)
+                            .inputItems(wirePrefix, material)
+                            .outputItems(cablePrefix, material)
+                            .inputFluids(Rubber.getFluid(L * insulationAmount));
+                    if (i == 0) {
+                        builder.inputItems(foil, PolyvinylChloride, 2 * insulationAmount);
+                    } else builder.inputItems(foil, SiliconeRubber, 2 * insulationAmount);
+                    builder.save(provider);
+                }
+            }
+            else {
+                builder = ASSEMBLER_RECIPES.recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_polyethylene")
                         .EUt(VA[ULV]).duration(100)
                         .inputItems(wirePrefix, material)
                         .outputItems(cablePrefix, material)
                         .inputFluids(Polyethylene.getFluid(72 * insulationAmount));
-                if (voltageTier > HV) {
-                    if (i == 0) {
-                        builder.inputItems(foil, PolyvinylChloride, 2 * insulationAmount);
-                    } else builder.inputItems(foil, SiliconeRubber, 2 * insulationAmount);
-                }
                 builder.save(provider);
 
-
-                builder = ASSEMBLER_RECIPES
-                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_rubber"+ map.get(i))
+                builder = ASSEMBLER_RECIPES.recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_rubber")
                         .EUt(VA[ULV]).duration(100)
                         .inputItems(wirePrefix, material)
                         .outputItems(cablePrefix, material)
                         .inputFluids(Rubber.getFluid(L * insulationAmount));
-
-                if (voltageTier > HV) {
-                    if (i == 0) {
-                        builder.inputItems(foil, PolyvinylChloride, 2 * insulationAmount);
-                    } else builder.inputItems(foil, SiliconeRubber, 2 * insulationAmount);
-                }
                 builder.save(provider);
-
             }
         }
+
+
+
+//        if (voltageTier <= EV) {
+//            Map map = Map.of(0, "_pvc", 1, "_silicone");
+//            for (int i = 0; i < 2; i++) {
+//
+//
+//                builder = ASSEMBLER_RECIPES
+//                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_polyethylene" + map.get(i))
+//                        .EUt(VA[ULV]).duration(100)
+//                        .inputItems(wirePrefix, material)
+//                        .outputItems(cablePrefix, material)
+//                        .inputFluids(Polyethylene.getFluid(72 * insulationAmount));
+//                if (voltageTier > HV) {
+//                    if (i == 0) {
+//                        builder.inputItems(foil, PolyvinylChloride, 2 * insulationAmount);
+//                    } else builder.inputItems(foil, SiliconeRubber, 2 * insulationAmount);
+//                }
+//                builder.save(provider);
+//
+//
+//                builder = ASSEMBLER_RECIPES
+//                        .recipeBuilder("cover_" + material.getName() + "_" + wirePrefix + "_rubber"+ map.get(i))
+//                        .EUt(VA[ULV]).duration(100)
+//                        .inputItems(wirePrefix, material)
+//                        .outputItems(cablePrefix, material)
+//                        .inputFluids(Rubber.getFluid(L * insulationAmount));
+//
+//                if (voltageTier > HV) {
+//                    if (i == 0) {
+//                        builder.inputItems(foil, PolyvinylChloride, 2 * insulationAmount);
+//                    } else builder.inputItems(foil, SiliconeRubber, 2 * insulationAmount);
+//                }
+//                builder.save(provider);
+//
+//            }
+//        }
 
 //        if (voltageTier <= IV) {
 //            // maybe one of these should be better than the other? whichever is harder probably

@@ -129,7 +129,7 @@ public class UltimateMaterials {
                 .inputFluids(GTMaterials.Plutonium239.getFluid(144))
                 .inputFluids(Mendelevium.getFluid(144))
                 .inputFluids(Einsteinium.getFluid(144))
-                .outputItems(Actinoids,13)
+                .outputItems(dust, Actinoids,13)
                 .save(provider);
 
         LARGE_MIXER_RECIPES.recipeBuilder("ultimate_materials_" + chainNumber++).duration(450).EUt(250000)

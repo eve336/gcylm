@@ -135,7 +135,7 @@ public class FullereneChain {
                 .inputItems(dust, EschericiaColi)
                 .inputItems(dust, Sugar)
                 .EUt(480)
-                .outputItems(SuccinicAcid, 14)
+                .outputItems(dust, SuccinicAcid, 14)
                 .duration(200)
                 .save(provider);
 

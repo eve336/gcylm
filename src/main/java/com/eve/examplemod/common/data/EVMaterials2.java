@@ -3,11 +3,15 @@ package com.eve.examplemod.common.data;
 import com.eve.examplemod.EVMain;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
 
+import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.AUTOGEN_MIXER_RECIPE;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.DISABLE_DECOMPOSITION;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.DULL;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.SHINY;
+import static com.eve.examplemod.common.data.EVMaterials.EXT2_METAL;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_FRAME;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.METALLIC;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class EVMaterials2 {
@@ -74,12 +78,6 @@ public class EVMaterials2 {
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("C28H14N2O2");
-
-    public static final Material Diketopyrrolopyrrole = new Material.Builder(EVMain.id("diketopyrrolopyrrole"))
-            .color(0xff6600)
-            .iconSet(MaterialIconSet.DULL)
-            .buildAndRegister()
-            .setFormula("C18H12N2O2");
 
     public static final Material Mauveine = new Material.Builder(EVMain.id("mauveine"))
             .color(0x660066)
@@ -773,6 +771,61 @@ public class EVMaterials2 {
             .buildAndRegister()
             .setFormula("Al2Co2O5", true);
 
+    public static final Material UranylChlorideSolution = new Material.Builder(EVMain.id("uranyl_chloride_solution"))
+            .color(0xdfe018)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("UO2Cl2(H2O)?", true);
+
+    public static final Material UranylNitrateSolution = new Material.Builder(EVMain.id("uranyl_nitrate_solution"))
+            .color(0xdfe018)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("UO2(NO3)2(H2O)?", true);
+
+    public static final Material Grisium = new Material.Builder(EVMain.id("grisium"))
+            .color(0x355D6A)
+            .iconSet(METALLIC)
+            .ingot(6)
+            .components(Titanium, 9, Carbon, 9, Potassium, 9, Lithium, 9, Sulfur, 9, Hydrogen, 5)
+            .appendFlags(EXT2_METAL)
+            .flags(GENERATE_FRAME)
+            .blastTemp(3850)
+            .buildAndRegister();
+
+
+
+    public static final Material Tumbaga = new Material.Builder(EVMain.id("tumbaga"))
+            .color(0xFFB20F)
+            .iconSet(METALLIC)
+            .ingot(6)
+            .components(Gold, 7, Bronze, 3)
+            .appendFlags(EXT2_METAL)
+            .flags(GENERATE_FRAME)
+            .blastTemp(1200)
+            .buildAndRegister();
+
+    public static final Material Inconel625 = new Material.Builder(EVMain.id("inconel_a"))
+            .color(0x80C880)
+            .iconSet(METALLIC)
+            .ingot(6)
+            .components(Nickel, 3, Chromium, 7, Molybdenum, 10, Invar, 10, Nichrome, 13)
+            .appendFlags(EXT2_METAL)
+            .flags(GENERATE_FRAME)
+            .blastTemp(2425)
+            .buildAndRegister();
+
+    public static final Material PurifiedUranylNitrate = new Material.Builder(EVMain.id("purified_uranyl_nitrate_solution"))
+            .color(0xeff028)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("UO2(NO3)2(H2O)", true);
+
+    public static final Material UraniumDiuranate = new Material.Builder(EVMain.id("uranium_diuranate"))
+            .color(0xeff028)
+            .fluid()
+            .buildAndRegister()
+            .setFormula("(NH4)2U2O7", true);
 
     public static final Material AmmoniumManganesePhosphate = new Material.Builder(EVMain.id("ammonium_manganese_phosphate"))
             .color(0x660066)
@@ -785,6 +838,33 @@ public class EVMaterials2 {
             .iconSet(MaterialIconSet.DULL)
             .buildAndRegister()
             .setFormula("BaCuSi2O6", true);
+
+    public static final Material HVSuperconductor = new Material.Builder(EVMain.id("hv_superconductor"))
+            .color(0x4a2400)
+            .iconSet(SHINY)
+            .ingot(1)
+            .cableProperties(512, 1, 0, true)
+            .components(HVSuperconductorBase, 1)
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister();
+
+    public static final Material EVSuperconductor = new Material.Builder(EVMain.id("ev_superconductor"))
+            .color(0x005800)
+            .iconSet(SHINY)
+            .ingot(1)
+            .cableProperties(2048, 1, 0, true)
+            .components(UraniumTriplatinum, 1)
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister();
+
+    public static final Material IVSuperconductor = new Material.Builder(EVMain.id("iv_superconductor"))
+            .color(0x300030)
+            .iconSet(SHINY)
+            .ingot(1)
+            .cableProperties(8192, 1, 0, true)
+            .components(IVSuperconductorBase, 1)
+            .flags(DISABLE_DECOMPOSITION)
+            .buildAndRegister();
 
     public static final Material ChromeYellow = new Material.Builder(EVMain.id("chrome_yellow"))
             .color(0xffff00)
@@ -847,4 +927,28 @@ public class EVMaterials2 {
             .cableProperties(8192, 3, 1)
             .blastTemp(2900)
             .buildAndRegister();
+
+    public static final Material ZBLAN = new Material.Builder(EVMain.id("zblan"))
+            .ingot()
+            .fluid()
+            .color((ZirconiumTetrafluoride.getMaterialRGB()+BariumDifluoride.getMaterialRGB()+LanthanumTrifluoride.getMaterialRGB()+AluminiumTrifluoride.getMaterialRGB())/4)
+            .blastTemp(2500, BlastProperty.GasTier.HIGH)
+            .components(ZirconiumTetrafluoride, 90, BariumDifluoride, 21, SodiumFluoride, 14, LanthanumTrifluoride, 8, AluminiumTrifluoride, 4)
+            .flags(AUTOGEN_MIXER_RECIPE, GENERATE_FINE_WIRE)
+            .buildAndRegister();
+
+    public static final Material ErbiumDopedZBLAN = new Material.Builder(EVMain.id("erbium_doped_zblan"))
+            .color((ZBLAN.getMaterialRGB() + ErbiumTrifluoride.getMaterialRGB()) / 2)
+            .dust()
+            .ingot()
+            .blastTemp(2500, BlastProperty.GasTier.HIGH)
+            .iconSet(MaterialIconSet.SHINY)
+            .buildAndRegister()
+            .setFormula("(ErF3)(ZrF4)18(BaF2)7(LaF3)2(AlF3)(NaF)7", true);
+
+//    public static final Material LithiumHydride = new Material.Builder(EVMain.id("lithium_hydride"))
+//            .dust()
+//            .color((Lithium.getMaterialRGB()+Hydrogen.getMaterialRGB())/2 )
+//            .buildAndRegister()
+//            .setFormula("LiH", true);
 }

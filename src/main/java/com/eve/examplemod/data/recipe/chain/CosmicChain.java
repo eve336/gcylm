@@ -108,7 +108,7 @@ public class CosmicChain {
         // LiAlH4 + C4H6O4 -> C4H6O2 + Li + Al + 2H2O
         LARGE_CHEMICAL_RECIPES.recipeBuilder("cosmic_chain_" + chainNumber++).duration(180).EUt(15360)
                 .inputItems(LithiumAluminiumHydride,4)
-                .inputItems(SuccinicAcid,14)
+                .inputItems(dust, SuccinicAcid,14)
                 .outputFluids(Succinaldehyde.getFluid(1000))
                 .outputItems(dust, Lithium)
                 .outputItems(dust, Aluminium)

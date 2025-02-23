@@ -3,6 +3,7 @@ package com.eve.examplemod.api.data.tag;
 import com.eve.examplemod.api.data.material.properties.EVNuclearProperty;
 import com.eve.examplemod.api.data.material.properties.EVPropertyKey;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
@@ -19,6 +20,7 @@ import static com.eve.examplemod.api.data.material.info.EVMaterialIconType.*;
 import static com.eve.examplemod.api.data.tag.EVTagPrefix.Conditions.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType.dust;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.PREFIXES;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dustSmall;
 
 public class EVTagPrefix{
 
@@ -85,6 +87,7 @@ public class EVTagPrefix{
             }
             return false;
         };
+
 
     }
     public static void init() {

@@ -98,8 +98,8 @@ public class HNIWChain {
 
         //N2H8SO6 + BaCl2 -> 2 H4NOCl + BaSO4
         CHEMICAL_RECIPES.recipeBuilder("hniw_chain_" + chainNumber++)
-                .inputItems(HydroxylammoniumSulfate,17)
-                .inputItems(BariumChloride,3)
+                .inputItems(dust, HydroxylammoniumSulfate,17)
+                .inputItems(dust, BariumChloride,3)
                 .outputFluids(HydroxylamineHydrochloride.getFluid(2000))
                 .outputFluids(BariumSulfateSolution.getFluid(1000))
                 .EUt(480)
@@ -108,10 +108,10 @@ public class HNIWChain {
 
         //C4H6O4 + CaCl2 (not consumed) + (CH3CO)2O -> C4H4O3 + 2 CH3COOH
         CHEMICAL_RECIPES.recipeBuilder("hniw_chain_" + chainNumber++)
-                .inputItems(SuccinicAcid,14)
+                .inputItems(dust, SuccinicAcid,14)
                 .inputFluids(AceticAnhydride.getFluid(1000))
                 .notConsumable(dust, CalciumChloride)
-                .outputItems(SuccinicAnhydride,11)
+                .outputItems(dust, SuccinicAnhydride,11)
                 .outputFluids(AceticAcid.getFluid(2000))
                 .EUt(7680)
                 .duration(100)
@@ -129,11 +129,11 @@ public class HNIWChain {
 
         //C4H4O3 + NH3OHCl + Na -> C4H5NO3 + H2O + NaCl + H
         CHEMICAL_RECIPES.recipeBuilder("hniw_chain_" + chainNumber++)
-                .inputItems(SuccinicAnhydride,11)
+                .inputItems(dust, SuccinicAnhydride,11)
                 .inputItems(dust, Sodium)
                 .inputFluids(HydroxylamineHydrochloride.getFluid(1000))
                 .outputItems(dust, Salt, 2)
-                .outputItems(NHydroxysuccinimide,13)
+                .outputItems(dust, NHydroxysuccinimide,13)
                 .outputFluids(Water.getFluid(1000))
                 .outputFluids(Hydrogen.getFluid(1000))
                 .EUt(1920)
@@ -154,7 +154,7 @@ public class HNIWChain {
         CHEMICAL_RECIPES.recipeBuilder("hniw_chain_" + chainNumber++)
                 .notConsumableFluid(Triethylamine.getFluid(1000))
                 .inputFluids(AceticAnhydride.getFluid(1000))
-                .inputItems(NHydroxysuccinimide,13)
+                .inputItems(dust, NHydroxysuccinimide,13)
                 .notConsumableFluid(Tetrahydrofuran.getFluid(1000))
                 .outputItems(SuccinimidylAcetate,18)
                 .outputFluids(AceticAcid.getFluid(1000))
@@ -359,7 +359,7 @@ public class HNIWChain {
         BIO_REACTOR_RECIPES.recipeBuilder("hniw_chain_" + chainNumber++)
                 .inputItems(BrevibacteriumFlavium)
                 .inputItems(Succinimide,12)
-                .outputItems(SuccinicAnhydride,11)
+                .outputItems(dust, SuccinicAnhydride,11)
                 .outputFluids(Ammonia.getFluid(1000))
                 .EUt(3840)
                 .duration(100)

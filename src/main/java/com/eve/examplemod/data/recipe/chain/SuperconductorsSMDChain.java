@@ -182,7 +182,7 @@ public class SuperconductorsSMDChain {
                 .notConsumable(dust, Zinc)
                 .inputFluids(Perbromothiophene.getFluid(1000))
                 .inputFluids(AceticAcid.getFluid(500))
-                .inputItems(SodiumEthoxide,18)
+                .inputItems(dust, SodiumEthoxide,18)
                 .inputFluids(Water.getFluid(1000))
                 .outputFluids(Diethoxythiophene.getFluid(1000))
                 .outputFluids(HydrobromicAcid.getFluid(2000))
@@ -204,7 +204,7 @@ public class SuperconductorsSMDChain {
                 .inputFluids(Polystyrene.getFluid(1000))
                 .inputFluids(SulfuricAcid.getFluid(1000))
                 .inputFluids(EDOT.getFluid(1000))
-                .notConsumableFluid(SodiumPersulfate.getFluid(0))
+                .notConsumableFluid(SodiumPersulfate.getFluid(1))
                 .notConsumable(dust, IronSulfateDust)
                 .outputFluids(DilutedSulfuricAcid.getFluid(1000))
                 .outputItems(dust, PEDOT, 3)
@@ -659,7 +659,7 @@ public class SuperconductorsSMDChain {
         CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(120).EUt(480)
                 .notConsumable(dust, VanadiumOxide)
                 .inputFluids(Oxygen.getFluid(9000))
-                .inputItems(Glucose,24)
+                .inputItems(dust, Glucose,24)
                 .outputFluids(Water.getFluid(3000))
                 .outputFluids(OxalicAcid.getFluid(3000))
                 .save(provider);
@@ -991,12 +991,12 @@ public class SuperconductorsSMDChain {
                 .save(provider);
 
         // Ir + 2O -> IrO2
-        BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(280).EUt(120).blastFurnaceTemp(700)
-                .notConsumable(dust, Salt)
-                .inputItems(dust, Iridium)
-                .inputFluids(Oxygen.getFluid(2000))
-                .outputItems(dust, IridiumDioxide, 3)
-                .save(provider);
+//        BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(280).EUt(120).blastFurnaceTemp(700)
+//                .notConsumable(dust, Salt)
+//                .inputItems(dust, Iridium)
+//                .inputFluids(Oxygen.getFluid(2000))
+//                .outputItems(dust, IridiumDioxide, 3)
+//                .save(provider);
 
         // Kr + 2F -> KrF2
         CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(170).EUt(480)

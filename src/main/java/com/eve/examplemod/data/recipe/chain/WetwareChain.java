@@ -14,6 +14,7 @@ import static com.gregtechceu.gtceu.common.data.GTItems.STEM_CELLS;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static net.minecraft.world.item.Items.APPLE;
+import static net.minecraft.world.item.Items.RED_MUSHROOM;
 import static net.minecraft.world.level.block.Blocks.BROWN_MUSHROOM;
 import static net.minecraft.world.level.block.Blocks.RED_MUSHROOM_BLOCK;
 
@@ -516,13 +517,13 @@ public class WetwareChain {
                 .save(provider);
 
         // todo what the fuck is list all mushroom lol
-        MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
-                .notConsumable(ULTRASONIC_HOMOGENIZER)
-                .inputItems("listAllmushroom", 1)
-                .outputFluids(Chitin.getFluid(100))
-                .EUt(30)
-                .duration(100)
-                .save(provider);
+//        MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
+//                .notConsumable(ULTRASONIC_HOMOGENIZER)
+//                .inputItems("listAllmushroom", 1)
+//                .outputFluids(Chitin.getFluid(100))
+//                .EUt(30)
+//                .duration(100)
+//                .save(provider);
 
         MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .notConsumable(ULTRASONIC_HOMOGENIZER)
@@ -534,7 +535,7 @@ public class WetwareChain {
 
         MIXER_RECIPES.recipeBuilder("wetware_chain_" + chainNumber++)
                 .notConsumable(ULTRASONIC_HOMOGENIZER)
-                .inputItems(RED_MUSHROOM_BLOCK.asItem())
+                .inputItems(RED_MUSHROOM.asItem())
                 .outputFluids(Chitin.getFluid(100))
                 .EUt(30)
                 .duration(100)

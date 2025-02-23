@@ -2,21 +2,24 @@ package com.eve.examplemod.data.recipe.circuit;
 
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVBlocks.LEPTONIC_CHARGE;
 import static com.eve.examplemod.common.data.EVBlocks.QCD_CHARGE;
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.GTValues.L;
-import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Lime;
-import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.White;
+import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -386,8 +389,8 @@ public class CircuitComponentRecipes {
 
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(30720 * 4)
                 .inputItems(wireFine, Osmiridium, 8)
-                .inputItems(AluminiumComplex)
-                .inputItems(CopperGalliumIndiumSelenide)
+                .inputItems(dust, AluminiumComplex)
+                .inputItems(dust, CopperGalliumIndiumSelenide)
                 .inputFluids(Polyimide.getFluid(L * 2))
                 .outputItems(SMD_DIODE_BIOWARE,32)
                 .save(provider);
@@ -415,9 +418,24 @@ public class CircuitComponentRecipes {
                 .duration(150)
                 .save(provider);
 
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++)
+                .inputItems(foil, StyreneButadieneRubber, 24)
+                .inputItems(wireFine, NaquadahAlloy, 16)
+                .inputItems(SMD_TRANSISTOR_BIOWARE,2)
+                .inputItems(SMD_RESISTOR_BIOWARE,2)
+                .inputItems(SMD_DIODE_BIOWARE,2)
+                .inputItems(SMD_CAPACITOR_BIOWARE,2)
+                .inputItems(CYBER_PROCESSING_UNIT)
+                .inputItems(STEM_CELLS,4)
+                .inputFluids(Tritanium.getFluid(144))
+                .outputItems(NEURO_PROCESSOR,4)
+                .EUt(30720 * 16)
+                .duration(150)
+                .save(provider);
 
 
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        // OPTICAL SMDS
+        ASSEMBLER_RECIPES.recipeBuilder("optical_diode").duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(plate, LithiumNiobate, 4)
                 .inputItems(plate, Polyetheretherketone, 4)
@@ -426,7 +444,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Transistor
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("optical_transistor").duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(plate, LeadZirconateTitanate, 4)
                 .inputItems(plate, LithiumTitanate, 4)
@@ -435,7 +453,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Capacitor
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("optical_capacitor").duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
                 .inputItems(foil, CarbonNanotubes, 4)
                 .inputItems(foil, Polyetheretherketone, 4)
@@ -444,10 +462,10 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         // SMD Resistor
-        ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(250).EUt(1200000)
+        ASSEMBLER_RECIPES.recipeBuilder("optical_resistor").duration(250).EUt(1200000)
                 .inputItems(wireFine, Pikyonium, 8)
-                .inputItems(SodiumSeaborgate,5)
-                .inputItems(TBCCODust,4)
+                .inputItems(dust, SodiumSeaborgate,5)
+                .inputItems(dust, TBCCODust,4)
                 .inputFluids(Polybenzimidazole.getFluid(L * 4))
                 .outputItems(SMD_RESISTOR_OPTICAL,32)
                 .save(provider);
@@ -850,6 +868,11 @@ public class CircuitComponentRecipes {
                 .outputItems(EXOTIC_CHIP,16)
                 .save(provider);
 
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(200000)
+                .inputItems(OPTICAL_SOC_WAFER)
+                .outputItems(OPTICAL_SOC,4)
+                .save(provider);
+
         ASSEMBLER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(160).EUt(2000)
                 .inputItems(HIGH_FREQUENCY_LASER)
                 .inputItems(plate, MetastableHassium)
@@ -946,6 +969,7 @@ public class CircuitComponentRecipes {
 
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(1474560)
+                .inputItems(plate, ProtoAdamantium,4)
                 .inputItems(OPTICAL_SOC)
                 .inputItems(SMD_DIODE_OPTICAL,2)
                 .inputItems(SMD_RESISTOR_OPTICAL,2)
@@ -958,7 +982,6 @@ public class CircuitComponentRecipes {
                 .inputItems(NON_LINEAR_OPTICAL_LENS,2)
                 .inputItems(CLADDED_OPTICAL_FIBER_CORE,2)
                 .inputItems(BOSE_EINSTEIN_COOLING_CONTAINER)
-                .inputItems(plate,Graphene,4)
                 .inputFluids(Polytetrafluoroethylene.getFluid(L * 6))
                 .inputFluids(EnrichedNaquadahAlloy.getFluid(L * 3))
                 .inputFluids(SolderingAlloy.getFluid(L * 9))
@@ -983,7 +1006,7 @@ public class CircuitComponentRecipes {
                 .save(provider);
 
         LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(3200000)
-                .inputItems(LithiumNiobateNanoparticles,2)
+                .inputItems(dust, LithiumNiobateNanoparticles,2)
                 .notConsumable(ROTATING_TRANSPARENT_SURFACE)
                 .notConsumable(ELECTRON_SOURCE)
                 .inputFluids(Xenon.getFluid(1000))
@@ -1009,51 +1032,68 @@ public class CircuitComponentRecipes {
                 .inputItems(dust, LanthanumTrifluoride,8)
                 .inputItems(dust, AluminiumTrifluoride,4)
                 .inputItems(dust, SodiumFluoride, 14)
-                .outputItems(dust, ZBLANDust,35)
+                .outputItems(dust, ZBLAN,35)
                 .save(provider);
 
         MIXER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(3000)
-                .inputItems(dust, ZBLANDust)
-                .inputItems(ErbiumTrifluoride,4)
-                .outputItems(ErbiumDopedZBLANDust,2)
+                .inputItems(dust, ZBLAN)
+                .inputItems(dust, ErbiumTrifluoride,4)
+                .outputItems(dust, ErbiumDopedZBLAN,2)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
-                .inputFluids(Argon.getFluid(1000))
-                .inputItems(dust, ZBLANDust)
-                .outputItems(ZBLAN)
-                .blastFurnaceTemp(2500)
-                .save(provider);
+        List<ItemEntry<Item>> rodList = List.of(NDYAG_ROD, LUTMYVO_ROD, PRHOYLF_ROD);
+        List<ItemEntry<Item>> lampList = List.of(RED_HALIDE_LAMP, GREEN_HALIDE_LAMP, BLUE_HALIDE_LAMP);
+        List<ItemEntry<Item>> laserList = List.of(LOW_FREQUENCY_LASER, MEDIUM_FREQUENCY_LASER, HIGH_FREQUENCY_LASER);
 
-        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
-                .inputFluids(Argon.getFluid(1000))
-                .inputItems(ErbiumDopedZBLANDust)
-                .outputItems(ERBIUM_DOPED_ZBLAN)
-                .blastFurnaceTemp(2500)
-                .save(provider);
+        for (int i = 0; i < 3; i++) {
+            ASSEMBLER_RECIPES.recipeBuilder(laserList.get(i).getId()).duration(320).EUt(500000)
+                    .inputItems(rodList.get(i).asItem())
+                    .inputItems(lampList.get(i).asItem())
+                    .inputFluids(SolderingAlloy.getFluid(L * 4))
+                    .inputItems(HIGHLY_REFLECTIVE_MIRROR)
+                    .inputItems(NON_LINEAR_OPTICAL_LENS)
+                    .inputItems(SMD_DIODE_OPTICAL)
+                    .inputItems(ALUMINO_SILICATE_GLASS_TUBE)
+                    .outputItems(laserList.get(i))
+                    .save(provider);
+        }
 
-        FORMING_PRESS_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(2000)
-                .notConsumable(SHAPE_MOLD_INGOT)
-                .inputItems(ZBLAN)
-                .outputItems(ZBLAN_INGOT)
-                .save(provider);
+//        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
+//                .inputFluids(Argon.getFluid(1000))
+//                .inputItems(dust, ZBLANDust)
+//                .outputItems(ZBLAN)
+//                .blastFurnaceTemp(2500)
+//                .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(10000)
-                .inputFluids(Oxygen.getFluid(1000))
-                .inputItems(ZBLAN_INGOT)
-                .outputItems(HOT_ANNEALED_ZBLAN_INGOT)
-                .save(provider);
+//        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(6000)
+//                .inputFluids(Argon.getFluid(1000))
+//                .inputItems(dust, ErbiumDopedZBLAN)
+//                .outputItems()
+//                .blastFurnaceTemp(2500)
+//                .save(provider);
 
-        EXTRUDER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(2000)
-                .notConsumable(SHAPE_EXTRUDER_WIRE)
-                .inputItems(HOT_ANNEALED_ZBLAN_INGOT)
-                .outputItems(ZBLAN_FIBER,2)
-                .save(provider);
+//        FORMING_PRESS_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(2000)
+//                .notConsumable(SHAPE_MOLD_INGOT)
+//                .inputItems(ZBLAN)
+//                .outputItems(ZBLAN_INGOT)
+//                .save(provider);
+
+//        ARC_FURNACE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(120).duration(10000)
+//                .inputFluids(Oxygen.getFluid(1000))
+//                .inputItems(ingot, ZBLAN)
+//                .outputItems(HOT_ANNEALED_ZBLAN_INGOT)
+//                .save(provider);
+
+//        EXTRUDER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(2000)
+//                .notConsumable(SHAPE_EXTRUDER_WIRE)
+//                .inputItems(HOT_ANNEALED_ZBLAN_INGOT)
+//                .outputItems(ZBLAN_FIBER,2)
+//                .save(provider);
 
         // Optical Fiber
         FORMING_PRESS_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(4000).duration(2000)
-                .inputItems(ZBLAN_FIBER)
-                .inputItems(ERBIUM_DOPED_ZBLAN)
+                .inputItems(wireFine, ZBLAN)
+                .inputItems(ingot, ErbiumDopedZBLAN)
                 .outputItems(CLADDED_OPTICAL_FIBER_CORE)
                 .save(provider);
 
@@ -1338,6 +1378,267 @@ public class CircuitComponentRecipes {
         CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(960).EUt(60)
                 .inputItems(CRYSTAL_CENTRAL_PROCESSING_UNIT)
                 .outputItems(RAW_CRYSTAL_CHIP,2)
+                .save(provider);
+
+        // wafers
+
+        // Rutherfordium Boule
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(7680).duration(1500)
+                .inputItems(block, Silicon, 16)
+                .inputItems(ingot, Rutherfordium)
+                .circuitMeta(1)
+                .blastFurnaceTemp(7200)
+                .outputItems(BOULE_RUTHERFORDIUM)
+                .inputFluids(Krypton.getFluid(8000))
+                .save(provider);
+
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(6144).duration(1600)
+                .inputItems(BOULE_RUTHERFORDIUM)
+                .outputItems(WAFER_RUTHERFORDIUM,64)
+                .save(provider);
+
+        // Dubnium Boule
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(30720).duration(1500)
+                .inputItems(block, Silicon, 32)
+                .inputItems(ingot, Dubnium)
+                .circuitMeta(1)
+                .blastFurnaceTemp(8600)
+                .outputItems(BOULE_DUBNIUM)
+                .inputFluids(Xenon.getFluid(8000))
+                .save(provider);
+
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(24576).duration(1600)
+                .inputItems(BOULE_DUBNIUM)
+                .outputItems(WAFER_DUBNIUM,64)
+                .save(provider);
+
+        // Neutronium Boule
+//        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(122880).duration(1500)
+//                .inputItems(block, Silicon, 64)
+//                .inputItems(ingot, Neutronium)
+//                .circuitMeta(1)
+//                .blastFurnaceTemp(9100)
+//                .outputItems(BOULE_NEUTRONIUM)
+//                .inputFluids(Radon.getFluid(8000))
+//                .save(provider);
+
+//        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).EUt(98304).duration(1600)
+//                .inputItems(BOULE_NEUTRONIUM)
+//                .outputItems(NEUTRONIUM_WAFER,64)
+//                .save(provider);
+
+        // Hassium Boule
+        AUTOCLAVE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(120).EUt(3400000)
+                .inputItems(dustTiny, MetastableHassium)
+                .inputFluids(Nitrogen.getFluid(1000))
+                .outputItems(HASSIUM_SEED_CRYSTAL)
+                .save(provider);
+
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(17000000).blastFurnaceTemp(11200)
+                .inputItems(dust, MetastableHassium, 2)
+                .inputItems(HASSIUM_SEED_CRYSTAL)
+                .inputFluids(Xenon.getFluid(1000))
+                .outputItems(HASSIUM_BOULE)
+                .save(provider);
+
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(290).EUt(175000)
+                .inputItems(HASSIUM_BOULE)
+                .outputItems(HASSIUM_SEED_CRYSTAL)
+                .outputItems(HASSIUM_WAFER,8)
+                .save(provider);
+
+        CHEMICAL_BATH_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(240).EUt(345000)
+                .inputItems(HASSIUM_WAFER)
+                .inputFluids(Trichloroferane.getFluid(250))
+                .outputItems(COATED_HASSIUM_WAFER)
+                .save(provider);
+
+        // WAFER ENGRAVING =============================================================================================
+
+        // ILC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Red).outputItems(INTEGRATED_LOGIC_CIRCUIT_WAFER,12).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Red).outputItems(INTEGRATED_LOGIC_CIRCUIT_WAFER,16).save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, Red).outputItems(INTEGRATED_LOGIC_CIRCUIT_WAFER,20).save(provider);
+
+        // ARAM Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(122_880) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, MagnetoResonatic).outputItems(ARAM_WAFER,1).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(491_520) .inputItems(WAFER_DUBNIUM)       .notConsumable(lens, MagnetoResonatic).outputItems(ARAM_WAFER,4).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(1_966_080).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, MagnetoResonatic).outputItems(ARAM_WAFER,8).save(provider);
+
+        // NAND Memory Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Gray).outputItems(NAND_MEMORY_CHIP_WAFER,8) .save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Gray).outputItems(NAND_MEMORY_CHIP_WAFER,12).save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, LightBlue).outputItems(NAND_MEMORY_CHIP_WAFER,16).save(provider);
+
+        // NOR Memory Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Pink).outputItems(NOR_MEMORY_CHIP_WAFER,8).save(provider);
+
+        // CPU Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, LightBlue).outputItems(CENTRAL_PROCESSING_UNIT_WAFER,12).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, LightBlue).outputItems(CENTRAL_PROCESSING_UNIT_WAFER,16).save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, NetherStar).outputItems(CENTRAL_PROCESSING_UNIT_WAFER,20).save(provider);
+
+        // RAM Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Green).outputItems(RANDOM_ACCESS_MEMORY_WAFER,12).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Green).outputItems(RANDOM_ACCESS_MEMORY_WAFER,16).save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, Green).outputItems(RANDOM_ACCESS_MEMORY_WAFER,20).save(provider);
+
+        // SoC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Yellow).outputItems(SYSTEM_ON_CHIP_WAFER,8) .save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Yellow).outputItems(SYSTEM_ON_CHIP_WAFER,16).save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, Yellow).outputItems(SYSTEM_ON_CHIP_WAFER,24).save(provider);
+
+        // ASoC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Purple).outputItems(ADVANCED_SYSTEM_ON_CHIP_WAFER,4) .save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Purple).outputItems(ADVANCED_SYSTEM_ON_CHIP_WAFER,8) .save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, Orange).outputItems(ADVANCED_SYSTEM_ON_CHIP_WAFER,12).save(provider);
+
+        // MPIC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(7680) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Brown).outputItems(POWER_INTEGRATED_CIRCUIT_WAFER,8) .save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(50).EUt(30720) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Brown).outputItems(POWER_INTEGRATED_CIRCUIT_WAFER,12).save(provider);
+        //LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(122880).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, Blue).outputItems(POWER_INTEGRATED_CIRCUIT_WAFER,16).save(provider);
+
+        // UHPIC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(491_520) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, Amethyst).outputItems(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER,1).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(1_966_080) .inputItems(WAFER_DUBNIUM)      .notConsumable(lens, Amethyst).outputItems(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER,2).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12).EUt(7_864_320).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, Amethyst).outputItems(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER,4).save(provider);
+
+        // HASoC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(100).EUt(491_520) .inputItems(WAFER_RUTHERFORDIUM).notConsumable(lens, CubicZirconia).outputItems(HIGHLY_ADVANCED_SOC_WAFER,1).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(1_966_080).inputItems(WAFER_DUBNIUM)      .notConsumable(lens, CubicZirconia).outputItems(HIGHLY_ADVANCED_SOC_WAFER,4).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12).EUt(7_864_320).inputItems(NEUTRONIUM_WAFER)   .notConsumable(lens, CubicZirconia).outputItems(HIGHLY_ADVANCED_SOC_WAFER,8).save(provider);
+
+        // UHASoC Wafer
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(25).EUt(1_966_080).inputItems(WAFER_DUBNIUM)  .notConsumable(lens, Prasiolite).outputItems(UHASOC_WAFER,1).save(provider);
+        LASER_ENGRAVER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(12).EUt(7_864_320).inputItems(NEUTRONIUM_WAFER).notConsumable(lens, Prasiolite).outputItems(UHASOC_WAFER,4).save(provider);
+
+        // Misc Cutting Recipes
+        //CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).inputItems(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER) .outputItems(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT,2) .EUt(491_520).duration(600).save(provider);
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).inputItems(ARAM_WAFER)  .outputItems(ARAM,16) .EUt(122_880).duration(600).save(provider);
+        //CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).inputItems(HIGHLY_ADVANCED_SOC_WAFER) .outputItems(HIGHLY_ADVANCED_SOC,6) .EUt(491_520).duration(600).save(provider);
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).inputItems(UHASOC_WAFER).outputItems(UHASOC,6).EUt(1_966_080).duration(600).save(provider);
+
+        // Optical SoC
+//        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(30)
+//                .inputItems(ZBLANDust)
+//                .outputFluids(LiquidZBLAN.getFluid(L))
+//                .save(provider);
+
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(390).EUt(983040)
+                .inputItems(UHASOC_WAFER)
+                //.inputFluids(ZBLAN.getFluid(L))
+                .inputFluids(CarbonNanotubes.getFluid(L))
+                .inputFluids(SeaborgiumDopedNanotubes.getFluid(L))
+                .inputFluids(ZBLAN.getFluid(L))
+                .inputItems(dust, IndiumPhosphide)
+                .inputFluids(DielectricMirrorFormationMix.getFluid(250))
+                .outputItems(OPTICAL_SOC_WAFER)
+                .save(provider);
+
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(280).EUt(850000)
+                .inputItems(OPTICAL_SOC_WAFER)
+                .outputItems(OPTICAL_SOC,4)
+                .save(provider);
+
+        // Optical Boules
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(210).EUt(30720)
+                .notConsumable(rod, Sapphire)
+                .inputItems(dust, PrHoYLFNanoparticles)
+                .inputFluids(PrHoYLF.getFluid(L / 9))
+                .outputItems(PRHOYLF_BOULE)
+                .save(provider);
+
+        LATHE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(340).EUt(26000)
+                .inputItems(PRHOYLF_BOULE)
+                .outputItems(PRHOYLF_ROD,2)
+                .outputItems(dustTiny, PrHoYLF)
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(30)
+                .inputItems(dust, PrHoYLFNanoparticles)
+                .outputFluids(PrHoYLF.getFluid(L))
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20).EUt(30)
+                .inputItems(dustTiny, PrHoYLF)
+                .outputFluids(PrHoYLF.getFluid(L / 9))
+                .save(provider);
+
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(210).EUt(30000)
+                .notConsumable(rod, Sapphire)
+                .inputItems(dust, LuTmYVONanoparticles)
+                .inputFluids(LuTmYVO.getFluid(L / 2))
+                .outputItems(LUTMYVO_BOULE)
+                .save(provider);
+
+        LATHE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(340).EUt(26000)
+                .inputItems(LUTMYVO_BOULE)
+                .outputItems(LUTMYVO_ROD,2)
+                .outputItems(dustTiny, LuTmYVO)
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(30)
+                .inputItems(dust, LuTmYVONanoparticles)
+                .outputFluids(LuTmYVO.getFluid(L))
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20).EUt(30)
+                .inputItems(dustTiny, LuTmYVO)
+                .outputFluids(LuTmYVO.getFluid(L / 9))
+                .save(provider);
+
+        // NdYAG Boules
+        // 9Y2O3 + Nd2O3 -> 10 Neodymium Doped Yttrium
+        ALLOY_SMELTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(220).EUt(7680)
+                .inputItems(dust, YttriumOxide,45)
+                .inputItems(dust, NeodymiumOxide,5)
+                .outputItems(dust, NeodymiumDopedYttrium,10)
+                .save(provider);
+
+        // [Al2O3  + CH2Cl2 + 2C12H27N] + Neodymium Doped Yttrium + (NH2)CO(NH2) -> 2Unprocessed Nd:YAG + 2C12H27N
+        CHEMICAL_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(320).EUt(7680)
+                .inputFluids(AluminaSolution.getFluid(1000))
+                .inputItems(dust, NeodymiumDopedYttrium)
+                .inputItems(dust, Urea,8)
+                .outputFluids(UnprocessedNdYAGSolution.getFluid(2000))
+                .outputFluids(Tributylamine.getFluid(2000))
+                .save(provider);
+
+        // Unprocessed Nd:YAG -> Unprocessed Nd:YAG Dust + CH2Cl2
+        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(220).EUt(7680)
+                .inputFluids(UnprocessedNdYAGSolution.getFluid(1000))
+                .outputFluids(Dichloromethane.getFluid(1000))
+                .outputItems(dust, UnprocessedNdYAGDust)
+                .save(provider);
+
+        // Unprocessed Nd:YAG Dust -> Nd:YAG Nanoparticles
+        BLAST_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(3800).EUt(120).blastFurnaceTemp(300)
+                .inputItems(dust, UnprocessedNdYAGDust)
+                .outputItems(dust, NdYAGNanoparticles)
+                .save(provider);
+
+        // Nd:YAG Nanoparticles + NdYAG -> Nd:YAG Boule
+        CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(210).EUt(30720)
+                .notConsumable(rod, Sapphire)
+                .inputItems(dust, NdYAGNanoparticles)
+                .inputFluids(NdYAG.getFluid(L / 9))
+                .outputItems(NDYAG_BOULE)
+                .save(provider);
+
+        LATHE_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(340).EUt(26000)
+                .inputItems(NDYAG_BOULE)
+                .outputItems(NDYAG_ROD,2)
+                .outputItems(dustTiny, NdYAG)
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(260).EUt(30)
+                .inputItems(dust, NdYAGNanoparticles)
+                .outputFluids(NdYAG.getFluid(L))
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20).EUt(30)
+                .inputItems(dustTiny, NdYAG)
+                .outputFluids(NdYAG.getFluid(L / 9))
                 .save(provider);
 
     }

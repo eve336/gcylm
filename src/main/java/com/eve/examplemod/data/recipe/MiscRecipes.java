@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -20,6 +21,7 @@ import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVMaterials2.BrightSteel;
 import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials.Color.Magenta;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
@@ -32,6 +34,36 @@ public class MiscRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
 
         if (EVConfig.INSTANCE.evEndAccess) end(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("polystyrene_from_air")
+                .circuitMeta(1)
+                .inputFluids(Air.getFluid(1000))
+                .inputFluids(Styrene.getFluid(L))
+                .outputFluids(Polystyrene.getFluid(L))
+                .duration(160).EUt(VA[LV]).save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("polystyrene_from_oxygen")
+                .circuitMeta(1)
+                .inputFluids(Oxygen.getFluid(1000))
+                .inputFluids(Styrene.getFluid(L))
+                .outputFluids(Polystyrene.getFluid(216))
+                .duration(160).EUt(VA[LV]).save(provider);
+
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("polystyrene_from_tetrachloride_air")
+                .circuitMeta(3)
+                .inputFluids(Air.getFluid(7500))
+                .inputFluids(Styrene.getFluid(2160))
+                .inputFluids(TitaniumTetrachloride.getFluid(100))
+                .outputFluids(Polystyrene.getFluid(3240))
+                .duration(800).EUt(VA[LV]).save(provider);
+
+        LARGE_CHEMICAL_RECIPES.recipeBuilder("polystyrene_from_tetrachloride_oxygen")
+                .circuitMeta(3)
+                .inputFluids(Oxygen.getFluid(7500))
+                .inputFluids(Styrene.getFluid(2160))
+                .inputFluids(TitaniumTetrachloride.getFluid(100))
+                .outputFluids(Polystyrene.getFluid(4320))
+                .duration(800).EUt(VA[LV]).save(provider);
 
 
         VanillaRecipeHelper.addSmeltingRecipe(provider, "wrought_iron", ChemicalHelper.get(ingot, Iron),ChemicalHelper.get(ingot, WroughtIron));
@@ -391,6 +423,63 @@ public class MiscRecipes {
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(HV),
                 'F', ChemicalHelper.get(gemFlawless, Ruby)
                 );
+
+        // item recipes
+
+        CANNER_RECIPES.recipeBuilder("bose_einstein_cooling_container").duration(280).EUt(90000)
+                .inputItems(EMPTY_LASER_COOLING_CONTAINER)
+                .inputFluids(Rubidium.getFluid(L * 2))
+                .outputItems(BOSE_EINSTEIN_COOLING_CONTAINER)
+                .save(provider);
+
+        ASSEMBLER_RECIPES.recipeBuilder("laser_diode").duration(260).EUt(980000)
+                .inputFluids(SolderingAlloy.getFluid(L * 4))
+                .inputItems(SMD_DIODE_BIOWARE)
+                .inputItems(lens, Magenta)
+                .inputItems(wireFine, Gold, 3)
+                .outputItems(LASER_DIODE)
+                .save(provider);
+
+        // Laser Cooling Unit
+        ASSEMBLER_RECIPES.recipeBuilder("laser_cooling_unit").duration(300).EUt(1200000)
+                .inputFluids(SolderingAlloy.getFluid(L * 2))
+                .inputItems(wireFine, Gold, 4)
+                .inputItems(CASING_ALUMINIUM_FROSTPROOF.asItem())
+                .inputItems(LASER_DIODE)
+                .inputItems(CraftingComponent.CIRCUIT.getIngredient(HV))
+                .outputItems(LASER_COOLING_UNIT)
+                .save(provider);
+
+
+        ASSEMBLER_RECIPES.recipeBuilder("empty_laser_cooling_container").duration(380).EUt(1150000)
+                .inputItems(plate, Steel, 32)
+                .inputItems(LASER_COOLING_UNIT)
+                .inputItems(MAGNETIC_TRAP)
+                .inputFluids(SolderingAlloy.getFluid(L))
+                .outputItems(EMPTY_LASER_COOLING_CONTAINER)
+                .save(provider);
+
+        // Magnetic Trap
+        ASSEMBLER_RECIPES.recipeBuilder("magnetic_trap").duration(480).EUt(1000000)
+                .inputFluids(SolderingAlloy.getFluid(L * 3))
+                .inputItems(wireGtDouble, UVSuperconductor, 2)
+                .inputItems(CASING_ALUMINIUM_FROSTPROOF.asItem())
+                .outputItems(MAGNETIC_TRAP)
+                .save(provider);
+
+        // Gravi Star
+        AUTOCLAVE_RECIPES.recipeBuilder("gravi_star").duration(480).EUt(7680)
+                .inputItems(NETHER_STAR.asItem())
+                .inputFluids(Dubnium.getFluid(L * 2))
+                .outputItems(GRAVI_STAR)
+                .save(provider);
+
+        // Unstable Star
+        AUTOCLAVE_RECIPES.recipeBuilder("unstable_star").duration(480).EUt(122880)
+                .inputItems(GRAVI_STAR)
+                .inputFluids(Adamantium.getFluid(L * 2))
+                .outputItems(UNSTABLE_STAR)
+                .save(provider);
     }
 
 }

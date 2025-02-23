@@ -61,6 +61,8 @@ public class EVItems {
     public static ItemEntry<Item> ARAM = EVRegistries.REGISTRATE.item("aram", Item::new).register();
     public static ItemEntry<Item> ARAM_WAFER = EVRegistries.REGISTRATE.item("aram_wafer", Item::new).register();
 
+
+
     public static ItemEntry<Item> KAPTON_BOARD = EVRegistries.REGISTRATE.item("kapton_board", Item::new).register();
     public static ItemEntry<Item> KAPTON_CIRCUIT_BOARD = EVRegistries.REGISTRATE.item("kapton_circuit_board", Item::new).register();
 
@@ -83,6 +85,9 @@ public class EVItems {
 
     public static ItemEntry<Item> BOULE_RUTHERFORDIUM = EVRegistries.REGISTRATE.item("rutherfordium_boule", Item::new).register();
     public static ItemEntry<Item> BOULE_DUBNIUM = EVRegistries.REGISTRATE.item("dubnium_boule", Item::new).register();
+
+//    public static ItemEntry<Item> BOULE_NEUTRONIUM = EVRegistries.REGISTRATE.item("aram", Item::new).register();
+//    public static ItemEntry<Item> ARAM_WAFER = EVRegistries.REGISTRATE.item("aram_wafer", Item::new).register();
 
 
     public static ItemEntry<Item> BATTERY_NIMH_EMPTY = EVRegistries.REGISTRATE.item("BATTERY_NIMH_EMPTY".toLowerCase(), Item::new).register();
@@ -391,11 +396,11 @@ public class EVItems {
     public static ItemEntry<Item> NEUTRON_PLASMA_CONTAINMENT_CELL = EVRegistries.REGISTRATE.item("neutron_plasma_containment_cell", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> DEGENERATE_RHENIUM_PLATE = EVRegistries.REGISTRATE.item("degenerate_rhenium_plate", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> DEGENERATE_RHENIUM_DUST = EVRegistries.REGISTRATE.item("degenerate_rhenium_dust", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> ZBLAN = EVRegistries.REGISTRATE.item("zblan", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> ZBLAN_INGOT = EVRegistries.REGISTRATE.item("zblan_ingot", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> HOT_ANNEALED_ZBLAN_INGOT = EVRegistries.REGISTRATE.item("hot_annealed_zblan_ingot", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> ZBLAN_FIBER = EVRegistries.REGISTRATE.item("zblan_fiber", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
-    public static ItemEntry<Item> ERBIUM_DOPED_ZBLAN = EVRegistries.REGISTRATE.item("erbium_doped_zblan", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+//    public static ItemEntry<Item> ZBLAN = EVRegistries.REGISTRATE.item("zblan", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    //public static ItemEntry<Item> ZBLAN_INGOT = EVRegistries.REGISTRATE.item("zblan_ingot", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    //public static ItemEntry<Item> HOT_ANNEALED_ZBLAN_INGOT = EVRegistries.REGISTRATE.item("hot_annealed_zblan_ingot", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    //public static ItemEntry<Item> ZBLAN_FIBER = EVRegistries.REGISTRATE.item("zblan_fiber", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
+    //public static ItemEntry<Item> ERBIUM_DOPED_ZBLAN = EVRegistries.REGISTRATE.item("erbium_doped_zblan", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> CLADDED_OPTICAL_FIBER_CORE = EVRegistries.REGISTRATE.item("cladded_optical_fiber_core", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ACRYLIC_YARN = EVRegistries.REGISTRATE.item("acrylic_yarn", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> RAPIDLY_ROTATING_CRUCIBLE = EVRegistries.REGISTRATE.item("rapidly_rotating_crucible", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();

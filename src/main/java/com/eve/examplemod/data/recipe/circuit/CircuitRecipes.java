@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
-import static com.gregtechceu.gtceu.api.GTValues.L;
+import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -374,6 +374,29 @@ public class CircuitRecipes {
                 .inputItems(foil, SiliconeRubber, 32)
                 .inputFluids(SterileGrowthMedium.getFluid(2000))
                 .outputItems(WETWARE_SUPER_COMPUTER_UV, 1)
+                .stationResearch(b -> b
+                        .researchStack(WETWARE_PROCESSOR_ASSEMBLY_ZPM.asStack())
+                        .CWUt(96)
+                        .EUt(VA[ZPM]))
+                .save(provider);
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder("ev_wetware_super_computer_uv_sbr").duration(600).EUt(122880)
+                .inputItems(WETWARE_PROCESSOR_ASSEMBLY_ZPM, 4)
+                .inputItems(SMD_RESISTOR_WETWARE, 32)
+                .inputItems(SMD_TRANSISTOR_WETWARE, 32)
+                .inputItems(SMD_CAPACITOR_WETWARE, 32)
+                .inputItems(SMD_DIODE_WETWARE, 32)
+                .inputItems(QUANTUM_STAR, 4)
+                .inputItems(HIGH_POWER_INTEGRATED_CIRCUIT, 8)
+                .inputItems(plate, Rutherfordium, 2)
+                .inputItems(wireGtSingle, ZPMSuperconductor, 16)
+                .inputItems(foil, StyreneButadieneRubber, 20)
+                .inputFluids(SterileGrowthMedium.getFluid(2000))
+                .outputItems(WETWARE_SUPER_COMPUTER_UV, 1)
+                .stationResearch(b -> b
+                        .researchStack(WETWARE_PROCESSOR_ASSEMBLY_ZPM.asStack())
+                        .CWUt(96)
+                        .EUt(VA[ZPM]))
                 .save(provider);
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder("wetware_mainframe_max").duration(2000).EUt(300000)
@@ -391,6 +414,10 @@ public class CircuitRecipes {
                 .inputFluids(SterileGrowthMedium.getFluid(2000))
                 .inputFluids(UUMatter.getFluid(100))
                 .outputItems(WETWARE_MAINFRAME_UHV, 1)
+                .stationResearch(b -> b
+                        .researchStack(WETWARE_SUPER_COMPUTER_UV.asStack())
+                        .CWUt(96)
+                        .EUt(VA[UV]))
                 .save(provider);
     }
     public static void bioware(Consumer<FinishedRecipe> provider) {
@@ -457,7 +484,7 @@ public class CircuitRecipes {
                 .inputItems(frameGt, Adamantium)
                 .inputItems(plate, Naquadria, 8)
                 .inputItems(foil, Polybenzimidazole, 64)
-                .inputItems(UNSTABLE_STAR)
+               // .inputItems(UNSTABLE_STAR)
                 .inputFluids(SterileGrowthMedium.getFluid(1000))
                 .inputFluids(Tritanium.getFluid(L * 9))
                 .inputFluids(Polybenzimidazole.getFluid(L * 18))

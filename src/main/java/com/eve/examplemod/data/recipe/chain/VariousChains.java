@@ -1,5 +1,6 @@
 package com.eve.examplemod.data.recipe.chain;
 
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -117,6 +118,12 @@ public class VariousChains {
 //                .inputFluids(Choline.getFluid(1000))
 //                .outputFluids(ATL.getFluid(1000))
 //                .save(provider);
+
+        CHEMICAL_RECIPES.recipeBuilder("atl").duration(6*20).EUt(120)
+                .inputFluids(Choline.getFluid(1000))
+                .inputItems(dust, Coal)
+                .outputFluids(ATL.getFluid(1000))
+                .save(provider);
 
         LARGE_MIXER_RECIPES.recipeBuilder("drilling_mud_recipes_" + chainNumber++).duration(120).EUt(480)
                 .inputFluids(BariumSulfateSolution.getFluid(1000))
