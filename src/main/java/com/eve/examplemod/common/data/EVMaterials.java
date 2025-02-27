@@ -39,6 +39,8 @@ public class EVMaterials {
 
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
+        Duranium.setProperty(PropertyKey.WIRE, new WireProperties(VA[UV], 3, 22));
+
 
         Iron.setProperty(PropertyKey.FLUID_PIPE, new FluidPipeProperties(1811, 58, true, false, false, false));
 
@@ -54,6 +56,14 @@ public class EVMaterials {
         Rutile.setProperty(PropertyKey.ORE, new OreProperty());
 
         Topaz.addFlags(GENERATE_LENS);
+
+        Steel.getProperty(PropertyKey.ROTOR).setPower(115);
+        Osmium.getProperty(PropertyKey.ROTOR).setPower(170);
+        RhodiumPlatedPalladium.getProperty(PropertyKey.ROTOR).setPower(180);
+        Ultimet.getProperty(PropertyKey.ROTOR).setPower(145);
+
+
+
 
 
         NaquadahAlloy.setComponents(new MaterialStack(Naquadah, 2), new MaterialStack(Osmiridium, 1));
@@ -781,7 +791,16 @@ public class EVMaterials {
             .setFormula("Ad", true);
 
 
-    public static final Material Vibranium = new Material.Builder(EVMain.id("vibranium")).color(0x828aad).iconSet(SHINY).ingot(7).liquid().appendFlags(CORE_METAL).blastTemp(11220).buildAndRegister();
+    public static final Material Vibranium = new Material.Builder(EVMain.id("vibranium"))
+            .color(0x828aad)
+            .iconSet(SHINY)
+            .ingot(7)
+            .liquid()
+            .appendFlags(CORE_METAL)
+            .blastTemp(11220)
+            .cableProperties(V[UXV], 5, 10)
+            .buildAndRegister();
+
     public static final Material Taranium = new Material.Builder(EVMain.id("taranium")).color(0x0c0c0d).iconSet(SHINY).ingot().liquid().appendFlags(CORE_METAL).flags(DISABLE_AUTOGEN_MIXER).blastTemp(10000).buildAndRegister();
     public static final Material MetastableOganesson = new Material.Builder(EVMain.id("metastable_oganesson")).color(0xE61C24).iconSet(SHINY).ingot().liquid().appendFlags(CORE_METAL).element(Og).blastTemp(10380).buildAndRegister();
     public static final Material MetastableFlerovium = new Material.Builder(EVMain.id("metastable_flerovium")).color(0x521973).iconSet(SHINY).ingot().liquid().appendFlags(CORE_METAL).element(Fl).blastTemp(10990).buildAndRegister();
@@ -1062,6 +1081,7 @@ public class EVMaterials {
             .components(StainlessSteel, 5, TungstenCarbide, 5, Nichrome, 5, Bronze, 5, IncoloyMA956, 5, Iodine, 1, Germanium, 1, Radon, 1)
             .flags(DISABLE_DECOMPOSITION)
             .appendFlags(EXT2_METAL)
+            .cableProperties(V[UHV], 6, 6)
             .buildAndRegister();
 
     public static final Material ReactorSteel = new Material.Builder(EVMain.id("reactor_steel"))
@@ -1154,6 +1174,7 @@ public class EVMaterials {
             .ingot(7)
             .components(TungstenCarbide, 7, Titanium, 3)
             .flags(DISABLE_DECOMPOSITION)
+            .cableProperties(V[UHV], 8, 10)
             .appendFlags(CORE_METAL)
             .buildAndRegister();
 
@@ -1208,6 +1229,7 @@ public class EVMaterials {
             .fluid()
             .components(Zeron100, 8, Naquadria, 4, Gadolinium, 3, Aluminium, 2, Mercury, 1, Tin, 1, Titanium, 6, Osmiridium, 1)
             .flags(DISABLE_DECOMPOSITION)
+            .cableProperties(V[UIV], 6, 12)
             .appendFlags(CORE_METAL)
             .buildAndRegister();
 
@@ -1416,6 +1438,7 @@ public class EVMaterials {
             .components(Naquadria, 1, Taranium, 1)
             .flags(GENERATE_LONG_ROD)
             .appendFlags(STD_METAL)
+            .cableProperties(V[UXV], 6, 10)
             .buildAndRegister();
 
     public static final Material Polyimide = new Material.Builder(EVMain.id("polyimide"))
@@ -7877,6 +7900,7 @@ public class EVMaterials {
             .fluid()
             .components(NaquadahEnriched, 4, Rhodium, 2, Ruthenium, 2, Dubnium, 1, Rubidium, 2, Einsteinium255, 1)
             .appendFlags(EXT2_METAL)
+            .cableProperties(V[UHV], 16, 4)
             .blastTemp(10000)
             .buildAndRegister();
 

@@ -1,6 +1,7 @@
 package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.common.data.EVItems;
+import com.eve.examplemod.common.data.EVMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
@@ -11,14 +12,19 @@ import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.gregtechceu.gtceu.api.GTValues.FALLBACK;
-
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 
 public class EVCraftingComponent extends CraftingComponent {
 
     public static Component BATTERY;
     public static Component GEAR;
+    public static Component SECONDARY_CABLE;
+    public static Component SECONDARY_CABLE_4x;
+    public static Component CABLE;
+
 
     public static void initialiseComponents() {
 
@@ -115,6 +121,63 @@ public class EVCraftingComponent extends CraftingComponent {
                 { 13, GTItems.ROBOT_ARM_OpV.asStack() },
                 { 14, EVItems.ROBOT_ARM_MAX.asStack() },
                 { FALLBACK, GTItems.ROBOT_ARM_UV.asStack() },
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
+
+        SECONDARY_CABLE = new Component(Stream.of(new Object[][] {
+
+                { 0, new UnificationEntry(TagPrefix.cableGtSingle, Lead) },
+                { 1, new UnificationEntry(TagPrefix.cableGtSingle, Nickel) },
+                { 2, new UnificationEntry(TagPrefix.cableGtSingle, Iron) },
+                { 3, new UnificationEntry(TagPrefix.cableGtSingle, Silver) },
+                { 4, new UnificationEntry(TagPrefix.cableGtSingle, Steel)},
+                { 5, new UnificationEntry(TagPrefix.cableGtSingle, Tungsten) },
+                { 6, new UnificationEntry(TagPrefix.cableGtSingle, Osmium) },
+                { 7, new UnificationEntry(TagPrefix.cableGtSingle, Naquadah) },
+                { 8, new UnificationEntry(TagPrefix.cableGtSingle, Duranium) },
+                { 9, new UnificationEntry(TagPrefix.cableGtSingle, AbyssalAlloy) },
+                { 10, new UnificationEntry(TagPrefix.cableGtSingle, TitanSteel) },
+                { 11, new UnificationEntry(TagPrefix.cableGtSingle, BlackTitanium) },
+                { 12, new UnificationEntry(TagPrefix.cableGtSingle, Vibranium) },
+                { 13, new UnificationEntry(TagPrefix.cableGtSingle, Lead) },
+                { FALLBACK,  new UnificationEntry(TagPrefix.cableGtSingle, BlackTitanium) },
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
+
+        SECONDARY_CABLE_4x = new Component(Stream.of(new Object[][] {
+
+                { 0, new UnificationEntry(TagPrefix.cableGtQuadruple, Lead) },
+                { 1, new UnificationEntry(TagPrefix.cableGtQuadruple, Nickel) },
+                { 2, new UnificationEntry(TagPrefix.cableGtQuadruple, Iron) },
+                { 3, new UnificationEntry(TagPrefix.cableGtQuadruple, Silver) },
+                { 4, new UnificationEntry(TagPrefix.cableGtQuadruple, Steel)},
+                { 5, new UnificationEntry(TagPrefix.cableGtQuadruple, Tungsten) },
+                { 6, new UnificationEntry(TagPrefix.cableGtQuadruple, Osmium) },
+                { 7, new UnificationEntry(TagPrefix.cableGtQuadruple, Naquadah) },
+                { 8, new UnificationEntry(TagPrefix.cableGtQuadruple, Duranium) },
+                { 9, new UnificationEntry(TagPrefix.cableGtQuadruple, AbyssalAlloy) },
+                { 10, new UnificationEntry(TagPrefix.cableGtQuadruple, TitanSteel) },
+                { 11, new UnificationEntry(TagPrefix.cableGtQuadruple, BlackTitanium) },
+                { 12, new UnificationEntry(TagPrefix.cableGtQuadruple, Vibranium) },
+                { 13, new UnificationEntry(TagPrefix.cableGtQuadruple, Lead) },
+                { FALLBACK,  new UnificationEntry(TagPrefix.cableGtQuadruple, BlackTitanium) },
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
+
+        CABLE = new Component(Stream.of(new Object[][] {
+
+                { 0, new UnificationEntry(TagPrefix.cableGtSingle, RedAlloy) },
+                { 1, new UnificationEntry(TagPrefix.cableGtSingle, Tin) },
+                { 2, new UnificationEntry(TagPrefix.cableGtSingle, Copper) },
+                { 3, new UnificationEntry(TagPrefix.cableGtSingle, Gold) },
+                { 4, new UnificationEntry(TagPrefix.cableGtSingle, Aluminium)},
+                { 5, new UnificationEntry(TagPrefix.cableGtSingle, Platinum) },
+                { 6, new UnificationEntry(TagPrefix.cableGtSingle, NiobiumTitanium) },
+                { 7, new UnificationEntry(TagPrefix.cableGtSingle, VanadiumGallium) },
+                { 8, new UnificationEntry(TagPrefix.cableGtSingle, YttriumBariumCuprate) },
+                { 9, new UnificationEntry(TagPrefix.cableGtSingle, TitaniumTungstenCarbide) },
+                { 10, new UnificationEntry(TagPrefix.cableGtSingle, Pikyonium) },
+                { 11, new UnificationEntry(TagPrefix.cableGtSingle, Cinobite) },
+                { 12, new UnificationEntry(TagPrefix.cableGtSingle, NaquadriaticTaranium) },
+                { 13, new UnificationEntry(TagPrefix.cableGtSingle, Neutronium) },
+                { FALLBACK, new UnificationEntry(TagPrefix.cableGtSingle, Neutronium) },
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
 

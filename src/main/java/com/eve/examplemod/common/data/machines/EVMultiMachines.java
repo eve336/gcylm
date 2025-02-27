@@ -46,6 +46,8 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
 
 public class EVMultiMachines {
 
+    // todo make it so you can use stainless steel casings for lgts since turbine casings arent even harder, theyre just bloat content
+
     public static final MultiblockMachineDefinition[] INFINITE_FLUID_DRILLING_RIG = registerTieredMultis(
             "infinite_fluid_drilling_rig", InfiniteFluidDrillMachine::new,
             (tier, builder) -> builder

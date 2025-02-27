@@ -157,8 +157,14 @@ public class Machines {
         }
 
         for (int tier = 0; tier < ENERGY_INPUT_HATCH.length; tier++){
-
-            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier] + "_energy_hatch", ENERGY_INPUT_HATCH[tier].asStack(), HULL[tier].asStack(), CraftingComponent.CABLE.getIngredient(tier));
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch", ENERGY_INPUT_HATCH[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE.getIngredient(tier));
+        }
+        for (int tier = 0; tier < ENERGY_OUTPUT_HATCH.length; tier++){
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch", ENERGY_OUTPUT_HATCH[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE.getIngredient(tier));
+        }
+        for (int tier = 0; tier < ENERGY_OUTPUT_HATCH_4A.length; tier++){
+            if (ENERGY_OUTPUT_HATCH_4A[tier] == null) continue;
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch", ENERGY_OUTPUT_HATCH_4A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE_4x.getIngredient(tier));
         }
 
 //        for (int tier = 0; tier < ENERGY_OUTPUT_HATCH.length; tier++){

@@ -95,7 +95,7 @@ public class EVOres {
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 
-    public static final GTOreDefinition CHALCOCITE_VEIN = create(EVMain.id("chalcocite_vein"), vein -> vein
+    public static final GTOreDefinition CHALCOPYRITE_VEIN = create(EVMain.id("chalcopyrite_vein"), vein -> vein
             .clusterSize(UniformInt.of(32, 45)).density(0.4f).weight(120)
             .layer(WorldGenLayers.STONE)
             .heightRangeUniform(45, 80)
@@ -103,7 +103,7 @@ public class EVOres {
             .layeredVeinGenerator(generator -> generator
                     .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
                             .layer(l -> l.weight(6).mat(Copper).size(1, 3))
-                            .layer(l -> l.weight(6).mat(Chalcocite).size(1, 3))
+                            .layer(l -> l.weight(6).mat(Chalcopyrite).size(1, 3))
                             .layer(l -> l.weight(4).mat(Iron).size(1, 3))
                             .build())
             )
@@ -200,6 +200,19 @@ public class EVOres {
             )
             .surfaceIndicatorGenerator(indicator -> indicator.surfaceRock(Scheelite).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
+
+    public static final GTOreDefinition MOLYBDENUM_VEIN = create(EVMain.id("molybdenum_vein"), vein -> vein
+            .clusterSize(UniformInt.of(60, 76)).density(0.3F).weight(20)
+            .layer(WorldGenLayers.ENDSTONE)
+            .heightRangeUniform(20, 60)
+            .biomes(BiomeTags.IS_END)
+            .dikeVeinGenerator(generator -> generator
+                    .withBlock(new DikeVeinGenerator.DikeBlockDefinition(Molybdenite, 3, 20, 60))
+                    .withBlock(new DikeVeinGenerator.DikeBlockDefinition(Molybdenum, 2, 30, 55))
+            )
+            .surfaceIndicatorGenerator(indicator -> indicator.surfaceRock(Molybdenum).placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
+            ));
+
 
 
 
