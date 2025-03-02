@@ -231,8 +231,8 @@ public class EVMultiMachines {
             .register();
 
     // blah blah because of energy hatch rework this makes it so you need circuits of tier plus small assembler of tier before making it (all subject to change)
-    public final static MultiblockMachineDefinition LARGE_ASSEMBLER = GTRegistration.REGISTRATE
-            .multiblock("large_assembler", WorkableElectricMultiblockMachine::new)
+    public final static MultiblockMachineDefinition LARGE_ASSEMBLER = EVRegistries.REGISTRATE
+            .multiblock("ev_large_assembler", WorkableElectricMultiblockMachine::new)
             .langValue("Large Assembling Factory")
             .tooltips(Component.translatable("gtceu.multiblock.parallelizable.tooltip"))
             .tooltips(Component.translatable("gtceu.machine.available_recipe_map_1.tooltip",
