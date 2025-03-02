@@ -141,7 +141,7 @@ public class MiscRecipes {
 
         GAS_TURBINE_FUELS.recipeBuilder("nitro_benzene_fuel")
                 .EUt(-32)
-                .duration(30)
+                .duration(100)
                 .inputFluids(Nitrobenzene.getFluid(1))
                 .save(provider);
 
@@ -465,6 +465,12 @@ public class MiscRecipes {
                 .inputItems(wireGtDouble, UVSuperconductor, 2)
                 .inputItems(CASING_ALUMINIUM_FROSTPROOF.asItem())
                 .outputItems(MAGNETIC_TRAP)
+                .save(provider);
+
+        MIXER_RECIPES.recipeBuilder("glowstone_mixing").duration(20*4).EUt(VA[LV])
+                .inputItems(dust, Gold)
+                .inputItems(dust, Redstone)
+                .outputItems(dust, Glowstone, 2)
                 .save(provider);
 
         // Gravi Star

@@ -258,13 +258,13 @@ public class VariousChains {
                 .outputFluids(GTMaterials.EthylTertButylEther.getFluid(2000))
                 .save(provider);
 
-        // Rocket Fuel Tier T4
-        // C2H8N2 + N2O4 = H8N4C2O4 (treat like chem reactor recipes)
-        MIXER_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(280).EUt(480)
-                .inputFluids(Dimethylhydrazine.getFluid(1000))
-                .inputFluids(DinitrogenTetroxide.getFluid(1000))
-                .outputFluids(RocketFuelH8N4C2O4.getFluid(1000))
-                .save(provider);
+//        // Rocket Fuel Tier T4
+//        // C2H8N2 + N2O4 = H8N4C2O4 (treat like chem reactor recipes)
+//        MIXER_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(280).EUt(480)
+//                .inputFluids(Dimethylhydrazine.getFluid(1000))
+//                .inputFluids(DinitrogenTetroxide.getFluid(1000))
+//                .outputFluids(RocketFuelH8N4C2O4.getFluid(1000))
+//                .save(provider);
 
         // 2NO2 = N2O4
         CHEMICAL_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(320).EUt(480)
@@ -273,13 +273,13 @@ public class VariousChains {
                 .outputFluids(DinitrogenTetroxide.getFluid(1000))
                 .save(provider);
 
-        // Rocket Fuel Tier 3
-        // HNO3 + CH3(NH)NH2 = CN3H7O3 (treat like chem reactor recipes)
-        MIXER_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(200).EUt(240)
-                .inputFluids(NitricAcid.getFluid(1000))
-                .inputFluids(MonoMethylHydrazine.getFluid(1000))
-                .outputFluids(RocketFuelCN3H7O3.getFluid(1000))
-                .save(provider);
+//        // Rocket Fuel Tier 3
+//        // HNO3 + CH3(NH)NH2 = CN3H7O3 (treat like chem reactor recipes)
+//        MIXER_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(200).EUt(240)
+//                .inputFluids(NitricAcid.getFluid(1000))
+//                .inputFluids(MonoMethylHydrazine.getFluid(1000))
+//                .outputFluids(RocketFuelCN3H7O3.getFluid(1000))
+//                .save(provider);
 
         // C + 2H + N2H4 = CH3(NH)NH2
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(480).EUt(240)
@@ -297,13 +297,13 @@ public class VariousChains {
                 .outputFluids(DenseHydrazineFuelMixture.getFluid(1000))
                 .save(provider);
 
-        // Rocket Fuel Tier 1
-        // O + RP-1 = [O + RP-1] (treat like chem reactor recipes)
-        MIXER_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(16).EUt(240)
-                .inputFluids(Oxygen.getFluid(FluidStorageKeys.LIQUID, 1000))
-                .inputFluids(RP1.getFluid(1000))
-                .outputFluids(RP1RocketFuel.getFluid(1000))
-                .save(provider);
+//        // Rocket Fuel Tier 1
+//        // O + RP-1 = [O + RP-1] (treat like chem reactor recipes)
+//        MIXER_RECIPES.recipeBuilder("coal_tar_recipes_" + chainNumber++).duration(16).EUt(240)
+//                .inputFluids(Oxygen.getFluid(FluidStorageKeys.LIQUID, 1000))
+//                .inputFluids(RP1.getFluid(1000))
+//                .outputFluids(RP1RocketFuel.getFluid(1000))
+//                .save(provider);
 
         // Rocket fuel chemicals
         // 2NH3 + H2O2 = N2H4 + H2O

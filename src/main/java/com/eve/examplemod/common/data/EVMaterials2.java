@@ -852,9 +852,10 @@ public class EVMaterials2 {
             .color(0x005800)
             .iconSet(SHINY)
             .ingot(1)
-            .cableProperties(2048, 1, 0, true)
-            .components(UraniumTriplatinum, 1)
-            .flags(DISABLE_DECOMPOSITION)
+            .cableProperties(2048, 4, 0, true)
+            .components(Platinum, 1, Palladium, 2)
+            .flags(DISABLE_DECOMPOSITION, AUTOGEN_MIXER_RECIPE)
+            .blastTemp(1950, BlastProperty.GasTier.MID)
             .buildAndRegister();
 
     public static final Material IVSuperconductor = new Material.Builder(EVMain.id("iv_superconductor"))

@@ -88,15 +88,15 @@ public class REEChain {
                 .duration(400)
                 .save(provider);
 
-        // CO + C3H6 + 2H -> C4H8O
-        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(CarbonMonoxide.getFluid(1000))
-                .inputFluids(Propene.getFluid(1000))
-                .inputFluids(Hydrogen.getFluid(2000))
-                .outputFluids(Butyraldehyde.getFluid(1000))
-                .EUt(480)
-                .duration(200)
-                .save(provider);
+//        // CO + C3H6 + 2H -> C4H8O
+//        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+//                .inputFluids(CarbonMonoxide.getFluid(1000))
+//                .inputFluids(Propene.getFluid(1000))
+//                .inputFluids(Hydrogen.getFluid(2000))
+//                .outputFluids(Butyraldehyde.getFluid(1000))
+//                .EUt(480)
+//                .duration(200)
+//                .save(provider);
 
         // 2C4H8O + 4H -> C8H18O + H2O
         CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)

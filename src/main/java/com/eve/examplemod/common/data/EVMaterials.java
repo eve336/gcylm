@@ -41,6 +41,8 @@ public class EVMaterials {
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
         Duranium.setProperty(PropertyKey.WIRE, new WireProperties(VA[UV], 3, 22));
 
+        NetherStar.setProperty(PropertyKey.ORE, new OreProperty());
+
 
         Iron.setProperty(PropertyKey.FLUID_PIPE, new FluidPipeProperties(1811, 58, true, false, false, false));
 
@@ -57,10 +59,31 @@ public class EVMaterials {
 
         Topaz.addFlags(GENERATE_LENS);
 
+        // ROTOR
+        // Slight rebalance to encourage doing platline and progression and stuff
+
+        Palladium.addFlags(GENERATE_BOLT_SCREW);
+        Palladium.getProperties().setProperty(PropertyKey.ROTOR, new RotorProperty(168, 140, 100f, 500000));
         Steel.getProperty(PropertyKey.ROTOR).setPower(115);
-        Osmium.getProperty(PropertyKey.ROTOR).setPower(170);
-        RhodiumPlatedPalladium.getProperty(PropertyKey.ROTOR).setPower(180);
-        Ultimet.getProperty(PropertyKey.ROTOR).setPower(145);
+        VanadiumSteel.getProperty(PropertyKey.ROTOR).setPower(120);
+        WroughtIron.getProperty(PropertyKey.ROTOR).setPower(110);
+        Titanium.getProperty(PropertyKey.ROTOR).setPower(140);
+        StainlessSteel.getProperty(PropertyKey.ROTOR).setPower(130);
+        Osmium.getProperty(PropertyKey.ROTOR).setPower(175);
+        RhodiumPlatedPalladium.getProperty(PropertyKey.ROTOR).setPower(190);
+        Ultimet.getProperty(PropertyKey.ROTOR).setPower(135);
+        Tungsten.getProperty(PropertyKey.ROTOR).setPower(150);
+        TungstenSteel.getProperty(PropertyKey.ROTOR).setPower(150);
+        TungstenCarbide.getProperty(PropertyKey.ROTOR).setPower(155);
+        BismuthBronze.getProperty(PropertyKey.ROTOR).setPower(125);
+        Brass.getProperty(PropertyKey.ROTOR).setPower(110);
+        Osmiridium.getProperty(PropertyKey.ROTOR).setPower(180);
+        Osmiridium.getProperty(PropertyKey.ROTOR).setEfficiency(180);
+        HSSS.getProperty(PropertyKey.ROTOR).setPower(175);
+        HSSE.getProperty(PropertyKey.ROTOR).setPower(160);
+        HSSG.getProperty(PropertyKey.ROTOR).setPower(150);
+        Naquadah.getProperty(PropertyKey.ROTOR).setPower(190);
+        Iridium.getProperty(PropertyKey.ROTOR).setPower(175);
 
 
 
@@ -1474,13 +1497,13 @@ public class EVMaterials {
             .buildAndRegister();
 
 
-    public static final Material RocketFuelH8N4C2O4 = new Material.Builder(EVMain.id("rocket_fuel_a"))
-            .color(0x5ECB22)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Hydrogen, 8, Nitrogen, 4, Carbon, 2, Oxygen, 4)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
+//    public static final Material RocketFuelH8N4C2O4 = new Material.Builder(EVMain.id("rocket_fuel_a"))
+//            .color(0x5ECB22)
+//            .iconSet(FLUID)
+//            .fluid()
+//            .components(Hydrogen, 8, Nitrogen, 4, Carbon, 2, Oxygen, 4)
+//            .flags(DISABLE_DECOMPOSITION)
+//            .buildAndRegister();
 
 
     public static final Material CoalTarOil = new Material.Builder(EVMain.id("coal_tar_oil"))
@@ -1564,21 +1587,21 @@ public class EVMaterials {
             .flags(DISABLE_DECOMPOSITION)
             .buildAndRegister();
 
-    public static final Material RocketFuelCN3H7O3 = new Material.Builder(EVMain.id("rocket_fuel_b"))
-            .color(0xBE46C5)
-            .iconSet(FLUID)
-            .fluid()
-            .components(Carbon, 1, Nitrogen, 3, Hydrogen, 7, Oxygen, 3)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
-
-    public static final Material RP1RocketFuel = new Material.Builder(EVMain.id("rocket_fuel_c"))
-            .color(0xFF503C)
-            .iconSet(FLUID)
-            .fluid()
-            .components(RareEarth, 1, Oxygen, 1)
-            .flags(DISABLE_DECOMPOSITION)
-            .buildAndRegister();
+//    public static final Material RocketFuelCN3H7O3 = new Material.Builder(EVMain.id("rocket_fuel_b"))
+//            .color(0xBE46C5)
+//            .iconSet(FLUID)
+//            .fluid()
+//            .components(Carbon, 1, Nitrogen, 3, Hydrogen, 7, Oxygen, 3)
+//            .flags(DISABLE_DECOMPOSITION)
+//            .buildAndRegister();
+//
+//    public static final Material RP1RocketFuel = new Material.Builder(EVMain.id("rocket_fuel_c"))
+//            .color(0xFF503C)
+//            .iconSet(FLUID)
+//            .fluid()
+//            .components(RareEarth, 1, Oxygen, 1)
+//            .flags(DISABLE_DECOMPOSITION)
+//            .buildAndRegister();
 
     public static final Material RP1 = new Material.Builder(EVMain.id("rp"))
             .color(0xFF6E5D)

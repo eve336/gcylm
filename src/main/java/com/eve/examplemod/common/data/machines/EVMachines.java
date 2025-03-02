@@ -66,6 +66,17 @@ public class EVMachines{
                     .register(),
             GTMachineUtils.ALL_TIERS);
 
+    public static final MachineDefinition[] ENERGY_INPUT_HATCH_256A = registerTieredMachines("energy_input_hatch_256a",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 256),
+            (tier, builder) -> builder
+                    .langValue(VNF[tier] + " 256a Energy Hatch")
+                    .rotationState(RotationState.ALL)
+                    .abilities(PartAbility.INPUT_ENERGY)
+                    .tooltips(Component.translatable("gtceu.machine.energy_hatch.input.tooltip"))
+                    .overlayTieredHullRenderer("energy_hatch.input_high")
+                    .register(),
+            GTMachineUtils.ALL_TIERS);
+
 
 //    public static final MachineDefinition[] DUAL_IMPORT_HATCH = registerTieredMachines(
 //            "tri_input_hatch",

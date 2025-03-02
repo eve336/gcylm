@@ -1540,6 +1540,11 @@ public class CircuitComponentRecipes {
                 .outputItems(OPTICAL_SOC,4)
                 .save(provider);
 
+        CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20*70).EUt(480)
+                .inputItems(NANO_CENTRAL_PROCESSING_UNIT_WAFER)
+                .outputItems(NANO_CENTRAL_PROCESSING_UNIT,12)
+                .save(provider);
+
         // Optical Boules
         CHEMICAL_PLANT_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(210).EUt(30720)
                 .notConsumable(rod, Sapphire)

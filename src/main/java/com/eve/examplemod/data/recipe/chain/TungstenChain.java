@@ -83,24 +83,24 @@ public class TungstenChain {
                 .duration(65)
                 .save(provider);
 
-// tungsten_and_chlorine_to_tungsten_hexachloride_009
-        CHEMICAL_RECIPES.recipeBuilder("tungsten_and_chlorine_to_tungsten_hexachloride_009")
-                .inputItems(dust, Tungsten)
-                .inputFluids(Chlorine.getFluid(6000))
-                .outputItems(dust, TungstenHexachloride, 7)
-                .duration(120)
-                .EUt(120)
-                .save(provider);
-
-// tungsten_hexachloride_and_methane_and_hydrogen_to_tungsten_carbide_010
-        CHEMICAL_RECIPES.recipeBuilder("tungsten_hexachloride_and_methane_and_hydrogen_to_tungsten_carbide_010")
-                .inputItems(dust, TungstenHexachloride, 7)
-                .inputFluids(Methane.getFluid(1000))
-                .inputFluids(Hydrogen.getFluid(2000))
-                .outputItems(dust, TungstenCarbide, 2)
-                .outputFluids(HydrochloricAcid.getFluid(6000))
-                .EUt(480)
-                .duration(100)
-                .save(provider);
+//// tungsten_and_chlorine_to_tungsten_hexachloride_009
+//        CHEMICAL_RECIPES.recipeBuilder("tungsten_and_chlorine_to_tungsten_hexachloride_009")
+//                .inputItems(dust, Tungsten)
+//                .inputFluids(Chlorine.getFluid(6000))
+//                .outputItems(dust, TungstenHexachloride, 7)
+//                .duration(120)
+//                .EUt(120)
+//                .save(provider);
+//
+//// tungsten_hexachloride_and_methane_and_hydrogen_to_tungsten_carbide_010
+//        CHEMICAL_RECIPES.recipeBuilder("tungsten_hexachloride_and_methane_and_hydrogen_to_tungsten_carbide_010")
+//                .inputItems(dust, TungstenHexachloride, 7)
+//                .inputFluids(Methane.getFluid(1000))
+//                .inputFluids(Hydrogen.getFluid(2000))
+//                .outputItems(dust, TungstenCarbide, 2)
+//                .outputFluids(HydrochloricAcid.getFluid(6000))
+//                .EUt(480)
+//                .duration(100)
+//                .save(provider);
     }
 }

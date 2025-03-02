@@ -3,6 +3,7 @@ package com.eve.examplemod.common.data.machines;
 import com.eve.examplemod.api.registries.EVRegistries;
 import com.eve.examplemod.common.data.EVRecipeModifiers;
 import com.eve.examplemod.common.data.EVRecipeTypes;
+import com.eve.examplemod.common.machine.multiblock.EVPartAbility;
 import com.eve.examplemod.common.machine.multiblock.InfiniteFluidDrillMachine;
 import com.eve.examplemod.common.machine.multiblock.LargeChemicalReactor2;
 import com.eve.examplemod.common.machine.multiblock.primitive.IndustrialPrimitiveBlastFurnace;
@@ -24,7 +25,10 @@ import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MultiblockMachineBuilder;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.electric.FluidDrillMachine;
+import com.gregtechceu.gtceu.common.registry.GTRegistration;
+import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -35,13 +39,16 @@ import java.util.function.BiFunction;
 
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.machine.multiblock.PartAbility.INPUT_ENERGY;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
+import static com.gregtechceu.gtceu.common.data.GCYMBlocks.CASING_LARGE_SCALE_ASSEMBLING;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.NaquadahAlloy;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.StainlessSteel;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
 
 public class EVMultiMachines {
@@ -221,6 +228,39 @@ public class EVMultiMachines {
             })
             .workableCasingRenderer(GTCEu.id("block/casings/pipe/machine_casing_pipe_steel"),
                     GTCEu.id("block/multiblock/distillation_tower"))
+            .register();
+
+    // blah blah because of energy hatch rework this makes it so you need circuits of tier plus small assembler of tier before making it (all subject to change)
+    public final static MultiblockMachineDefinition LARGE_ASSEMBLER = GTRegistration.REGISTRATE
+            .multiblock("large_assembler", WorkableElectricMultiblockMachine::new)
+            .langValue("Large Assembling Factory")
+            .tooltips(Component.translatable("gtceu.multiblock.parallelizable.tooltip"))
+            .tooltips(Component.translatable("gtceu.machine.available_recipe_map_1.tooltip",
+                    Component.translatable("gtceu.assembler")))
+//            .conditionalTooltip(GTMachineUtils.defaultEnvironmentRequirement(),
+//                    ConfigHolder.INSTANCE.gameplay.environmentalHazards)
+            .rotationState(RotationState.ALL)
+            .recipeType(ASSEMBLER_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.PARALLEL_HATCH,
+                    GTRecipeModifiers.OC_NON_PERFECT_SUBTICK)
+            .appearanceBlock(CASING_LARGE_SCALE_ASSEMBLING)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("XXXXXXXXX", "XXXXXXXXX", "XXXXXXXXX")
+                    .aisle("XXXXXXXXX", "XCCCXAAAX", "XGGGXXXXX")
+                    .aisle("XXXXXXXXX", "XGGGXXSXX", "XGGGX###X")
+                    .where('S', controller(blocks(definition.get())))
+                    .where('X', blocks(CASING_LARGE_SCALE_ASSEMBLING.get()).setMinGlobalLimited(40)
+                            .or(Predicates.autoAbilities(definition.getRecipeTypes(), false, false, true, true, true,
+                                    true))
+                            .or(Predicates.abilities(INPUT_ENERGY).setMaxGlobalLimited(2))
+                            .or(Predicates.autoAbilities(false, false, true)))
+                    .where('G', Predicates.blocks(CASING_TEMPERED_GLASS.get()))
+                    .where('A', Predicates.air())
+                    .where('C', abilities(EVPartAbility.ROBOT_ARM))
+                    .where('#', Predicates.any())
+                    .build())
+            .workableCasingRenderer(GTCEu.id("block/casings/gcym/large_scale_assembling_casing"),
+                    GTCEu.id("block/multiblock/gcym/large_assembler"))
             .register();
 
     public static MultiblockMachineDefinition[] registerTieredMultis(String name,

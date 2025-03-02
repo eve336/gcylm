@@ -252,11 +252,12 @@ public class SuperconductorsSMDChain {
                 .outputItems(PIEZOELECTRIC_CRYSTAL)
                 .save(provider);
 
-        BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(500).EUt(120).blastFurnaceTemp(2400)
-                .inputItems(dust, Tungsten, 9)
-                .inputItems(oxide, Thorium)
-                .outputItems(ingot, ThoriumDopedTungsten, 10)
-                .save(provider);
+        // todo fix
+//        BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(500).EUt(120).blastFurnaceTemp(2400)
+//                .inputItems(dust, Tungsten, 9)
+//                .inputItems(oxide, Thorium)
+//                .outputItems(ingot, ThoriumDopedTungsten, 10)
+//                .save(provider);
 
         BLAST_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(270).EUt(120).blastFurnaceTemp(1800)
                 .inputItems(dust, Quartzite)

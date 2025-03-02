@@ -73,6 +73,10 @@ public class EVRecipeTypes {
 
 
     public static void init(){
+        MIXER_RECIPES.onRecipeBuild((builder, provider) -> {
+            LARGE_MIXER_RECIPES.copyFrom(builder)
+                    .save(provider);
+        });
 
     }
 }

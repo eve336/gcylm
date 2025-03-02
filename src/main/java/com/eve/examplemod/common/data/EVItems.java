@@ -12,7 +12,6 @@ import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 
 import static com.gregtechceu.gtceu.common.data.GTModels.overrideModel;
@@ -273,7 +272,7 @@ public class EVItems {
     public static ItemEntry<Item> ELECTRIC_PISTON_ULV = EVRegistries.REGISTRATE.item("ulv_electric_piston", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
     public static ItemEntry<Item> ELECTRIC_MOTOR_ULV = EVRegistries.REGISTRATE.item("ulv_electric_motor", Item::new).tab(EVTabs.EV_MATERIALS.getKey()).register();
 
-    public static ItemEntry<ComponentItem> conveyor_module_max = EVRegistries.REGISTRATE.item("conveyor_module_max", ComponentItem::create)
+    public static ItemEntry<ComponentItem> CONVEYOR_MODULE_MAX = EVRegistries.REGISTRATE.item("conveyor_module_max", ComponentItem::create)
             .onRegister(attach(new CoverPlaceBehavior(EVCovers.CONVEYOR[GTValues.MAX])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.conveyor.module.tooltip"));
@@ -292,7 +291,7 @@ public class EVItems {
             .register();
 
 
-    public static ItemEntry<ComponentItem> electric_pump_max = EVRegistries.REGISTRATE.item("electric_pump_max", ComponentItem::create)
+    public static ItemEntry<ComponentItem> ELECTRIC_PUMP_MAX = EVRegistries.REGISTRATE.item("electric_pump_max", ComponentItem::create)
             .onRegister(attach(new CoverPlaceBehavior(EVCovers.PUMP[GTValues.MAX])))
             .onRegister(attach(new TooltipBehavior(lines -> {
                 lines.add(Component.translatable("item.gtceu.electric.pump.tooltip"));

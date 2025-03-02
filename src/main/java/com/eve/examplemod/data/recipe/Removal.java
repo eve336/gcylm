@@ -141,7 +141,9 @@ public class Removal {
         // wetware
                 "gtceu:fluid_heater/sterile_growth_medium", "gtceu:mixer/raw_growth_medium", "gtceu:autoclave/agar", "gtceu:distillery/mutagen",
                 "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
-                "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells"
+                "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells",
+
+                "gtceu:cutter/cut_nano_cpu", "gtceu:cutter/cut_nano_cpu_distilled_water", "gtceu:cutter/cut_nano_cpu_water", "gtceu:gas_turbine/nitrobenzene"
                 );
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
     }
@@ -221,10 +223,10 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_scheelite"));
         registry.accept(new ResourceLocation("gtceu:chemical_bath/tungstic_acid_from_tungstate"));
         registry.accept(new ResourceLocation("gtceu:electrolyzer/tungstic_acid_electrolysis"));
-        registry.accept(new ResourceLocation("gtceu:mixer/tungstencarbide"));
+//        registry.accept(new ResourceLocation("gtceu:mixer/tungstencarbide"));
     }
     public static void gold(Consumer<ResourceLocation> registry) {
-        registry.accept(new ResourceLocation("gtceu:glowstone_separation"));
+        registry.accept(new ResourceLocation("gtceu:centrifuge/glowstone_separation"));
     }
     public static void YCBO(Consumer<ResourceLocation> registry) {
         List<String> removalList = List.of("gtceu:alloy_blast_smelter/yttrium_barium_cuprate_gas", "gtceu:alloy_blast_smelter/yttrium_barium_cuprate", "gtceu:vacuum_freezer/yttrium_barium_cuprate",
