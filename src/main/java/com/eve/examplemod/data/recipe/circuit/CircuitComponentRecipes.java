@@ -1542,7 +1542,7 @@ public class CircuitComponentRecipes {
 
         CUTTER_RECIPES.recipeBuilder("circuit_components_" + chainNumber++).duration(20*70).EUt(480)
                 .inputItems(NANO_CENTRAL_PROCESSING_UNIT_WAFER)
-                .outputItems(NANO_CENTRAL_PROCESSING_UNIT,12)
+                .outputItems(NANO_CENTRAL_PROCESSING_UNIT,16)
                 .save(provider);
 
         // Optical Boules

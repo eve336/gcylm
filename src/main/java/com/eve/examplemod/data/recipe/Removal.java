@@ -143,7 +143,8 @@ public class Removal {
                 "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
                 "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells",
 
-                "gtceu:cutter/cut_nano_cpu", "gtceu:cutter/cut_nano_cpu_distilled_water", "gtceu:cutter/cut_nano_cpu_water", "gtceu:gas_turbine/nitrobenzene"
+                "gtceu:cutter/cut_nano_cpu", "gtceu:cutter/cut_nano_cpu_distilled_water", "gtceu:cutter/cut_nano_cpu_water", "gtceu:gas_turbine/nitrobenzene",
+                "gtceu:shaped/large_centrifuge"
                 );
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
     }
@@ -230,7 +231,9 @@ public class Removal {
     }
     public static void YCBO(Consumer<ResourceLocation> registry) {
         List<String> removalList = List.of("gtceu:alloy_blast_smelter/yttrium_barium_cuprate_gas", "gtceu:alloy_blast_smelter/yttrium_barium_cuprate", "gtceu:vacuum_freezer/yttrium_barium_cuprate",
-                "gtceu:mixer/yttrium_barium_cuprate", "gtceu:centrifuge/rare_earth_separation");
+                "gtceu:mixer/yttrium_barium_cuprate"
+                , "gtceu:centrifuge/rare_earth_separation", "gtceu:large_centrifuge/rare_earth_separation"
+        );
         removalList.forEach(c -> registry.accept(new ResourceLocation(c)));
 
     }

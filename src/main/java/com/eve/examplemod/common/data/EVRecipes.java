@@ -8,7 +8,7 @@ import com.eve.examplemod.data.recipe.circuit.CircuitRecipes;
 import com.eve.examplemod.data.recipe.generated.*;
 import com.eve.examplemod.data.recipe.chain.AluminiumChain;
 import com.eve.examplemod.data.recipe.chain.GoldChain;
-import com.eve.examplemod.data.recipe.generated.Machines;
+import com.eve.examplemod.data.recipe.generated.GeneratedMachineRecipes;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
@@ -27,7 +27,7 @@ public class EVRecipes {
         if (EVConfig.INSTANCE.harderGold) GoldChain.init(consumer);
         AluminiumChain.init(consumer);
         MiscRecipes.init(consumer);
-        Machines.init(consumer);
+        GeneratedMachineRecipes.init(consumer);
         InsulatorChain.init(consumer);
         AmmoniaChain.init(consumer);
         ArcFurnaceOxidation.init(consumer);
@@ -72,7 +72,7 @@ public class EVRecipes {
         WormholeGeneratorChain.init(consumer);
         CoolerRecipes.init(consumer);
         SolarPanelRecipes.init(consumer);
-        com.eve.examplemod.data.recipe.Machines.init(consumer);
+        MachineRecipes.init(consumer);
         Cables.init(consumer);
         MobFarmRecipes.init(consumer);
         Desulfuriser.init(consumer);

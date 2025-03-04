@@ -25,6 +25,7 @@ public class EVCraftingComponent extends CraftingComponent {
     public static Component SECONDARY_CABLE_2x;
     public static Component SECONDARY_CABLE_4x;
     public static Component SECONDARY_CABLE_8x;
+    public static Component SECONDARY_CABLE_16x;
     public static Component CABLE;
     public static Component CABLE_8x;
     public static Component CABLE_16x;
@@ -69,7 +70,7 @@ public class EVCraftingComponent extends CraftingComponent {
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
         PUMP = new Component(Stream.of(new Object[][]{
-                {1, EVItems.ELECTRIC_PUMP_ULV.asStack()},
+                {0, EVItems.ELECTRIC_PUMP_ULV.asStack()},
                 {1, GTItems.ELECTRIC_PUMP_LV.asStack()},
                 {2, GTItems.ELECTRIC_PUMP_MV.asStack()},
                 {3, GTItems.ELECTRIC_PUMP_HV.asStack()},
@@ -256,6 +257,24 @@ public class EVCraftingComponent extends CraftingComponent {
                 {12, new UnificationEntry(TagPrefix.cableGtOctal, NaquadriaticTaranium)},
                 {13, new UnificationEntry(TagPrefix.cableGtOctal, Neutronium)},
                 {FALLBACK, new UnificationEntry(TagPrefix.cableGtOctal, Neutronium)},
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
+
+        SECONDARY_CABLE_16x = new Component(Stream.of(new Object[][]{
+                {0, new UnificationEntry(TagPrefix.cableGtHex, Lead)},
+                {1, new UnificationEntry(TagPrefix.cableGtHex, Nickel)},
+                {2, new UnificationEntry(TagPrefix.cableGtHex, Iron)},
+                {3, new UnificationEntry(TagPrefix.cableGtHex, Silver)},
+                {4, new UnificationEntry(TagPrefix.cableGtHex, Steel)},
+                {5, new UnificationEntry(TagPrefix.cableGtHex, Tungsten)},
+                {6, new UnificationEntry(TagPrefix.cableGtHex, Osmium)},
+                {7, new UnificationEntry(TagPrefix.cableGtHex, Naquadah)},
+                {8, new UnificationEntry(TagPrefix.cableGtHex, Duranium)},
+                {9, new UnificationEntry(TagPrefix.cableGtHex, AbyssalAlloy)},
+                {10, new UnificationEntry(TagPrefix.cableGtHex, TitanSteel)},
+                {11, new UnificationEntry(TagPrefix.cableGtHex, BlackTitanium)},
+                {12, new UnificationEntry(TagPrefix.cableGtHex, Vibranium)},
+                {13, new UnificationEntry(TagPrefix.cableGtHex, Lead)},
+                {FALLBACK, new UnificationEntry(TagPrefix.cableGtHex, BlackTitanium)},
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
         ROBOT_ARM = new Component(Stream.of(new Object[][]{

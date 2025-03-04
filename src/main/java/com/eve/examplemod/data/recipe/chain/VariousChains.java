@@ -200,12 +200,12 @@ public class VariousChains {
                 .save(provider);
 
         // C2H4 + C6H6 -> C8H10
-        CHEMICAL_RECIPES.recipeBuilder("hydrogen_peroxide_recipes_" + chainNumber++).duration(300).EUt(60)
-                .circuitMeta(1)
-                .inputFluids(Ethylene.getFluid(1000))
-                .inputFluids(Benzene.getFluid(1000))
-                .outputFluids(Ethylbenzene.getFluid(1000))
-                .save(provider);
+//        CHEMICAL_RECIPES.recipeBuilder("hydrogen_peroxide_recipes_" + chainNumber++).duration(300).EUt(60)
+//                .circuitMeta(1)
+//                .inputFluids(Ethylene.getFluid(1000))
+//                .inputFluids(Benzene.getFluid(1000))
+//                .outputFluids(Ethylbenzene.getFluid(1000))
+//                .save(provider);
 
         // C8H6O4 -> C8H4O3 + H2O (H2O voided - Dehydrator)
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("hydrogen_peroxide_recipes_" + chainNumber++).duration(600).EUt(120)

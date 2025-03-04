@@ -205,13 +205,13 @@ public class CircuitRecipes {
 
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder("evnano_computer_variant").duration(200).EUt(2000)
-                .outputItems(NANO_COMPUTER_IV, 1)
-                .inputItems(NANO_PROCESSOR_ASSEMBLY_EV, 4)
+                .inputItems(NANO_PROCESSOR_ASSEMBLY_EV, 3)
                 .inputItems(SMD_RESISTOR_NANO, 4)
                 .inputItems(SMD_TRANSISTOR_NANO, 4)
                 .inputItems(RANDOM_ACCESS_MEMORY, 8)
-                .inputItems(MULTILAYER_FIBER_BOARD, 1)
+                .inputItems(EXTREME_CIRCUIT_BOARD, 1)
                 .inputItems(wireGtSingle, UraniumTriplatinum, 1)
+                .outputItems(NANO_COMPUTER_IV, 1)
                 .save(provider);
 
 

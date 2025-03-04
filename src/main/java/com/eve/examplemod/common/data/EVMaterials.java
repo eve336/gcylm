@@ -15,6 +15,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -37,6 +38,9 @@ public class EVMaterials {
 
     public static void modifyMaterials() {
 
+        Zeron100.addFlags(DISABLE_ALLOY_BLAST, AUTOGEN_MIXER_RECIPE, LARGE_MIXER_RECIPE);
+        Zeron100.getProperty(PropertyKey.BLAST).setBlastTemperature(3700);
+        UraniumTriplatinum.getProperty(PropertyKey.BLAST).setBlastTemperature(3400);
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
         Duranium.setProperty(PropertyKey.WIRE, new WireProperties(VA[UV], 3, 22));
@@ -54,6 +58,9 @@ public class EVMaterials {
 
         List<Material> foilList = List.of(Thallium, Barium, Calcium);
         foilList.forEach(m -> m.addFlags(GENERATE_FOIL));
+
+        List<Material> mixerList = List.of(GTMaterials.IncoloyMA956);
+        mixerList.forEach(m -> m.addFlags(AUTOGEN_MIXER_RECIPE));
 
         Rutile.setProperty(PropertyKey.ORE, new OreProperty());
 
@@ -378,6 +385,8 @@ public class EVMaterials {
         OreProperty oreProp = PreciousMetal.getProperty(PropertyKey.ORE);
         oreProp.setOreByProducts(Cadmium, Iron, PreciousMetal, Antimony);
         oreProp.setWashedIn(Mercury);
+
+
 
         Nichrome.getProperties().removeProperty(PropertyKey.BLAST);
         Nichrome.setProperty(PropertyKey.BLAST, new BlastProperty(1900, BlastProperty.GasTier.LOW));
@@ -995,14 +1004,14 @@ public class EVMaterials {
             .appendFlags(EXT2_METAL)
             .buildAndRegister();
 
-    public static final Material IncoloyMA956 = new Material.Builder(EVMain.id("incoloy_ma"))
-            .color(0xAABEBB)
-            .iconSet(METALLIC)
-            .ingot(4)
-            .components(Iron, 16, Aluminium, 3, Chromium, 5, Yttrium, 1)
-            .flags(GENERATE_FRAME)
-            .appendFlags(EXT2_METAL)
-            .buildAndRegister();
+//    public static final Material IncoloyMA956 = new Material.Builder(EVMain.id("incoloy_ma"))
+//            .color(0xAABEBB)
+//            .iconSet(METALLIC)
+//            .ingot(4)
+//            .components(Iron, 16, Aluminium, 3, Chromium, 5, Yttrium, 1)
+//            .flags(GENERATE_FRAME)
+//            .appendFlags(EXT2_METAL)
+//            .buildAndRegister();
 
 
     public static final Material ZirconiumCarbide = new Material.Builder(EVMain.id("zirconium_carbide"))
@@ -1101,7 +1110,7 @@ public class EVMaterials {
             .color(0x9E706A)
             .iconSet(METALLIC)
             .ingot(6)
-            .components(StainlessSteel, 5, TungstenCarbide, 5, Nichrome, 5, Bronze, 5, IncoloyMA956, 5, Iodine, 1, Germanium, 1, Radon, 1)
+            .components(StainlessSteel, 5, TungstenCarbide, 5, Nichrome, 5, Bronze, 5, GTMaterials.IncoloyMA956, 5, Iodine, 1, Germanium, 1, Radon, 1)
             .flags(DISABLE_DECOMPOSITION)
             .appendFlags(EXT2_METAL)
             .cableProperties(V[UHV], 6, 6)
@@ -1236,21 +1245,21 @@ public class EVMaterials {
             .appendFlags(CORE_METAL)
             .buildAndRegister();
 
-    public static final Material Zeron100 = new Material.Builder(EVMain.id("zeron"))
-            .color(0xB4B414)
-            .iconSet(SHINY)
-            .ingot(5)
-            .components(Chromium, 13, Nickel, 3, Molybdenum, 2, Copper, 10, Tungsten, 2, Steel, 20)
-            .flags(DISABLE_DECOMPOSITION)
-            .appendFlags(CORE_METAL)
-            .buildAndRegister();
+//    public static final Material Zeron100 = new Material.Builder(EVMain.id("zeron"))
+//            .color(0xB4B414)
+//            .iconSet(SHINY)
+//            .ingot(5)
+//            .components(Chromium, 13, Nickel, 3, Molybdenum, 2, Copper, 10, Tungsten, 2, Steel, 20)
+//            .flags(DISABLE_DECOMPOSITION)
+//            .appendFlags(CORE_METAL)
+//            .buildAndRegister();
 
     public static final Material Cinobite = new Material.Builder(EVMain.id("cinobite"))
             .color(0x010101)
             .iconSet(SHINY)
             .ingot(5)
             .fluid()
-            .components(Zeron100, 8, Naquadria, 4, Gadolinium, 3, Aluminium, 2, Mercury, 1, Tin, 1, Titanium, 6, Osmiridium, 1)
+            .components(GTMaterials.Zeron100, 8, Naquadria, 4, Gadolinium, 3, Aluminium, 2, Mercury, 1, Tin, 1, Titanium, 6, Osmiridium, 1)
             .flags(DISABLE_DECOMPOSITION)
             .cableProperties(V[UIV], 6, 12)
             .appendFlags(CORE_METAL)
@@ -7690,8 +7699,9 @@ public class EVMaterials {
             .buildAndRegister()
             .setFormula("HNO3", true);
 
-    public static final Material StoneResidueDust = new Material.Builder(EVMain.id("stone_residue_dust"))
+    public static final Material StoneResidueDust = new Material.Builder(EVMain.id("stone_residue"))
             .color(Stone.getMaterialRGB() / 5 * 3)
+            .dust()
             .iconSet(MaterialIconSet.ROUGH).dust()
             .buildAndRegister();
 
@@ -7732,6 +7742,7 @@ public class EVMaterials {
             .buildAndRegister();
 
     public static final Material UncommonResidues = new Material.Builder(EVMain.id("uncommon_residues"))
+            .dust()
             .color((Triniite.getMaterialRGB() + NaquadriaticTaranium.getMaterialRGB() + PreciousMetals.getMaterialRGB()) / 5)
             .iconSet(MaterialIconSet.FINE).dust()
             .buildAndRegister();

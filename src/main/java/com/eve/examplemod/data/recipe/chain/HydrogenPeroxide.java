@@ -40,13 +40,13 @@ public class HydrogenPeroxide {
                 .save(provider);
 
 // ethylene_and_benzene_to_ethylbenzene_004
-        CHEMICAL_RECIPES.recipeBuilder("ethylene_and_benzene_to_ethylbenzene_004")
-                .duration(300).EUt(60)
-                .circuitMeta(1)
-                .inputFluids(Ethylene.getFluid(1000))
-                .inputFluids(Benzene.getFluid(1000))
-                .outputFluids(Ethylbenzene.getFluid(1000))
-                .save(provider);
+//        CHEMICAL_RECIPES.recipeBuilder("ethylene_and_benzene_to_ethylbenzene_004")
+//                .duration(300).EUt(60)
+//                .circuitMeta(1)
+//                .inputFluids(Ethylene.getFluid(1000))
+//                .inputFluids(Benzene.getFluid(1000))
+//                .outputFluids(Ethylbenzene.getFluid(1000))
+//                .save(provider);
 
 // phthalic_acid_to_phthalic_anhydride_005
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("phthalic_acid_to_phthalic_anhydride_005")

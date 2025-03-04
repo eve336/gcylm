@@ -27,6 +27,7 @@ import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_CENTRIFUGE;
 import static com.gregtechceu.gtceu.common.data.machines.GTMultiMachines.PRIMITIVE_BLAST_FURNACE;
 import static net.minecraft.world.item.Items.*;
 
@@ -34,6 +35,7 @@ public class MiscRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
 
         if (EVConfig.INSTANCE.evEndAccess) end(provider);
+        if (EVConfig.INSTANCE.harderYCBO) ycbo(provider);
 
         CHEMICAL_RECIPES.recipeBuilder("polystyrene_from_air")
                 .circuitMeta(1)
@@ -424,6 +426,17 @@ public class MiscRecipes {
                 'F', ChemicalHelper.get(gemFlawless, Ruby)
                 );
 
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("ev_large_centrifuge"),
+                LARGE_CENTRIFUGE.asStack(),
+                "CMC",
+                "WHW",
+                "CMC",
+                'W', ChemicalHelper.get(cableGtSingle, Platinum),
+                'M', EVCraftingComponent.MOTOR.getIngredient(EV),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(IV),
+                'H', EVCraftingComponent.HULL.getIngredient(IV)
+        );
+
         // item recipes
 
         CANNER_RECIPES.recipeBuilder("bose_einstein_cooling_container").duration(280).EUt(90000)
@@ -487,5 +500,15 @@ public class MiscRecipes {
                 .outputItems(UNSTABLE_STAR)
                 .save(provider);
     }
+    public static void ycbo(Consumer<FinishedRecipe> provider) {
+        CENTRIFUGE_RECIPES.recipeBuilder("rare_earth").EUt(50).duration(300)
+                .inputItems(dust, RareEarth)
+                .chancedOutput(dust, Yttrium, 500, 50)
+                .chancedOutput(dust, Cadmium, 500, 50)
+                .chancedOutput(dust, Neodymium, 500, 50)
+                .chancedOutput(dust, Cerium, 500, 50)
+                .save(provider);
+    }
+
 
 }

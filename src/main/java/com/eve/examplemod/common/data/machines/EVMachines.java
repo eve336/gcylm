@@ -24,6 +24,7 @@ import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.part.EnergyHatchPartMachine;
 import com.gregtechceu.gtceu.config.ConfigHolder;
+import com.gregtechceu.gtceu.utils.FormattingUtil;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -37,6 +38,8 @@ import static com.eve.examplemod.api.EVValues.ROMAN;
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
 import static com.eve.examplemod.common.data.EVRecipeTypes.ACTIVE_COOLER_RECIPES;
 import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.capability.recipe.IO.IN;
+import static com.gregtechceu.gtceu.api.capability.recipe.IO.OUT;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
@@ -55,6 +58,8 @@ public class EVMachines{
             PartAbility.EXPORT_ITEMS, PartAbility.EXPORT_FLUIDS, PartAbility.OUTPUT_ENERGY
     };
 
+    // todo fix textures and stuff lol
+    // like overlays, ,,, someone else can do it for me :p
     public static final MachineDefinition[] ENERGY_INPUT_HATCH_64A = registerTieredMachines("energy_input_hatch_64a",
             (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 64),
             (tier, builder) -> builder
@@ -66,16 +71,78 @@ public class EVMachines{
                     .register(),
             GTMachineUtils.ALL_TIERS);
 
-    public static final MachineDefinition[] ENERGY_INPUT_HATCH_256A = registerTieredMachines("energy_input_hatch_256a",
-            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 256),
+    public static final MachineDefinition[] ENERGY_INPUT_HATCH_128A = registerTieredMachines("energy_input_hatch_128a",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 128),
             (tier, builder) -> builder
-                    .langValue(VNF[tier] + " 256a Energy Hatch")
+                    .langValue(VNF[tier] + " 128a Energy Hatch")
                     .rotationState(RotationState.ALL)
                     .abilities(PartAbility.INPUT_ENERGY)
                     .tooltips(Component.translatable("gtceu.machine.energy_hatch.input.tooltip"))
                     .overlayTieredHullRenderer("energy_hatch.input_high")
                     .register(),
             GTMachineUtils.ALL_TIERS);
+
+    public static final MachineDefinition[] ENERGY_OUTPUT_HATCH_128A = registerTieredMachines("energy_output_hatch_256a",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.OUT, 128),
+            (tier, builder) -> builder
+                    .langValue(VNF[tier] + " 128a Dynamo Hatch")
+                    .rotationState(RotationState.ALL)
+                    .abilities(PartAbility.OUTPUT_ENERGY)
+                    .tooltips(Component.translatable("gtceu.machine.energy_hatch.input.tooltip"))
+                    .overlayTieredHullRenderer("energy_hatch.output_high")
+                    .register(),
+            GTMachineUtils.ALL_TIERS);
+
+    public static final MachineDefinition[] EXAMPLEMOD_ENERGY_OUTPUT_HATCH_4A = registerTieredMachines("energy_output_hatch_4a",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, OUT, 4),
+            (tier, builder) -> builder
+                    .langValue(VNF[tier] + " 4A Dynamo Hatch")
+                    .rotationState(RotationState.ALL)
+                    .abilities(PartAbility.OUTPUT_ENERGY)
+                    .tooltips(Component.translatable("gtceu.universal.tooltip.voltage_out",
+                                    FormattingUtil.formatNumbers(V[tier]), VNF[tier]),
+                            Component.translatable("gtceu.universal.tooltip.amperage_out", 4),
+                            Component.translatable("gtceu.universal.tooltip.energy_storage_capacity",
+                                    FormattingUtil
+                                            .formatNumbers(EnergyHatchPartMachine.getHatchEnergyCapacity(tier, 4))),
+                            Component.translatable("gtceu.machine.energy_hatch.output_hi_amp.tooltip"))
+                    .overlayTieredHullRenderer("energy_hatch.output_high")
+                    .register(),
+            GTValues.tiersBetween(LV, HV));
+
+    public static final MachineDefinition[] EXAMPLEMOD_ENERGY_INPUT_HATCH_16A = registerTieredMachines("energy_input_hatch_16a",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IN, 16),
+            (tier, builder) -> builder
+                    .langValue(VNF[tier] + " 16A Energy Hatch")
+                    .rotationState(RotationState.ALL)
+                    .abilities(PartAbility.INPUT_ENERGY)
+                    .tooltips(Component.translatable("gtceu.universal.tooltip.voltage_in",
+                                    FormattingUtil.formatNumbers(V[tier]), VNF[tier]),
+                            Component.translatable("gtceu.universal.tooltip.amperage_in", 16),
+                            Component.translatable("gtceu.universal.tooltip.energy_storage_capacity",
+                                    FormattingUtil
+                                            .formatNumbers(EnergyHatchPartMachine.getHatchEnergyCapacity(tier, 16))),
+                            Component.translatable("gtceu.machine.energy_hatch.input_hi_amp.tooltip"))
+                    .overlayTieredHullRenderer("energy_hatch.input_high")
+                    .register(),
+            GTValues.tiersBetween(LV, HV));
+
+    public static final MachineDefinition[] EXAMPLEMOD_ENERGY_OUTPUT_HATCH_16A = registerTieredMachines("energy_output_hatch_16a",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, OUT, 16),
+            (tier, builder) -> builder
+                    .langValue(VNF[tier] + " 16A Dynamo Hatch")
+                    .rotationState(RotationState.ALL)
+                    .abilities(PartAbility.OUTPUT_ENERGY)
+                    .tooltips(Component.translatable("gtceu.universal.tooltip.voltage_out",
+                                    FormattingUtil.formatNumbers(V[tier]), VNF[tier]),
+                            Component.translatable("gtceu.universal.tooltip.amperage_out", 16),
+                            Component.translatable("gtceu.universal.tooltip.energy_storage_capacity",
+                                    FormattingUtil
+                                            .formatNumbers(EnergyHatchPartMachine.getHatchEnergyCapacity(tier, 16))),
+                            Component.translatable("gtceu.machine.energy_hatch.output_hi_amp.tooltip"))
+                    .overlayTieredHullRenderer("energy_hatch.output_high")
+                    .register(),
+            GTValues.tiersBetween(LV, HV));
 
 
 //    public static final MachineDefinition[] DUAL_IMPORT_HATCH = registerTieredMachines(
@@ -393,6 +460,5 @@ public class EVMachines{
     }
 
     public static void init(){
-
     }
 }

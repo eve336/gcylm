@@ -21,10 +21,12 @@ import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMa
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MultiblockMachineBuilder;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.electric.FluidDrillMachine;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
@@ -48,12 +50,22 @@ import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.NaquadahAlloy;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.StainlessSteel;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.DUMMY_RECIPES;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_CENTRIFUGE;
+import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_MIXER;
 
 public class EVMultiMachines {
 
     // todo make it so you can use stainless steel casings for lgts since turbine casings arent even harder, theyre just bloat content
+
+
+    // TODO rework gcym content. MAYYY have to change blocks used in multis but not sure
+    // make the amount of different alloys for gcym smaller
+    // probably just make it so you use a circuit in the assembler to change what block is made
+    // make the materials use hard to obtain elements/materials only from ore proc (possibly only byproducts), encourages robust ore proc
+    // make the materials require chemlines maybe?? Not too sure how to do this
+    // dont make it too easy
+    // ones obtained first wont use abs but the ones obtained later will require abs
 
     public static final MultiblockMachineDefinition[] INFINITE_FLUID_DRILLING_RIG = registerTieredMultis(
             "infinite_fluid_drilling_rig", InfiniteFluidDrillMachine::new,
@@ -231,6 +243,7 @@ public class EVMultiMachines {
             .register();
 
     // blah blah because of energy hatch rework this makes it so you need circuits of tier plus small assembler of tier before making it (all subject to change)
+    // TODO change multiblock structure, make it look nicer or something lol
     public final static MultiblockMachineDefinition LARGE_ASSEMBLER = EVRegistries.REGISTRATE
             .multiblock("ev_large_assembler", WorkableElectricMultiblockMachine::new)
             .langValue("Large Assembling Factory")
@@ -279,6 +292,8 @@ public class EVMultiMachines {
     }
 
     public static void init(){
+        LARGE_MIXER.setRecipeTypes(new GTRecipeType[]{EVRecipeTypes.LARGE_MIXER_RECIPES});
+        LARGE_CENTRIFUGE.setRecipeTypes(new GTRecipeType[]{EVRecipeTypes.LARGE_CENTRIFUGE_RECIPES, THERMAL_CENTRIFUGE_RECIPES});
 
     }
 }

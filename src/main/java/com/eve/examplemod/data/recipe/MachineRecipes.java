@@ -14,12 +14,12 @@ import static com.eve.examplemod.EVMain.id;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
+import static com.gregtechceu.gtceu.common.data.GTMachines.ASSEMBLER;
 import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
-import static com.gregtechceu.gtceu.common.data.GTMachines.PUMP;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
 
-public class Machines {
+public class MachineRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
 
@@ -45,6 +45,17 @@ public class Machines {
                 'P', ChemicalHelper.get(pipeLargeFluid, Polytetrafluoroethylene),
                 'H', HULL[HV].asStack(),
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.HV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("ev_large_assembler"),
+                EVMultiMachines.LARGE_ASSEMBLER.asStack(),
+                "RWR",
+                "CAC",
+                "MWM",
+                'M', CraftingComponent.CONVEYOR.getIngredient(IV),
+                'W', ChemicalHelper.get(cableGtSingle, Platinum),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(IV),
+                'A', ASSEMBLER[IV].asStack(),
+                'R', EVCraftingComponent.ROBOT_ARM.getIngredient(IV));
 
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("desulfuriser"),
                 EVMultiMachines.DESULFURISER.asStack(),

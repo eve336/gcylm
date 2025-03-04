@@ -43,9 +43,9 @@ public class TaraniumChain {
                 .save(provider);
 
         CHEMICAL_RECIPES.recipeBuilder("taranium_chain_" + chainNumber++)
-                .inputItems(StoneResidueDust,24)
+                .inputItems(dust, StoneResidueDust,24)
                 .inputFluids(SodiumHydroxideSolution.getFluid(1000))
-                .outputItems(UncommonResidues)
+                .outputItems(dust, UncommonResidues)
                 .outputItems(dustSmall, Magnetite)
                 .outputFluids(SodiumHydroxideSolution.getFluid(925))
                 .outputFluids(RedMud.getFluid(75))

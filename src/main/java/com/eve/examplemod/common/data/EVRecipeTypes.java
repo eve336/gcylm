@@ -1,7 +1,9 @@
 package com.eve.examplemod.common.data;
 
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
@@ -33,35 +35,37 @@ public class EVRecipeTypes {
             );
 
     public static final GTRecipeType LARGE_MIXER_RECIPES = GTRecipeTypes.register("large_mixer", MULTIBLOCK)
-            .setMaxIOSize(9,1,6,1)
-            .setSmallRecipeMap(MIXER_RECIPES);
+            .setMaxIOSize(9,1,6,1).setEUIO(IO.IN)
+            // dont believe intellij
+            .setIconSupplier(() -> GCYMMachines.LARGE_MIXER.asStack());
 
     public static final GTRecipeType GAS_CENTRIFUGE_RECIPES = GTRecipeTypes.register("gas_centrifuge", MULTIBLOCK)
-            .setMaxIOSize(0,0,1,3);
+            .setMaxIOSize(0,0,1,3).setEUIO(IO.IN);
 
     public static final GTRecipeType PLASMA_CONDENSER_RECIPES = GTRecipeTypes.register("plasma_condenser", MULTIBLOCK)
-            .setMaxIOSize(5,5,5,5);
+            .setMaxIOSize(5,5,5,5).setEUIO(IO.IN);
 
     public static final GTRecipeType RECPLICATION_RECIPES = GTRecipeTypes.register("replication", MULTIBLOCK)
             .setMaxIOSize(0,0,3,1);
 
     public static final GTRecipeType LARGE_CENTRIFUGE_RECIPES = GTRecipeTypes.register("large_centrifuge", MULTIBLOCK)
-            .setMaxIOSize(2,6,2,6);
+            .setMaxIOSize(2,6,2,6).setEUIO(IO.IN)
+            .setIconSupplier(() -> GCYMMachines.LARGE_CENTRIFUGE.asStack());
 
     public static final GTRecipeType LARGE_ENGRAVER_RECIPES = GTRecipeTypes.register("large_engraver", MULTIBLOCK)
-            .setMaxIOSize(5,5,3,1);
+            .setMaxIOSize(5,5,3,1).setEUIO(IO.IN);
 
     public static final GTRecipeType ADV_FUSION_RECIPES = GTRecipeTypes.register("adv_fusion", MULTIBLOCK)
-            .setMaxIOSize(0,0,3,1);
+            .setMaxIOSize(0,0,3,1).setEUIO(IO.IN);
 
     public static final GTRecipeType SPAWNER_RECIPES = GTRecipeTypes.register("spawner", ELECTRIC)
-            .setMaxIOSize(4,1, 2,0);
+            .setMaxIOSize(4,1, 2,0).setEUIO(IO.IN);
 
     public static final GTRecipeType HARVESTER_RECIPES = GTRecipeTypes.register("harvester", ELECTRIC)
-            .setMaxIOSize(1,4,0,0);
+            .setMaxIOSize(1,4,0,0).setEUIO(IO.IN);
 
     public static final GTRecipeType DESULFURISER_RECIPES = GTRecipeTypes.register("desulfuriser", MULTIBLOCK)
-            .setMaxIOSize(0,0,2,2);
+            .setMaxIOSize(0,0,2,2).setEUIO(IO.IN);
 
 //    public static GTRecipeType register(String name, String group, RecipeType<?>... proxyRecipes) {
 //        var recipeType = new GTRecipeType(GTCEu.id(name), group, proxyRecipes);
@@ -75,6 +79,11 @@ public class EVRecipeTypes {
     public static void init(){
         MIXER_RECIPES.onRecipeBuild((builder, provider) -> {
             LARGE_MIXER_RECIPES.copyFrom(builder)
+                    .save(provider);
+        });
+
+        CENTRIFUGE_RECIPES.onRecipeBuild((builder, provider) -> {
+            LARGE_CENTRIFUGE_RECIPES.copyFrom(builder)
                     .save(provider);
         });
 

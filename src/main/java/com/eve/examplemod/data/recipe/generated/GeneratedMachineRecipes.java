@@ -14,8 +14,7 @@ import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
-import static com.eve.examplemod.common.data.machines.EVMachines.ENERGY_INPUT_HATCH_256A;
-import static com.eve.examplemod.common.data.machines.EVMachines.ENERGY_INPUT_HATCH_64A;
+import static com.eve.examplemod.common.data.machines.EVMachines.*;
 import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.GTValues.VN;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
@@ -26,7 +25,7 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
 import static com.gregtechceu.gtceu.data.recipe.CraftingComponent.*;
 import static com.gregtechceu.gtceu.data.recipe.misc.MetaTileEntityLoader.registerMachineRecipe;
 
-public class Machines {
+public class GeneratedMachineRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
 
         EVCraftingComponent.initialiseComponents();
@@ -165,9 +164,14 @@ public class Machines {
             if (ENERGY_INPUT_HATCH_64A[tier] == null) continue;
             VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch_64a", ENERGY_INPUT_HATCH_64A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE_8x.getIngredient(tier));
         }
-        for (int tier = 0; tier < ENERGY_INPUT_HATCH_256A.length; tier++){
-            if (ENERGY_INPUT_HATCH_256A[tier] == null) continue;
-            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch_256a", ENERGY_INPUT_HATCH_256A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE_16x.getIngredient(tier));
+        for (int tier = 0; tier < ENERGY_INPUT_HATCH_128A.length; tier++){
+            if (ENERGY_INPUT_HATCH_128A[tier] == null) continue;
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch_256a", ENERGY_INPUT_HATCH_128A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE_16x.getIngredient(tier));
+        }
+
+        for (int tier = 0; tier < ENERGY_OUTPUT_HATCH_128A.length; tier++){
+            if (ENERGY_OUTPUT_HATCH_128A[tier] == null) continue;
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch_256a", ENERGY_OUTPUT_HATCH_128A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE_16x.getIngredient(tier));
         }
 
         for (int tier = 0; tier < ENERGY_OUTPUT_HATCH.length; tier++){
@@ -177,10 +181,18 @@ public class Machines {
             if (ENERGY_OUTPUT_HATCH_4A[tier] == null) continue;
             VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch_4a", ENERGY_OUTPUT_HATCH_4A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE_2x.getIngredient(tier));
         }
+        for (int tier = 0; tier < EXAMPLEMOD_ENERGY_OUTPUT_HATCH_4A.length; tier++){
+            if (EXAMPLEMOD_ENERGY_OUTPUT_HATCH_4A[tier] == null) continue;
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch_4a", EXAMPLEMOD_ENERGY_OUTPUT_HATCH_4A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE_2x.getIngredient(tier));
+        }
 
         for (int tier = 0; tier < ENERGY_OUTPUT_HATCH_16A.length; tier++){
             if (ENERGY_OUTPUT_HATCH_16A[tier] == null) continue;
             VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch_16a", ENERGY_OUTPUT_HATCH_16A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE_4x.getIngredient(tier));
+        }
+        for (int tier = 0; tier < EXAMPLEMOD_ENERGY_OUTPUT_HATCH_16A.length; tier++){
+            if (EXAMPLEMOD_ENERGY_OUTPUT_HATCH_16A[tier] == null) continue;
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_output_hatch_16a", EXAMPLEMOD_ENERGY_OUTPUT_HATCH_16A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.SECONDARY_CABLE_4x.getIngredient(tier));
         }
 
         for (int tier = 0; tier < SUBSTATION_ENERGY_OUTPUT_HATCH.length; tier++){

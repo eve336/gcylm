@@ -69,7 +69,7 @@ public class Cables {
 
         // Polyethylene Recipe (ULV-EV cables)
 
-        if (voltageTier <= EV){
+        if (voltageTier <= IV){
             Map<Integer, String> map = Map.of(0, "_pvc", 1, "_silicone");
             if (voltageTier > HV) {
                 for (int i = 0; i < 2; i++) {

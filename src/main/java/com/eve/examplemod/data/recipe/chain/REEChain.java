@@ -151,7 +151,7 @@ public class REEChain {
         // 2 [REECl3 + 3 H2O] + C16H35O4P(cat.) -> [REE2O3](sep.) + 6 HCl + 3 H2O
         LARGE_CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
                 .inputFluids(RareEarthChloridesSolution.getFluid(6000))
-                .notConsumableFluid(DiethylhexylPhosphoricAcid.getFluid(0))
+                .notConsumableFluid(DiethylhexylPhosphoricAcid.getFluid(1))
                 .outputFluids(LaNdOxidesSolution.getFluid(250))
                 .outputFluids(SmGdOxidesSolution.getFluid(250))
                 .outputFluids(TbHoOxidesSolution.getFluid(250))
@@ -163,7 +163,7 @@ public class REEChain {
 
         // 4LaPrNdCeOx -> La2O3 + Pr2O3 + Nd2O3 + Ce2O3 (each 43% +2.75%)
         CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(LaNdOxidesSolution.getFluid(4000))
+                .inputFluids(LaNdOxidesSolution.getFluid(1000))
                 .chancedOutput(dust, LanthanumOxide, 5, 4300, 275)
                 .chancedOutput(dust, PraseodymiumOxide, 5, 4300, 275)
                 .chancedOutput(dust, NeodymiumOxide, 5, 4300, 275)
@@ -174,7 +174,7 @@ public class REEChain {
 
         // 4ScEuGdSmOx -> Sc2O3 + Eu2O3 + Gd2O3 + Sm2O3 (each 43% +2.75%)
         CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(SmGdOxidesSolution.getFluid(4000))
+                .inputFluids(SmGdOxidesSolution.getFluid(1000))
                 .chancedOutput(dust, ScandiumOxide, 5, 4300, 275)
                 .chancedOutput(dust, EuropiumOxide, 5, 4300, 275)
                 .chancedOutput(dust, GadoliniumOxide, 5, 4300, 275)
@@ -185,7 +185,7 @@ public class REEChain {
 
         // 4YTbDyHoOx -> Y2O3 + Tb2O3 + Dy2O3 + Ho2O3 (each 43% +2.75%)
         CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(TbHoOxidesSolution.getFluid(4000))
+                .inputFluids(TbHoOxidesSolution.getFluid(1000))
                 .chancedOutput(dust, YttriumOxide, 5, 4300, 275)
                 .chancedOutput(dust, TerbiumOxide, 5, 4300, 275)
                 .chancedOutput(dust, DysprosiumOxide, 5, 4300, 275)
@@ -196,7 +196,7 @@ public class REEChain {
 
         // 4ErTmYtLuOx -> Er2O3 + Tm2O3 + Yt2O3 + Lu2O3 (each 43% +2.75%)
         CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(ErLuOxidesSolution.getFluid(4000))
+                .inputFluids(ErLuOxidesSolution.getFluid(1000))
                 .chancedOutput(dust, ErbiumOxide, 5, 4300, 275)
                 .chancedOutput(dust, ThuliumOxide, 5, 4300, 275)
                 .chancedOutput(dust, YtterbiumOxide, 5, 4300, 275)
