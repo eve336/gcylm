@@ -1,5 +1,6 @@
 package com.eve.examplemod.common.data;
 
+import com.eve.examplemod.common.data.machines.EVMultiMachines;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
@@ -7,9 +8,13 @@ import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_MIXER;
 
 
 public class EVRecipeTypes {
+
+    // why do i have a separate large centrifuge recipe map again? theyre the same size??
+    // the large mixer makes sense bc it can handle more inputs but the large centri has the same amoutn
 
 
     public static final GTRecipeType CHEMICAL_DEHYDRATOR_RECIPES = GTRecipeTypes.register("chemical_dehydrator", MULTIBLOCK).setMaxIOSize(2, 9, 2, 2);
@@ -37,7 +42,7 @@ public class EVRecipeTypes {
     public static final GTRecipeType LARGE_MIXER_RECIPES = GTRecipeTypes.register("large_mixer", MULTIBLOCK)
             .setMaxIOSize(9,1,6,1).setEUIO(IO.IN)
             // dont believe intellij
-            .setIconSupplier(() -> GCYMMachines.LARGE_MIXER.asStack());
+            .setIconSupplier(() -> LARGE_MIXER.asStack());
 
     public static final GTRecipeType GAS_CENTRIFUGE_RECIPES = GTRecipeTypes.register("gas_centrifuge", MULTIBLOCK)
             .setMaxIOSize(0,0,1,3).setEUIO(IO.IN);

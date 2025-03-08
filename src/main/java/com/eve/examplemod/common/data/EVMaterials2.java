@@ -8,6 +8,8 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.AUTOGEN_MIXER_RECIPE;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVMaterials.EXT2_METAL;
+import static com.gregtechceu.gtceu.api.GTValues.UHV;
+import static com.gregtechceu.gtceu.api.GTValues.V;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_FRAME;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;
@@ -946,6 +948,40 @@ public class EVMaterials2 {
             .iconSet(MaterialIconSet.SHINY)
             .buildAndRegister()
             .setFormula("(ErF3)(ZrF4)18(BaF2)7(LaF3)2(AlF3)(NaF)7", true);
+
+    public static final Material Ferralium = new Material.Builder(EVMain.id("ferralium"))
+            .ingot()
+            .color(0x1EF737)
+            .blastTemp(3600, BlastProperty.GasTier.MID)
+            .components(Steel, 6, Palladium, 3, Platinum, 4, Bismuth, 2, Yttrium, 3)
+            .flags(GENERATE_FRAME, GENERATE_PLATE, AUTOGEN_MIXER_RECIPE)
+            .buildAndRegister();
+
+    public static final Material AbyssalAlloy = new Material.Builder(EVMain.id("abyssal_alloy"))
+            .color(0x9E706A)
+            .iconSet(METALLIC)
+            .ingot(6)
+            .components(StainlessSteel, 5, TungstenCarbide, 5, Nichrome, 5, Bronze, 5, Ferralium, 5, Iodine, 1, Germanium, 1, Radon, 1)
+            .flags(DISABLE_DECOMPOSITION)
+            .appendFlags(EXT2_METAL)
+            .cableProperties(V[UHV], 6, 6)
+            .buildAndRegister();
+
+    public static final Material Duracite = new Material.Builder(EVMain.id("duracite"))
+            .color(0x914f16)
+            .blastTemp(3800, BlastProperty.GasTier.MID)
+            .components(Europium, 5, Osmium, 2, Iridium, 2, Germanium, 2, Iodine, 1)
+            .flags(GENERATE_FRAME, GENERATE_PLATE, AUTOGEN_MIXER_RECIPE)
+            .buildAndRegister();
+
+    public static final Material Infernite = new Material.Builder(EVMain.id("infernite"))
+            .color(0xd92b14)
+            .flags(GENERATE_FRAME, GENERATE_PLATE)
+            .blastTemp(4200, BlastProperty.GasTier.HIGH)
+            .components(Steel, 3, Rhodium, 1, Ruthenium, 1)
+            .buildAndRegister();
+
+
 
 //    public static final Material LithiumHydride = new Material.Builder(EVMain.id("lithium_hydride"))
 //            .dust()

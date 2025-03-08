@@ -3,6 +3,8 @@ package com.eve.examplemod.data.recipe;
 import com.eve.examplemod.common.data.machines.EVMultiMachines;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
@@ -14,15 +16,19 @@ import static com.eve.examplemod.EVMain.id;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
-import static com.gregtechceu.gtceu.common.data.GTMachines.ASSEMBLER;
-import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
+import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
+import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_MIXER;
 
 public class MachineRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
 
+//        VanillaRecipeHelper.addShapedRecipe(provider, true, "ev_large_mixer", EV_LARGE_MIXER.asStack(), "FCF", "RXR", "MKM",
+//                'C', CustomTags.IV_CIRCUITS, 'F', ChemicalHelper.get(pipeNormalFluid, Polybenzimidazole), 'R',
+//                ChemicalHelper.get(rotor, Osmiridium), 'M', ELECTRIC_MOTOR_IV.asStack(), 'X', MIXER[IV].asStack(), 'K',
+//                new UnificationEntry(TagPrefix.cableGtSingle, Platinum));
 
         ASSEMBLER_RECIPES.recipeBuilder("mv_infinite_fluid_drilling_rig")
                 .inputItems(HULL[MV])

@@ -382,9 +382,20 @@ public class EVMaterials {
 
         MagnesiumDiboride.getProperty(PropertyKey.BLAST).setBlastTemperature(1800);
 
+        List<Material> oreList = List.of(Sphalerite);
+        oreList.forEach(m -> {
+                    m.getProperties().removeProperty(PropertyKey.ORE);
+                    m.setProperty(PropertyKey.ORE, new OreProperty());
+                });
+
         OreProperty oreProp = PreciousMetal.getProperty(PropertyKey.ORE);
         oreProp.setOreByProducts(Cadmium, Iron, PreciousMetal, Antimony);
         oreProp.setWashedIn(Mercury);
+
+        oreProp = Sphalerite.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Germanium, Gallium, Cadmium, Zinc);
+        oreProp.setWashedIn(SodiumPersulfate);
+        oreProp.setDirectSmeltResult(Zinc);
 
 
 
@@ -1106,15 +1117,7 @@ public class EVMaterials {
             .flags()
             .buildAndRegister();
 
-    public static final Material AbyssalAlloy = new Material.Builder(EVMain.id("abyssal_alloy"))
-            .color(0x9E706A)
-            .iconSet(METALLIC)
-            .ingot(6)
-            .components(StainlessSteel, 5, TungstenCarbide, 5, Nichrome, 5, Bronze, 5, GTMaterials.IncoloyMA956, 5, Iodine, 1, Germanium, 1, Radon, 1)
-            .flags(DISABLE_DECOMPOSITION)
-            .appendFlags(EXT2_METAL)
-            .cableProperties(V[UHV], 6, 6)
-            .buildAndRegister();
+
 
     public static final Material ReactorSteel = new Material.Builder(EVMain.id("reactor_steel"))
             .color(0xB4B3B0)
@@ -7164,6 +7167,7 @@ public class EVMaterials {
 
     public static final Material LithiumIodide = new Material.Builder(EVMain.id("lithium_iodide"))
             .color(Lithium.getMaterialRGB() + Iodine.getMaterialRGB())
+            .dust()
             .iconSet(MaterialIconSet.ROUGH)
             .buildAndRegister()
             .setFormula("LiI");

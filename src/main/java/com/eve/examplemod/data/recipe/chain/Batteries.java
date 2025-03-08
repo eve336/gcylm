@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 import static com.eve.examplemod.common.data.EVItems.*;
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials2.AbyssalAlloy;
 import static com.eve.examplemod.common.data.EVRecipeTypes.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -28,7 +29,7 @@ public class Batteries {
         CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("batteries_1").duration(240).EUt(4000)
                 .inputItems(dust, CobaltOxide, 4)
                 .inputFluids(LithiumCarbonateSolution.getFluid(1000))
-                .notConsumableFluid(Oxygen.getFluid(0))
+                .notConsumableFluid(Oxygen.getFluid(1))
                 .outputItems(dust, LithiumCobaltOxide, 6)
                 .outputFluids(CarbonMonoxide.getFluid(1000))
                 .save(provider);

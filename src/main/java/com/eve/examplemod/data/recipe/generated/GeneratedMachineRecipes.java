@@ -1,5 +1,6 @@
 package com.eve.examplemod.data.recipe.generated;
 
+import com.eve.examplemod.common.data.EVMaterials2;
 import com.eve.examplemod.common.data.machines.EVMachines;
 import com.eve.examplemod.data.recipe.EVCraftingComponent;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -7,17 +8,24 @@ import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.data.recipe.CraftingComponent;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 
+import java.util.List;
 import java.util.function.Consumer;
 
+import static com.eve.examplemod.common.data.EVMaterials2.*;
 import static com.eve.examplemod.common.data.machines.EVMachines.*;
 import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.GTValues.VN;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gregtechceu.gtceu.common.data.GCYMBlocks.*;
+import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.HULL;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.Glass;
@@ -275,6 +283,37 @@ public class GeneratedMachineRecipes {
                     .duration(20*10)
                     .save(provider);
         }
+
+        // CAINSG RECIPES
+        List<BlockEntry<Block>> tier1Casings = List.of(CASING_VIBRATION_SAFE, CASING_NONCONDUCTING, CASING_TUNGSTENSTEEL_ROBUST, CASING_WATERTIGHT, CASING_CORROSION_PROOF);
+        tier1Casings.forEach(c ->
+                ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
+                .EUt(16).duration(50)
+                .inputItems(plate, Ferralium, 6)
+                .inputItems(frameGt, Ferralium)
+                .outputItems(c.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
+                .circuitMeta(tier1Casings.indexOf(c))
+                .save(provider));
+
+        List<BlockEntry<Block>> tier2Casings = List.of(CASING_HIGH_TEMPERATURE_SMELTING, CASING_REACTION_SAFE, CASING_STRESS_PROOF, CASING_SHOCK_PROOF, CASING_SECURE_MACERATION);
+        tier2Casings.forEach(c ->
+                ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
+                        .EUt(64).duration(50)
+                        .inputItems(plate, Duracite, 6)
+                        .inputItems(frameGt, Duracite)
+                        .outputItems(c.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
+                        .circuitMeta(tier2Casings.indexOf(c))
+                        .save(provider));
+
+        List<BlockEntry<Block>> tier3Casings = List.of(CASING_LARGE_SCALE_ASSEMBLING, CASING_LASER_SAFE_ENGRAVING);
+        tier3Casings.forEach(c ->
+                ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
+                        .EUt(64).duration(50)
+                        .inputItems(plate, Infernite, 6)
+                        .inputItems(frameGt, Infernite)
+                        .outputItems(c.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
+                        .circuitMeta(tier3Casings.indexOf(c))
+                        .save(provider));
 
 
     }

@@ -144,7 +144,12 @@ public class Removal {
                 "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells",
 
                 "gtceu:cutter/cut_nano_cpu", "gtceu:cutter/cut_nano_cpu_distilled_water", "gtceu:cutter/cut_nano_cpu_water", "gtceu:gas_turbine/nitrobenzene",
-                "gtceu:shaped/large_centrifuge"
+                "gtceu:shaped/large_centrifuge",
+
+                // gcym casings
+                "gtceu:assembler/casing_laser_safe_engraving", "gtceu:assembler/casing_large_scale_assembling", "gtceu:assembler/casing_reaction_safe_mixing",
+                "gtceu:assembler/casing_high_temperature_smelting", "gtceu:assembler/casing_tungstensteel_robust", "gtceu:assembler/casing_hsla_nonconducting",
+                "gtceu:assembler/casing_incoloy_vibration_safe", "gtceu:assembler/casing_secure_maceration", "gtceu:assembler/casing_shock_proof"
                 );
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
     }

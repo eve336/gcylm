@@ -41,52 +41,53 @@ public class REEChain {
         // 3NaCl(H2O) + 2Cl + H2SO4 -> H2SO4(NaCl)3(H2O)3Cl2
         // Formula above multiplied up for simplicity
         var chainNumber = 0;
-        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(SaltWater.getFluid(1500))
-                .inputFluids(Chlorine.getFluid(1000))
-                .inputFluids(SulfuricAcid.getFluid(500))
-                .outputFluids(AcidicSaltWater.getFluid(3000))
-                .EUt(480)
-                .duration(180)
-                .save(provider);
-
-        // H2SO4(NaCl)3(H2O)3Cl2 -> 3NaCl + H2SO4Br(H2O)Cl2 + 2H2O
-        CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(AcidicSaltWater.getFluid(6000))
-                .outputItems(dust, Salt, 6)
-                .outputFluids(SulfuricBromineSolution.getFluid(2000))
-                .outputFluids(DebrominatedWater.getFluid(2000))
-                .EUt(480)
-                .duration(180)
-                .save(provider);
-
-        // H2SO4Br(H2O)Cl2 + H2O -> H2SO4Br(H2O)2Cl2
-        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(SulfuricBromineSolution.getFluid(2000))
-                .inputFluids(Steam.getFluid(1000))
-                .outputFluids(HotVapourMixture.getFluid(3000))
-                .EUt(480)
-                .duration(150)
-                .save(provider);
-
-        // H2SO4Br(H2O)2Cl2 -> H2SO4 + H2O + 2Cl + Br(H2O)
-        CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(HotVapourMixture.getFluid(3000))
-                .outputFluids(SulfuricAcid.getFluid(1000))
-                .outputFluids(DebrominatedWater.getFluid(1000))
-                .outputFluids(Chlorine.getFluid(2000))
-                .outputFluids(DampBromine.getFluid(1000))
-                .EUt(480)
-                .duration(180)
-                .save(provider);
-
-        // Br(H2O) -> Br
-        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
-                .inputFluids(DampBromine.getFluid(1000))
-                .outputFluids(Bromine.getFluid(1000))
-                .EUt(480)
-                .duration(400)
-                .save(provider);
+        // prolly just using gtm bromine
+//        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+//                .inputFluids(SaltWater.getFluid(1500))
+//                .inputFluids(Chlorine.getFluid(1000))
+//                .inputFluids(SulfuricAcid.getFluid(500))
+//                .outputFluids(AcidicSaltWater.getFluid(3000))
+//                .EUt(480)
+//                .duration(180)
+//                .save(provider);
+//
+//        // H2SO4(NaCl)3(H2O)3Cl2 -> 3NaCl + H2SO4Br(H2O)Cl2 + 2H2O
+//        CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+//                .inputFluids(AcidicSaltWater.getFluid(6000))
+//                .outputItems(dust, Salt, 6)
+//                .outputFluids(SulfuricBromineSolution.getFluid(2000))
+//                .outputFluids(DebrominatedWater.getFluid(2000))
+//                .EUt(480)
+//                .duration(180)
+//                .save(provider);
+//
+//        // H2SO4Br(H2O)Cl2 + H2O -> H2SO4Br(H2O)2Cl2
+//        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+//                .inputFluids(SulfuricBromineSolution.getFluid(2000))
+//                .inputFluids(Steam.getFluid(1000))
+//                .outputFluids(HotVapourMixture.getFluid(3000))
+//                .EUt(480)
+//                .duration(150)
+//                .save(provider);
+//
+//        // H2SO4Br(H2O)2Cl2 -> H2SO4 + H2O + 2Cl + Br(H2O)
+//        CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+//                .inputFluids(HotVapourMixture.getFluid(3000))
+//                .outputFluids(SulfuricAcid.getFluid(1000))
+//                .outputFluids(DebrominatedWater.getFluid(1000))
+//                .outputFluids(Chlorine.getFluid(2000))
+//                .outputFluids(DampBromine.getFluid(1000))
+//                .EUt(480)
+//                .duration(180)
+//                .save(provider);
+//
+//        // Br(H2O) -> Br
+//        CHEMICAL_DEHYDRATOR_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+//                .inputFluids(DampBromine.getFluid(1000))
+//                .outputFluids(Bromine.getFluid(1000))
+//                .EUt(480)
+//                .duration(400)
+//                .save(provider);
 
 //        // CO + C3H6 + 2H -> C4H8O
 //        CHEMICAL_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)

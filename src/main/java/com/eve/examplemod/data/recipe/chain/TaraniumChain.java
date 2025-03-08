@@ -214,7 +214,7 @@ public class TaraniumChain {
 
         LARGE_CHEMICAL_RECIPES.recipeBuilder("taranium_chain_" + chainNumber++)
                 .inputItems(InertResidues,10)
-                .notConsumableFluid(FluoroantimonicAcid.getFluid(0))
+                .notConsumableFluid(FluoroantimonicAcid.getFluid(1))
                 .outputItems(CleanInertResidues,10)
                 .outputItems(dust, NaquadricCompound)
                 .duration(320)

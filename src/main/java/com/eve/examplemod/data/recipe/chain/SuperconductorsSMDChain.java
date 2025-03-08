@@ -326,7 +326,7 @@ public class SuperconductorsSMDChain {
 
         // FeI2 + 5CO -> 2I + Fe(CO)5 (all x5)
         LARGE_CHEMICAL_RECIPES.recipeBuilder("superconductors_smd_chain_" + chainNumber++).duration(240).EUt(480)
-                .inputItems(IronIodide,15)
+                .inputItems(dust, IronIodide,15)
                 .inputFluids(CarbonMonoxide.getFluid(25000))
                 .notConsumable(block, Copper)
                 .outputItems(dust, Iodine, 10)

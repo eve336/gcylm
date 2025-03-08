@@ -30,7 +30,7 @@ public class InsulationWireAssemblyChain {
                 .notConsumable(dust, PdIrReOCeOS)
                 .inputFluids(Water.getFluid(1000))
                 .inputItems(Fructose, 24)
-                .notConsumableFluid(TetraethylammoniumBromide.getFluid(0))
+                .notConsumableFluid(TetraethylammoniumBromide.getFluid(1))
                 .outputFluids(Hexanediol.getFluid(1000))
                 .outputFluids(Oxygen.getFluid(5000))
                 .save(provider);
@@ -77,7 +77,7 @@ public class InsulationWireAssemblyChain {
         CHEMICAL_RECIPES.recipeBuilder("insulation_wire_assembly_" + chainNumber++).duration(260).EUt(480)
                 .inputFluids(Tertbutanol.getFluid(2000))
                 .inputFluids(CarbonDioxide.getFluid(2000))
-                .notConsumableFluid(Toluenesulfonate.getFluid(0))
+                .notConsumableFluid(Toluenesulfonate.getFluid(1))
                 .outputFluids(Water.getFluid(1000))
                 .outputItems(DitertbutylDicarbonate, 33)
                 .save(provider);
@@ -88,7 +88,7 @@ public class InsulationWireAssemblyChain {
                 .inputItems(dust, Carbon, 3)
                 .inputFluids(Butene.getFluid(1000))
                 .inputFluids(Ammonia.getFluid(4000))
-                .notConsumableFluid(Trimethylchlorosilane.getFluid(0))
+                .notConsumableFluid(Trimethylchlorosilane.getFluid(1))
                 .outputFluids(Tertbutanol.getFluid(2000))
                 .outputFluids(CarbonMonoxide.getFluid(3000))
                 .outputFluids(Triaminoethaneamine.getFluid(1000))

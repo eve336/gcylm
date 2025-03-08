@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.eve.examplemod.common.data.EVMaterials.*;
+import static com.eve.examplemod.common.data.EVMaterials2.AbyssalAlloy;
 import static com.gregtechceu.gtceu.api.GTValues.FALLBACK;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 

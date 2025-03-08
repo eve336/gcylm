@@ -262,7 +262,7 @@ public class RheniumChain {
                 .inputFluids(Oct1ene.getFluid(1000))
                 .inputFluids(Water.getFluid(1000))
                 .outputFluids(Octanol.getFluid(1000))
-                .notConsumableFluid(PhosphoricAcid.getFluid(0))
+                .notConsumableFluid(PhosphoricAcid.getFluid(1))
                 .notConsumable(dust, PalladiumLoadedRutileNanoparticles)
                 .notConsumable(UVA_HALIDE_LAMP)
                 .EUt(30720)

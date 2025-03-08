@@ -1,6 +1,8 @@
 package com.eve.examplemod.common.data.machines;
 
+import com.eve.examplemod.EVMain;
 import com.eve.examplemod.api.registries.EVRegistries;
+import com.eve.examplemod.common.data.EVMaterials2;
 import com.eve.examplemod.common.data.EVRecipeModifiers;
 import com.eve.examplemod.common.data.EVRecipeTypes;
 import com.eve.examplemod.common.machine.multiblock.EVPartAbility;
@@ -18,17 +20,21 @@ import com.gregtechceu.gtceu.api.machine.multiblock.CoilWorkableElectricMultiblo
 import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
+import com.gregtechceu.gtceu.api.pattern.BlockPattern;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MultiblockMachineBuilder;
+import com.gregtechceu.gtceu.client.renderer.machine.gcym.LargeMixerRenderer;
+import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.machine.multiblock.electric.FluidDrillMachine;
+import com.gregtechceu.gtceu.common.machine.multiblock.electric.gcym.LargeMixerMachine;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
@@ -40,12 +46,14 @@ import java.util.Locale;
 import java.util.function.BiFunction;
 
 import static com.eve.examplemod.api.registries.EVRegistries.REGISTRATE;
+import static com.eve.examplemod.common.data.EVRecipeTypes.LARGE_MIXER_RECIPES;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.machine.multiblock.PartAbility.INPUT_ENERGY;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
 import static com.gregtechceu.gtceu.common.data.GCYMBlocks.CASING_LARGE_SCALE_ASSEMBLING;
+import static com.gregtechceu.gtceu.common.data.GCYMBlocks.CASING_REACTION_SAFE;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.NaquadahAlloy;
@@ -55,6 +63,9 @@ import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_CENT
 import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_MIXER;
 
 public class EVMultiMachines {
+
+    // TODO change gcym controller crafting recipes
+    // remove uses for HSLA Steel
 
     // todo make it so you can use stainless steel casings for lgts since turbine casings arent even harder, theyre just bloat content
 
@@ -66,6 +77,27 @@ public class EVMultiMachines {
     // make the materials require chemlines maybe?? Not too sure how to do this
     // dont make it too easy
     // ones obtained first wont use abs but the ones obtained later will require abs
+
+    // e.g. use waterproof paste/polymer for waterproof casing or something like that idfkkk.
+    // check elements, bismuth is decent
+    // rare earth elements encourage having a strong rare earth line, just dont use ones from small centrifuge
+    // maybe rework how some elements are obtained
+
+    // 3 sets of casings.
+    // tier 1
+    // before abs + before large mixer and large centri (rare earth line)
+    // possible materials tungsten, platinum, palladium, neodymium, bismuth
+
+    // tier 2 to make abs + mixer (and other things ig)
+    // osmium + iridium + europium + think up a chemline or something
+    // germanium, iodine (brine line)
+
+    // tier 3 - large assembler + assline + laser safe engraving?
+    // needs abs to make + rtm alloy coils
+    // rest of platline
+
+    // make materials useful elsewhere as welL!!!!!!!!!!!!!
+    // if ever needing material to stick into recipe put these in...
 
     public static final MultiblockMachineDefinition[] INFINITE_FLUID_DRILLING_RIG = registerTieredMultis(
             "infinite_fluid_drilling_rig", InfiniteFluidDrillMachine::new,
@@ -103,7 +135,7 @@ public class EVMultiMachines {
             MV, HV, EV);
 
     public static final MultiblockMachineDefinition EV_CHEMICAL_REACTOR = REGISTRATE
-            .multiblock("ev_chemical_reactor", holder -> new LargeChemicalReactor2(holder, 4500, 10, 2))
+            .multiblock("ev_chemical_reactor", holder -> new LargeChemicalReactor2(holder, 6000, 10, 2))
             .rotationState(RotationState.ALL)
             .langValue("Large Chemical Reactor")
             .tooltips(Component.translatable("examplemod.chemical_reactor.tooltip"))
@@ -292,8 +324,28 @@ public class EVMultiMachines {
     }
 
     public static void init(){
-        LARGE_MIXER.setRecipeTypes(new GTRecipeType[]{EVRecipeTypes.LARGE_MIXER_RECIPES});
+        LARGE_MIXER.setRecipeTypes(new GTRecipeType[]{LARGE_MIXER_RECIPES});
         LARGE_CENTRIFUGE.setRecipeTypes(new GTRecipeType[]{EVRecipeTypes.LARGE_CENTRIFUGE_RECIPES, THERMAL_CENTRIFUGE_RECIPES});
+
+        LARGE_MIXER.setPatternFactory(() -> (
+                FactoryBlockPattern.start()
+                        .aisle("#XXX#", "#XXX#", "#XXX#", "#XXX#", "#XXX#", "##F##")
+                        .aisle("XXXXX", "XAPAX", "XAAAX", "XAPAX", "XAAAX", "##F##")
+                        .aisle("XXXXX", "XPPPX", "XAPAX", "XPPPX", "XAGAX", "FFGFF")
+                        .aisle("XXXXX", "XAPAX", "XAAAX", "XAPAX", "XAAAX", "##F##")
+                        .aisle("#XXX#", "#XSX#", "#XXX#", "#XXX#", "#XXX#", "##F##")
+                        .where('S', controller(blocks(LARGE_MIXER.get())))
+                        .where('X', blocks(CASING_REACTION_SAFE.get()).setMinGlobalLimited(50)
+                                .or(autoAbilities(LARGE_MIXER.getRecipeTypes()))
+                                .or(Predicates.autoAbilities(true, false, true)))
+                        .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, EVMaterials2.Ferralium)))
+                        .where('G', blocks(CASING_STAINLESS_STEEL_GEARBOX.get()))
+                        .where('P', blocks(CASING_TITANIUM_PIPE.get()))
+                        .where('A', Predicates.air())
+                        .where('#', Predicates.any())
+                        .build()
+        ));
+
 
     }
 }

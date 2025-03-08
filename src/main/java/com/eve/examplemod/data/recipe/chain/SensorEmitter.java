@@ -360,7 +360,7 @@ public class SensorEmitter {
 
         // LiI -> Li + I
         ELECTROLYZER_RECIPES.recipeBuilder("sensor_emitter_" + chainNumber++).duration(224).EUt(30)
-                .inputItems(LithiumIodide,2)
+                .inputItems(dust, LithiumIodide,2)
                 .outputItems(dust, Lithium)
                 .outputItems(dust, Iodine)
                 .save(provider);
