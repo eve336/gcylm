@@ -1,6 +1,7 @@
 package com.eve.examplemod.data.recipe;
 
 import com.eve.examplemod.EVMain;
+import com.eve.examplemod.api.data.material.info.EVMaterialFlags;
 import com.eve.examplemod.config.EVConfig;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -33,6 +34,14 @@ public class Removal {
         Hatches(registry);
         if (EVConfig.INSTANCE.evEndAccess) end(registry);
         cables(registry);
+
+        for (Material material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
+            if (material.hasFlag(EVMaterialFlags.DISABLE_ELECTRIC_BLAST)){
+                registry.accept(new ResourceLocation("gtceu:electric_blast_furnace/blast_" + material.getName()));
+                registry.accept(new ResourceLocation("gtceu:electric_blast_furnace/blast_" + material.getName() + "_gas"));
+                registry.accept(new ResourceLocation("gtceu:vacuum_freezer/cool_hot_" + material.getName() + "_ingot"));
+            }
+        }
 
         // soldering alloy loop
         for (int i = 0; i < 2; i = i + 1) {
@@ -149,7 +158,10 @@ public class Removal {
                 // gcym casings
                 "gtceu:assembler/casing_laser_safe_engraving", "gtceu:assembler/casing_large_scale_assembling", "gtceu:assembler/casing_reaction_safe_mixing",
                 "gtceu:assembler/casing_high_temperature_smelting", "gtceu:assembler/casing_tungstensteel_robust", "gtceu:assembler/casing_hsla_nonconducting",
-                "gtceu:assembler/casing_incoloy_vibration_safe", "gtceu:assembler/casing_secure_maceration", "gtceu:assembler/casing_shock_proof"
+                "gtceu:assembler/casing_incoloy_vibration_safe", "gtceu:assembler/casing_secure_maceration", "gtceu:assembler/casing_shock_proof", "gtceu:assembler/casing_corrosion_proof",
+
+                // gcym machines
+                "gtceu:shaped/large_packer", "gtceu:shaped/large_sifter", "gtceu:shaped/large_wiremill", "gtceu:shaped/large_mixer", "gtceu:shaped/large_autoclave"
                 );
         removal.forEach(c -> registry.accept(new ResourceLocation(c)));
     }
@@ -207,6 +219,7 @@ public class Removal {
         registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/indium_concentrate_separation"));
         registry.accept(new ResourceLocation("gtceu:large_chemical_reactor/indium_concentrate_separation_4x"));
         registry.accept(new ResourceLocation("gtceu:mixer/indium_concentrate"));
+        registry.accept(new ResourceLocation("gtceu:large_mixer/indium_concentrate"));
     }
 
     public static void naquadah(Consumer<ResourceLocation> registry) {

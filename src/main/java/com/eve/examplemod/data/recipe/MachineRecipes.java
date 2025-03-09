@@ -13,13 +13,15 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
 import static com.eve.examplemod.EVMain.id;
+import static com.eve.examplemod.common.data.EVMaterials2.Duracite;
+import static com.eve.examplemod.common.data.EVMaterials2.Ferralium;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
-import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.LARGE_MIXER;
+import static com.gregtechceu.gtceu.common.data.machines.GCYMMachines.*;
 
 public class MachineRecipes {
 
@@ -114,6 +116,64 @@ public class MachineRecipes {
                 .circuitMeta(3)
                 .outputItems(EVMultiMachines.INFINITE_FLUID_DRILLING_RIG[EV])
                 .duration(400).EUt(VA[LuV]).save(provider);
+
+        // gcym machines
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evlarge_wiremill"),
+                LARGE_WIREMILL.asStack(),
+                "PCP",
+                "SHS",
+                "MWM",
+                'M', CraftingComponent.MOTOR.getIngredient(IV),
+                'S', ChemicalHelper.get(spring, Duracite),
+                'P', ChemicalHelper.get(plate, Duracite),
+                'H', WIREMILL[IV].asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.IV),
+                'W', ChemicalHelper.get(cableGtSingle, Platinum));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evlarge_packager"),
+                LARGE_PACKER.asStack(),
+                "RCR",
+                "PHP",
+                "MPM",
+                'M', CraftingComponent.CONVEYOR.getIngredient(EV),
+                'P', ChemicalHelper.get(plate, Duracite),
+                'H', PACKER[HV].asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.EV),
+                'R', EVCraftingComponent.ROBOT_ARM.getIngredient(HV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evlarge_sifter"),
+                LARGE_SIFTING_FUNNEL.asStack(),
+                "PCP",
+                "SHS",
+                "PWP",
+                'S', EVCraftingComponent.PISTON.getIngredient(IV),
+                'P', ChemicalHelper.get(plate, Duracite),
+                'H', SIFTER[IV].asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.IV),
+                'W', ChemicalHelper.get(cableGtSingle, Platinum));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evlarge_mixer"),
+                LARGE_MIXER.asStack(),
+                "PCP",
+                "SHS",
+                "RWR",
+                'S', ChemicalHelper.get(rotor, Osmiridium),
+                'P', ChemicalHelper.get(pipeNormalFluid, Polyethylene),
+                'H', MIXER[IV].asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.IV),
+                'W', ChemicalHelper.get(cableGtSingle, Platinum),
+                'R', EVCraftingComponent.MOTOR.getIngredient(GTValues.IV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evlarge_autoclave"),
+                LARGE_AUTOCLAVE.asStack(),
+                "DCD",
+                "DHD",
+                "PWP",
+                'P', EVCraftingComponent.PUMP.getIngredient(IV),
+                'D', ChemicalHelper.get(plateDouble, Ferralium),
+                'H', AUTOCLAVE[IV].asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.IV),
+                'W', ChemicalHelper.get(cableGtSingle, Platinum));
     }
 
 }

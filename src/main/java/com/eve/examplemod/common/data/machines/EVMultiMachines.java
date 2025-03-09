@@ -28,11 +28,13 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.OverclockingLogic;
 import com.gregtechceu.gtceu.api.registry.registrate.MultiblockMachineBuilder;
 import com.gregtechceu.gtceu.client.renderer.machine.gcym.LargeMixerRenderer;
+import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
+import com.gregtechceu.gtceu.common.data.machines.GTMultiMachines;
 import com.gregtechceu.gtceu.common.machine.multiblock.electric.FluidDrillMachine;
 import com.gregtechceu.gtceu.common.machine.multiblock.electric.gcym.LargeMixerMachine;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
@@ -337,7 +339,7 @@ public class EVMultiMachines {
                         .where('S', controller(blocks(LARGE_MIXER.get())))
                         .where('X', blocks(CASING_REACTION_SAFE.get()).setMinGlobalLimited(50)
                                 .or(autoAbilities(LARGE_MIXER.getRecipeTypes()))
-                                .or(Predicates.autoAbilities(true, false, true)))
+                                .or(Predicates.autoAbilities(false, false, true)))
                         .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, EVMaterials2.Ferralium)))
                         .where('G', blocks(CASING_STAINLESS_STEEL_GEARBOX.get()))
                         .where('P', blocks(CASING_TITANIUM_PIPE.get()))

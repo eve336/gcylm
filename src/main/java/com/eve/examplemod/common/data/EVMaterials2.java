@@ -6,10 +6,11 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty;
 
 import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.AUTOGEN_MIXER_RECIPE;
+import static com.eve.examplemod.api.data.material.info.EVMaterialFlags.DISABLE_ELECTRIC_BLAST;
 import static com.eve.examplemod.common.data.EVMaterials.*;
 import static com.eve.examplemod.common.data.EVMaterials.EXT2_METAL;
-import static com.gregtechceu.gtceu.api.GTValues.UHV;
-import static com.gregtechceu.gtceu.api.GTValues.V;
+import static com.gregtechceu.gtceu.api.GTValues.*;
+import static com.gregtechceu.gtceu.api.GTValues.EV;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_FRAME;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.*;
@@ -971,14 +972,17 @@ public class EVMaterials2 {
             .color(0x914f16)
             .blastTemp(3800, BlastProperty.GasTier.MID)
             .components(Europium, 5, Osmium, 2, Iridium, 2, Germanium, 2, Iodine, 1)
-            .flags(GENERATE_FRAME, GENERATE_PLATE, AUTOGEN_MIXER_RECIPE)
+            .flags(GENERATE_FRAME, GENERATE_PLATE, AUTOGEN_MIXER_RECIPE, GENERATE_SPRING)
             .buildAndRegister();
 
     public static final Material Infernite = new Material.Builder(EVMain.id("infernite"))
             .color(0xd92b14)
-            .flags(GENERATE_FRAME, GENERATE_PLATE)
+            .fluid()
+            .flags(GENERATE_FRAME, GENERATE_PLATE, DISABLE_ELECTRIC_BLAST)
             .blastTemp(4200, BlastProperty.GasTier.HIGH)
-            .components(Steel, 3, Rhodium, 1, Ruthenium, 1)
+            //.blast(b -> b.temp(4200, BlastProperty.GasTier.HIGH)
+            //        .blastStats(VA[EV]))
+            .components(Steel, 3, Rhodium, 1, Ruthenium, 1, Pyrotheum, 2)
             .buildAndRegister();
 
 

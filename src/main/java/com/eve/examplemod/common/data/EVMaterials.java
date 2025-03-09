@@ -1203,15 +1203,15 @@ public class EVMaterials {
             .appendFlags(CORE_METAL)
             .buildAndRegister();
 
-    public static final Material TungstenTitaniumCarbide = new Material.Builder(EVMain.id("tungsten_titanium_carbide"))
-            .color(0x800d0d)
-            .iconSet(SHINY)
-            .ingot(7)
-            .components(TungstenCarbide, 7, Titanium, 3)
-            .flags(DISABLE_DECOMPOSITION)
-            .cableProperties(V[UHV], 8, 10)
-            .appendFlags(CORE_METAL)
-            .buildAndRegister();
+//    public static final Material TungstenTitaniumCarbide = new Material.Builder(EVMain.id("tungsten_titanium_carbide"))
+//            .color(0x800d0d)
+//            .iconSet(SHINY)
+//            .ingot(7)
+//            .components(TungstenCarbide, 7, Titanium, 3)
+//            .flags(DISABLE_DECOMPOSITION)
+//            .cableProperties(V[UHV], 8, 10)
+//            .appendFlags(CORE_METAL)
+//            .buildAndRegister();
 
 
     public static final Material Inconel792 = new Material.Builder(EVMain.id("inconel_b"))
@@ -7815,7 +7815,7 @@ public class EVMaterials {
             .ingot(7)
             .color(0xAA0d0d)
             .iconSet(SHINY)
-            .components(TungstenTitaniumCarbide, 3, Jasper, 3)
+            .components(TitaniumTungstenCarbide, 3, Jasper, 3)
             .cableProperties(V[UEV], 8, 6)
             .appendFlags(CORE_METAL)
             .blastTemp(9200)

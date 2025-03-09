@@ -128,7 +128,7 @@ public class VOMLogic extends RecipeLogic {
 
     public GTRecipe getPyrotheumRecipe() {
         int numberOres = getMachine().temperature / 1000;
-        var recipe = GTRecipeBuilder.ofRaw()
+        GTRecipeBuilder recipe = GTRecipeBuilder.ofRaw()
                 .inputFluids(getMachine().PYROTHEUM_STACK, getMachine().DRILLING_MUD_STACK)
                 .outputFluids(getMachine().USED_DRILLING_MUD_STACK)
                 .duration(20)

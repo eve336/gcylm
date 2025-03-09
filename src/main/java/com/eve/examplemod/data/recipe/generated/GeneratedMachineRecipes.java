@@ -285,7 +285,9 @@ public class GeneratedMachineRecipes {
         }
 
         // CAINSG RECIPES
-        List<BlockEntry<Block>> tier1Casings = List.of(CASING_VIBRATION_SAFE, CASING_NONCONDUCTING, CASING_TUNGSTENSTEEL_ROBUST, CASING_WATERTIGHT, CASING_CORROSION_PROOF);
+        List<BlockEntry<Block>> tier1Casings = List.of(CASING_VIBRATION_SAFE, CASING_NONCONDUCTING,
+                //CASING_TUNGSTENSTEEL_ROBUST,
+                CASING_WATERTIGHT, CASING_CORROSION_PROOF);
         tier1Casings.forEach(c ->
                 ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
                 .EUt(16).duration(50)
