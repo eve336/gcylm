@@ -101,6 +101,7 @@ public class EVMultiMachines {
     // make materials useful elsewhere as welL!!!!!!!!!!!!!
     // if ever needing material to stick into recipe put these in...
 
+
     public static final MultiblockMachineDefinition[] INFINITE_FLUID_DRILLING_RIG = registerTieredMultis(
             "infinite_fluid_drilling_rig", InfiniteFluidDrillMachine::new,
             (tier, builder) -> builder
@@ -327,7 +328,9 @@ public class EVMultiMachines {
 
     public static void init(){
         LARGE_MIXER.setRecipeTypes(new GTRecipeType[]{LARGE_MIXER_RECIPES});
-        LARGE_CENTRIFUGE.setRecipeTypes(new GTRecipeType[]{EVRecipeTypes.LARGE_CENTRIFUGE_RECIPES, THERMAL_CENTRIFUGE_RECIPES});
+        // might add this back, making large centri have unique recipe map is kinda annoying
+        // i dont think you really should need to gate anything with a fucking large centri tbh lmao
+        //LARGE_CENTRIFUGE.setRecipeTypes(new GTRecipeType[]{EVRecipeTypes.LARGE_CENTRIFUGE_RECIPES, THERMAL_CENTRIFUGE_RECIPES});
 
         LARGE_MIXER.setPatternFactory(() -> (
                 FactoryBlockPattern.start()

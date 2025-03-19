@@ -28,6 +28,7 @@ public class EVCraftingComponent extends CraftingComponent {
     public static Component SECONDARY_CABLE_8x;
     public static Component SECONDARY_CABLE_16x;
     public static Component CABLE;
+    public static Component CABLE_2x;
     public static Component CABLE_8x;
     public static Component CABLE_16x;
 
@@ -258,6 +259,24 @@ public class EVCraftingComponent extends CraftingComponent {
                 {12, new UnificationEntry(TagPrefix.cableGtOctal, NaquadriaticTaranium)},
                 {13, new UnificationEntry(TagPrefix.cableGtOctal, Neutronium)},
                 {FALLBACK, new UnificationEntry(TagPrefix.cableGtOctal, Neutronium)},
+        }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
+
+        CABLE_2x = new Component(Stream.of(new Object[][]{
+                {0, new UnificationEntry(TagPrefix.cableGtDouble, RedAlloy)},
+                {1, new UnificationEntry(TagPrefix.cableGtDouble, Tin)},
+                {2, new UnificationEntry(TagPrefix.cableGtDouble, Copper)},
+                {3, new UnificationEntry(TagPrefix.cableGtDouble, Gold)},
+                {4, new UnificationEntry(TagPrefix.cableGtDouble, Aluminium)},
+                {5, new UnificationEntry(TagPrefix.cableGtDouble, Platinum)},
+                {6, new UnificationEntry(TagPrefix.cableGtDouble, NiobiumTitanium)},
+                {7, new UnificationEntry(TagPrefix.cableGtDouble, VanadiumGallium)},
+                {8, new UnificationEntry(TagPrefix.cableGtDouble, YttriumBariumCuprate)},
+                {9, new UnificationEntry(TagPrefix.cableGtDouble, TitaniumTungstenCarbide)},
+                {10, new UnificationEntry(TagPrefix.cableGtDouble, Pikyonium)},
+                {11, new UnificationEntry(TagPrefix.cableGtDouble, Cinobite)},
+                {12, new UnificationEntry(TagPrefix.cableGtDouble, NaquadriaticTaranium)},
+                {13, new UnificationEntry(TagPrefix.cableGtDouble, Neutronium)},
+                {FALLBACK, new UnificationEntry(TagPrefix.cableGtDouble, Neutronium)},
         }).collect(Collectors.toMap(data -> (Integer) data[0], data -> data[1])));
 
         SECONDARY_CABLE_16x = new Component(Stream.of(new Object[][]{

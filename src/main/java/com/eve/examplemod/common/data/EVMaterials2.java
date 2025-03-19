@@ -951,10 +951,10 @@ public class EVMaterials2 {
             .setFormula("(ErF3)(ZrF4)18(BaF2)7(LaF3)2(AlF3)(NaF)7", true);
 
     public static final Material Ferralium = new Material.Builder(EVMain.id("ferralium"))
-            .ingot()
+            .ingot().iconSet(METALLIC)
             .color(0x1EF737)
             .blastTemp(3600, BlastProperty.GasTier.MID)
-            .components(Steel, 6, Palladium, 3, Platinum, 4, Bismuth, 2, Yttrium, 3)
+            .components(Steel, 8, Palladium, 3, Platinum, 4, Bismuth, 2, Yttrium, 3)
             .flags(GENERATE_FRAME, GENERATE_PLATE, AUTOGEN_MIXER_RECIPE)
             .buildAndRegister();
 
@@ -970,19 +970,21 @@ public class EVMaterials2 {
 
     public static final Material Duracite = new Material.Builder(EVMain.id("duracite"))
             .color(0x914f16)
+            .iconSet(METALLIC)
             .blastTemp(3800, BlastProperty.GasTier.MID)
-            .components(Europium, 5, Osmium, 2, Iridium, 2, Germanium, 2, Iodine, 1)
+            .components(Steel, 7, Europium, 6, Osmium, 2, Iridium, 2, Germanium, 2)
             .flags(GENERATE_FRAME, GENERATE_PLATE, AUTOGEN_MIXER_RECIPE, GENERATE_SPRING)
             .buildAndRegister();
 
     public static final Material Infernite = new Material.Builder(EVMain.id("infernite"))
             .color(0xd92b14)
             .fluid()
+            .iconSet(METALLIC)
             .flags(GENERATE_FRAME, GENERATE_PLATE, DISABLE_ELECTRIC_BLAST)
             .blastTemp(4200, BlastProperty.GasTier.HIGH)
             //.blast(b -> b.temp(4200, BlastProperty.GasTier.HIGH)
             //        .blastStats(VA[EV]))
-            .components(Steel, 3, Rhodium, 1, Ruthenium, 1, Pyrotheum, 2)
+            .components(Steel, 5, Rhodium, 1, Ruthenium, 1, Iodine, 2,  Pyrotheum, 2)
             .buildAndRegister();
 
 

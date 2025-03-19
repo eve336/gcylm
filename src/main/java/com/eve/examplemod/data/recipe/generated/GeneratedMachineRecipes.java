@@ -165,12 +165,17 @@ public class GeneratedMachineRecipes {
             );
         }
 
+        // i can probably make one big loop that does all of this lol
         for (int tier = 0; tier < ENERGY_INPUT_HATCH.length; tier++){
             VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch", ENERGY_INPUT_HATCH[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE.getIngredient(tier));
         }
+        for (int tier = 0; tier < ENERGY_INPUT_HATCH_4A.length; tier++){
+            if (ENERGY_INPUT_HATCH_4A[tier] == null) continue;
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch_4a", ENERGY_INPUT_HATCH_4A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE_8x.getIngredient(tier));
+        }
         for (int tier = 0; tier < ENERGY_INPUT_HATCH_64A.length; tier++){
             if (ENERGY_INPUT_HATCH_64A[tier] == null) continue;
-            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch_64a", ENERGY_INPUT_HATCH_64A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE_8x.getIngredient(tier));
+            VanillaRecipeHelper.addShapelessRecipe(provider, GTValues.VN[tier].toLowerCase() + "_energy_hatch_64a", ENERGY_INPUT_HATCH_64A[tier].asStack(), HULL[tier].asStack(), EVCraftingComponent.CABLE_2x.getIngredient(tier));
         }
         for (int tier = 0; tier < ENERGY_INPUT_HATCH_128A.length; tier++){
             if (ENERGY_INPUT_HATCH_128A[tier] == null) continue;
@@ -291,7 +296,7 @@ public class GeneratedMachineRecipes {
         tier1Casings.forEach(c ->
                 ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
                 .EUt(16).duration(50)
-                .inputItems(plate, Ferralium, 6)
+                .inputItems(plate, Ferralium, 4)
                 .inputItems(frameGt, Ferralium)
                 .outputItems(c.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
                 .circuitMeta(tier1Casings.indexOf(c))
@@ -301,7 +306,7 @@ public class GeneratedMachineRecipes {
         tier2Casings.forEach(c ->
                 ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
                         .EUt(64).duration(50)
-                        .inputItems(plate, Duracite, 6)
+                        .inputItems(plate, Duracite, 4)
                         .inputItems(frameGt, Duracite)
                         .outputItems(c.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
                         .circuitMeta(tier2Casings.indexOf(c))
@@ -311,7 +316,7 @@ public class GeneratedMachineRecipes {
         tier3Casings.forEach(c ->
                 ASSEMBLER_RECIPES.recipeBuilder(c.getId().getPath())
                         .EUt(64).duration(50)
-                        .inputItems(plate, Infernite, 6)
+                        .inputItems(plate, Infernite, 4)
                         .inputItems(frameGt, Infernite)
                         .outputItems(c.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
                         .circuitMeta(tier3Casings.indexOf(c))

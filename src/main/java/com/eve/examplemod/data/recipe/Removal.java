@@ -146,19 +146,20 @@ public class Removal {
                 "gtceu:electric_blast_furnace/engraved_crystal_chip_from_olivine", "gtceu:electric_blast_furnace/engraved_crystal_chip_from_emerald",
                 "gtceu:assembler/superconducting_coil_luv", "gtceu:assembler/superconducting_coil_zpm", "gtceu:assembler/superconducting_coil_uv", "gtceu:mixer/naquadah_alloy",
                 "gtceu:mixer/graphene", "gtceu:shaped/super_tank_lv", "gtceu:shaped/super_tank_mv", "gtceu:shaped/super_tank_hv", "gtceu:shaped/super_tank_ev",
-                "gtceu:coke_oven/log_to_charcoal", "gtceu:shaped/large_chemical_reactor",
+                "gtceu:coke_oven/log_to_charcoal", "gtceu:shaped/large_chemical_reactor", "gtceu:mixer/hsss",
         // wetware
                 "gtceu:fluid_heater/sterile_growth_medium", "gtceu:mixer/raw_growth_medium", "gtceu:autoclave/agar", "gtceu:distillery/mutagen",
                 "gtceu:brewery/enriched_bacterial_sludge_from_u235", "gtceu:brewery/enriched_bacterial_sludge_from_u238", "gtceu:brewery/enriched_bacterial_sludge_from_naquadria",
                 "gtceu:chemical_reactor/stem_cells", "gtceu:large_chemical_reactor/stem_cells",
 
                 "gtceu:cutter/cut_nano_cpu", "gtceu:cutter/cut_nano_cpu_distilled_water", "gtceu:cutter/cut_nano_cpu_water", "gtceu:gas_turbine/nitrobenzene",
-                "gtceu:shaped/large_centrifuge",
+                "gtceu:shaped/large_centrifuge", "gtceu:shaped/casing_assembly_control", "gtceu:mixer/niobium_titanium", "gtceu:mixer/osmiridium",
 
                 // gcym casings
                 "gtceu:assembler/casing_laser_safe_engraving", "gtceu:assembler/casing_large_scale_assembling", "gtceu:assembler/casing_reaction_safe_mixing",
                 "gtceu:assembler/casing_high_temperature_smelting", "gtceu:assembler/casing_tungstensteel_robust", "gtceu:assembler/casing_hsla_nonconducting",
                 "gtceu:assembler/casing_incoloy_vibration_safe", "gtceu:assembler/casing_secure_maceration", "gtceu:assembler/casing_shock_proof", "gtceu:assembler/casing_corrosion_proof",
+                "gtceu:assembler/casing_stress_proof",
 
                 // gcym machines
                 "gtceu:shaped/large_packer", "gtceu:shaped/large_sifter", "gtceu:shaped/large_wiremill", "gtceu:shaped/large_mixer", "gtceu:shaped/large_autoclave"

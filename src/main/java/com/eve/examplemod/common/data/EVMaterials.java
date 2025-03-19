@@ -13,6 +13,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
+import com.gregtechceu.gtceu.api.fluids.FluidState;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
@@ -41,6 +42,12 @@ public class EVMaterials {
         Zeron100.addFlags(DISABLE_ALLOY_BLAST, AUTOGEN_MIXER_RECIPE, LARGE_MIXER_RECIPE);
         Zeron100.getProperty(PropertyKey.BLAST).setBlastTemperature(3700);
         UraniumTriplatinum.getProperty(PropertyKey.BLAST).setBlastTemperature(3400);
+
+        NiobiumTitanium.getProperty(PropertyKey.BLAST).setBlastTemperature(3600);
+
+        Osmiridium.addFlags(AUTOGEN_MIXER_RECIPE);
+        Osmiridium.getProperty(PropertyKey.BLAST).setBlastTemperature(3700);
+        Osmiridium.getProperty(PropertyKey.BLAST).setEUtOverride(2048);
 
         Neutronium.setProperty(PropertyKey.WIRE, new WireProperties(VA[OpV], 2, 32));
         Duranium.setProperty(PropertyKey.WIRE, new WireProperties(VA[UV], 3, 22));
@@ -7788,6 +7795,7 @@ public class EVMaterials {
 
     public static final Material IridiumCyclooctadienylChlorideDimer = new Material.Builder(EVMain.id("iridium_cyclooctadienyl_chloride_dimer"))
             .color((Dichlorocycloctadieneplatinium.getMaterialRGB() + Iridium.getMaterialRGB()) / 2)
+            .dust()
             .iconSet(MaterialIconSet.SHINY).dust()
             .buildAndRegister()
             .setFormula("Ir2(C8H12)2Cl2", true);

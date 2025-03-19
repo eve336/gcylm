@@ -42,6 +42,7 @@ import static com.gregtechceu.gtceu.api.capability.recipe.IO.IN;
 import static com.gregtechceu.gtceu.api.capability.recipe.IO.OUT;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.api.pattern.util.RelativeDirection.*;
+import static com.gregtechceu.gtceu.common.data.GCYMBlocks.CASING_LARGE_SCALE_ASSEMBLING;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
@@ -388,7 +389,7 @@ public class EVMachines{
                     .aisle("GAG", "RTR", "FIF").setRepeatable(5)
                     .aisle("GSG", "RTR", "FIF")
                     .where('S', controller(blocks(definition.getBlock())))
-                    .where('F', blocks(CASING_STEEL_SOLID.get()).or(abilities(PartAbility.IMPORT_FLUIDS).or(abilities(PartAbility.INPUT_ENERGY))))
+                    .where('F', blocks(CASING_LARGE_SCALE_ASSEMBLING.get()).setMinGlobalLimited(3).or(abilities(PartAbility.IMPORT_FLUIDS).or(abilities(PartAbility.INPUT_ENERGY))))
                     .where('G', blocks(CASING_GRATE.get()))
                     .where('R', blocks(CASING_LAMINATED_GLASS.get()))
                     .where('A', blocks(CASING_ASSEMBLY_CONTROL.get()))

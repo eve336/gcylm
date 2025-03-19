@@ -129,8 +129,8 @@ public class Platline {
                 .outputItems(dust, LeachResidue, 4)
                 .outputItems(dust, PotassiumSulfate, 7)
                 .outputFluids(RhodiumSulfate.getFluid(1000))
-                //.blastFurnaceTemp(775)
-                .circuitMeta(2)
+                .blastFurnaceTemp(775)
+                .circuitMeta(3)
                 .EUt(120)
                 .duration(200)
                 .save(provider);
@@ -144,7 +144,7 @@ public class Platline {
                 .outputItems(dust, SodiumRuthenate, 21)
                 .outputFluids(CarbonMonoxide.getFluid(3000))
                 .circuitMeta(1)
-                //.blastFurnaceTemp(775)
+                .blastFurnaceTemp(775)
                 .EUt(120)
                 .duration(200)
                 .save(provider);

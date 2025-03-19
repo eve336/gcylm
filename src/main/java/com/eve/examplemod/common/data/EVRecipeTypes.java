@@ -87,10 +87,10 @@ public class EVRecipeTypes {
                     .save(provider);
         });
 
-        CENTRIFUGE_RECIPES.onRecipeBuild((builder, provider) -> {
-            LARGE_CENTRIFUGE_RECIPES.copyFrom(builder)
-                    .save(provider);
-        });
+//        CENTRIFUGE_RECIPES.onRecipeBuild((builder, provider) -> {
+//            LARGE_CENTRIFUGE_RECIPES.copyFrom(builder)
+//                    .save(provider);
+//        });
 
     }
 }

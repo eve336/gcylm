@@ -520,7 +520,7 @@ public class BrineChain {
         CHEMICAL_RECIPES.recipeBuilder("brine_chain_65").duration(100).EUt(120)
                 .inputItems(dust, IridiumChloride, 8)
                 .inputFluids(Cyclooctadiene.getFluid(2000))
-                .outputItems(IridiumCyclooctadienylChlorideDimer, 44)
+                .outputItems(dust, IridiumCyclooctadienylChlorideDimer, 44)
                 .outputFluids(Chlorine.getFluid(4000))
                 .save(provider);
 
@@ -537,7 +537,7 @@ public class BrineChain {
 
         //4 P(C3H7)2Cl + (C8H12)2Ir2Cl2 + 2 C6H6OS -> 2 IrP2C18H32SOCl + 2 C8H12 + 4 HCl (divided by 2)
         LARGE_CHEMICAL_RECIPES.recipeBuilder("brine_chain_67").duration(200).EUt(1200)
-                .inputItems(dust,IridiumCyclooctadienylChlorideDimer, 22)
+                .inputItems(dust, IridiumCyclooctadienylChlorideDimer, 22)
                 .inputFluids(ChlorodiisopropylPhosphine.getFluid(2000))
                 .inputFluids(Mercaptophenol.getFluid(1000))
                 .notConsumable(dust, BerylliumFluoride)

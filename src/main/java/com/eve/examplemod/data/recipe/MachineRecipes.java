@@ -17,6 +17,8 @@ import static com.eve.examplemod.common.data.EVMaterials2.Duracite;
 import static com.eve.examplemod.common.data.EVMaterials2.Ferralium;
 import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gregtechceu.gtceu.common.data.GCYMBlocks.CASING_LARGE_SCALE_ASSEMBLING;
+import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_ASSEMBLY_LINE;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -136,10 +138,22 @@ public class MachineRecipes {
                 "PHP",
                 "MPM",
                 'M', CraftingComponent.CONVEYOR.getIngredient(EV),
-                'P', ChemicalHelper.get(plate, Duracite),
+                'P', ChemicalHelper.get(plate, Ferralium),
                 'H', PACKER[HV].asStack(),
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.EV),
                 'R', EVCraftingComponent.ROBOT_ARM.getIngredient(HV));
+
+        VanillaRecipeHelper.addShapedRecipe(provider, true, id("evassembly_line_casing"),
+                CASING_ASSEMBLY_LINE.asStack(),
+                "CLC",
+                "SHE",
+                "CMC",
+                'L', HIGH_POWER_INTEGRATED_CIRCUIT.asStack(),
+                'S', CraftingComponent.SENSOR.getIngredient(IV),
+                'H', CASING_LARGE_SCALE_ASSEMBLING.asStack(),
+                'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.EV),
+                'E', EVCraftingComponent.EMITTER.getIngredient(IV),
+                'M', EVCraftingComponent.MOTOR.getIngredient(IV));
 
         VanillaRecipeHelper.addShapedRecipe(provider, true, id("evlarge_sifter"),
                 LARGE_SIFTING_FUNNEL.asStack(),
@@ -147,7 +161,7 @@ public class MachineRecipes {
                 "SHS",
                 "PWP",
                 'S', EVCraftingComponent.PISTON.getIngredient(IV),
-                'P', ChemicalHelper.get(plate, Duracite),
+                'P', ChemicalHelper.get(plate, Ferralium),
                 'H', SIFTER[IV].asStack(),
                 'C', EVCraftingComponent.CIRCUIT.getIngredient(GTValues.IV),
                 'W', ChemicalHelper.get(cableGtSingle, Platinum));

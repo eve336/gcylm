@@ -150,7 +150,7 @@ public class REEChain {
 
 
         // 2 [REECl3 + 3 H2O] + C16H35O4P(cat.) -> [REE2O3](sep.) + 6 HCl + 3 H2O
-        LARGE_CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
+        CENTRIFUGE_RECIPES.recipeBuilder("ree_chain_" + chainNumber++)
                 .inputFluids(RareEarthChloridesSolution.getFluid(6000))
                 .notConsumableFluid(DiethylhexylPhosphoricAcid.getFluid(1))
                 .outputFluids(LaNdOxidesSolution.getFluid(250))

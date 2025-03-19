@@ -62,19 +62,19 @@ public class EVOres {
     // find out a way to kill ore veins from gt...,,,, you should mixin and kill all of them hehehehehhehe
     // kubejs works fine but pack creators need to do that manually :sob:
     public static final GTOreDefinition TUNGSTATE_VEIN_MARS = create(EVMain.id("tungstate_vein_mars"), vein -> vein
-            .clusterSize(UniformInt.of(30, 35)).density(0.4f).weight(200)
+            .clusterSize(UniformInt.of(30, 35)).density(0.6f).weight(200)
             .layer(WorldGenLayers.STONE)
-            .heightRangeUniform(10, 80)
+            .heightRangeUniform(40, 80)
             .biomes(BiomeTags.IS_OVERWORLD)
             .layeredVeinGenerator(generator -> generator
                     .withLayerPattern(() -> GTLayerPattern.builder(OVERWORLD_RULES)
                             .layer(l -> l.weight(3).mat(PreciousMetal).size(1, 2))
-                            .layer(l -> l.weight(6).mat(Magnetite).size(1, 1))
+                            .layer(l -> l.weight(6).mat(Magnetite).size(1, 2))
                             .layer(l -> l.weight(6).mat(Iron).size(1, 1))
                             .build())
             )
             .surfaceIndicatorGenerator(indicator -> indicator
-                    .surfaceRock(Tungstate)
+                    .surfaceRock(Magnetite)
                     .placement(SurfaceIndicatorGenerator.IndicatorPlacement.ABOVE)
             ));
 
